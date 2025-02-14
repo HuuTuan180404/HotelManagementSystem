@@ -43,8 +43,15 @@ namespace HotelManagementApp
             toolTip1.SetToolTip(img_hide, "Hide password");
         }
 
-        private void lb_username_Click(object sender, EventArgs e)
+
+        private void pic_close_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+
+        private void pic_minus_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }
