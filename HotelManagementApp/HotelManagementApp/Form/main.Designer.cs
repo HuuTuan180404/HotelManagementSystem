@@ -35,7 +35,6 @@ namespace HotelManagementApp
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.tb_username = new System.Windows.Forms.TextBox();
             this.tb_password = new System.Windows.Forms.TextBox();
             this.lb_forgetPassword = new System.Windows.Forms.Label();
@@ -45,6 +44,9 @@ namespace HotelManagementApp
             this.img_hide = new System.Windows.Forms.PictureBox();
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
+            this.btn_login = new Guna.UI2.WinForms.Guna2Button();
+            this.materialMaskedTextBox1 = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.img_show)).BeginInit();
@@ -53,11 +55,15 @@ namespace HotelManagementApp
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
             this.SuspendLayout();
             // 
+            // toolTip1
+            // 
+            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
+            // 
             // groupBox1
             // 
             this.groupBox1.BackgroundImage = global::HotelManagementApp.Properties.Resources.img_bg;
+            this.groupBox1.Controls.Add(this.btn_login);
             this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.tb_username);
             this.groupBox1.Controls.Add(this.tb_password);
             this.groupBox1.Controls.Add(this.lb_forgetPassword);
@@ -74,6 +80,7 @@ namespace HotelManagementApp
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LogIn";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 
@@ -86,18 +93,7 @@ namespace HotelManagementApp
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(66, 492);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(266, 54);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Login";
-            this.button1.UseVisualStyleBackColor = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tb_username
             // 
@@ -106,6 +102,7 @@ namespace HotelManagementApp
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(266, 26);
             this.tb_username.TabIndex = 10;
+            this.tb_username.TextChanged += new System.EventHandler(this.tb_username_TextChanged);
             // 
             // tb_password
             // 
@@ -115,6 +112,7 @@ namespace HotelManagementApp
             this.tb_password.Size = new System.Drawing.Size(228, 26);
             this.tb_password.TabIndex = 9;
             this.tb_password.UseSystemPasswordChar = true;
+            this.tb_password.TextChanged += new System.EventHandler(this.tb_password_TextChanged);
             // 
             // lb_forgetPassword
             // 
@@ -128,6 +126,7 @@ namespace HotelManagementApp
             this.lb_forgetPassword.Size = new System.Drawing.Size(153, 20);
             this.lb_forgetPassword.TabIndex = 8;
             this.lb_forgetPassword.Text = "Forget password?";
+            this.lb_forgetPassword.Click += new System.EventHandler(this.lb_forgetPassword_Click);
             // 
             // label2
             // 
@@ -139,6 +138,7 @@ namespace HotelManagementApp
             this.label2.Size = new System.Drawing.Size(91, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -150,6 +150,7 @@ namespace HotelManagementApp
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Username";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // img_show
             // 
@@ -201,12 +202,99 @@ namespace HotelManagementApp
             this.pic_minus.TabStop = false;
             this.pic_minus.Click += new System.EventHandler(this.pic_minus_Click);
             // 
+            // btn_login
+            // 
+            this.btn_login.BackColor = System.Drawing.Color.Transparent;
+            this.btn_login.BorderColor = System.Drawing.Color.Transparent;
+            this.btn_login.BorderRadius = 15;
+            this.btn_login.BorderThickness = 15;
+            this.btn_login.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.btn_login.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btn_login.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btn_login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btn_login.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
+            this.btn_login.Font = new System.Drawing.Font("Verdana", 20.25F);
+            this.btn_login.ForeColor = System.Drawing.Color.White;
+            this.btn_login.Location = new System.Drawing.Point(66, 502);
+            this.btn_login.Name = "btn_login";
+            this.btn_login.ShadowDecoration.BorderRadius = 90;
+            this.btn_login.Size = new System.Drawing.Size(266, 46);
+            this.btn_login.TabIndex = 11;
+            this.btn_login.Text = "Login";
+            this.btn_login.UseTransparentBackground = true;
+            this.btn_login.Click += new System.EventHandler(this.guna2Button1_Click);
+            // 
+            // materialMaskedTextBox1
+            // 
+            this.materialMaskedTextBox1.AllowPromptAsInput = true;
+            this.materialMaskedTextBox1.AnimateReadOnly = false;
+            this.materialMaskedTextBox1.AsciiOnly = false;
+            this.materialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.materialMaskedTextBox1.BeepOnError = false;
+            this.materialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.materialMaskedTextBox1.Depth = 0;
+            this.materialMaskedTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialMaskedTextBox1.HidePromptOnLeave = false;
+            this.materialMaskedTextBox1.HideSelection = true;
+            this.materialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.materialMaskedTextBox1.LeadingIcon = null;
+            this.materialMaskedTextBox1.Location = new System.Drawing.Point(509, 275);
+            this.materialMaskedTextBox1.Mask = "";
+            this.materialMaskedTextBox1.MaxLength = 32767;
+            this.materialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.materialMaskedTextBox1.Name = "materialMaskedTextBox1";
+            this.materialMaskedTextBox1.PasswordChar = '\0';
+            this.materialMaskedTextBox1.PrefixSuffixText = null;
+            this.materialMaskedTextBox1.PromptChar = '_';
+            this.materialMaskedTextBox1.ReadOnly = false;
+            this.materialMaskedTextBox1.RejectInputOnFirstFailure = false;
+            this.materialMaskedTextBox1.ResetOnPrompt = true;
+            this.materialMaskedTextBox1.ResetOnSpace = true;
+            this.materialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.materialMaskedTextBox1.SelectedText = "";
+            this.materialMaskedTextBox1.SelectionLength = 0;
+            this.materialMaskedTextBox1.SelectionStart = 0;
+            this.materialMaskedTextBox1.ShortcutsEnabled = true;
+            this.materialMaskedTextBox1.Size = new System.Drawing.Size(250, 48);
+            this.materialMaskedTextBox1.SkipLiterals = true;
+            this.materialMaskedTextBox1.TabIndex = 11;
+            this.materialMaskedTextBox1.TabStop = false;
+            this.materialMaskedTextBox1.Text = "materialMaskedTextBox1";
+            this.materialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.materialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.materialMaskedTextBox1.TrailingIcon = null;
+            this.materialMaskedTextBox1.UseSystemPasswordChar = false;
+            this.materialMaskedTextBox1.ValidatingType = null;
+            // 
+            // guna2TextBox1
+            // 
+            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.guna2TextBox1.DefaultText = "";
+            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2TextBox1.Location = new System.Drawing.Point(450, 404);
+            this.guna2TextBox1.Name = "guna2TextBox1";
+            this.guna2TextBox1.PasswordChar = '●';
+            this.guna2TextBox1.PlaceholderText = "Username";
+            this.guna2TextBox1.SelectedText = "";
+            this.guna2TextBox1.Size = new System.Drawing.Size(200, 36);
+            this.guna2TextBox1.TabIndex = 12;
+            this.guna2TextBox1.UseSystemPasswordChar = true;
+            // 
             // main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(777, 715);
             this.ControlBox = false;
+            this.Controls.Add(this.guna2TextBox1);
+            this.Controls.Add(this.materialMaskedTextBox1);
             this.Controls.Add(this.pic_minus);
             this.Controls.Add(this.pic_close);
             this.Controls.Add(this.groupBox1);
@@ -237,10 +325,12 @@ namespace HotelManagementApp
         private System.Windows.Forms.Label lb_forgetPassword;
         private System.Windows.Forms.TextBox tb_password;
         private System.Windows.Forms.TextBox tb_username;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pic_close;
         private System.Windows.Forms.PictureBox pic_minus;
+        private Guna.UI2.WinForms.Guna2Button btn_login;
+        private MaterialSkin.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
     }
 }
 
