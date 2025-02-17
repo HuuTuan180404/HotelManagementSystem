@@ -57,7 +57,7 @@ namespace HotelManagementApp
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void guna2Button1_Click(object sender, EventArgs e)
         {
             //bool check = database.IsValidNamePass(tb_username.Text.Trim(), tb_password.Text.Trim());
             if (tb_username.Text.Trim() == string.Empty || tb_password.Text.Trim() == string.Empty)
@@ -68,20 +68,16 @@ namespace HotelManagementApp
             {
                 Dashboard dashboard = new Dashboard();
                 dashboard.Show();
+                this.Hide();
                 //if (check)
                 //{
-                   
+
                 //}
                 //else
                 //{
                 //    MessageBox.Show("Invalid Username or password","Username or Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //}
             }
-        }
-
-        private void guna2Button1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void toolTip1_Popup(object sender, PopupEventArgs e)
