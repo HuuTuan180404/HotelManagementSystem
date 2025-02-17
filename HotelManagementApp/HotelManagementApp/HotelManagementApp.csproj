@@ -72,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\main.resx">
       <DependentUpon>main.cs</DependentUpon>
     </EmbeddedResource>
@@ -107,6 +110,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\img_bg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\extra-bed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
