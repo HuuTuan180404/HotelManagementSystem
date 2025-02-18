@@ -36,7 +36,7 @@ namespace HotelManagementApp
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_login = new Guna.UI2.WinForms.Guna2Button();
+            //this.btn_login = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tb_username = new System.Windows.Forms.TextBox();
             this.tb_password = new System.Windows.Forms.TextBox();
@@ -84,7 +84,7 @@ namespace HotelManagementApp
             // groupBox1
             // 
             this.groupBox1.BackgroundImage = global::HotelManagementApp.Properties.Resources.img_bg;
-            this.groupBox1.Controls.Add(this.btn_login);
+            //this.groupBox1.Controls.Add(this.btn_login);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.tb_username);
             this.groupBox1.Controls.Add(this.tb_password);
@@ -106,26 +106,26 @@ namespace HotelManagementApp
             // 
             // btn_login
             // 
-            this.btn_login.BackColor = System.Drawing.Color.Transparent;
-            this.btn_login.BorderColor = System.Drawing.Color.Transparent;
-            this.btn_login.BorderRadius = 15;
-            this.btn_login.BorderThickness = 15;
-            this.btn_login.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.btn_login.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btn_login.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btn_login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btn_login.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
-            this.btn_login.Font = new System.Drawing.Font("Verdana", 20.25F);
-            this.btn_login.ForeColor = System.Drawing.Color.White;
-            this.btn_login.Location = new System.Drawing.Point(65, 495);
-            this.btn_login.Name = "btn_login";
-            this.btn_login.ShadowDecoration.BorderRadius = 90;
-            this.btn_login.Size = new System.Drawing.Size(266, 46);
-            this.btn_login.TabIndex = 11;
-            this.btn_login.Text = "Login";
-            this.btn_login.UseTransparentBackground = true;
-            this.btn_login.Click += new System.EventHandler(this.guna2Button1_Click);
+            //this.btn_login.BackColor = System.Drawing.Color.Transparent;
+            //this.btn_login.BorderColor = System.Drawing.Color.Transparent;
+            //this.btn_login.BorderRadius = 15;
+            //this.btn_login.BorderThickness = 15;
+            //this.btn_login.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            //this.btn_login.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            //this.btn_login.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            //this.btn_login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            //this.btn_login.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            //this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
+            //this.btn_login.Font = new System.Drawing.Font("Verdana", 20.25F);
+            //this.btn_login.ForeColor = System.Drawing.Color.White;
+            //this.btn_login.Location = new System.Drawing.Point(65, 495);
+            //this.btn_login.Name = "btn_login";
+            //this.btn_login.ShadowDecoration.BorderRadius = 90;
+            //this.btn_login.Size = new System.Drawing.Size(266, 46);
+            //this.btn_login.TabIndex = 11;
+            //this.btn_login.Text = "Login";
+            //this.btn_login.UseTransparentBackground = true;
+            //this.btn_login.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // pictureBox1
             // 
@@ -267,7 +267,7 @@ namespace HotelManagementApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pic_close;
         private System.Windows.Forms.PictureBox pic_minus;
-        private Guna.UI2.WinForms.Guna2Button btn_login;
+        //private Guna.UI2.WinForms.Guna2Button btn_login;
     }
 }
 

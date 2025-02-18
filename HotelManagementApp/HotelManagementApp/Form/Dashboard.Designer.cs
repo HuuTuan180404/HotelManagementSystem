@@ -76,7 +76,7 @@
             this.btnCustomers.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.btnCustomers.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnCustomers.ForeColor = System.Drawing.Color.White;
-            this.btnCustomers.Location = new System.Drawing.Point(89, 192);
+            this.btnCustomers.Location = new System.Drawing.Point(36, 153);
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(180, 45);
             this.btnCustomers.TabIndex = 16;
