@@ -17,7 +17,7 @@ namespace HotelManagementApp
             sqlConnection.ConnectionString = "data source=HUUTUAN;database=HotelManagementSystem;integrated security = True";
             return sqlConnection;
         }
-        public DataSet GetDataSet(string queue)
+        public DataSet getData(string queue)
         {
             SqlConnection sqlConnection = getConnection();
             SqlCommand sqlCommand = new SqlCommand();
