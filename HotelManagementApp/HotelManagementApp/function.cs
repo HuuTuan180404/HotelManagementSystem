@@ -41,7 +41,7 @@ namespace HotelManagementApp
             sqlCommand.ExecuteNonQuery();
             sqlConnection.Close();
 
-            MessageBox.Show("'" + message + "'", "Success", MessageBoxButtons.OK);
+            MessageBox.Show("'" + message + "'", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
     }

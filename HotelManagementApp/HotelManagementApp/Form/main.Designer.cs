@@ -36,7 +36,6 @@ namespace HotelManagementApp
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            //this.btn_login = new Guna.UI2.WinForms.Guna2Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tb_username = new System.Windows.Forms.TextBox();
             this.tb_password = new System.Windows.Forms.TextBox();
@@ -45,6 +44,7 @@ namespace HotelManagementApp
             this.label1 = new System.Windows.Forms.Label();
             this.img_show = new System.Windows.Forms.PictureBox();
             this.img_hide = new System.Windows.Forms.PictureBox();
+            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -55,7 +55,6 @@ namespace HotelManagementApp
             // 
             // toolTip1
             // 
-            this.toolTip1.Popup += new System.Windows.Forms.PopupEventHandler(this.toolTip1_Popup);
             // 
             // pic_minus
             // 
@@ -84,7 +83,7 @@ namespace HotelManagementApp
             // groupBox1
             // 
             this.groupBox1.BackgroundImage = global::HotelManagementApp.Properties.Resources.img_bg;
-            //this.groupBox1.Controls.Add(this.btn_login);
+            this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.tb_username);
             this.groupBox1.Controls.Add(this.tb_password);
@@ -102,30 +101,6 @@ namespace HotelManagementApp
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "LogIn";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // btn_login
-            // 
-            //this.btn_login.BackColor = System.Drawing.Color.Transparent;
-            //this.btn_login.BorderColor = System.Drawing.Color.Transparent;
-            //this.btn_login.BorderRadius = 15;
-            //this.btn_login.BorderThickness = 15;
-            //this.btn_login.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            //this.btn_login.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            //this.btn_login.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            //this.btn_login.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            //this.btn_login.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            //this.btn_login.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(10)))), ((int)(((byte)(108)))), ((int)(((byte)(109)))));
-            //this.btn_login.Font = new System.Drawing.Font("Verdana", 20.25F);
-            //this.btn_login.ForeColor = System.Drawing.Color.White;
-            //this.btn_login.Location = new System.Drawing.Point(65, 495);
-            //this.btn_login.Name = "btn_login";
-            //this.btn_login.ShadowDecoration.BorderRadius = 90;
-            //this.btn_login.Size = new System.Drawing.Size(266, 46);
-            //this.btn_login.TabIndex = 11;
-            //this.btn_login.Text = "Login";
-            //this.btn_login.UseTransparentBackground = true;
-            //this.btn_login.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // pictureBox1
             // 
@@ -138,7 +113,6 @@ namespace HotelManagementApp
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // tb_username
             // 
@@ -148,7 +122,6 @@ namespace HotelManagementApp
             this.tb_username.Size = new System.Drawing.Size(266, 26);
             this.tb_username.TabIndex = 10;
             this.tb_username.Text = "a";
-            this.tb_username.TextChanged += new System.EventHandler(this.tb_username_TextChanged);
             // 
             // tb_password
             // 
@@ -159,7 +132,6 @@ namespace HotelManagementApp
             this.tb_password.TabIndex = 9;
             this.tb_password.Text = "a";
             this.tb_password.UseSystemPasswordChar = true;
-            this.tb_password.TextChanged += new System.EventHandler(this.tb_password_TextChanged);
             // 
             // lb_forgetPassword
             // 
@@ -173,7 +145,6 @@ namespace HotelManagementApp
             this.lb_forgetPassword.Size = new System.Drawing.Size(153, 20);
             this.lb_forgetPassword.TabIndex = 8;
             this.lb_forgetPassword.Text = "Forget password?";
-            this.lb_forgetPassword.Click += new System.EventHandler(this.lb_forgetPassword_Click);
             // 
             // label2
             // 
@@ -185,7 +156,6 @@ namespace HotelManagementApp
             this.label2.Size = new System.Drawing.Size(91, 20);
             this.label2.TabIndex = 7;
             this.label2.Text = "Password:";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label1
             // 
@@ -197,7 +167,6 @@ namespace HotelManagementApp
             this.label1.Size = new System.Drawing.Size(91, 20);
             this.label1.TabIndex = 6;
             this.label1.Text = "Username";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // img_show
             // 
@@ -226,6 +195,25 @@ namespace HotelManagementApp
             this.img_hide.TabStop = false;
             this.img_hide.Click += new System.EventHandler(this.img_hide_Click);
             this.img_hide.MouseHover += new System.EventHandler(this.img_hide_MouseHover);
+            // 
+            // btnLogin
+            // 
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.BorderRadius = 26;
+            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnLogin.FillColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
+            this.btnLogin.Location = new System.Drawing.Point(100, 514);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(180, 45);
+            this.btnLogin.TabIndex = 14;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseTransparentBackground = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // main
             // 
@@ -267,6 +255,7 @@ namespace HotelManagementApp
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pic_close;
         private System.Windows.Forms.PictureBox pic_minus;
+        private Guna.UI2.WinForms.Guna2Button btnLogin;
         //private Guna.UI2.WinForms.Guna2Button btn_login;
     }
 }

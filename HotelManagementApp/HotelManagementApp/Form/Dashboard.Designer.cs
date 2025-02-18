@@ -80,7 +80,7 @@
             this.btnCustomers.Name = "btnCustomers";
             this.btnCustomers.Size = new System.Drawing.Size(180, 45);
             this.btnCustomers.TabIndex = 16;
-            this.btnCustomers.Text = "Customers";
+            this.btnCustomers.Text = "Customer";
             this.btnCustomers.UseTransparentBackground = true;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 

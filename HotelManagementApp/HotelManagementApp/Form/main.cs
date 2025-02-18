@@ -35,7 +35,6 @@ namespace HotelManagementApp
             img_show.Visible = false;
         }
 
-
         private void img_show_MouseHover(object sender, EventArgs e)
         {
             toolTip1.SetToolTip(img_show, "Show password");
@@ -45,7 +44,6 @@ namespace HotelManagementApp
         {
             toolTip1.SetToolTip(img_hide, "Hide password");
         }
-
 
         private void pic_close_Click(object sender, EventArgs e)
         {
@@ -57,7 +55,7 @@ namespace HotelManagementApp
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void guna2Button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             //bool check = database.IsValidNamePass(tb_username.Text.Trim(), tb_password.Text.Trim());
             if (tb_username.Text.Trim() == string.Empty || tb_password.Text.Trim() == string.Empty)
@@ -78,46 +76,6 @@ namespace HotelManagementApp
                 //    MessageBox.Show("Invalid Username or password","Username or Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 //}
             }
-        }
-
-        private void toolTip1_Popup(object sender, PopupEventArgs e)
-        {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_username_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb_password_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lb_forgetPassword_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
