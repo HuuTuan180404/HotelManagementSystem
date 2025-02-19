@@ -58,17 +58,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Dashboard.cs">
+    <Compile Include="Forms\RoomManagement.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Dashboard.Designer.cs">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <Compile Include="Forms\RoomManagement.Designer.cs">
+      <DependentUpon>RoomManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\main.Designer.cs">
       <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\RoomDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RoomDetail.Designer.cs">
+      <DependentUpon>RoomDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="function.cs" />
     <Compile Include="Program.cs" />
@@ -79,8 +85,11 @@
     <Compile Include="User_Controls\Room.Designer.cs">
       <DependentUpon>Room.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Dashboard.resx">
-      <DependentUpon>Dashboard.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RoomDetail.resx">
+      <DependentUpon>RoomDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\RoomManagement.resx">
+      <DependentUpon>RoomManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\main.resx">
       <DependentUpon>main.cs</DependentUpon>
@@ -123,6 +132,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\extra-bed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\update.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,6 +1,6 @@
 ﻿namespace HotelManagementApp
 {
-    partial class Dashboard
+    partial class RoomManagement
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RoomManagement));
             this.guna2CustomGradientPanel1 = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnRoom = new Guna.UI2.WinForms.Guna2Button();
             this.pnUnderline = new Guna.UI2.WinForms.Guna2Panel();
             this.btnCustomers = new Guna.UI2.WinForms.Guna2Button();
-            this.btnRoom = new Guna.UI2.WinForms.Guna2Button();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             this.room1 = new HotelManagementApp.User_Controls.Room();
+            this.lbTest = new MaterialSkin.Controls.MaterialLabel();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
@@ -49,14 +50,36 @@
             // 
             // guna2CustomGradientPanel1
             // 
+            this.guna2CustomGradientPanel1.Controls.Add(this.lbTest);
+            this.guna2CustomGradientPanel1.Controls.Add(this.btnRoom);
             this.guna2CustomGradientPanel1.Controls.Add(this.pnUnderline);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnCustomers);
-            this.guna2CustomGradientPanel1.Controls.Add(this.btnRoom);
             this.guna2CustomGradientPanel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.guna2CustomGradientPanel1.Location = new System.Drawing.Point(0, 0);
             this.guna2CustomGradientPanel1.Name = "guna2CustomGradientPanel1";
-            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(291, 814);
+            this.guna2CustomGradientPanel1.Size = new System.Drawing.Size(241, 817);
             this.guna2CustomGradientPanel1.TabIndex = 17;
+            // 
+            // btnRoom
+            // 
+            this.btnRoom.BackColor = System.Drawing.Color.Transparent;
+            this.btnRoom.BorderRadius = 20;
+            this.btnRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnRoom.CheckedState.ForeColor = System.Drawing.Color.Black;
+            this.btnRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRoom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnRoom.ForeColor = System.Drawing.Color.White;
+            this.btnRoom.Location = new System.Drawing.Point(36, 76);
+            this.btnRoom.Name = "btnRoom";
+            this.btnRoom.Size = new System.Drawing.Size(180, 45);
+            this.btnRoom.TabIndex = 19;
+            this.btnRoom.Text = "Room";
+            this.btnRoom.UseTransparentBackground = true;
+            this.btnRoom.Click += new System.EventHandler(this.btnRoom_Click);
             // 
             // pnUnderline
             // 
@@ -89,34 +112,11 @@
             this.btnCustomers.UseTransparentBackground = true;
             this.btnCustomers.Click += new System.EventHandler(this.btnCustomers_Click);
             // 
-            // btnRoom
-            // 
-            this.btnRoom.BackColor = System.Drawing.Color.Transparent;
-            this.btnRoom.BorderRadius = 20;
-            this.btnRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnRoom.CheckedState.ForeColor = System.Drawing.Color.Black;
-            this.btnRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnRoom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnRoom.ForeColor = System.Drawing.Color.White;
-            this.btnRoom.Image = global::HotelManagementApp.Properties.Resources.extra_bed;
-            this.btnRoom.ImageSize = new System.Drawing.Size(40, 40);
-            this.btnRoom.Location = new System.Drawing.Point(36, 76);
-            this.btnRoom.Name = "btnRoom";
-            this.btnRoom.Size = new System.Drawing.Size(180, 45);
-            this.btnRoom.TabIndex = 15;
-            this.btnRoom.Text = "Room";
-            this.btnRoom.UseTransparentBackground = true;
-            this.btnRoom.Click += new System.EventHandler(this.btnRoom_Click);
-            // 
             // pic_minus
             // 
             this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
-            this.pic_minus.Location = new System.Drawing.Point(1019, 12);
+            this.pic_minus.Location = new System.Drawing.Point(1150, 12);
             this.pic_minus.Name = "pic_minus";
             this.pic_minus.Size = new System.Drawing.Size(50, 50);
             this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -128,7 +128,7 @@
             // 
             this.pic_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
-            this.pic_close.Location = new System.Drawing.Point(1075, 12);
+            this.pic_close.Location = new System.Drawing.Point(1206, 12);
             this.pic_close.Name = "pic_close";
             this.pic_close.Size = new System.Drawing.Size(50, 50);
             this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -145,18 +145,18 @@
             this.guna2Panel1.Controls.Add(this.pic_close);
             this.guna2Panel1.Controls.Add(this.pic_minus);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(291, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(241, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1137, 79);
+            this.guna2Panel1.Size = new System.Drawing.Size(1268, 79);
             this.guna2Panel1.TabIndex = 18;
             // 
             // guna2Panel2
             // 
             this.guna2Panel2.Controls.Add(this.room1);
             this.guna2Panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2Panel2.Location = new System.Drawing.Point(291, 79);
+            this.guna2Panel2.Location = new System.Drawing.Point(241, 79);
             this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(1137, 735);
+            this.guna2Panel2.Size = new System.Drawing.Size(1268, 738);
             this.guna2Panel2.TabIndex = 19;
             // 
             // room1
@@ -166,23 +166,36 @@
             this.room1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.room1.Location = new System.Drawing.Point(0, 0);
             this.room1.Name = "room1";
-            this.room1.Size = new System.Drawing.Size(1137, 735);
+            this.room1.Size = new System.Drawing.Size(1268, 738);
             this.room1.TabIndex = 0;
             // 
-            // Dashboard
+            // lbTest
+            // 
+            this.lbTest.AutoSize = true;
+            this.lbTest.Depth = 0;
+            this.lbTest.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTest.Location = new System.Drawing.Point(85, 285);
+            this.lbTest.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbTest.Name = "lbTest";
+            this.lbTest.Size = new System.Drawing.Size(27, 19);
+            this.lbTest.TabIndex = 20;
+            this.lbTest.Text = "test";
+            // 
+            // RoomManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1428, 814);
+            this.ClientSize = new System.Drawing.Size(1509, 817);
             this.Controls.Add(this.guna2Panel2);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.guna2CustomGradientPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Dashboard";
+            this.Name = "RoomManagement";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2CustomGradientPanel1.ResumeLayout(false);
+            this.guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
@@ -195,7 +208,6 @@
 
         private System.Windows.Forms.PictureBox pic_minus;
         private System.Windows.Forms.PictureBox pic_close;
-        private Guna.UI2.WinForms.Guna2Button btnRoom;
         private Guna.UI2.WinForms.Guna2CustomGradientPanel guna2CustomGradientPanel1;
         private Guna.UI2.WinForms.Guna2Button btnCustomers;
         private Guna.UI2.WinForms.Guna2Panel pnUnderline;
@@ -203,5 +215,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private User_Controls.Room room1;
+        private Guna.UI2.WinForms.Guna2Button btnRoom;
+        private MaterialSkin.Controls.MaterialLabel lbTest;
     }
 }

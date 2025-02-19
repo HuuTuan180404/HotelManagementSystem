@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace HotelManagementApp
 {
-    public partial class Dashboard : Form
+    public partial class RoomManagement : Form
     {
-        public Dashboard()
+        public RoomManagement()
         {
             InitializeComponent();
         }
@@ -40,6 +40,7 @@ namespace HotelManagementApp
             pnUnderline.Top = btnCustomers.Bottom + 3;
             pnUnderline.Left = btnCustomers.Left;
         }
+
 
     }
 }

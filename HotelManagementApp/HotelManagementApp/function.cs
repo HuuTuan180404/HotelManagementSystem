@@ -44,5 +44,49 @@ namespace HotelManagementApp
             MessageBox.Show("'" + message + "'", "Success", MessageBoxButtons.OK,MessageBoxIcon.Information);
 
         }
+
+        public void insertRoom(int floor, int numberOfRoom, string roomType, int numOfBeds, int numOfCustomers, int price, string note)
+        {
+            string query = "INSERT INTO Room (RooNo, RooType, RooBed, RooCustomer, RooPrice, RooNote) " +
+                           "VALUES (@RooNo, @RooType, @RooBed, @RooCustomer, @RooPrice, @RooNote)";
+
+            try
+            {
+                using (SqlConnection sqlConnection = getConnection())  // Giả sử bạn có hàm getConnection()
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand(query, sqlConnection))
+                    {
+                        string roomNo = "Roo" + floor + "0" + numberOfRoom;
+
+                        sqlCommand.Parameters.AddWithValue("@RooNo", roomNo);
+                        sqlCommand.Parameters.AddWithValue("@RooType", roomType.Trim());
+                        sqlCommand.Parameters.AddWithValue("@RooBed", numOfBeds);
+                        sqlCommand.Parameters.AddWithValue("@RooCustomer", numOfCustomers);
+                        sqlCommand.Parameters.AddWithValue("@RooPrice", price);
+                        sqlCommand.Parameters.AddWithValue("@RooNote", note.Trim());
+
+                        // Mở kết nối và thực thi lệnh
+                        sqlConnection.Open();
+                        int rowsAffected = sqlCommand.ExecuteNonQuery();
+                        sqlConnection.Close();
+
+                        // Kiểm tra kết quả
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Thêm phòng thành công!", "Thành công", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Không có dữ liệu nào được thêm!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
     }
 }
