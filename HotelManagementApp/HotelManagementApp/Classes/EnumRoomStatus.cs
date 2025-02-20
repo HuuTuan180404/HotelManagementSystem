@@ -12,6 +12,7 @@ namespace HotelManagementApp.Classes
         Reserved,
         Occupied,
         Dirty,
+        Cleaning,
         Maintenance,
         Out_of_order
     }

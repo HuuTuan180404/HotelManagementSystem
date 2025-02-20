@@ -1,6 +1,6 @@
 ﻿namespace HotelManagementApp.User_Controls
 {
-    partial class UC_Room
+    partial class UC_RoomManagement
     {
         /// <summary> 
         /// Required designer variable.
@@ -35,9 +35,9 @@
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
-            this.btnBooked = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAvailableRoom = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.comboboxOtherStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +123,11 @@
             // 
             // btnAllRoom
             // 
+            this.btnAllRoom.AutoRoundedCorners = true;
             this.btnAllRoom.BackColor = System.Drawing.Color.Transparent;
             this.btnAllRoom.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
-            this.btnAllRoom.BorderRadius = 26;
+            this.btnAllRoom.BorderRadius = 21;
             this.btnAllRoom.BorderThickness = 1;
-            this.btnAllRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
             this.btnAllRoom.Checked = true;
             this.btnAllRoom.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(102)))), ((int)(((byte)(217)))));
             this.btnAllRoom.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(102)))), ((int)(((byte)(217)))));
@@ -146,52 +146,6 @@
             this.btnAllRoom.UseTransparentBackground = true;
             this.btnAllRoom.Click += new System.EventHandler(this.btnAllRoom_Click);
             // 
-            // btnBooked
-            // 
-            this.btnBooked.BackColor = System.Drawing.Color.Transparent;
-            this.btnBooked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
-            this.btnBooked.BorderRadius = 26;
-            this.btnBooked.BorderThickness = 1;
-            this.btnBooked.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnBooked.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(102)))), ((int)(((byte)(217)))));
-            this.btnBooked.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(102)))), ((int)(((byte)(217)))));
-            this.btnBooked.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnBooked.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnBooked.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnBooked.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnBooked.FillColor = System.Drawing.Color.Transparent;
-            this.btnBooked.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBooked.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
-            this.btnBooked.Location = new System.Drawing.Point(423, 96);
-            this.btnBooked.Name = "btnBooked";
-            this.btnBooked.Size = new System.Drawing.Size(194, 45);
-            this.btnBooked.TabIndex = 3;
-            this.btnBooked.Text = "Booked";
-            this.btnBooked.UseTransparentBackground = true;
-            // 
-            // btnAvailableRoom
-            // 
-            this.btnAvailableRoom.BackColor = System.Drawing.Color.Transparent;
-            this.btnAvailableRoom.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
-            this.btnAvailableRoom.BorderRadius = 26;
-            this.btnAvailableRoom.BorderThickness = 1;
-            this.btnAvailableRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnAvailableRoom.CheckedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(102)))), ((int)(((byte)(217)))));
-            this.btnAvailableRoom.CheckedState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(102)))), ((int)(((byte)(217)))));
-            this.btnAvailableRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAvailableRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAvailableRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAvailableRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAvailableRoom.FillColor = System.Drawing.Color.Transparent;
-            this.btnAvailableRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.btnAvailableRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
-            this.btnAvailableRoom.Location = new System.Drawing.Point(223, 96);
-            this.btnAvailableRoom.Name = "btnAvailableRoom";
-            this.btnAvailableRoom.Size = new System.Drawing.Size(194, 45);
-            this.btnAvailableRoom.TabIndex = 4;
-            this.btnAvailableRoom.Text = "Available room";
-            this.btnAvailableRoom.UseTransparentBackground = true;
-            // 
             // guna2Panel1
             // 
             this.guna2Panel1.BackColor = System.Drawing.Color.LightSkyBlue;
@@ -201,14 +155,52 @@
             this.guna2Panel1.Size = new System.Drawing.Size(387, 837);
             this.guna2Panel1.TabIndex = 6;
             // 
+            // comboboxOtherStatus
+            // 
+            this.comboboxOtherStatus.AutoRoundedCorners = true;
+            this.comboboxOtherStatus.BackColor = System.Drawing.Color.Transparent;
+            this.comboboxOtherStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
+            this.comboboxOtherStatus.BorderRadius = 17;
+            this.comboboxOtherStatus.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.comboboxOtherStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboboxOtherStatus.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboboxOtherStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.comboboxOtherStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
+            this.comboboxOtherStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
+            this.comboboxOtherStatus.ItemHeight = 30;
+            this.comboboxOtherStatus.Location = new System.Drawing.Point(244, 105);
+            this.comboboxOtherStatus.Name = "comboboxOtherStatus";
+            this.comboboxOtherStatus.Size = new System.Drawing.Size(194, 36);
+            this.comboboxOtherStatus.TabIndex = 7;
+            this.comboboxOtherStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.comboboxOtherStatus.SelectedIndexChanged += new System.EventHandler(this.comboboxOtherStatus_SelectedIndexChanged);
+            this.comboboxOtherStatus.Click += new System.EventHandler(this.comboboxOtherStatus_Click);
+            // 
+            // btnAddRoom
+            // 
+            this.btnAddRoom.AutoRoundedCorners = true;
+            this.btnAddRoom.BorderRadius = 21;
+            this.btnAddRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAddRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAddRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAddRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddRoom.ForeColor = System.Drawing.Color.White;
+            this.btnAddRoom.Location = new System.Drawing.Point(955, 96);
+            this.btnAddRoom.Name = "btnAddRoom";
+            this.btnAddRoom.Size = new System.Drawing.Size(180, 45);
+            this.btnAddRoom.TabIndex = 8;
+            this.btnAddRoom.Text = "Add room";
+            this.btnAddRoom.Click += new System.EventHandler(this.btnAddRoom_Click);
+            // 
             // UC_Room
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnAddRoom);
+            this.Controls.Add(this.comboboxOtherStatus);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.btnAvailableRoom);
-            this.Controls.Add(this.btnBooked);
             this.Controls.Add(this.btnAllRoom);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.dataGridView);
@@ -227,8 +219,8 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private Guna.UI2.WinForms.Guna2Button btnAllRoom;
-        private Guna.UI2.WinForms.Guna2Button btnBooked;
-        private Guna.UI2.WinForms.Guna2Button btnAvailableRoom;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2ComboBox comboboxOtherStatus;
+        private Guna.UI2.WinForms.Guna2Button btnAddRoom;
     }
 }

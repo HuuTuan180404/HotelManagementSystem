@@ -23,6 +23,7 @@ namespace HotelManagementApp
             sqlConnection.ConnectionString = "data source=HUUTUAN;database=HotelManagementSystem;integrated security = True";
             return sqlConnection;
         }
+
         public DataSet getData(string queue)
         {
             SqlConnection sqlConnection = getConnection();
@@ -30,12 +31,50 @@ namespace HotelManagementApp
 
             sqlCommand.Connection = sqlConnection;
             sqlCommand.CommandText = queue;
+
+
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
             DataSet dataSet = new DataSet();
             sqlDataAdapter.Fill(dataSet);
             return dataSet;
         }
+
+        public DataSet getDataSet(SqlCommand sqlCommand)
+        {
+            try
+            {
+                using (SqlConnection sqlConnection = getConnection())
+                {
+                    using (sqlCommand.Connection = sqlConnection)
+                    {
+                        SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+
+                        DataSet dataSet = new DataSet();
+                        sqlDataAdapter.Fill(dataSet);
+                        return dataSet;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return null;
+        }
+
+        public bool isExistsRecord(SqlCommand sqlCommand)
+        {
+            using (SqlConnection connection = getConnection())
+            {
+                sqlCommand.Connection = connection;
+                connection.Open();
+                int exists = (int)sqlCommand.ExecuteScalar();
+                connection.Close();
+                return exists > 0;
+            }
+        }
+
 
         public ClassRoom getRoom(string roomID)
         {
@@ -90,7 +129,6 @@ namespace HotelManagementApp
                 {
                     using (sqlCommand.Connection = sqlConnection)
                     {
-                        // Mở kết nối và thực thi lệnh
                         sqlConnection.Open();
                         int rowsAffected = sqlCommand.ExecuteNonQuery();
                         sqlConnection.Close();
@@ -98,7 +136,6 @@ namespace HotelManagementApp
                         // Kiểm tra kết quả
                         if (rowsAffected > 0)
                         {
-                            //MessageBox.Show("Successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return true;
                         }
                         else
