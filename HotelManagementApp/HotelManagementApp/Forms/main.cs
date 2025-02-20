@@ -1,4 +1,6 @@
-﻿using System;
+﻿using HotelManagementApp.Classes;
+using HotelManagementApp.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,48 +8,28 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI;
 using System.Windows.Forms;
-using AMRConnector;
 
 namespace HotelManagementApp
 {
-    public partial class main : Form
+    public partial class Main : Form
     {
-        DbConnector database;
-        public main()
+        private Timer timer;
+        public Main()
         {
+            
             InitializeComponent();
-            database = new DbConnector();
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ss dddd, dd/MM/yyyy");
+            timer = new Timer();
+            timer.Interval = 1000; // Cập nhật mỗi 1 giây
+            timer.Tick += Timer_Tick;
+            timer.Start();
         }
 
-        private void img_hide_Click(object sender, EventArgs e)
+        private void Timer_Tick(object sender, EventArgs e)
         {
-            tb_password.UseSystemPasswordChar = true;
-            img_hide.Visible = false;
-            img_show.Visible = true;
-        }
-
-        private void img_show_Click(object sender, EventArgs e)
-        {
-            tb_password.UseSystemPasswordChar = false;
-            tb_password.PasswordChar = '\0';
-            img_hide.Visible = true;
-            img_show.Visible = false;
-        }
-
-        private void img_show_MouseHover(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(img_show, "Show password");
-        }
-
-        private void img_hide_MouseHover(object sender, EventArgs e)
-        {
-            toolTip1.SetToolTip(img_hide, "Hide password");
-        }
-
-        private void pic_close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
+            lbTime.Text = DateTime.Now.ToString("HH:mm:ss dddd, dd/MM/yyyy");
         }
 
         private void pic_minus_Click(object sender, EventArgs e)
@@ -55,27 +37,34 @@ namespace HotelManagementApp
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void pic_close_Click(object sender, EventArgs e)
         {
-            //bool check = database.IsValidNamePass(tb_username.Text.Trim(), tb_password.Text.Trim());
-            if (tb_username.Text.Trim() == string.Empty || tb_password.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show("Please enter the edit box", "Warming", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                RoomManagement dashboard = new RoomManagement();
-                dashboard.Show();
-                this.Hide();
-                //if (check)
-                //{
+            Application.Exit();
+        }
 
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Invalid Username or password","Username or Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                //}
-            }
+        private void btnRoom_Click(object sender, EventArgs e)
+        {
+            pnUnderline.Size = new System.Drawing.Size(btnRoom.Width, pnUnderline.Height);
+            pnUnderline.Top = btnRoom.Bottom + 3;
+            pnUnderline.Left = btnRoom.Left;
+        }
+
+        private void btnCustomers_Click(object sender, EventArgs e)
+        {
+            pnUnderline.Size = new System.Drawing.Size(btnCustomer.Width, pnUnderline.Height);
+            pnUnderline.Top = btnCustomer.Bottom + 3;
+            pnUnderline.Left = btnCustomer.Left;
+        }
+
+        private void RoomManagement_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnEmployee_Click(object sender, EventArgs e)
+        {
+            EmployeeManagement employeeManagement = new EmployeeManagement();
+            employeeManagement.Show();
         }
     }
 }

@@ -31,7 +31,15 @@ namespace HotelManagementApp.Forms
 
         private ClassRoom classRoom;
 
-        public string SelectedOption { get; private set; }
+        public RoomDetail()
+        {
+            InitializeComponent();
+            groupboxPreview.Text += "ID: ";
+            initPreview();
+            floor.Maximum = ConfigManager.getTotalFloors();
+            comboboxRoomType.DataSource = Enum.GetValues(typeof(EnumRoomType));
+            comboboxStatus.DataSource = Enum.GetValues(typeof(EnumRoomStatus));
+        }
 
         public RoomDetail(ClassRoom classRoom)
         {
@@ -206,7 +214,7 @@ namespace HotelManagementApp.Forms
                     WHERE RooID = @RooID";
 
                 SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@RooNo", rooNo); 
+                command.Parameters.AddWithValue("@RooNo", rooNo);
                 command.Parameters.AddWithValue("@RooType", type);
                 command.Parameters.AddWithValue("@RooBed", numBed);
                 command.Parameters.AddWithValue("@RooFloor", numFloor);
