@@ -7,7 +7,7 @@ GO
 USE HotelManagementSystem
 GO
 
-CREATE TABLE Room
+CREATE TABLE Rooms
 	(
 		RooID int identity(1,1) not null,
 		RooNo varchar(10) not null unique,
@@ -22,15 +22,17 @@ CREATE TABLE Room
 	)
 GO
 
-DROP TABLE Room
+DROP TABLE Rooms
 GO
 
-INSERT INTO Room (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo001',N'Single',1,1,100)
-INSERT INTO Room (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo002',N'Double',1,2,100)
-INSERT INTO Room (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo003',N'Triple',3,3,100)
-INSERT INTO Room (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo004',N'Triple',2,3,100)
-INSERT INTO Room (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo005',N'Twin',2,2,100)
-INSERT INTO Room (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo006',N'Family',3,4,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo001',N'Single',1,1,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo002',N'Double',1,2,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo003',N'Triple',3,3,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo004',N'Triple',2,3,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo005',N'Twin',2,2,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo006',N'Family',3,4,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice,RooStatus) VALUES ('Roo009',N'Family',3,4,100,'Dirty')
+
 
 
 /*
