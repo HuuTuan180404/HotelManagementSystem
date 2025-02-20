@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelManagementApp.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,7 +41,6 @@ namespace HotelManagementApp
             pnUnderline.Top = btnCustomers.Bottom + 3;
             pnUnderline.Left = btnCustomers.Left;
         }
-
 
     }
 }

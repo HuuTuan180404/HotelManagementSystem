@@ -7,32 +7,36 @@ GO
 USE HotelManagementSystem
 GO
 
+DROP TABLE IF EXISTS Rooms;
+GO
+
 CREATE TABLE Rooms
 	(
 		RooID int identity(1,1) not null,
 		RooNo varchar(10) not null unique,
-		RooType varchar(100) not null default 'Single',
+		RooType varchar(100) not null default 'Single' CHECK (RooType IN ('Single','Double','Triple_2','Triple_3','Twin','Family')),
 		RooBed tinyint not null default 1,
 		RooFloor tinyint not null default 0,
 		RooCustomer tinyint not null default 1,
 		RooPrice int not null,
-		RooStatus varchar(50) default 'Available',
-		RooNote nvarchar(max),
+		RooStatus varchar(50) default 'Available' CHECK (RooStatus IN ('Available','Reserved','Occupied','Dirty','Maintenance','Out_of_order')),
+		RooNote nvarchar(max) default '',
 		CONSTRAINT PK_Rooms_RooID PRIMARY KEY (RooID)
 	)
 GO
 
-DROP TABLE Rooms
-GO
+
 
 INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo001',N'Single',1,1,100)
 INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo002',N'Double',1,2,100)
-INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo003',N'Triple',3,3,100)
-INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo004',N'Triple',2,3,100)
-INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo005',N'Twin',2,2,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo003',N'Triple_3',3,3,100)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo004',N'Triple_2',2,3,700)
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo005',N'Twin',2,2,500)
 INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice) VALUES ('Roo006',N'Family',3,4,100)
-INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice,RooStatus) VALUES ('Roo009',N'Family',3,4,100,'Dirty')
+INSERT INTO Rooms (RooNo,RooType,RooBed,RooCustomer,RooPrice,RooStatus) VALUES ('Roo007',N'Family',3,4,800,'Dirty')
 
+
+SELECT * FROM Rooms
 
 
 /*

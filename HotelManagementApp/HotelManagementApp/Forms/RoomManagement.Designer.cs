@@ -39,8 +39,8 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.room1 = new HotelManagementApp.User_Controls.Room();
-            this.lbTest = new MaterialSkin.Controls.MaterialLabel();
+            this.room1 = new HotelManagementApp.User_Controls.UC_Room();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.guna2CustomGradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
@@ -50,7 +50,6 @@
             // 
             // guna2CustomGradientPanel1
             // 
-            this.guna2CustomGradientPanel1.Controls.Add(this.lbTest);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnRoom);
             this.guna2CustomGradientPanel1.Controls.Add(this.pnUnderline);
             this.guna2CustomGradientPanel1.Controls.Add(this.btnCustomers);
@@ -142,6 +141,7 @@
             // 
             // guna2Panel1
             // 
+            this.guna2Panel1.Controls.Add(this.materialLabel1);
             this.guna2Panel1.Controls.Add(this.pic_close);
             this.guna2Panel1.Controls.Add(this.pic_minus);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -169,17 +169,17 @@
             this.room1.Size = new System.Drawing.Size(1268, 738);
             this.room1.TabIndex = 0;
             // 
-            // lbTest
+            // materialLabel1
             // 
-            this.lbTest.AutoSize = true;
-            this.lbTest.Depth = 0;
-            this.lbTest.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbTest.Location = new System.Drawing.Point(85, 285);
-            this.lbTest.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbTest.Name = "lbTest";
-            this.lbTest.Size = new System.Drawing.Size(27, 19);
-            this.lbTest.TabIndex = 20;
-            this.lbTest.Text = "test";
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.Location = new System.Drawing.Point(37, 32);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(174, 19);
+            this.materialLabel1.TabIndex = 13;
+            this.materialLabel1.Text = "giờ, thứ ngày tháng nam";
             // 
             // RoomManagement
             // 
@@ -195,10 +195,10 @@
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.guna2CustomGradientPanel1.ResumeLayout(false);
-            this.guna2CustomGradientPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).EndInit();
             this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             this.guna2Panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -214,8 +214,8 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
-        private User_Controls.Room room1;
+        private User_Controls.UC_Room room1;
         private Guna.UI2.WinForms.Guna2Button btnRoom;
-        private MaterialSkin.Controls.MaterialLabel lbTest;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
     }
 }
