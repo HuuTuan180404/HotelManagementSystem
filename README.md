@@ -10,4 +10,4 @@ figma: https://www.figma.com/design/je0wNcBfdiUzMWPbeHxJTe/Hotel-Management-Dash
 
 Task: https://docs.google.com/spreadsheets/d/12i3mdQ4D-getoEBGD5fKZPnJ7sbL6cdwKNuEmhS43Jg/edit?usp=sharing
 
-Link GoogleMeet: https://meet.google.com/gsx-ubac-jkx
+Link GoogleMeet: https://meet.google.com/gsx-ubac-jkx - Thời gian: 20h30
