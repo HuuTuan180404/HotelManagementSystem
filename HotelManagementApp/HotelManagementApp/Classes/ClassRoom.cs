@@ -1,100 +1,95 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace HotelManagementApp.Classes
 {
     public class ClassRoom
     {
-        private int rooID;
-        private string rooNo;
-        private string rooType;
-        private int rooBed;
-        private int rooFloor;
-        private int rooCustomer;
-        private int rooPrice;
-        private string rooStatus;
-        private string rooNote;
+        private int RID;
+        private int RFloor;
+        private int RNo;
+        private decimal RPricePerNight;
+        private int RSID;
+        private int RTID;
+        private string RDescription;
+
+        private static function function = new function();
+
+        public static readonly string TABLE_NAME = "[HotelManagementSystem].[dbo].[Rooms]";
+        public static readonly string TABLE_Rooms = @"
+                            SELECT RID, 
+                                   RFloor, 
+                                   RNo, 
+                                   RTType,
+                                   RTBedCount, 
+                                   RTMaxGuests,
+                                   RSStatus,
+                                   RPricePerNight,
+                                   RDescription
+                            FROM [HotelManagementSystem].[dbo].[Rooms] R
+                                 JOIN [HotelManagementSystem].[dbo].Rooms_Type RT ON R.RTID = RT.RTID
+                                 JOIN [HotelManagementSystem].[dbo].Rooms_Status RS ON R.RSID = RS.RSID";
 
         public ClassRoom() { }
 
-        public ClassRoom(int rooID, string rooNo, string rooType, int rooBed, int rooFloor,
-            int rooCustomer, int rooPrice, string rooStatus, string rooNote)
+        public ClassRoom(int rID)
         {
-            this.rooID = rooID;
-            this.rooNo = rooNo;
-            this.rooType = rooType;
-            this.rooBed = rooBed;
-            this.rooFloor = rooFloor;
-            this.rooCustomer = rooCustomer;
-            this.rooPrice = rooPrice;
-            this.rooStatus = rooStatus;
-            this.rooNote = rooNote;
-        }       
-
-        public override string ToString()
-        {
-            return $"Room ID: {RooID}, Room No: {RooNo}, Type: {RooType}, Beds: {RooBed}, " +
-                   $"Floor: {RooFloor}, Max Customers: {RooCustomer}, Price: {RooPrice}, " +
-                   $"Status: {RooStatus}, Note: {RooNote}";
+            this.RID = rID;
         }
 
-        // Getter & Setter
-        public int RooID
+        public void setRoomsByRID()
         {
-            get { return rooID; }
-            set { rooID = value; }
+            string query = "SELECT * FROM " + ClassRoom.TABLE_NAME + " WHERE RID=@RID";
+            using (SqlConnection conn = function.getConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@RID", this.RID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        this.RFloor = Convert.ToInt32(reader["RFloor"]);
+                        this.RNo = Convert.ToInt32(reader["RNo"]);
+                        this.RPricePerNight = Convert.ToDecimal(reader["RPricePerNight"]);
+                        this.RTID = Convert.ToInt32(reader["RTID"]);
+                        this.RSID = Convert.ToInt32(reader["RSID"]);
+                        this.RDescription = reader["RDescription"].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
         }
 
-        public string RooNo
-        {
-            get { return rooNo; }
-            set { rooNo = value; }
-        }
+        public int GetRID() { return RID; }
+        public void SetRID(int value) { RID = value; }
 
-        public string RooType
-        {
-            get { return rooType; }
-            set { rooType = value; }
-        }
+        public int GetRFloor() { return RFloor; }
+        public void SetRFloor(int value) { RFloor = value; }
 
-        public int RooBed
-        {
-            get { return rooBed; }
-            set { rooBed = value; }
-        }
+        public int GetRNo() { return RNo; }
+        public void SetRNo(int value) { RNo = value; }
 
-        public int RooFloor
-        {
-            get { return rooFloor; }
-            set { rooFloor = value; }
-        }
+        public int GetRSID() { return RSID; }
+        public void SetRSID(int value) { RSID = value; }
 
-        public int RooCustomer
-        {
-            get { return rooCustomer; }
-            set { rooCustomer = value; }
-        }
+        public int GetRTID() { return RTID; }
+        public void SetRTID(int value) { RTID = value; }
 
-        public int RooPrice
-        {
-            get { return rooPrice; }
-            set { rooPrice = value; }
-        }
-
-        public string RooStatus
-        {
-            get { return rooStatus; }
-            set { rooStatus = value; }
-        }
-
-        public string RooNote
-        {
-            get { return rooNote; }
-            set { rooNote = value; }
-        }
-
+        public string GetRDescription() { return RDescription; }
+        public void SetRDescription(string value) { RDescription = value; }
     }
 }

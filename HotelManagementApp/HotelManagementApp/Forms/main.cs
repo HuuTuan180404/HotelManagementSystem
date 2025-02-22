@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -42,29 +43,36 @@ namespace HotelManagementApp
             Application.Exit();
         }
 
-        private void btnRoom_Click(object sender, EventArgs e)
-        {
-            pnUnderline.Size = new System.Drawing.Size(btnRoom.Width, pnUnderline.Height);
-            pnUnderline.Top = btnRoom.Bottom + 3;
-            pnUnderline.Left = btnRoom.Left;
-        }
-
-        private void btnCustomers_Click(object sender, EventArgs e)
-        {
-            pnUnderline.Size = new System.Drawing.Size(btnCustomer.Width, pnUnderline.Height);
-            pnUnderline.Top = btnCustomer.Bottom + 3;
-            pnUnderline.Left = btnCustomer.Left;
-        }
-
-        private void RoomManagement_Load(object sender, EventArgs e)
-        {
-            
-        }
-
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             EmployeeManagement employeeManagement = new EmployeeManagement();
             employeeManagement.Show();
+        }
+
+        private void panelLogout_MouseClick(object sender, MouseEventArgs e)
+        {
+            logout();
+        }        
+
+        private void picLogout_Click(object sender, EventArgs e)
+        {
+            logout();
+        }
+
+        private void lbLogout_Click(object sender, EventArgs e)
+        {
+            logout();
+        }
+
+        private void logout()
+        {
+            Debug.WriteLine("CLICK");
+        }
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            BookingManagement bookingManagement = new BookingManagement();
+            bookingManagement.Show();
         }
     }
 }

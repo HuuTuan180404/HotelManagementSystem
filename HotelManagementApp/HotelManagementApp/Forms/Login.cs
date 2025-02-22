@@ -64,7 +64,7 @@ namespace HotelManagementApp
             }
             else
             {
-                RoomManagement dashboard = new RoomManagement();
+                Main dashboard = new Main();
                 dashboard.Show();
                 this.Hide();
                 //if (check)
