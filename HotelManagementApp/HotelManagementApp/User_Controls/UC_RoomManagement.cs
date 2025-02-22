@@ -20,17 +20,45 @@ namespace HotelManagementApp.User_Controls
     {
         function function = new function();
 
-        String query;
+        string query;
 
         public UC_RoomManagement()
         {
-            InitializeComponent();
-            List<string> roomStatusList = Enum.GetNames(typeof(EnumRoomStatus)).ToList();
-            comboboxOtherStatus.DataSource = roomStatusList;
+            InitializeComponent();            
+        }
+
+        private void loadData_comboboxOtherStatus()
+        {
+            query = @"SELECT RSStatus
+                      FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
+            using (SqlConnection conn = function.getConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    comboboxOtherStatus.Items.Clear();
+
+                    while (reader.Read())
+                    {
+                        comboboxOtherStatus.Items.Add(reader["RSStatus"].ToString());
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+            comboboxOtherStatus.SelectedIndex = 0;
         }
 
         private void Room_Load(object sender, EventArgs e)
         {
+            loadData_comboboxOtherStatus();
             loadData();
         }
 
@@ -43,46 +71,16 @@ namespace HotelManagementApp.User_Controls
             loadData();
         }
 
-        private void FormatColumnHeaders()
-        {
-            foreach (DataGridViewColumn column in dataGridView.Columns)
-            {
-                column.HeaderText = ConvertColumnName(column.HeaderText);
-            }
-        }
-
-        // Hàm chuyển đổi tên cột SQL sang dạng dễ đọc
-        private string ConvertColumnName(string columnName)
-        {
-            switch (columnName)
-            {
-                case "RooID": return "ID";
-                case "RooNo": return "Phòng";
-                case "RooType": return "Loại Phòng";
-                case "RooBed": return "Số Giường";
-                case "RooCustomer": return "Số Khách";
-                case "RooPrice": return "Giá Tiền";
-                case "RooStatus": return "Trạng Thái";
-                case "RooNote": return "Ghi Chú";
-                case "RooFloor": return "Tầng";
-                default: return columnName; // Giữ nguyên nếu không có trong danh sách
-            }
-        }
-
         // double click vào 1 record
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
-                DataGridViewRow row = dataGridView.Rows[e.RowIndex]; // Lấy dòng được chọn
-
-                string roomID = row.Cells["RooID"].Value.ToString();
-
-                RoomDetail roomDetail = new RoomDetail(new function().getRoom(roomID));
+                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
+                int RID = Convert.ToInt32(row.Cells["RID"].Value.ToString());
+                RoomDetail roomDetail = new RoomDetail(row);
                 if (roomDetail.ShowDialog() == DialogResult.OK)
-                {
-                    Room_Load(this, null);
-                }
+                    Room_Load(this, null);                
             }
         }
 
@@ -91,28 +89,20 @@ namespace HotelManagementApp.User_Controls
             btnAllRoom.Checked = false;
             comboboxOtherStatus.BorderColor = Color.FromArgb(19, 102, 217);
             comboboxOtherStatus.ForeColor = Color.FromArgb(19, 102, 217);
-
-            query = "SELECT [RooID],[RooNo] ,[RooType] ,[RooBed] ," +
-                "CONCAT('Floor- ',[RooFloor]) as RooFloor ,[RooCustomer] ,[RooPrice] ," +
-                "[RooStatus] ,[RooNote] FROM [HotelManagementSystem].[dbo].[Rooms] " +
-                "WHERE RooStatus = @RooStatus";
-
-            SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@RooStatus", comboboxOtherStatus.SelectedItem.ToString());
-
-            DataSet dataSet = function.getDataSet(cmd);
-            dataGridView.DataSource = dataSet.Tables[0];
+            filterByStatus();
         }
 
         private void comboboxOtherStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            query = "SELECT [RooID],[RooNo] ,[RooType] ,[RooBed] ," +
-                "CONCAT('Floor- ',[RooFloor]) as RooFloor ,[RooCustomer] ,[RooPrice] ," +
-                "[RooStatus] ,[RooNote] FROM [HotelManagementSystem].[dbo].[Rooms] " +
-                "WHERE RooStatus = @RooStatus";
+            filterByStatus();
+        }
+
+        private void filterByStatus()
+        {
+            query = ClassRoom.TABLE_Rooms + " WHERE RSStatus = @RSStatus";
 
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@RooStatus", comboboxOtherStatus.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("@RSStatus", comboboxOtherStatus.SelectedItem.ToString());
 
             DataSet dataSet = function.getDataSet(cmd);
             dataGridView.DataSource = dataSet.Tables[0];
@@ -120,13 +110,10 @@ namespace HotelManagementApp.User_Controls
 
         private void loadData()
         {
-            query = "SELECT [RooID],[RooNo] ,[RooType] ,[RooBed] ," +
-                "CONCAT('Floor- ',[RooFloor]) as RooFloor ,[RooCustomer] ,[RooPrice] ," +
-                "[RooStatus] ,[RooNote] FROM [HotelManagementSystem].[dbo].[Rooms]";
+            query = ClassRoom.TABLE_Rooms;
 
             DataSet dataSet = function.getData(query);
             dataGridView.DataSource = dataSet.Tables[0];
-            FormatColumnHeaders();
         }
 
         private void btnAddRoom_Click(object sender, EventArgs e)
@@ -134,7 +121,6 @@ namespace HotelManagementApp.User_Controls
             AddRoom addRoom = new AddRoom();
             addRoom.DataChanged += loadData;
             addRoom.ShowDialog();
-
         }
     }
 }
