@@ -28,9 +28,8 @@ INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Dirty',N'Cần vệ s
 INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Cleaning',N'Đang vệ sinh')
 INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Maintenance',N'Đang bảo trì')
 GO
-//
+--
 -------------------
-
 
 DROP TABLE IF EXISTS Rooms_Type;
 GO
@@ -54,10 +53,7 @@ INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests) VALUES ('Twin',2,2)
 INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests,RTDescription) VALUES ('Family',2,4,N'1 giường đôi + 2 giường đơn')
 GO
 
-
-
 ------------------
-
 
 DROP TABLE IF EXISTS Rooms;
 GO
@@ -116,36 +112,106 @@ WHERE RSStatus='Available'
 GO
 
 SELECT * FROM [HotelManagementSystem].[dbo].[Rooms]
+GO
+
+
+
+------------Table Customers------------
+
+DROP TABLE IF EXISTS Customers;
+GO
+
+CREATE TABLE Customers (
+    CID VARCHAR(100) PRIMARY KEY,   
+    CName NVARCHAR(100) NOT NULL,        
+    CGender CHAR(6) CHECK (CGender IN ('Male', 'Female', 'Other')) NOT NULL,  
+    CPhone VARCHAR(15) UNIQUE NOT NULL,
+    CEmail VARCHAR(100) UNIQUE ,
+    CAddress NVARCHAR(255),         
+    CType CHAR(7) CHECK (CType IN ('Regular', 'VIP', 'New')) NOT NULL
+)
+GO
+
+INSERT INTO Customers (CID,CName, CGender, CPhone, CEmail, CAddress, CType)
+VALUES 
+('2254',N'Nguyễn Văn An', 'Male', '0987654321', 'an.nguyen@example.com', N'Hà Nội', 'Regular'),
+('2255',N'Trần Thị Bình', 'Female', '0978123456', 'binh.tran@example.com', N'TP HCM', 'VIP'),
+('2256',N'Lê Văn Cường', 'Male', '0968547321', 'cuong.le@example.com', N'Đà Nẵng', 'New'),
+('2257',N'Phạm Thu Dung', 'Female', '0956347821', 'dung.pham@example.com', N'Cần Thơ', 'Regular'),
+('2258',N'Hoàng Minh Đức', 'Other', '0945876231', 'duc.hoang@example.com', N'Hải Phòng', 'VIP')
+GO
+
+SELECT * FROM [HotelManagementSystem].[dbo].[Customers]
+GO
+
+
+
+--------------Table Employees_Role-----------------
+
+DROP TABLE IF EXISTS Employees_Role
+GO
+
+CREATE TABLE Employees_Role (
+    ERID INT IDENTITY(1,1) PRIMARY KEY,   
+    ERDescription NVARCHAR(100) NOT NULL  
+)
+GO
+
+
+INSERT INTO Employees_Role (ERDescription)
+VALUES 
+(N'Admin'),
+(N'Manager'),
+(N'Staff');
+GO
+
+
+-----------------Table Employees-------------------
+
+DROP TABLE IF EXISTS Employees
+GO
+
+CREATE TABLE Employees (
+    EID VARCHAR(100) PRIMARY KEY,   
+    EName NVARCHAR(100) NOT NULL,         
+    EGender CHAR(6) CHECK (EGender IN ('Male', 'Female', 'Other')) NOT NULL,  
+    EPhone VARCHAR(15) UNIQUE NOT NULL,   
+    EEmail VARCHAR(100) UNIQUE ,  
+    EAddress NVARCHAR(255) ,          
+    EStatus CHAR(10) CHECK (EStatus IN ('Active', 'Inactive', 'On Leave')) NOT NULL,  
+    ERID INT NOT NULL,                    
+    CONSTRAINT FK_Employees_Employees_Role FOREIGN KEY (ERID) REFERENCES Employees_Role(ERID)
+)
+GO
+
+
+INSERT INTO Employees (EID,EName, EGender, EPhone, EEmail, EAddress, EStatus, ERID)
+VALUES 
+('1',N'Nguyễn Văn An', 'Male', '0987654321', 'an.nguyen@example.com', N'Hà Nội', 'Active', 1),
+('2',N'Trần Thị Bình', 'Female', '0978123456', 'binh.tran@example.com', N'TP HCM', 'Active', 2),
+('3',N'Lê Văn Cường', 'Male', '0968547321', 'cuong.le@example.com', N'Đà Nẵng', 'On Leave', 3),
+('4',N'Phạm Thu Dung', 'Female', '0956347821', 'dung.pham@example.com', N'Cần Thơ', 'Active', 3),
+('5',N'Hoàng Minh Đức', 'Other', '0945876231', 'duc.hoang@example.com', N'Hải Phòng', 'Inactive', 3);
+GO
+
+SELECT * FROM [HotelManagementSystem].[dbo].[Employees]
+GO
+
+SELECT [EID]
+      ,[EName]
+      ,[EGender]
+      ,[EPhone]
+      ,[EEmail]
+      ,[EAddress]
+      ,[EStatus]
+      ,E_R.ERDescription AS 'Role'
+FROM [HotelManagementSystem].[dbo].[Employees] E
+	 JOIN [HotelManagementSystem].[dbo].[Employees_Role] E_R ON E.ERID=E_R.ERID
+GO
 
 ----------------------
 
 /*
-DROP TABLE IF EXISTS Customers
-GO
-
-CREATE TABLE Customers
-(
-    CID INT IDENTITY(1,1) NOT NULL,
-    CFullName NVARCHAR(MAX) NOT NULL,
-	CPhone VARCHAR(20) UNIQUE,
-	CBirthDate DATE,
-	CSex VARCHAR(10) CHECK (CSex IN ('Male', 'Female', 'Other')) DEFAULT 'Other',
-    CONSTRAINT PK_Customers_CID PRIMARY KEY (CID)
-)
-GO
-
-INSERT INTO Customers VALUES (N'Nguyễn Hữu Tuấn','0364626275','20040418','Male')
-GO
-
-SELECT CID, 
-	   CFullName AS 'Họ và Tên',
-	   CSex AS 'Giới Tính', 
-	   CPhone AS 'SĐT', 
-	   CBirthDate AS 'Ngày sinh'
-FROM Customers
-GO
-
-
 --------------------
 CREATE TABLE Bookings
 (
