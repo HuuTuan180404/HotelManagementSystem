@@ -33,7 +33,6 @@
             this.panelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.btnExit = new System.Windows.Forms.PictureBox();
-            this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.groupboxPreview = new System.Windows.Forms.GroupBox();
@@ -64,12 +63,18 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.price = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnAdd = new System.Windows.Forms.PictureBox();
+            this.editType = new System.Windows.Forms.PictureBox();
+            this.editStatus = new System.Windows.Forms.PictureBox();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.groupboxPreview.SuspendLayout();
             this.groupboxType.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.floor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRoom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -107,26 +112,6 @@
             this.btnExit.TabIndex = 11;
             this.btnExit.TabStop = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.AutoRoundedCorners = true;
-            this.btnAdd.BackgroundImage = global::HotelManagementApp.Properties.Resources.add;
-            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnAdd.BorderRadius = 24;
-            this.btnAdd.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAdd.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAdd.FillColor = System.Drawing.Color.Transparent;
-            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(366, 542);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(50, 50);
-            this.btnAdd.TabIndex = 65;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            this.btnAdd.MouseHover += new System.EventHandler(this.btnAdd_MouseHover);
             // 
             // guna2Elipse1
             // 
@@ -360,10 +345,11 @@
             this.comboboxStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboboxStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboboxStatus.ItemHeight = 30;
-            this.comboboxStatus.Location = new System.Drawing.Point(556, 387);
+            this.comboboxStatus.Location = new System.Drawing.Point(187, 450);
             this.comboboxStatus.Name = "comboboxStatus";
-            this.comboboxStatus.Size = new System.Drawing.Size(160, 36);
+            this.comboboxStatus.Size = new System.Drawing.Size(135, 36);
             this.comboboxStatus.TabIndex = 78;
+            this.comboboxStatus.SelectedIndexChanged += new System.EventHandler(this.comboboxStatus_SelectedIndexChanged);
             // 
             // materialLabel16
             // 
@@ -371,7 +357,7 @@
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel16.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel16.Location = new System.Drawing.Point(488, 393);
+            this.materialLabel16.Location = new System.Drawing.Point(119, 456);
             this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
             this.materialLabel16.Size = new System.Drawing.Size(59, 24);
@@ -390,8 +376,9 @@
             this.comboboxRoomType.ItemHeight = 30;
             this.comboboxRoomType.Location = new System.Drawing.Point(187, 387);
             this.comboboxRoomType.Name = "comboboxRoomType";
-            this.comboboxRoomType.Size = new System.Drawing.Size(160, 36);
+            this.comboboxRoomType.Size = new System.Drawing.Size(135, 36);
             this.comboboxRoomType.TabIndex = 76;
+            this.comboboxRoomType.SelectedIndexChanged += new System.EventHandler(this.comboboxRoomType_SelectedIndexChanged);
             // 
             // note
             // 
@@ -404,13 +391,14 @@
             this.note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.note.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.note.Location = new System.Drawing.Point(556, 456);
+            this.note.Location = new System.Drawing.Point(556, 450);
             this.note.Name = "note";
             this.note.PasswordChar = '\0';
             this.note.PlaceholderText = "";
             this.note.SelectedText = "";
             this.note.Size = new System.Drawing.Size(160, 36);
             this.note.TabIndex = 75;
+            this.note.TextChanged += new System.EventHandler(this.note_TextChanged);
             // 
             // materialLabel5
             // 
@@ -439,11 +427,7 @@
             this.floor.Name = "floor";
             this.floor.Size = new System.Drawing.Size(160, 36);
             this.floor.TabIndex = 73;
-            this.floor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.floor.ValueChanged += new System.EventHandler(this.floor_ValueChanged);
             // 
             // numRoom
             // 
@@ -469,6 +453,7 @@
             0,
             0,
             0});
+            this.numRoom.ValueChanged += new System.EventHandler(this.numRoom_ValueChanged);
             // 
             // materialLabel2
             // 
@@ -502,7 +487,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel3.Location = new System.Drawing.Point(119, 462);
+            this.materialLabel3.Location = new System.Drawing.Point(495, 393);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(47, 24);
@@ -515,7 +500,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(503, 462);
+            this.materialLabel4.Location = new System.Drawing.Point(503, 456);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(44, 24);
@@ -525,7 +510,7 @@
             // price
             // 
             this.price.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.price.DefaultText = "0";
+            this.price.DefaultText = "-1";
             this.price.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.price.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.price.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -533,13 +518,47 @@
             this.price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.price.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.price.Location = new System.Drawing.Point(180, 456);
+            this.price.Location = new System.Drawing.Point(556, 387);
             this.price.Name = "price";
             this.price.PasswordChar = '\0';
             this.price.PlaceholderText = "";
             this.price.SelectedText = "";
             this.price.Size = new System.Drawing.Size(160, 36);
             this.price.TabIndex = 70;
+            this.price.TextChanged += new System.EventHandler(this.price_TextChanged);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Image")));
+            this.btnAdd.Location = new System.Drawing.Point(375, 521);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(50, 50);
+            this.btnAdd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnAdd.TabIndex = 79;
+            this.btnAdd.TabStop = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // editType
+            // 
+            this.editType.Image = ((System.Drawing.Image)(resources.GetObject("editType.Image")));
+            this.editType.Location = new System.Drawing.Point(327, 403);
+            this.editType.Name = "editType";
+            this.editType.Size = new System.Drawing.Size(20, 20);
+            this.editType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editType.TabIndex = 80;
+            this.editType.TabStop = false;
+            this.editType.Click += new System.EventHandler(this.editType_Click);
+            // 
+            // editStatus
+            // 
+            this.editStatus.Image = ((System.Drawing.Image)(resources.GetObject("editStatus.Image")));
+            this.editStatus.Location = new System.Drawing.Point(327, 466);
+            this.editStatus.Name = "editStatus";
+            this.editStatus.Size = new System.Drawing.Size(20, 20);
+            this.editStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editStatus.TabIndex = 81;
+            this.editStatus.TabStop = false;
+            this.editStatus.Click += new System.EventHandler(this.editStatus_Click);
             // 
             // AddRoom
             // 
@@ -547,6 +566,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(817, 613);
+            this.Controls.Add(this.editStatus);
+            this.Controls.Add(this.editType);
+            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.comboboxStatus);
             this.Controls.Add(this.materialLabel16);
             this.Controls.Add(this.comboboxRoomType);
@@ -560,12 +582,12 @@
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.price);
             this.Controls.Add(this.groupboxPreview);
-            this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.panelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AddRoom";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add";
+            this.Load += new System.EventHandler(this.AddRoom_Load);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).EndInit();
@@ -575,6 +597,9 @@
             this.groupboxType.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.floor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRoom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -584,7 +609,6 @@
         private Guna.UI2.WinForms.Guna2Panel panelTitle;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.PictureBox btnExit;
-        private Guna.UI2.WinForms.Guna2Button btnAdd;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.GroupBox groupboxPreview;
@@ -615,5 +639,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private Guna.UI2.WinForms.Guna2TextBox price;
+        private System.Windows.Forms.PictureBox editType;
+        private System.Windows.Forms.PictureBox btnAdd;
+        private System.Windows.Forms.PictureBox editStatus;
     }
 }
