@@ -1,8 +1,6 @@
-﻿using System.Drawing;
-
-namespace HotelManagementApp
+﻿namespace HotelManagementApp
 {
-    partial class main
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -31,232 +29,341 @@ namespace HotelManagementApp
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(main));
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.pic_minus = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
+            this.panelFunction = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.panelLogout = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbLogout = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.picLogout = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.btnStaff = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.btnBooking = new Guna.UI2.WinForms.Guna2Button();
+            this.btnEmployee = new Guna.UI2.WinForms.Guna2Button();
+            this.btnRoom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbTime = new MaterialSkin.Controls.MaterialLabel();
             this.pic_close = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tb_username = new System.Windows.Forms.TextBox();
-            this.tb_password = new System.Windows.Forms.TextBox();
-            this.lb_forgetPassword = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.img_show = new System.Windows.Forms.PictureBox();
-            this.img_hide = new System.Windows.Forms.PictureBox();
-            this.btnLogin = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
+            this.pic_minus = new System.Windows.Forms.PictureBox();
+            this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
+            this.ucRoomManagement = new HotelManagementApp.User_Controls.UC_RoomManagement();
+            this.panelFunction.SuspendLayout();
+            this.panelLogout.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_show)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_hide)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
+            this.panelRoomManagement.SuspendLayout();
             this.SuspendLayout();
             // 
-            // toolTip1
+            // panelFunction
             // 
+            this.panelFunction.Controls.Add(this.panelLogout);
+            this.panelFunction.Controls.Add(this.guna2Panel2);
+            this.panelFunction.Controls.Add(this.btnStaff);
+            this.panelFunction.Controls.Add(this.guna2Button1);
+            this.panelFunction.Controls.Add(this.btnBooking);
+            this.panelFunction.Controls.Add(this.btnEmployee);
+            this.panelFunction.Controls.Add(this.btnRoom);
+            this.panelFunction.Controls.Add(this.btnCustomer);
+            this.panelFunction.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelFunction.Location = new System.Drawing.Point(0, 0);
+            this.panelFunction.Name = "panelFunction";
+            this.panelFunction.Size = new System.Drawing.Size(241, 817);
+            this.panelFunction.TabIndex = 17;
             // 
-            // pic_minus
+            // panelLogout
             // 
-            this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
-            this.pic_minus.Location = new System.Drawing.Point(776, 12);
-            this.pic_minus.Name = "pic_minus";
-            this.pic_minus.Size = new System.Drawing.Size(50, 50);
-            this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_minus.TabIndex = 10;
-            this.pic_minus.TabStop = false;
-            this.pic_minus.Click += new System.EventHandler(this.pic_minus_Click);
+            this.panelLogout.Controls.Add(this.lbLogout);
+            this.panelLogout.Controls.Add(this.picLogout);
+            this.panelLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelLogout.Location = new System.Drawing.Point(0, 754);
+            this.panelLogout.Name = "panelLogout";
+            this.panelLogout.Size = new System.Drawing.Size(241, 63);
+            this.panelLogout.TabIndex = 24;
+            this.panelLogout.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelLogout_MouseClick);
+            // 
+            // lbLogout
+            // 
+            this.lbLogout.BackColor = System.Drawing.Color.Transparent;
+            this.lbLogout.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLogout.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.lbLogout.Location = new System.Drawing.Point(103, 15);
+            this.lbLogout.Name = "lbLogout";
+            this.lbLogout.Size = new System.Drawing.Size(82, 30);
+            this.lbLogout.TabIndex = 1;
+            this.lbLogout.Text = "LOGOUT";
+            this.lbLogout.Click += new System.EventHandler(this.lbLogout_Click);
+            // 
+            // picLogout
+            // 
+            this.picLogout.Image = global::HotelManagementApp.Properties.Resources.logout;
+            this.picLogout.ImageRotate = 0F;
+            this.picLogout.Location = new System.Drawing.Point(45, 13);
+            this.picLogout.Name = "picLogout";
+            this.picLogout.Size = new System.Drawing.Size(33, 34);
+            this.picLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picLogout.TabIndex = 0;
+            this.picLogout.TabStop = false;
+            this.picLogout.Click += new System.EventHandler(this.picLogout_Click);
+            // 
+            // guna2Panel2
+            // 
+            this.guna2Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.guna2Panel2.BorderRadius = 20;
+            this.guna2Panel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.guna2Panel2.Location = new System.Drawing.Point(0, 138);
+            this.guna2Panel2.Name = "guna2Panel2";
+            this.guna2Panel2.Size = new System.Drawing.Size(241, 5);
+            this.guna2Panel2.TabIndex = 19;
+            // 
+            // btnStaff
+            // 
+            this.btnStaff.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnStaff.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnStaff.Image = global::HotelManagementApp.Properties.Resources.male;
+            this.btnStaff.ImageOffset = new System.Drawing.Point(0, 0);
+            this.btnStaff.ImageRotate = 0F;
+            this.btnStaff.Location = new System.Drawing.Point(70, 32);
+            this.btnStaff.Name = "btnStaff";
+            this.btnStaff.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.btnStaff.Size = new System.Drawing.Size(100, 100);
+            this.btnStaff.TabIndex = 23;
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.guna2Button1.BorderRadius = 21;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.guna2Button1.Location = new System.Drawing.Point(36, 457);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.TabIndex = 22;
+            this.guna2Button1.Text = "Services";
+            this.guna2Button1.UseTransparentBackground = true;
+            // 
+            // btnBooking
+            // 
+            this.btnBooking.AutoRoundedCorners = true;
+            this.btnBooking.BackColor = System.Drawing.Color.Transparent;
+            this.btnBooking.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnBooking.BorderRadius = 21;
+            this.btnBooking.BorderThickness = 1;
+            this.btnBooking.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnBooking.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnBooking.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnBooking.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnBooking.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnBooking.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnBooking.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnBooking.FillColor = System.Drawing.Color.Transparent;
+            this.btnBooking.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnBooking.Location = new System.Drawing.Point(36, 244);
+            this.btnBooking.Name = "btnBooking";
+            this.btnBooking.Size = new System.Drawing.Size(180, 45);
+            this.btnBooking.TabIndex = 21;
+            this.btnBooking.Text = "Bookings";
+            this.btnBooking.UseTransparentBackground = true;
+            this.btnBooking.Click += new System.EventHandler(this.btnBooking_Click);
+            // 
+            // btnEmployee
+            // 
+            this.btnEmployee.AutoRoundedCorners = true;
+            this.btnEmployee.BackColor = System.Drawing.Color.Transparent;
+            this.btnEmployee.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnEmployee.BorderRadius = 21;
+            this.btnEmployee.BorderThickness = 1;
+            this.btnEmployee.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnEmployee.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnEmployee.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnEmployee.FillColor = System.Drawing.Color.Transparent;
+            this.btnEmployee.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnEmployee.Location = new System.Drawing.Point(36, 386);
+            this.btnEmployee.Name = "btnEmployee";
+            this.btnEmployee.Size = new System.Drawing.Size(180, 45);
+            this.btnEmployee.TabIndex = 20;
+            this.btnEmployee.Text = "Employees";
+            this.btnEmployee.UseTransparentBackground = true;
+            this.btnEmployee.Click += new System.EventHandler(this.btnEmployee_Click);
+            // 
+            // btnRoom
+            // 
+            this.btnRoom.AutoRoundedCorners = true;
+            this.btnRoom.BackColor = System.Drawing.Color.Transparent;
+            this.btnRoom.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnRoom.BorderRadius = 21;
+            this.btnRoom.BorderThickness = 1;
+            this.btnRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnRoom.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnRoom.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRoom.FillColor = System.Drawing.Color.Transparent;
+            this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnRoom.Location = new System.Drawing.Point(36, 173);
+            this.btnRoom.Name = "btnRoom";
+            this.btnRoom.Size = new System.Drawing.Size(180, 45);
+            this.btnRoom.TabIndex = 19;
+            this.btnRoom.Text = "Rooms";
+            this.btnRoom.UseTransparentBackground = true;
+            // 
+            // btnCustomer
+            // 
+            this.btnCustomer.AutoRoundedCorners = true;
+            this.btnCustomer.BackColor = System.Drawing.Color.Transparent;
+            this.btnCustomer.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnCustomer.BorderRadius = 21;
+            this.btnCustomer.BorderThickness = 1;
+            this.btnCustomer.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnCustomer.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnCustomer.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.btnCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnCustomer.FillColor = System.Drawing.Color.Transparent;
+            this.btnCustomer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.btnCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.btnCustomer.Location = new System.Drawing.Point(36, 315);
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.Size = new System.Drawing.Size(180, 45);
+            this.btnCustomer.TabIndex = 16;
+            this.btnCustomer.Text = "Customers";
+            this.btnCustomer.UseTransparentBackground = true;
+            // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.lbTime);
+            this.guna2Panel1.Controls.Add(this.pic_close);
+            this.guna2Panel1.Controls.Add(this.pic_minus);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.Location = new System.Drawing.Point(241, 0);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1268, 79);
+            this.guna2Panel1.TabIndex = 18;
+            // 
+            // lbTime
+            // 
+            this.lbTime.AutoSize = true;
+            this.lbTime.Depth = 0;
+            this.lbTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTime.Location = new System.Drawing.Point(68, 32);
+            this.lbTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(174, 19);
+            this.lbTime.TabIndex = 13;
+            this.lbTime.Text = "giờ, thứ ngày tháng nam";
             // 
             // pic_close
             // 
             this.pic_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
-            this.pic_close.Location = new System.Drawing.Point(832, 13);
+            this.pic_close.Location = new System.Drawing.Point(1206, 12);
             this.pic_close.Name = "pic_close";
             this.pic_close.Size = new System.Drawing.Size(50, 50);
             this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_close.TabIndex = 9;
+            this.pic_close.TabIndex = 11;
             this.pic_close.TabStop = false;
             this.pic_close.Click += new System.EventHandler(this.pic_close_Click);
             // 
-            // groupBox1
+            // pic_minus
             // 
-            this.groupBox1.BackgroundImage = global::HotelManagementApp.Properties.Resources.img_bg;
-            this.groupBox1.Controls.Add(this.btnLogin);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.tb_username);
-            this.groupBox1.Controls.Add(this.tb_password);
-            this.groupBox1.Controls.Add(this.lb_forgetPassword);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.img_show);
-            this.groupBox1.Controls.Add(this.img_hide);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(38, 13);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(360, 640);
-            this.groupBox1.TabIndex = 8;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "LogIn";
+            this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
+            this.pic_minus.Location = new System.Drawing.Point(1150, 12);
+            this.pic_minus.Name = "pic_minus";
+            this.pic_minus.Size = new System.Drawing.Size(50, 50);
+            this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_minus.TabIndex = 12;
+            this.pic_minus.TabStop = false;
+            this.pic_minus.Click += new System.EventHandler(this.pic_minus_Click);
             // 
-            // pictureBox1
+            // panelRoomManagement
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(20, 75);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(325, 205);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
+            this.panelRoomManagement.Controls.Add(this.ucRoomManagement);
+            this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRoomManagement.Location = new System.Drawing.Point(241, 79);
+            this.panelRoomManagement.Name = "panelRoomManagement";
+            this.panelRoomManagement.Size = new System.Drawing.Size(1268, 738);
+            this.panelRoomManagement.TabIndex = 19;
             // 
-            // tb_username
+            // ucRoomManagement
             // 
-            this.tb_username.Location = new System.Drawing.Point(66, 354);
-            this.tb_username.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_username.Name = "tb_username";
-            this.tb_username.Size = new System.Drawing.Size(266, 26);
-            this.tb_username.TabIndex = 10;
-            this.tb_username.Text = "a";
+            this.ucRoomManagement.BackColor = System.Drawing.Color.White;
+            this.ucRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ucRoomManagement.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ucRoomManagement.Location = new System.Drawing.Point(0, 0);
+            this.ucRoomManagement.Name = "ucRoomManagement";
+            this.ucRoomManagement.Size = new System.Drawing.Size(1268, 738);
+            this.ucRoomManagement.TabIndex = 0;
             // 
-            // tb_password
+            // Main
             // 
-            this.tb_password.Location = new System.Drawing.Point(66, 425);
-            this.tb_password.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.tb_password.Name = "tb_password";
-            this.tb_password.Size = new System.Drawing.Size(228, 26);
-            this.tb_password.TabIndex = 9;
-            this.tb_password.Text = "a";
-            this.tb_password.UseSystemPasswordChar = true;
-            // 
-            // lb_forgetPassword
-            // 
-            this.lb_forgetPassword.AutoSize = true;
-            this.lb_forgetPassword.BackColor = System.Drawing.Color.Transparent;
-            this.lb_forgetPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_forgetPassword.ForeColor = System.Drawing.Color.White;
-            this.lb_forgetPassword.Location = new System.Drawing.Point(124, 597);
-            this.lb_forgetPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lb_forgetPassword.Name = "lb_forgetPassword";
-            this.lb_forgetPassword.Size = new System.Drawing.Size(153, 20);
-            this.lb_forgetPassword.TabIndex = 8;
-            this.lb_forgetPassword.Text = "Forget password?";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Location = new System.Drawing.Point(18, 393);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(91, 20);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Password:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Location = new System.Drawing.Point(18, 329);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "Username";
-            // 
-            // img_show
-            // 
-            this.img_show.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.img_show.Image = global::HotelManagementApp.Properties.Resources.show_password;
-            this.img_show.Location = new System.Drawing.Point(294, 425);
-            this.img_show.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.img_show.Name = "img_show";
-            this.img_show.Size = new System.Drawing.Size(37, 26);
-            this.img_show.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.img_show.TabIndex = 5;
-            this.img_show.TabStop = false;
-            this.img_show.Click += new System.EventHandler(this.img_show_Click);
-            this.img_show.MouseHover += new System.EventHandler(this.img_show_MouseHover);
-            // 
-            // img_hide
-            // 
-            this.img_hide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.img_hide.Image = global::HotelManagementApp.Properties.Resources.hide_password;
-            this.img_hide.Location = new System.Drawing.Point(294, 425);
-            this.img_hide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.img_hide.Name = "img_hide";
-            this.img_hide.Size = new System.Drawing.Size(37, 26);
-            this.img_hide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.img_hide.TabIndex = 4;
-            this.img_hide.TabStop = false;
-            this.img_hide.Click += new System.EventHandler(this.img_hide_Click);
-            this.img_hide.MouseHover += new System.EventHandler(this.img_hide_MouseHover);
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
-            this.btnLogin.BorderRadius = 26;
-            this.btnLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnLogin.FillColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnLogin.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.btnLogin.ForeColor = System.Drawing.Color.White;
-            this.btnLogin.Location = new System.Drawing.Point(100, 514);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(180, 45);
-            this.btnLogin.TabIndex = 14;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseTransparentBackground = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
-            // 
-            // main
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(894, 703);
-            this.ControlBox = false;
-            this.Controls.Add(this.pic_minus);
-            this.Controls.Add(this.pic_close);
-            this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientSize = new System.Drawing.Size(1509, 817);
+            this.Controls.Add(this.panelRoomManagement);
+            this.Controls.Add(this.guna2Panel1);
+            this.Controls.Add(this.panelFunction);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MinimizeBox = false;
-            this.Name = "main";
+            this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "LogIn";
-            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
+            this.Text = "Dashboard";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panelFunction.ResumeLayout(false);
+            this.panelLogout.ResumeLayout(false);
+            this.panelLogout.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_show)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.img_hide)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
+            this.panelRoomManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox img_hide;
-        private System.Windows.Forms.PictureBox img_show;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lb_forgetPassword;
-        private System.Windows.Forms.TextBox tb_password;
-        private System.Windows.Forms.TextBox tb_username;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox pic_close;
+
         private System.Windows.Forms.PictureBox pic_minus;
-        private Guna.UI2.WinForms.Guna2Button btnLogin;
-        //private Guna.UI2.WinForms.Guna2Button btn_login;
+        private System.Windows.Forms.PictureBox pic_close;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel panelFunction;
+        private Guna.UI2.WinForms.Guna2Button btnCustomer;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+        private Guna.UI2.WinForms.Guna2Panel panelRoomManagement;
+        private User_Controls.UC_RoomManagement ucRoomManagement;
+        private Guna.UI2.WinForms.Guna2Button btnRoom;
+        private MaterialSkin.Controls.MaterialLabel lbTime;
+        private Guna.UI2.WinForms.Guna2Button btnEmployee;
+        private Guna.UI2.WinForms.Guna2Button btnBooking;
+        private Guna.UI2.WinForms.Guna2Button guna2Button1;
+        private Guna.UI2.WinForms.Guna2ImageButton btnStaff;
+        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
+        private Guna.UI2.WinForms.Guna2Panel panelLogout;
+        private Guna.UI2.WinForms.Guna2PictureBox picLogout;
+        private Guna.UI2.WinForms.Guna2HtmlLabel lbLogout;
     }
 }
-

@@ -12,6 +12,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Data.SqlClient;
 using TheArtOfDevHtmlRenderer.Adapters;
+using System.Collections;
 
 
 namespace HotelManagementApp.Forms
@@ -29,59 +30,115 @@ namespace HotelManagementApp.Forms
 
         private function function = new function();
 
-        private ClassRoom classRoom;
+        private int RID;
 
-        public string SelectedOption { get; private set; }
+        private DataGridViewRow row;
 
-        public RoomDetail(ClassRoom classRoom)
+        private ClassRooms_Type classRooms_Type;
+
+        public RoomDetail(DataGridViewRow row)
         {
             InitializeComponent();
-            this.classRoom = classRoom;
-            groupboxPreview.Text += "ID: ";
-            initPreview();
-            floor.Maximum = ConfigManager.getTotalFloors();
-            comboboxRoomType.DataSource = Enum.GetValues(typeof(EnumRoomType));
-            comboboxStatus.DataSource = Enum.GetValues(typeof(EnumRoomStatus));
+            this.row = row;
+            this.RID = Convert.ToInt32(row.Cells["RID"].Value.ToString());
+        }
+
+        private void RoomDetail_Load(object sender, EventArgs e)
+        {
             initControls();
+            initPreview();
         }
 
         private void initPreview()
         {
-            lbRoom.Text = classRoom.RooNo;
-            lbRooType.Text = classRoom.RooType;
-            lbBed.Text = classRoom.RooBed + "";
-            lbFloor.Text = classRoom.RooFloor == 0 ? "Trệt" : classRoom.RooFloor + "";
-            lbPeople.Text = classRoom.RooCustomer + "";
-            lbPrice.Text = classRoom.RooPrice + "";
-            lbNote.Text = classRoom.RooNote;
-            lbStatus.Text = classRoom.RooStatus;
+            groupboxPreview.Text += "\tID: " + this.RID;
+            lbBedCount.Text = row.Cells["RTBedCount"].Value.ToString();
+            lbMaxGuests.Text = row.Cells["RTMaxGuests"].Value.ToString();
         }
 
         private void initControls()
         {
-            string s = classRoom.RooNo;
-            s = s.Substring(3);
+            loadData_comboboxRoomType();
+            loadData_comboboxOtherStatus();
 
-            s = s.Substring((classRoom.RooFloor + "").Length + 1);
+            floor.Value = Convert.ToInt32(row.Cells["RFloor"].Value.ToString());
+            numRoom.Value = Convert.ToInt32(row.Cells["RNo"].Value.ToString());
 
-            numberOfRoom.Value = Int32.Parse(s);
+            int index = comboboxRoomType.Items.IndexOf(row.Cells["RTType"].Value.ToString());
 
-            floor.Value = classRoom.RooFloor;
-            numbeOfBed.Value = classRoom.RooBed;
+            if (index >= 0)
+            {
+                comboboxRoomType.SelectedIndex = index;
+            }
 
-            numberOfPeople.Value = classRoom.RooCustomer;
+            index = comboboxStatus.Items.IndexOf(row.Cells["RSStatus"].Value.ToString());
+            if (index >= 0)
+            {
+                comboboxStatus.SelectedIndex = index;
+            }
 
-            EnumRoomType roomType;
-            Enum.TryParse(classRoom.RooType, out roomType);
-            comboboxRoomType.SelectedItem = roomType;
+            price.Text = row.Cells["RPricePerNight"].Value.ToString();
+            note.Text = row.Cells["RDescription"].Value.ToString();
+        }
 
-            price.Text = classRoom.RooPrice + "";
+        private void loadData_comboboxOtherStatus()
+        {
+            string query = @"
+                        SELECT RSStatus
+                        FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
 
-            EnumRoomStatus roomStatus;
-            Enum.TryParse(classRoom.RooStatus, out roomStatus);
-            comboboxStatus.SelectedItem = roomStatus;
+            using (SqlConnection conn = function.getConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
 
-            note.Text = classRoom.RooNote;
+                    comboboxStatus.Items.Clear();
+                    while (reader.Read())
+                    {
+                        comboboxStatus.Items.Add(reader["RSStatus"].ToString());
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+            comboboxStatus.SelectedIndex = 0;
+        }
+
+        private void loadData_comboboxRoomType()
+        {
+            string query = @"
+                        SELECT [RTType]
+                        FROM (" + ClassRooms_Type.TABLE_Rooms_Type + ") AS A";
+
+            using (SqlConnection conn = function.getConnection())
+            {
+                try
+                {
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    comboboxRoomType.Items.Clear();
+                    while (reader.Read())
+                    {
+                        comboboxRoomType.Items.Add(reader["RTType"].ToString());
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+            comboboxRoomType.SelectedIndex = 0;
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -104,41 +161,6 @@ namespace HotelManagementApp.Forms
             toolTipRoomDetail.SetToolTip(btnDelete, "Delete room");
         }
 
-        private void note_TextChanged(object sender, EventArgs e)
-        {
-            lbNote.Text = note.Text;
-        }
-
-        private void numberOfRoom_ValueChanged(object sender, EventArgs e)
-        {
-            lbRoom.Text = "Roo" + floor.Value + "0" + numberOfRoom.Value;
-        }
-
-        private void floor_ValueChanged(object sender, EventArgs e)
-        {
-            lbRoom.Text = "Roo" + floor.Value + "0" + numberOfRoom.Value;
-        }
-
-        private void numbeOfBed_ValueChanged(object sender, EventArgs e)
-        {
-            lbBed.Text = numbeOfBed.Value.ToString();
-        }
-
-        private void numberOfPeople_ValueChanged(object sender, EventArgs e)
-        {
-            lbPeople.Text = numberOfPeople.Value.ToString();
-        }
-
-        private void price_TextChanged(object sender, EventArgs e)
-        {
-            lbPrice.Text = price.Text;
-        }
-
-        private void comboboxRoomType_SelectedValueChanged(object sender, EventArgs e)
-        {
-            lbRooType.Text = comboboxRoomType.SelectedValue.ToString();
-        }
-
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
         {
             moveForm(sender, e);
@@ -155,13 +177,13 @@ namespace HotelManagementApp.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (alert())
+            if (alert("Bạn chắc chắn muốn XÓA phòng ?"))
             {
-                string query = "DELETE FROM Rooms WHERE RooNo=@RooNo";
+                string query = $"DELETE FROM {ClassRoom.TABLE_NAME} WHERE RID=@RID";
 
                 SqlCommand sqlCommand = new SqlCommand(query);
-                sqlCommand.Parameters.AddWithValue("@RooNo", lbRoom.Text);
-                if (function.editRecord(sqlCommand, "Deleted"))
+                sqlCommand.Parameters.AddWithValue("@RID", this.RID);
+                if (function.editRecord(sqlCommand, "Delete record"))
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -169,10 +191,9 @@ namespace HotelManagementApp.Forms
             }
         }
 
-        private bool alert()
+        private bool alert(string message)
         {
-            DialogResult result = MessageBox.Show("Bạn có chắc chắn muốn tiếp tục?",
-                "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show(message, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
                 return true;
             return false;
@@ -180,41 +201,29 @@ namespace HotelManagementApp.Forms
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if (alert())
+            if (alert("Bạn chắc chắn muốn CHỈNH SỬA phòng ?"))
             {
-                string numFloor = floor.Text;
-                string numRoom = numberOfRoom.Text;
-                string rooNo = "Roo" + numFloor + "0" + numRoom;
+                ClassRooms_Status classStatus = new ClassRooms_Status(lbStatus.Text);
+                classStatus.setRooms_StatusByRSStatus();
 
-                string numBed = numbeOfBed.Text;
-                string numPeople = numberOfPeople.Text;
-                string type = comboboxRoomType.Text;
-                string price = this.price.Text;
-                string Status = comboboxStatus.Text;
-                string Note = this.note.Text;
-
-                string query = @"
-                    UPDATE Rooms
-                    SET RooNo = @RooNo,
-                        RooType = @RooType,
-                        RooBed = @RooBed,
-                        RooFloor = @RooFloor,
-                        RooCustomer = @RooCustomer,
-                        RooPrice = @RooPrice,
-                        RooStatus = @RooStatus,
-                        RooNote = @RooNote                        
-                    WHERE RooID = @RooID";
+                string query = $"UPDATE {ClassRoom.TABLE_NAME} ";
+                query += @"
+                    SET RFloor = @RFloor,
+                        RNo = @RNo,
+                        RPricePerNight = @RPricePerNight,
+                        RDescription = @RDescription,
+                        RSID = @RSID,
+                        RTID = @RTID                        
+                    WHERE RID = @RID";
 
                 SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@RooNo", rooNo); 
-                command.Parameters.AddWithValue("@RooType", type);
-                command.Parameters.AddWithValue("@RooBed", numBed);
-                command.Parameters.AddWithValue("@RooFloor", numFloor);
-                command.Parameters.AddWithValue("@RooCustomer", numPeople);
-                command.Parameters.AddWithValue("@RooPrice", price);
-                command.Parameters.AddWithValue("@RooStatus", Status);
-                command.Parameters.AddWithValue("@RooNote", Note);
-                command.Parameters.AddWithValue("@RooID", classRoom.RooID);
+                command.Parameters.AddWithValue("@RFloor", Convert.ToInt32(lbFloor.Text));
+                command.Parameters.AddWithValue("@RNo", Convert.ToInt32(lbNo.Text));
+                command.Parameters.AddWithValue("@RPricePerNight", Convert.ToDecimal(lbPrice.Text));
+                command.Parameters.AddWithValue("@RDescription", lbDescription.Text);
+                command.Parameters.AddWithValue("@RSID", classStatus.GetRSID());
+                command.Parameters.AddWithValue("@RTID", classRooms_Type.GetRTID());
+                command.Parameters.AddWithValue("@RID", this.RID);
 
                 if (function.editRecord(command, "Update"))
                 {
@@ -222,6 +231,40 @@ namespace HotelManagementApp.Forms
                     this.Close();
                 }
             }
+        }
+
+        private void floor_ValueChanged(object sender, EventArgs e)
+        {
+            lbFloor.Text = floor.Value.ToString();
+        }
+
+        private void numRoom_ValueChanged(object sender, EventArgs e)
+        {
+            lbNo.Text = numRoom.Value.ToString();
+        }
+
+        private void comboboxRoomType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            groupboxType.Text = comboboxRoomType.SelectedItem.ToString();
+            classRooms_Type = new ClassRooms_Type(groupboxType.Text);
+            classRooms_Type.setRooms_TypeByRTType();
+            lbBedCount.Text = classRooms_Type.GetRTBedCount().ToString();
+            lbMaxGuests.Text = classRooms_Type.GetRTMaxGuests().ToString();
+        }
+
+        private void comboboxStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lbStatus.Text = comboboxStatus.SelectedItem.ToString();
+        }
+
+        private void price_TextChanged(object sender, EventArgs e)
+        {
+            lbPrice.Text = price.Text;
+        }
+
+        private void note_TextChanged(object sender, EventArgs e)
+        {
+            lbDescription.Text = note.Text;
         }
     }
 }
