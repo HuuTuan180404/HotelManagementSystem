@@ -43,6 +43,12 @@ namespace HotelManagementApp.Classes
             this.RID = rID;
         }
 
+        public ClassRoom(int RFloor, int RNo)
+        {
+            this.RFloor = RFloor;
+            this.RNo = RNo;
+        }
+
         public void setRoomsByRID()
         {
             string query = "SELECT * FROM " + ClassRoom.TABLE_NAME + " WHERE RID=@RID";
@@ -72,6 +78,31 @@ namespace HotelManagementApp.Classes
                     MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
                 }
             }
+        }
+
+        public bool isExistsRoom()
+        {
+            string query = $"SELECT COUNT(*) FROM {TABLE_NAME}" + " WHERE RFloor=@RFloor AND RNo=@RNo";
+            using (SqlConnection conn = function.getConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@RFloor", this.RFloor);
+                    cmd.Parameters.AddWithValue("@RNo", this.RNo);
+                    conn.Open();
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
+        }
+
+        public void insertIntoRooms()
+        {
+            string query = $"INSERT INTO {TABLE_NAME} (RFloor,RNo,RPricePerNight,RSID,RTID,RDescription) " +
+                         $"VALUES ({this.RFloor},{this.RNo},{this.RPricePerNight},{this.RSID}," +
+                                               $"{this.RTID},{this.RDescription})";
+
         }
 
         public int GetRID() { return RID; }

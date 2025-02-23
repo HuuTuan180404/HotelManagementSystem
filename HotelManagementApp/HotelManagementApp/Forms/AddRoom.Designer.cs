@@ -64,8 +64,8 @@
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.price = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnAdd = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.editType = new System.Windows.Forms.PictureBox();
+            this.editStatus = new System.Windows.Forms.PictureBox();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.groupboxPreview.SuspendLayout();
@@ -73,8 +73,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.floor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editType)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editStatus)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTitle
@@ -345,7 +345,7 @@
             this.comboboxStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboboxStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboboxStatus.ItemHeight = 30;
-            this.comboboxStatus.Location = new System.Drawing.Point(556, 387);
+            this.comboboxStatus.Location = new System.Drawing.Point(187, 450);
             this.comboboxStatus.Name = "comboboxStatus";
             this.comboboxStatus.Size = new System.Drawing.Size(135, 36);
             this.comboboxStatus.TabIndex = 78;
@@ -357,7 +357,7 @@
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel16.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel16.Location = new System.Drawing.Point(488, 393);
+            this.materialLabel16.Location = new System.Drawing.Point(119, 456);
             this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
             this.materialLabel16.Size = new System.Drawing.Size(59, 24);
@@ -391,7 +391,7 @@
             this.note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.note.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.note.Location = new System.Drawing.Point(556, 456);
+            this.note.Location = new System.Drawing.Point(556, 450);
             this.note.Name = "note";
             this.note.PasswordChar = '\0';
             this.note.PlaceholderText = "";
@@ -487,7 +487,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel3.Location = new System.Drawing.Point(119, 462);
+            this.materialLabel3.Location = new System.Drawing.Point(495, 393);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(47, 24);
@@ -500,7 +500,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(503, 462);
+            this.materialLabel4.Location = new System.Drawing.Point(503, 456);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(44, 24);
@@ -518,7 +518,7 @@
             this.price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.price.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.price.Location = new System.Drawing.Point(180, 456);
+            this.price.Location = new System.Drawing.Point(556, 387);
             this.price.Name = "price";
             this.price.PasswordChar = '\0';
             this.price.PlaceholderText = "";
@@ -538,25 +538,27 @@
             this.btnAdd.TabStop = false;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // pictureBox2
+            // editType
             // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(327, 403);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 80;
-            this.pictureBox2.TabStop = false;
+            this.editType.Image = ((System.Drawing.Image)(resources.GetObject("editType.Image")));
+            this.editType.Location = new System.Drawing.Point(327, 403);
+            this.editType.Name = "editType";
+            this.editType.Size = new System.Drawing.Size(20, 20);
+            this.editType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editType.TabIndex = 80;
+            this.editType.TabStop = false;
+            this.editType.Click += new System.EventHandler(this.editType_Click);
             // 
-            // pictureBox1
+            // editStatus
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(696, 403);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 20);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 81;
-            this.pictureBox1.TabStop = false;
+            this.editStatus.Image = ((System.Drawing.Image)(resources.GetObject("editStatus.Image")));
+            this.editStatus.Location = new System.Drawing.Point(327, 466);
+            this.editStatus.Name = "editStatus";
+            this.editStatus.Size = new System.Drawing.Size(20, 20);
+            this.editStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.editStatus.TabIndex = 81;
+            this.editStatus.TabStop = false;
+            this.editStatus.Click += new System.EventHandler(this.editStatus_Click);
             // 
             // AddRoom
             // 
@@ -564,8 +566,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(817, 613);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.editStatus);
+            this.Controls.Add(this.editType);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.comboboxStatus);
             this.Controls.Add(this.materialLabel16);
@@ -596,8 +598,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.floor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editType)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editStatus)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,8 +639,8 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private Guna.UI2.WinForms.Guna2TextBox price;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox editType;
         private System.Windows.Forms.PictureBox btnAdd;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox editStatus;
     }
 }
