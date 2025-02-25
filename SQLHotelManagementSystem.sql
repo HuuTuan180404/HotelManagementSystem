@@ -7,7 +7,7 @@ GO
 USE HotelManagementSystem
 GO
 
-----------------------------
+-------------Table Rooms_Status---------------
 
 DROP TABLE IF EXISTS Rooms_Status;
 GO
@@ -29,7 +29,7 @@ INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Cleaning',N'Đang v�
 INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Maintenance',N'Đang bảo trì')
 GO
 
--------------------
+------------Table Rooms_Type-------
 
 DROP TABLE IF EXISTS Rooms_Type;
 GO
@@ -53,7 +53,7 @@ INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests) VALUES ('Twin',2,2)
 INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests,RTDescription) VALUES ('Family',2,4,N'1 giường đôi + 2 giường đơn')
 GO
 
-------------------
+-----------Table Rooms-------
 
 DROP TABLE IF EXISTS Rooms;
 GO
@@ -209,30 +209,168 @@ FROM [HotelManagementSystem].[dbo].[Employees] E
 	 JOIN [HotelManagementSystem].[dbo].[Employees_Role] E_R ON E.ERID=E_R.ERID
 GO
 
-----------------------
+-----------------Table Services-----
 
-/*
---------------------
-CREATE TABLE Bookings
-(
-    BID INT IDENTITY(1,1) NOT NULL,
+DROP TABLE IF EXISTS Services
+GO
+
+CREATE TABLE Services (
+    SID INT PRIMARY KEY IDENTITY(1,1),
+    SName NVARCHAR(255) UNIQUE NOT NULL,
+    SPrice DECIMAL(10,2) NOT NULL CHECK (SPrice >= 0),
+    SDescription NVARCHAR(MAX)
+);
+GO
+
+SELECT * FROM Services
+GO
+
+---------------Table Bookings-----------------
+
+DROP TABLE IF EXISTS Bookings
+GO
+
+CREATE TABLE Bookings (
+    BID INT PRIMARY KEY IDENTITY(1,1),
+    RID INT NOT NULL,                -- Mã phòng
+    CID VARCHAR(100) NOT NULL,                -- Mã khách hàng
+    BTimeCheckIn DATETIME NOT NULL,  -- Ngày giờ check-in
+    BTimeCheckOut DATETIME NOT NULL, -- Ngày giờ check-out
+    BStatus NVARCHAR(50) NOT NULL,   -- Trạng thái đặt phòng (VD: "Pending", "Confirmed", "Completed")
+    BCreateAt DATETIME DEFAULT GETDATE(), -- Ngày tạo booking
     
-    CONSTRAINT PK_Bookings_BID PRIMARY KEY (BID),
-    
-)
+    FOREIGN KEY (RID) REFERENCES Rooms(RID),
+    FOREIGN KEY (CID) REFERENCES Customers(CID)
+);
+GO
+
+SELECT * FROM Bookings
+GO
+
+
+-----------------Table ServiceUsage-----
+
+DROP TABLE IF EXISTS ServiceUsage
+GO
+
+CREATE TABLE ServiceUsage (
+    SUID INT PRIMARY KEY IDENTITY(1,1),
+    BID INT NOT NULL, -- Mã đặt phòng
+    EID VARCHAR(100) NOT NULL, -- Mã nhân viên thực hiện
+    SUDate DATETIME NOT NULL DEFAULT GETDATE(), -- Ngày sử dụng dịch vụ
+
+    FOREIGN KEY (BID) REFERENCES Bookings(BID),
+    FOREIGN KEY (EID) REFERENCES Employees(EID)
+);
+GO
+
+
+SELECT * FROM ServiceUsage
+GO
+
+
+-----------------Table ServiceUsageDetail-----
+
+DROP TABLE IF EXISTS ServiceUsageDetail
+GO
+
+
+CREATE TABLE ServiceUsageDetail (
+    SUID INT NOT NULL,
+    SID INT NOT NULL,
+    UnitPrice DECIMAL(10,2) NOT NULL CHECK (UnitPrice > 0),
+    Quantity INT NOT NULL CHECK (Quantity > 0),
+    Discount DECIMAL(5,2) DEFAULT 0 CHECK (Discount BETWEEN 0 AND 100),
+
+    PRIMARY KEY (SUID, SID),
+    FOREIGN KEY (SUID) REFERENCES ServiceUsage(SUID),
+    FOREIGN KEY (SID) REFERENCES Services(SID)
+);
+
+
+SELECT * FROM ServiceUsage
+
+
+---------------Table Payments-----------------
+
+DROP TABLE IF EXISTS Payments
+GO
+
+SELECT * FROM ServiceUsageDetail
+GO
+
+-----------------Table Payments-----
+
+DROP TABLE IF EXISTS Payments
+GO
+
+CREATE TABLE Payments (
+    PID INT PRIMARY KEY IDENTITY(1,1),
+    BID INT NOT NULL,
+    SUID INT NULL,
+    EID VARCHAR(100) NOT NULL,
+    PAmount DECIMAL(10,2) NOT NULL CHECK (PAmount >= 0),
+    PDateGTime DATETIME DEFAULT GETDATE(),
+    PMethod VARCHAR(50) CHECK (PMethod IN ('Cash', 'Credit Card', 'Bank Transfer')),
+    PStatus VARCHAR(50) CHECK (PStatus IN ('Pending', 'Completed', 'Failed')),
+
+    FOREIGN KEY (BID) REFERENCES Bookings(BID),
+    FOREIGN KEY (SUID) REFERENCES ServiceUsage(SUID),
+    FOREIGN KEY (EID) REFERENCES Employees(EID),
+);
+GO
+
+
+SELECT * FROM Payments
+GO
+
+
+-------ROLE STAFF----------
+
+DROP ROLE IF EXISTS StaffRole
+GO
+
+CREATE ROLE StaffRole;
+GO
+
+GRANT SELECT ON [HotelManagementSystem].[dbo].Rooms_Status
+TO StaffRole
+GO
+
+GRANT SELECT ON [HotelManagementSystem].[dbo].Rooms_Type
+TO StaffRole
+GO
+
+GRANT SELECT ON [HotelManagementSystem].[dbo].Rooms
+TO StaffRole
+GO
+
+GRANT SELECT ON [HotelManagementSystem].[dbo].Employees_Role
+TO StaffRole
+GO
+
+GRANT SELECT ON [HotelManagementSystem].[dbo].Employees
+TO StaffRole
+GO
+
+GRANT SELECT ON [HotelManagementSystem].[dbo].[Services]
+TO StaffRole
 GO
 
 
 
-CREATE TABLE Employees
-	(
-		EmpID int identity(1,1) not null,
-		EmpName nvarchar(30) not null,
-		EmpPassword varchar(30) not null,
-		CONSTRAINT PK_Employees_EmpID PRIMARY KEY (EmpID)
-	)
+-- Nhân viên Tuan
+CREATE LOGIN Tuan WITH PASSWORD = '123';
+CREATE USER Tuan FOR LOGIN Tuan;
+ALTER ROLE StaffRole ADD MEMBER Tuan;
 GO
 
-INSERT INTO Employees VALUES(N'Nguyễn Hữu Tuấn','123456')
-*/
+
+----
+CREATE ROLE ManagerRole;
+GO
+-- 🔹 Quản lý 1 & 2
+CREATE LOGIN Manager1 WITH PASSWORD = '123';
+CREATE USER Manager1 FOR LOGIN Manager1;
+ALTER ROLE ManagerRole ADD MEMBER Manager1;
 
