@@ -10,4 +10,7 @@ figma: https://www.figma.com/design/je0wNcBfdiUzMWPbeHxJTe/Hotel-Management-Dash
 
 Task: https://docs.google.com/spreadsheets/d/12i3mdQ4D-getoEBGD5fKZPnJ7sbL6cdwKNuEmhS43Jg/edit?usp=sharing
 
+Tải 1 số icon tại : https://www.svgrepo.com/ | HÃY TẢI DẠNG .PNG 1024\*1024 và đưa image\
+Chuyển đổi mã màu: https://vnnuke.com/tools/chuyen-ma-mau-tu-hex-sang-rgb.html
+
 Link GoogleMeet: https://meet.google.com/gsx-ubac-jkx - Thời gian: 20h30
