@@ -244,7 +244,6 @@
             this.lbDescription.Name = "lbDescription";
             this.lbDescription.Size = new System.Drawing.Size(120, 42);
             this.lbDescription.TabIndex = 46;
-            this.lbDescription.Text = "mô tả";
             this.lbDescription.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbPrice
@@ -256,7 +255,7 @@
             this.lbPrice.Name = "lbPrice";
             this.lbPrice.Size = new System.Drawing.Size(58, 19);
             this.lbPrice.TabIndex = 45;
-            this.lbPrice.Text = "100";
+            this.lbPrice.Text = "0";
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbNo
@@ -268,7 +267,7 @@
             this.lbNo.Name = "lbNo";
             this.lbNo.Size = new System.Drawing.Size(95, 19);
             this.lbNo.TabIndex = 43;
-            this.lbNo.Text = "2";
+            this.lbNo.Text = "1";
             this.lbNo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lbFloor
@@ -280,7 +279,7 @@
             this.lbFloor.Name = "lbFloor";
             this.lbFloor.Size = new System.Drawing.Size(89, 19);
             this.lbFloor.TabIndex = 40;
-            this.lbFloor.Text = "1";
+            this.lbFloor.Text = "0";
             this.lbFloor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // materialLabel15
@@ -383,7 +382,7 @@
             // note
             // 
             this.note.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.note.DefaultText = "z";
+            this.note.DefaultText = "";
             this.note.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.note.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.note.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -428,6 +427,7 @@
             this.floor.Size = new System.Drawing.Size(160, 36);
             this.floor.TabIndex = 73;
             this.floor.ValueChanged += new System.EventHandler(this.floor_ValueChanged);
+            this.floor.KeyUp += new System.Windows.Forms.KeyEventHandler(this.floor_KeyUp);
             // 
             // numRoom
             // 
@@ -454,6 +454,7 @@
             0,
             0});
             this.numRoom.ValueChanged += new System.EventHandler(this.numRoom_ValueChanged);
+            this.numRoom.KeyUp += new System.Windows.Forms.KeyEventHandler(this.numRoom_KeyUp);
             // 
             // materialLabel2
             // 
@@ -510,7 +511,7 @@
             // price
             // 
             this.price.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.price.DefaultText = "-1";
+            this.price.DefaultText = "0";
             this.price.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.price.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.price.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -541,7 +542,7 @@
             // editType
             // 
             this.editType.Image = ((System.Drawing.Image)(resources.GetObject("editType.Image")));
-            this.editType.Location = new System.Drawing.Point(327, 403);
+            this.editType.Location = new System.Drawing.Point(324, 403);
             this.editType.Name = "editType";
             this.editType.Size = new System.Drawing.Size(20, 20);
             this.editType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -552,7 +553,7 @@
             // editStatus
             // 
             this.editStatus.Image = ((System.Drawing.Image)(resources.GetObject("editStatus.Image")));
-            this.editStatus.Location = new System.Drawing.Point(327, 466);
+            this.editStatus.Location = new System.Drawing.Point(324, 466);
             this.editStatus.Name = "editStatus";
             this.editStatus.Size = new System.Drawing.Size(20, 20);
             this.editStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

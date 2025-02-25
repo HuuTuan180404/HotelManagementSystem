@@ -179,11 +179,9 @@ namespace HotelManagementApp.Forms
         {
             if (alert("Bạn chắc chắn muốn XÓA phòng ?"))
             {
-                string query = $"DELETE FROM {ClassRoom.TABLE_NAME} WHERE RID=@RID";
+                ClassRoom room = new ClassRoom(this.RID);
 
-                SqlCommand sqlCommand = new SqlCommand(query);
-                sqlCommand.Parameters.AddWithValue("@RID", this.RID);
-                if (function.editRecord(sqlCommand, "Delete record"))
+                if (room.deleteRecordOfRoom())
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -206,26 +204,10 @@ namespace HotelManagementApp.Forms
                 ClassRooms_Status classStatus = new ClassRooms_Status(lbStatus.Text);
                 classStatus.setRooms_StatusByRSStatus();
 
-                string query = $"UPDATE {ClassRoom.TABLE_NAME} ";
-                query += @"
-                    SET RFloor = @RFloor,
-                        RNo = @RNo,
-                        RPricePerNight = @RPricePerNight,
-                        RDescription = @RDescription,
-                        RSID = @RSID,
-                        RTID = @RTID                        
-                    WHERE RID = @RID";
+                ClassRoom classRoom = new ClassRoom(this.RID, Convert.ToInt32(lbFloor.Text), Convert.ToInt32(lbNo.Text),
+                    Convert.ToDecimal(lbPrice.Text), classStatus.GetRSID(), classRooms_Type.GetRTID(), lbDescription.Text);
 
-                SqlCommand command = new SqlCommand(query);
-                command.Parameters.AddWithValue("@RFloor", Convert.ToInt32(lbFloor.Text));
-                command.Parameters.AddWithValue("@RNo", Convert.ToInt32(lbNo.Text));
-                command.Parameters.AddWithValue("@RPricePerNight", Convert.ToDecimal(lbPrice.Text));
-                command.Parameters.AddWithValue("@RDescription", lbDescription.Text);
-                command.Parameters.AddWithValue("@RSID", classStatus.GetRSID());
-                command.Parameters.AddWithValue("@RTID", classRooms_Type.GetRTID());
-                command.Parameters.AddWithValue("@RID", this.RID);
-
-                if (function.editRecord(command, "Update"))
+                if (classRoom.updateRoom())
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();

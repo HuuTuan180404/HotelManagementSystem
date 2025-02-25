@@ -49,6 +49,15 @@ namespace HotelManagementApp.Classes
             this.RNo = RNo;
         }
 
+        public ClassRoom(int rID, int rFloor, int rNo, decimal rPricePerNight, int rSID, int rTID, string rDescription) : this(rID, rFloor)
+        {
+            RNo = rNo;
+            RPricePerNight = rPricePerNight;
+            RSID = rSID;
+            RTID = rTID;
+            RDescription = rDescription;
+        }
+
         public void setRoomsByRID()
         {
             string query = "SELECT * FROM " + ClassRoom.TABLE_NAME + " WHERE RID=@RID";
@@ -97,12 +106,76 @@ namespace HotelManagementApp.Classes
             }
         }
 
-        public void insertIntoRooms()
+        public bool insertIntoRoom()
         {
             string query = $"INSERT INTO {TABLE_NAME} (RFloor,RNo,RPricePerNight,RSID,RTID,RDescription) " +
-                         $"VALUES ({this.RFloor},{this.RNo},{this.RPricePerNight},{this.RSID}," +
-                                               $"{this.RTID},{this.RDescription})";
+                         "VALUES (@RFloor,@RNo,@RPricePerNight,@RSID,@RTID,@RDescription)";
 
+            SqlCommand sqlCommand = new SqlCommand(query);
+            sqlCommand.Parameters.AddWithValue("@RFloor", this.RFloor);
+            sqlCommand.Parameters.AddWithValue("@RNo", this.RNo);
+            sqlCommand.Parameters.AddWithValue("@RPricePerNight", this.RPricePerNight);
+            sqlCommand.Parameters.AddWithValue("@RSID", this.RSID);
+            sqlCommand.Parameters.AddWithValue("@RTID", this.RTID);
+            sqlCommand.Parameters.AddWithValue("@RDescription", this.RDescription);
+
+            return editRecord(sqlCommand, "Insert into table Rooms");
+        }
+
+        public bool updateRoom()
+        {
+            string query = $"UPDATE {TABLE_NAME} " +
+                           @"SET RFloor = @RFloor,
+                                RNo = @RNo,
+                                RPricePerNight = @RPricePerNight,
+                                RDescription = @RDescription,
+                                RSID = @RSID,
+                                RTID = @RTID
+                            WHERE RID = @RID";
+
+            SqlCommand sqlCommand = new SqlCommand(query);
+            sqlCommand.Parameters.AddWithValue("@RFloor", this.RFloor);
+            sqlCommand.Parameters.AddWithValue("@RNo", this.RNo);
+            sqlCommand.Parameters.AddWithValue("@RPricePerNight", this.RPricePerNight);
+            sqlCommand.Parameters.AddWithValue("@RSID", this.RSID);
+            sqlCommand.Parameters.AddWithValue("@RTID", this.RTID);
+            sqlCommand.Parameters.AddWithValue("@RDescription", this.RDescription);
+            sqlCommand.Parameters.AddWithValue("@RID", this.RID);
+
+            return editRecord(sqlCommand, "Update table Rooms");
+        }
+
+        public bool deleteRecordOfRoom()
+        {
+            string query = $"DELETE FROM {TABLE_NAME} WHERE RID=@RID";
+
+            SqlCommand sqlCommand = new SqlCommand(query);
+            sqlCommand.Parameters.AddWithValue("@RID", this.RID);
+
+            return editRecord(sqlCommand, "Detele a record from table " + TABLE_NAME);
+        }
+
+        private bool editRecord(SqlCommand sqlCommand, string message)
+        {
+            try
+            {
+                using (SqlConnection sqlConnection = function.getConnection())
+                {
+                    using (sqlCommand.Connection = sqlConnection)
+                    {
+                        sqlConnection.Open();
+                        int rowsAffected = sqlCommand.ExecuteNonQuery();
+                        sqlConnection.Close();
+                        if (rowsAffected > 0) return true;
+                        else MessageBox.Show("Failed!", message, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false;
         }
 
         public int GetRID() { return RID; }
@@ -110,6 +183,9 @@ namespace HotelManagementApp.Classes
 
         public int GetRFloor() { return RFloor; }
         public void SetRFloor(int value) { RFloor = value; }
+
+        public decimal GetRPricePerNight() { return RPricePerNight; }
+        public void SetRPricePerNight(decimal a) { RPricePerNight = a; }
 
         public int GetRNo() { return RNo; }
         public void SetRNo(int value) { RNo = value; }
