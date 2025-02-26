@@ -58,7 +58,6 @@ CREATE TABLE Rooms_Status
 )
 GO
 
-
 --Rooms_Type
 CREATE TABLE Rooms_Type
 (
