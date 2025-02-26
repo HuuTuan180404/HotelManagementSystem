@@ -110,7 +110,7 @@ namespace HotelManagementApp.User_Controls
 
         private void loadData()
         {
-            query = ClassRoom.TABLE_Rooms;
+            query = ClassRoom.TABLE_Rooms + " ORDER BY RFloor ASC, RNo ASC;";
 
             DataSet dataSet = function.getData(query);
             dataGridView.DataSource = dataSet.Tables[0];

@@ -62,18 +62,6 @@ namespace HotelManagementApp
             return null;
         }
 
-        public bool isExistsRecord(SqlCommand sqlCommand)
-        {
-            using (SqlConnection connection = getConnection())
-            {
-                sqlCommand.Connection = connection;
-                connection.Open();
-                int exists = (int)sqlCommand.ExecuteScalar();
-                connection.Close();
-                return exists > 0;
-            }
-        }
-
         public SqlDataReader getRecord(SqlCommand sqlCommand)
         {
             try
@@ -100,29 +88,6 @@ namespace HotelManagementApp
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return null;
-        }
-
-        public bool editRecord(SqlCommand sqlCommand, string message)
-        {
-            try
-            {
-                using (SqlConnection sqlConnection = getConnection())
-                {
-                    using (sqlCommand.Connection = sqlConnection)
-                    {
-                        sqlConnection.Open();
-                        int rowsAffected = sqlCommand.ExecuteNonQuery();
-                        sqlConnection.Close();
-                        if (rowsAffected > 0) return true;
-                        else MessageBox.Show("Failed!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return false;
         }
 
     }
