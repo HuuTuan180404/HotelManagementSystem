@@ -23,9 +23,8 @@ namespace HotelManagementApp.Classes
 
         public static readonly string TABLE_NAME = "[HotelManagementSystem].[dbo].[Rooms]";
         public static readonly string TABLE_Rooms = @"
-                            SELECT RID, 
-                                   RFloor, 
-                                   RNo, 
+                            SELECT RID,
+                                   CONCAT('Roo',[RFloor],'0',[RNo]) AS RoomNo,
                                    RTType,
                                    RTBedCount, 
                                    RTMaxGuests,
@@ -145,7 +144,7 @@ namespace HotelManagementApp.Classes
             return editRecord(sqlCommand, "Update table Rooms");
         }
 
-        public bool deleteRecordOfRoom()
+        public bool deleteByID()
         {
             string query = $"DELETE FROM {TABLE_NAME} WHERE RID=@RID";
 
@@ -176,6 +175,11 @@ namespace HotelManagementApp.Classes
                 MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false;
+        }
+
+        public string getRooNo()
+        {
+            return $"Roo{this.RFloor}0{this.RNo}";
         }
 
         public int GetRID() { return RID; }

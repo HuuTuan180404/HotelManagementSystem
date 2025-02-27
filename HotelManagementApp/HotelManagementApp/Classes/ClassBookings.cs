@@ -16,6 +16,18 @@ namespace HotelManagementApp.Classes
         private string BStatus;
         private DateTime BCreateAt;
 
+        public static string TABLE_NAME = "[HotelManagementSystem_demo].[dbo].[Bookings]";
+        public static string TABLE_Bookings = @"
+                                    SELECT [BID]
+                                          ,CONCAT('Roo',R.RFloor,'0',R.RNo) AS RooNo
+                                          ,CID
+                                          ,[BTimeCheckIn]
+                                          ,[BTimeCheckOut]
+                                          ,[BStatus]
+                                          ,[BCreateAt]" +
+                                    $" FROM {TABLE_NAME} B JOIN {ClassRoom.TABLE_NAME} R ON B.RID=R.RID";
+
+
         public void setBID(int a) { BID = a; }
         public void setRID(int a) { RID = a; }
         public void setCID(string a) { CID = a; }

@@ -77,6 +77,35 @@ namespace HotelManagementApp.Classes
             }
         }
 
+        public void setByID()
+        {
+            using (SqlConnection conn = function.getConnection())
+            {
+                try
+                {
+                    string query = ClassRooms_Type.TABLE_Rooms_Type + " WHERE RTID=@RTID";
+                    conn.Open();
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@RTID", this.RTID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        this.RTType = reader["RTType"].ToString();
+                        this.RTBedCount = Convert.ToInt32(reader["RTBedCount"].ToString());
+                        this.RTMaxGuests = Convert.ToInt32(reader["RTMaxGuests"].ToString());
+                        this.RTDescription = reader["RTDescription"].ToString();
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+        }
+
         public int GetRTID() { return RTID; }
         public void SetRTID(int value) { RTID = value; }
 

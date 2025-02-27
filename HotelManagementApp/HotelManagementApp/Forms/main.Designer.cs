@@ -30,12 +30,11 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
-            this.panelFunction = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.sideBar = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
+            this.btnMenu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panelLogout = new Guna.UI2.WinForms.Guna2Panel();
             this.lbLogout = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.picLogout = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnStaff = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnBooking = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmployee = new Guna.UI2.WinForms.Guna2Button();
@@ -47,8 +46,11 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
-            this.ucRoomManagement = new HotelManagementApp.User_Controls.UC_RoomManagement();
-            this.panelFunction.SuspendLayout();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.UC_RoomManagement = new HotelManagementApp.User_Controls.UC_RoomManagement();
+            this.UC_BookingManagement = new HotelManagementApp.User_Controls.UC_BookingManagement();
+            this.sideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
             this.guna2Panel1.SuspendLayout();
@@ -57,21 +59,38 @@
             this.panelRoomManagement.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panelFunction
+            // sideBar
             // 
-            this.panelFunction.Controls.Add(this.panelLogout);
-            this.panelFunction.Controls.Add(this.guna2Panel2);
-            this.panelFunction.Controls.Add(this.btnStaff);
-            this.panelFunction.Controls.Add(this.guna2Button1);
-            this.panelFunction.Controls.Add(this.btnBooking);
-            this.panelFunction.Controls.Add(this.btnEmployee);
-            this.panelFunction.Controls.Add(this.btnRoom);
-            this.panelFunction.Controls.Add(this.btnCustomer);
-            this.panelFunction.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelFunction.Location = new System.Drawing.Point(0, 0);
-            this.panelFunction.Name = "panelFunction";
-            this.panelFunction.Size = new System.Drawing.Size(241, 817);
-            this.panelFunction.TabIndex = 17;
+            this.sideBar.Controls.Add(this.btnMenu);
+            this.sideBar.Controls.Add(this.panelLogout);
+            this.sideBar.Controls.Add(this.guna2Button1);
+            this.sideBar.Controls.Add(this.btnBooking);
+            this.sideBar.Controls.Add(this.btnEmployee);
+            this.sideBar.Controls.Add(this.btnRoom);
+            this.sideBar.Controls.Add(this.btnCustomer);
+            this.sideBar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.sideBar.Location = new System.Drawing.Point(0, 0);
+            this.sideBar.MaximumSize = new System.Drawing.Size(250, 817);
+            this.sideBar.MinimumSize = new System.Drawing.Size(80, 817);
+            this.sideBar.Name = "sideBar";
+            this.sideBar.Size = new System.Drawing.Size(80, 817);
+            this.sideBar.TabIndex = 17;
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnMenu.BackColor = System.Drawing.Color.Transparent;
+            this.btnMenu.FillColor = System.Drawing.Color.Transparent;
+            this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
+            this.btnMenu.ImageRotate = 0F;
+            this.btnMenu.Location = new System.Drawing.Point(18, 146);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(45, 45);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMenu.TabIndex = 25;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.UseTransparentBackground = true;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // panelLogout
             // 
@@ -80,7 +99,7 @@
             this.panelLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelLogout.Location = new System.Drawing.Point(0, 754);
             this.panelLogout.Name = "panelLogout";
-            this.panelLogout.Size = new System.Drawing.Size(241, 63);
+            this.panelLogout.Size = new System.Drawing.Size(80, 63);
             this.panelLogout.TabIndex = 24;
             this.panelLogout.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelLogout_MouseClick);
             // 
@@ -108,29 +127,6 @@
             this.picLogout.TabStop = false;
             this.picLogout.Click += new System.EventHandler(this.picLogout_Click);
             // 
-            // guna2Panel2
-            // 
-            this.guna2Panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.guna2Panel2.BorderRadius = 20;
-            this.guna2Panel2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.guna2Panel2.Location = new System.Drawing.Point(0, 138);
-            this.guna2Panel2.Name = "guna2Panel2";
-            this.guna2Panel2.Size = new System.Drawing.Size(241, 5);
-            this.guna2Panel2.TabIndex = 19;
-            // 
-            // btnStaff
-            // 
-            this.btnStaff.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnStaff.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnStaff.Image = global::HotelManagementApp.Properties.Resources.male;
-            this.btnStaff.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnStaff.ImageRotate = 0F;
-            this.btnStaff.Location = new System.Drawing.Point(70, 32);
-            this.btnStaff.Name = "btnStaff";
-            this.btnStaff.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnStaff.Size = new System.Drawing.Size(100, 100);
-            this.btnStaff.TabIndex = 23;
-            // 
             // guna2Button1
             // 
             this.guna2Button1.AutoRoundedCorners = true;
@@ -148,9 +144,12 @@
             this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.guna2Button1.Location = new System.Drawing.Point(36, 457);
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2Button1.Location = new System.Drawing.Point(16, 516);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(180, 45);
+            this.guna2Button1.Size = new System.Drawing.Size(295, 45);
             this.guna2Button1.TabIndex = 22;
             this.guna2Button1.Text = "Services";
             this.guna2Button1.UseTransparentBackground = true;
@@ -172,9 +171,12 @@
             this.btnBooking.FillColor = System.Drawing.Color.Transparent;
             this.btnBooking.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnBooking.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.btnBooking.Location = new System.Drawing.Point(36, 244);
+            this.btnBooking.Image = ((System.Drawing.Image)(resources.GetObject("btnBooking.Image")));
+            this.btnBooking.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnBooking.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnBooking.Location = new System.Drawing.Point(16, 303);
             this.btnBooking.Name = "btnBooking";
-            this.btnBooking.Size = new System.Drawing.Size(180, 45);
+            this.btnBooking.Size = new System.Drawing.Size(295, 45);
             this.btnBooking.TabIndex = 21;
             this.btnBooking.Text = "Bookings";
             this.btnBooking.UseTransparentBackground = true;
@@ -197,9 +199,12 @@
             this.btnEmployee.FillColor = System.Drawing.Color.Transparent;
             this.btnEmployee.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnEmployee.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.btnEmployee.Location = new System.Drawing.Point(36, 386);
+            this.btnEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnEmployee.Image")));
+            this.btnEmployee.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnEmployee.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnEmployee.Location = new System.Drawing.Point(16, 445);
             this.btnEmployee.Name = "btnEmployee";
-            this.btnEmployee.Size = new System.Drawing.Size(180, 45);
+            this.btnEmployee.Size = new System.Drawing.Size(295, 45);
             this.btnEmployee.TabIndex = 20;
             this.btnEmployee.Text = "Employees";
             this.btnEmployee.UseTransparentBackground = true;
@@ -213,6 +218,7 @@
             this.btnRoom.BorderRadius = 21;
             this.btnRoom.BorderThickness = 1;
             this.btnRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnRoom.Checked = true;
             this.btnRoom.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.btnRoom.CheckedState.ForeColor = System.Drawing.Color.White;
             this.btnRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -222,12 +228,16 @@
             this.btnRoom.FillColor = System.Drawing.Color.Transparent;
             this.btnRoom.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnRoom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.btnRoom.Location = new System.Drawing.Point(36, 173);
+            this.btnRoom.Image = ((System.Drawing.Image)(resources.GetObject("btnRoom.Image")));
+            this.btnRoom.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnRoom.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnRoom.Location = new System.Drawing.Point(16, 229);
             this.btnRoom.Name = "btnRoom";
-            this.btnRoom.Size = new System.Drawing.Size(180, 45);
+            this.btnRoom.Size = new System.Drawing.Size(295, 45);
             this.btnRoom.TabIndex = 19;
             this.btnRoom.Text = "Rooms";
             this.btnRoom.UseTransparentBackground = true;
+            this.btnRoom.Click += new System.EventHandler(this.btnRoom_Click);
             // 
             // btnCustomer
             // 
@@ -246,9 +256,12 @@
             this.btnCustomer.FillColor = System.Drawing.Color.Transparent;
             this.btnCustomer.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
             this.btnCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.btnCustomer.Location = new System.Drawing.Point(36, 315);
+            this.btnCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnCustomer.Image")));
+            this.btnCustomer.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.btnCustomer.ImageSize = new System.Drawing.Size(40, 40);
+            this.btnCustomer.Location = new System.Drawing.Point(16, 374);
             this.btnCustomer.Name = "btnCustomer";
-            this.btnCustomer.Size = new System.Drawing.Size(180, 45);
+            this.btnCustomer.Size = new System.Drawing.Size(295, 45);
             this.btnCustomer.TabIndex = 16;
             this.btnCustomer.Text = "Customers";
             this.btnCustomer.UseTransparentBackground = true;
@@ -259,9 +272,9 @@
             this.guna2Panel1.Controls.Add(this.pic_close);
             this.guna2Panel1.Controls.Add(this.pic_minus);
             this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(241, 0);
+            this.guna2Panel1.Location = new System.Drawing.Point(80, 0);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1268, 79);
+            this.guna2Panel1.Size = new System.Drawing.Size(1429, 79);
             this.guna2Panel1.TabIndex = 18;
             // 
             // lbTime
@@ -280,7 +293,7 @@
             // 
             this.pic_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
-            this.pic_close.Location = new System.Drawing.Point(1206, 12);
+            this.pic_close.Location = new System.Drawing.Point(1367, 12);
             this.pic_close.Name = "pic_close";
             this.pic_close.Size = new System.Drawing.Size(50, 50);
             this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -292,7 +305,7 @@
             // 
             this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
-            this.pic_minus.Location = new System.Drawing.Point(1150, 12);
+            this.pic_minus.Location = new System.Drawing.Point(1311, 12);
             this.pic_minus.Name = "pic_minus";
             this.pic_minus.Size = new System.Drawing.Size(50, 50);
             this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -302,22 +315,37 @@
             // 
             // panelRoomManagement
             // 
-            this.panelRoomManagement.Controls.Add(this.ucRoomManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
             this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRoomManagement.Location = new System.Drawing.Point(241, 79);
+            this.panelRoomManagement.Location = new System.Drawing.Point(80, 79);
             this.panelRoomManagement.Name = "panelRoomManagement";
-            this.panelRoomManagement.Size = new System.Drawing.Size(1268, 738);
+            this.panelRoomManagement.Size = new System.Drawing.Size(1429, 738);
             this.panelRoomManagement.TabIndex = 19;
             // 
-            // ucRoomManagement
+            // timer1
             // 
-            this.ucRoomManagement.BackColor = System.Drawing.Color.White;
-            this.ucRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ucRoomManagement.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ucRoomManagement.Location = new System.Drawing.Point(0, 0);
-            this.ucRoomManagement.Name = "ucRoomManagement";
-            this.ucRoomManagement.Size = new System.Drawing.Size(1268, 738);
-            this.ucRoomManagement.TabIndex = 0;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // UC_RoomManagement
+            // 
+            this.UC_RoomManagement.BackColor = System.Drawing.Color.White;
+            this.UC_RoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_RoomManagement.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UC_RoomManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_RoomManagement.Name = "UC_RoomManagement";
+            this.UC_RoomManagement.Size = new System.Drawing.Size(1429, 738);
+            this.UC_RoomManagement.TabIndex = 0;
+            // 
+            // UC_BookingManagement
+            // 
+            this.UC_BookingManagement.BackColor = System.Drawing.Color.White;
+            this.UC_BookingManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_BookingManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_BookingManagement.Name = "UC_BookingManagement";
+            this.UC_BookingManagement.Size = new System.Drawing.Size(1429, 738);
+            this.UC_BookingManagement.TabIndex = 1;
             // 
             // Main
             // 
@@ -326,13 +354,14 @@
             this.ClientSize = new System.Drawing.Size(1509, 817);
             this.Controls.Add(this.panelRoomManagement);
             this.Controls.Add(this.guna2Panel1);
-            this.Controls.Add(this.panelFunction);
+            this.Controls.Add(this.sideBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.panelFunction.ResumeLayout(false);
+            this.sideBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.panelLogout.ResumeLayout(false);
             this.panelLogout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
@@ -349,21 +378,22 @@
 
         private System.Windows.Forms.PictureBox pic_minus;
         private System.Windows.Forms.PictureBox pic_close;
-        private Guna.UI2.WinForms.Guna2CustomGradientPanel panelFunction;
+        private Guna.UI2.WinForms.Guna2CustomGradientPanel sideBar;
         private Guna.UI2.WinForms.Guna2Button btnCustomer;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2Panel panelRoomManagement;
-        private User_Controls.UC_RoomManagement ucRoomManagement;
+        private User_Controls.UC_RoomManagement UC_RoomManagement;
         private Guna.UI2.WinForms.Guna2Button btnRoom;
         private MaterialSkin.Controls.MaterialLabel lbTime;
         private Guna.UI2.WinForms.Guna2Button btnEmployee;
         private Guna.UI2.WinForms.Guna2Button btnBooking;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2ImageButton btnStaff;
-        private Guna.UI2.WinForms.Guna2Panel guna2Panel2;
         private Guna.UI2.WinForms.Guna2Panel panelLogout;
         private Guna.UI2.WinForms.Guna2PictureBox picLogout;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbLogout;
+        private User_Controls.UC_BookingManagement UC_BookingManagement;
+        private Guna.UI2.WinForms.Guna2PictureBox btnMenu;
+        private System.Windows.Forms.Timer timer1;
     }
 }
