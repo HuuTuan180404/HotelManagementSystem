@@ -16,10 +16,11 @@ namespace HotelManagementApp
 {
     public partial class Main : Form
     {
+        private bool sideBarIsShow = false;
         private Timer timer;
         public Main()
         {
-            
+
             InitializeComponent();
             lbTime.Text = DateTime.Now.ToString("HH:mm:ss dddd, dd/MM/yyyy");
             timer = new Timer();
@@ -52,7 +53,7 @@ namespace HotelManagementApp
         private void panelLogout_MouseClick(object sender, MouseEventArgs e)
         {
             logout();
-        }        
+        }
 
         private void picLogout_Click(object sender, EventArgs e)
         {
@@ -71,8 +72,44 @@ namespace HotelManagementApp
 
         private void btnBooking_Click(object sender, EventArgs e)
         {
-            BookingManagement bookingManagement = new BookingManagement();
-            bookingManagement.Show();
+            //BookingManagement bookingManagement = new BookingManagement();
+            //bookingManagement.Show();
+            UC_BookingManagement.BringToFront();
+        }
+
+        private void btnRoom_Click(object sender, EventArgs e)
+        {
+            UC_RoomManagement.BringToFront();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (sideBarIsShow)
+            {
+                sideBar.Width -= 20;
+                if (sideBar.Width == sideBar.MinimumSize.Width)
+                {
+                    sideBarIsShow = false;
+                    timer1.Stop();
+                }
+
+            }
+            else
+            {
+                sideBar.Width += 20;
+                if (sideBar.Width == sideBar.MaximumSize.Width)
+                {
+                    sideBarIsShow = true;
+                    timer1.Stop();
+                }
+
+            }
+
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            timer1.Start();
         }
     }
 }

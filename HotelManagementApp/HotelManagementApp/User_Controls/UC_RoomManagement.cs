@@ -77,8 +77,11 @@ namespace HotelManagementApp.User_Controls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                int RID = Convert.ToInt32(row.Cells["RID"].Value.ToString());
-                RoomDetail roomDetail = new RoomDetail(row);
+
+                ClassRoom room = new ClassRoom(Convert.ToInt32(row.Cells["RID"].Value.ToString()));
+                room.setRoomsByRID();
+                
+                RoomDetail roomDetail = new RoomDetail(room);
                 if (roomDetail.ShowDialog() == DialogResult.OK)
                     Room_Load(this, null);                
             }
@@ -122,5 +125,6 @@ namespace HotelManagementApp.User_Controls
             addRoom.DataChanged += loadData;
             addRoom.ShowDialog();
         }
+
     }
 }

@@ -30,17 +30,20 @@ namespace HotelManagementApp.Forms
 
         private function function = new function();
 
-        private int RID;
-
-        private DataGridViewRow row;
-
+        private ClassRoom room;
         private ClassRooms_Type classRooms_Type;
+        private ClassRooms_Status classRooms_Status;
 
-        public RoomDetail(DataGridViewRow row)
+        public RoomDetail(ClassRoom room)
         {
             InitializeComponent();
-            this.row = row;
-            this.RID = Convert.ToInt32(row.Cells["RID"].Value.ToString());
+            this.room = room;
+            classRooms_Type = new ClassRooms_Type(room.GetRTID());
+            classRooms_Type.setByID();
+
+            classRooms_Status = new ClassRooms_Status(room.GetRSID());
+            classRooms_Status.setByID();
+
         }
 
         private void RoomDetail_Load(object sender, EventArgs e)
@@ -51,9 +54,10 @@ namespace HotelManagementApp.Forms
 
         private void initPreview()
         {
-            groupboxPreview.Text += "\tID: " + this.RID;
-            lbBedCount.Text = row.Cells["RTBedCount"].Value.ToString();
-            lbMaxGuests.Text = row.Cells["RTMaxGuests"].Value.ToString();
+            groupboxPreview.Text += "\tID: " + this.room.GetRID();
+
+            lbBedCount.Text = classRooms_Type.GetRTBedCount().ToString();
+            lbMaxGuests.Text = classRooms_Type.GetRTMaxGuests().ToString();
         }
 
         private void initControls()
@@ -61,31 +65,31 @@ namespace HotelManagementApp.Forms
             loadData_comboboxRoomType();
             loadData_comboboxOtherStatus();
 
-            floor.Value = Convert.ToInt32(row.Cells["RFloor"].Value.ToString());
-            numRoom.Value = Convert.ToInt32(row.Cells["RNo"].Value.ToString());
+            floor.Value = room.GetRFloor();
+            numRoom.Value = room.GetRNo();
 
-            int index = comboboxRoomType.Items.IndexOf(row.Cells["RTType"].Value.ToString());
+            int index = comboboxRoomType.Items.IndexOf(classRooms_Type.GetRTType());
 
             if (index >= 0)
             {
                 comboboxRoomType.SelectedIndex = index;
             }
 
-            index = comboboxStatus.Items.IndexOf(row.Cells["RSStatus"].Value.ToString());
+
+            index = comboboxStatus.Items.IndexOf(classRooms_Status.GetRSStatus());
             if (index >= 0)
             {
                 comboboxStatus.SelectedIndex = index;
             }
 
-            price.Text = row.Cells["RPricePerNight"].Value.ToString();
-            note.Text = row.Cells["RDescription"].Value.ToString();
+            price.Text = room.GetRPricePerNight().ToString();
+            note.Text = room.GetRDescription();
         }
 
         private void loadData_comboboxOtherStatus()
         {
-            string query = @"
-                        SELECT RSStatus
-                        FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
+            string query = @"SELECT RSStatus
+                             FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
 
             using (SqlConnection conn = function.getConnection())
             {
@@ -113,8 +117,7 @@ namespace HotelManagementApp.Forms
 
         private void loadData_comboboxRoomType()
         {
-            string query = @"
-                        SELECT [RTType]
+            string query = @"SELECT [RTType]
                         FROM (" + ClassRooms_Type.TABLE_Rooms_Type + ") AS A";
 
             using (SqlConnection conn = function.getConnection())
@@ -179,9 +182,7 @@ namespace HotelManagementApp.Forms
         {
             if (alert("Bạn chắc chắn muốn XÓA phòng ?"))
             {
-                ClassRoom room = new ClassRoom(this.RID);
-
-                if (room.deleteRecordOfRoom())
+                if (room.deleteByID())
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -201,13 +202,21 @@ namespace HotelManagementApp.Forms
         {
             if (alert("Bạn chắc chắn muốn CHỈNH SỬA phòng ?"))
             {
-                ClassRooms_Status classStatus = new ClassRooms_Status(lbStatus.Text);
-                classStatus.setRooms_StatusByRSStatus();
+                ClassRooms_Status status = new ClassRooms_Status(lbStatus.Text);
+                status.setRooms_StatusByRSStatus();
 
-                ClassRoom classRoom = new ClassRoom(this.RID, Convert.ToInt32(lbFloor.Text), Convert.ToInt32(lbNo.Text),
-                    Convert.ToDecimal(lbPrice.Text), classStatus.GetRSID(), classRooms_Type.GetRTID(), lbDescription.Text);
+                ClassRooms_Type type = new ClassRooms_Type(comboboxRoomType.Text);
+                type.setRooms_TypeByRTType();
 
-                if (classRoom.updateRoom())
+                room.SetRFloor(Convert.ToInt32(lbFloor.Text));
+                room.SetRNo(Convert.ToInt32(lbNo.Text));
+
+                room.SetRPricePerNight(Convert.ToDecimal(lbPrice.Text));
+                room.SetRSID(status.GetRSID());
+                room.SetRTID(type.GetRTID());
+                room.SetRDescription(lbDescription.Text);
+
+                if (room.updateRoom())
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
