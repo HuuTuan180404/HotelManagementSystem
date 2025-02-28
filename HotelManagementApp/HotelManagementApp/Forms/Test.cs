@@ -14,12 +14,12 @@ using AForge.Video.DirectShow;
 
 namespace HotelManagementApp.Forms
 {
-    public partial class BookingManagement : Form
+    public partial class Test : Form
     {
         private FilterInfoCollection CaptureDevices;
         private VideoCaptureDevice VideoSource;
 
-        public BookingManagement()
+        public Test()
         {
             InitializeComponent();
             StartCamera();

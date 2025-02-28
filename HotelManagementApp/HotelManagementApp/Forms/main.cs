@@ -67,7 +67,9 @@ namespace HotelManagementApp
 
         private void logout()
         {
-            Debug.WriteLine("CLICK");
+            //Debug.WriteLine("CLICK");
+            Test test=new Test();
+            test.Show();
         }
 
         private void btnBooking_Click(object sender, EventArgs e)
