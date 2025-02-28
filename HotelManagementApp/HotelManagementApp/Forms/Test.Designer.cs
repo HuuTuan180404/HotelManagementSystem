@@ -1,6 +1,6 @@
 ﻿namespace HotelManagementApp.Forms
 {
-    partial class BookingManagement
+    partial class Test
     {
         /// <summary>
         /// Required designer variable.

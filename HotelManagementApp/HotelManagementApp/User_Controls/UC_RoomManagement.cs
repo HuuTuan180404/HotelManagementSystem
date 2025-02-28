@@ -126,5 +126,9 @@ namespace HotelManagementApp.User_Controls
             addRoom.ShowDialog();
         }
 
+        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
