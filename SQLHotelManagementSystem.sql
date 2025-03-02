@@ -1,10 +1,10 @@
 ﻿USE master
 GO
 
-CREATE DATABASE HotelManagementSystem_demo
+CREATE DATABASE HotelManagementSystem
 GO
 
-USE HotelManagementSystem_demo
+USE HotelManagementSystem
 GO
 
 ----------------------------------DROP TABLE IF EXISTS----------------------
