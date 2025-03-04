@@ -27,7 +27,7 @@ namespace HotelManagementApp.Forms
 
         function function = new function();
 
-        private ClassRooms_Type classRooms_Type;
+        private ClassRoom_Type classRooms_Type;
 
         public event Action DataChanged;
 
@@ -46,9 +46,7 @@ namespace HotelManagementApp.Forms
 
         private void loadData_comboboxOtherStatus()
         {
-            string query = @"
-                        SELECT RSStatus
-                        FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
+            string query = $"SELECT RStatus FROM {ClassRoom_Status.TABLE_NAME}";
 
             using (SqlConnection conn = function.getConnection())
             {
@@ -61,7 +59,7 @@ namespace HotelManagementApp.Forms
                     comboboxStatus.Items.Clear();
                     while (reader.Read())
                     {
-                        comboboxStatus.Items.Add(reader["RSStatus"].ToString());
+                        comboboxStatus.Items.Add(reader["RStatus"].ToString());
                     }
 
                     reader.Close();
@@ -76,9 +74,7 @@ namespace HotelManagementApp.Forms
 
         private void loadData_comboboxRoomType()
         {
-            string query = @"
-                        SELECT [RTType]
-                        FROM (" + ClassRooms_Type.TABLE_Rooms_Type + ") AS A";
+            string query = $"SELECT [RType] FROM {ClassRoom_Type.TABLE_NAME}";
 
             using (SqlConnection conn = function.getConnection())
             {
@@ -91,7 +87,7 @@ namespace HotelManagementApp.Forms
                     comboboxRoomType.Items.Clear();
                     while (reader.Read())
                     {
-                        comboboxRoomType.Items.Add(reader["RTType"].ToString());
+                        comboboxRoomType.Items.Add(reader["RType"].ToString());
                     }
 
                     reader.Close();
@@ -141,10 +137,9 @@ namespace HotelManagementApp.Forms
         private void comboboxRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupboxType.Text = comboboxRoomType.SelectedItem.ToString();
-            classRooms_Type = new ClassRooms_Type(groupboxType.Text);
-            classRooms_Type.setRooms_TypeByRTType();
-            lbBedCount.Text = classRooms_Type.GetRTBedCount().ToString();
-            lbMaxGuests.Text = classRooms_Type.GetRTMaxGuests().ToString();
+            classRooms_Type = new ClassRoom_Type(groupboxType.Text);
+            lbBedCount.Text = classRooms_Type.RTBedCount.ToString();
+            lbMaxGuests.Text = classRooms_Type.RTMaxGuests.ToString();
         }
 
         private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
@@ -165,25 +160,18 @@ namespace HotelManagementApp.Forms
         private void btnAdd_Click(object sender, EventArgs e)
         {
             ClassRoom room = new ClassRoom(Convert.ToInt32(lbFloor.Text), Convert.ToInt32(lbNo.Text));
-            if (room.isExistsRoom())
+            if (room.isExists())
             {
                 MessageBox.Show("Phòng đã tồn tại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                ClassRooms_Status classRooms_Status = new ClassRooms_Status(lbStatus.Text);
-                classRooms_Status.setRooms_StatusByRSStatus();
-                room.SetRSID(classRooms_Status.GetRSID());
+                room.RStatus = comboboxStatus.Text;
+                room.RType = comboboxRoomType.Text;
+                room.RPricePerNight = Convert.ToDecimal(lbPrice.Text);
+                room.RDescription = lbDescription.Text;
 
-                ClassRooms_Type classRooms_type = new ClassRooms_Type(groupboxType.Text);
-                classRooms_type.setRooms_TypeByRTType();
-                room.SetRTID(classRooms_Type.GetRTID());
-
-                room.SetRPricePerNight(Convert.ToDecimal(lbPrice.Text));
-
-                room.SetRDescription(lbDescription.Text);
-
-                if (room.insertIntoRoom())
+                if (room.insertInto())
                 {
                     DataChanged?.Invoke();
                     MessageBox.Show("Successfully!", "Thanh cong", MessageBoxButtons.OK, MessageBoxIcon.Information);

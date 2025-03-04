@@ -28,17 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFilter = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.comboboxOtherStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -54,6 +57,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFilter);
             this.panel1.Controls.Add(this.btnAddRoom);
             this.panel1.Controls.Add(this.comboboxOtherStatus);
             this.panel1.Controls.Add(this.btnAllRoom);
@@ -64,6 +68,23 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1141, 837);
             this.panel1.TabIndex = 7;
+            // 
+            // btnFilter
+            // 
+            this.btnFilter.AutoRoundedCorners = true;
+            this.btnFilter.BorderRadius = 21;
+            this.btnFilter.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnFilter.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnFilter.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFilter.ForeColor = System.Drawing.Color.White;
+            this.btnFilter.Location = new System.Drawing.Point(847, 114);
+            this.btnFilter.Name = "btnFilter";
+            this.btnFilter.Size = new System.Drawing.Size(127, 45);
+            this.btnFilter.TabIndex = 14;
+            this.btnFilter.Text = "Filter";
+            this.btnFilter.Click += new System.EventHandler(this.btnFilter_Click);
             // 
             // btnAddRoom
             // 
@@ -171,7 +192,6 @@
             this.dataGridView.Location = new System.Drawing.Point(20, 186);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -198,7 +218,7 @@
             this.dataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             this.dataGridView.ThemeStyle.HeaderStyle.Height = 30;
-            this.dataGridView.ThemeStyle.ReadOnly = true;
+            this.dataGridView.ThemeStyle.ReadOnly = false;
             this.dataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
             this.dataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -206,8 +226,13 @@
             this.dataGridView.ThemeStyle.RowsStyle.Height = 22;
             this.dataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(215)))), ((int)(((byte)(95)))));
             this.dataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            this.dataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseDown);
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
             // UC_RoomManagement
             // 
@@ -235,5 +260,7 @@
         private Guna.UI2.WinForms.Guna2Button btnAllRoom;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView;
+        private Guna.UI2.WinForms.Guna2Button btnFilter;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
     }
 }

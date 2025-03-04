@@ -35,6 +35,7 @@
             this.panelLogout = new Guna.UI2.WinForms.Guna2Panel();
             this.lbLogout = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.picLogout = new Guna.UI2.WinForms.Guna2PictureBox();
+            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.btnBooking = new Guna.UI2.WinForms.Guna2Button();
             this.btnEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.btnRoom = new Guna.UI2.WinForms.Guna2Button();
@@ -45,10 +46,9 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.UC_RoomManagement = new HotelManagementApp.User_Controls.UC_RoomManagement();
             this.UC_BookingManagement = new HotelManagementApp.User_Controls.UC_BookingManagement();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
+            this.UC_RoomManagement = new HotelManagementApp.User_Controls.UC_RoomManagement();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sideBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.panelLogout.SuspendLayout();
@@ -61,8 +61,8 @@
             // 
             // sideBar
             // 
-            this.sideBar.Controls.Add(this.btnMenu);
             this.sideBar.Controls.Add(this.panelLogout);
+            this.sideBar.Controls.Add(this.btnMenu);
             this.sideBar.Controls.Add(this.guna2Button1);
             this.sideBar.Controls.Add(this.btnBooking);
             this.sideBar.Controls.Add(this.btnEmployee);
@@ -97,9 +97,9 @@
             this.panelLogout.Controls.Add(this.lbLogout);
             this.panelLogout.Controls.Add(this.picLogout);
             this.panelLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelLogout.Location = new System.Drawing.Point(0, 754);
+            this.panelLogout.Location = new System.Drawing.Point(0, 761);
             this.panelLogout.Name = "panelLogout";
-            this.panelLogout.Size = new System.Drawing.Size(80, 63);
+            this.panelLogout.Size = new System.Drawing.Size(80, 56);
             this.panelLogout.TabIndex = 24;
             this.panelLogout.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelLogout_MouseClick);
             // 
@@ -119,13 +119,40 @@
             // 
             this.picLogout.Image = global::HotelManagementApp.Properties.Resources.logout;
             this.picLogout.ImageRotate = 0F;
-            this.picLogout.Location = new System.Drawing.Point(45, 13);
+            this.picLogout.Location = new System.Drawing.Point(21, 13);
             this.picLogout.Name = "picLogout";
             this.picLogout.Size = new System.Drawing.Size(33, 34);
             this.picLogout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picLogout.TabIndex = 0;
             this.picLogout.TabStop = false;
             this.picLogout.Click += new System.EventHandler(this.picLogout_Click);
+            // 
+            // guna2Button1
+            // 
+            this.guna2Button1.AutoRoundedCorners = true;
+            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.guna2Button1.BorderRadius = 21;
+            this.guna2Button1.BorderThickness = 1;
+            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
+            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
+            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
+            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
+            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
+            this.guna2Button1.Location = new System.Drawing.Point(16, 516);
+            this.guna2Button1.Name = "guna2Button1";
+            this.guna2Button1.Size = new System.Drawing.Size(295, 45);
+            this.guna2Button1.TabIndex = 22;
+            this.guna2Button1.Text = "Services";
+            this.guna2Button1.UseTransparentBackground = true;
             // 
             // btnBooking
             // 
@@ -288,18 +315,22 @@
             // 
             // panelRoomManagement
             // 
-            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
             this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
             this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRoomManagement.Location = new System.Drawing.Point(80, 79);
             this.panelRoomManagement.Name = "panelRoomManagement";
             this.panelRoomManagement.Size = new System.Drawing.Size(1429, 738);
             this.panelRoomManagement.TabIndex = 19;
             // 
-            // timer1
+            // UC_BookingManagement
             // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.UC_BookingManagement.BackColor = System.Drawing.Color.White;
+            this.UC_BookingManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_BookingManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_BookingManagement.Name = "UC_BookingManagement";
+            this.UC_BookingManagement.Size = new System.Drawing.Size(1429, 738);
+            this.UC_BookingManagement.TabIndex = 1;
             // 
             // UC_RoomManagement
             // 
@@ -311,41 +342,10 @@
             this.UC_RoomManagement.Size = new System.Drawing.Size(1429, 738);
             this.UC_RoomManagement.TabIndex = 0;
             // 
-            // UC_BookingManagement
+            // timer1
             // 
-            this.UC_BookingManagement.BackColor = System.Drawing.Color.White;
-            this.UC_BookingManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_BookingManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_BookingManagement.Name = "UC_BookingManagement";
-            this.UC_BookingManagement.Size = new System.Drawing.Size(1429, 738);
-            this.UC_BookingManagement.TabIndex = 1;
-            // 
-            // guna2Button1
-            // 
-            this.guna2Button1.AutoRoundedCorners = true;
-            this.guna2Button1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.guna2Button1.BorderRadius = 21;
-            this.guna2Button1.BorderThickness = 1;
-            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button1.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.guna2Button1.CheckedState.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.guna2Button1.Image = ((System.Drawing.Image)(resources.GetObject("guna2Button1.Image")));
-            this.guna2Button1.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.guna2Button1.ImageSize = new System.Drawing.Size(40, 40);
-            this.guna2Button1.Location = new System.Drawing.Point(16, 516);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(295, 45);
-            this.guna2Button1.TabIndex = 22;
-            this.guna2Button1.Text = "Services";
-            this.guna2Button1.UseTransparentBackground = true;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 

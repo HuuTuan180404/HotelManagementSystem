@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HotelManagementApp.Classes
 {
-    internal class ClassBookings
+    internal class ClassBooking
     {
         private int BID;
         private int RID;
@@ -19,7 +19,7 @@ namespace HotelManagementApp.Classes
         public static string TABLE_NAME = "[HotelManagementSystem_demo].[dbo].[Bookings]";
         public static string TABLE_Bookings = @"
                                     SELECT [BID]
-                                          ,CONCAT('Roo',R.RFloor,'0',R.RNo) AS RooNo
+                                          ,CONCAT('Roo',R.RFloor,'-',R.RNo) AS RooNo
                                           ,CID
                                           ,[BTimeCheckIn]
                                           ,[BTimeCheckOut]

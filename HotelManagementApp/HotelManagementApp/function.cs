@@ -26,17 +26,15 @@ namespace HotelManagementApp
 
         public DataSet getData(string queue)
         {
-            SqlConnection sqlConnection = getConnection();
-            SqlCommand sqlCommand = new SqlCommand();
+            //SqlConnection sqlConnection = getConnection();
+            //SqlCommand sqlCommand = new SqlCommand(queue, sqlConnection);
 
-            sqlCommand.Connection = sqlConnection;
-            sqlCommand.CommandText = queue;
+            //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
 
-            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-            DataSet dataSet = new DataSet();
-            sqlDataAdapter.Fill(dataSet);
-            return dataSet;
+            //DataSet dataSet = new DataSet();
+            //sqlDataAdapter.Fill(dataSet);
+            //return dataSet;
+            return null;
         }
 
         public DataSet getDataSet(SqlCommand sqlCommand)
@@ -76,7 +74,7 @@ namespace HotelManagementApp
 
                         sqlConnection.Close();
 
-                        if (reader.Read()) // Nếu tìm thấy phòng
+                        if (reader.Read())
                         {
                             return reader;
                         }

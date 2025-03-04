@@ -6,7 +6,7 @@ GO
 
 USE HotelManagementSystem
 GO
-
+/*
 ----------------------------------DROP TABLE IF EXISTS----------------------
 
 DROP TABLE IF EXISTS Payments_Service
@@ -44,75 +44,66 @@ GO
 
 DROP TABLE IF EXISTS Rooms_Status;
 GO
-
+*/
 ----------------------------------CREATE TABLE----------------------------
 
 --Rooms_Status
-CREATE TABLE Rooms_Status
+
+
+CREATE TABLE Room_Status
 (
-    RSID INT IDENTITY(1,1) NOT NULL,
-    RSStatus VARCHAR(100) NOT NULL UNIQUE,
-    RSDescription NVARCHAR(MAX),
-    CONSTRAINT PK_Rooms_Status_RSID PRIMARY KEY (RSID)
+    RStatus VARCHAR(100) PRIMARY KEY,
+    RSDescription NVARCHAR(MAX)
 )
 GO
-
 
 --Rooms_Type
-CREATE TABLE Rooms_Type
+CREATE TABLE Room_Type
 (
-    RTID INT IDENTITY(1,1) NOT NULL,
-    RTType VARCHAR(100) NOT NULL UNIQUE,
+    RType VARCHAR(100) NOT NULL PRIMARY KEY,
 	RTBedCount TINYINT NOT NULL DEFAULT 1,
 	RTMaxGuests TINYINT NOT NULL DEFAULT 1,
-	RTDescription NVARCHAR(MAX) DEFAULT '',
-    CONSTRAINT PK_Rooms_Type_RSID PRIMARY KEY (RTID)
+	RTDescription NVARCHAR(MAX)
 )
 GO
-
-
---Employees_Role
-CREATE TABLE Employees_Role (
-    ERID INT IDENTITY(1,1) PRIMARY KEY,   
-    ERDescription NVARCHAR(100) NOT NULL  
-)
-GO
-
 
 --Rooms
 CREATE TABLE Rooms
 (
-    RID INT IDENTITY(1,1) NOT NULL,
-	RFloor TINYINT NOT NULL DEFAULT 0,  
-    RNo INT NOT NULL,      
+	RFloor INT NOT NULL DEFAULT 0,  
+    RNo INT NOT NULL,    
+	PRIMARY KEY (RFloor,RNo),
 	RPricePerNight DECIMAL(10,2) NOT NULL CHECK (RPricePerNight >= 0) DEFAULT 100,
-	RDescription NVARCHAR(MAX) DEFAULT '',
-
-    RSID INT NOT NULL, 
-	RTID INT NOT NULL, 
-    CONSTRAINT PK_Rooms_RID PRIMARY KEY (RID),
-    CONSTRAINT FK_Rooms_Rooms_Status FOREIGN KEY (RSID) REFERENCES Rooms_Status(RSID),
-	CONSTRAINT FK_Rooms_Rooms_Type FOREIGN KEY (RTID) REFERENCES Rooms_Type(RTID)
+    RStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Room_Status(RStatus),
+	RType VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Room_Type(RType),
+	RDescription NVARCHAR(MAX)
 )
 GO
 
 
 --Customers
-CREATE TABLE Customers 
+CREATE TABLE Customers
 (
     CID VARCHAR(100) PRIMARY KEY,   
     CName NVARCHAR(100) NOT NULL,        
     CGender CHAR(6) CHECK (CGender IN ('Male', 'Female', 'Other')) NOT NULL,  
     CPhone VARCHAR(15) UNIQUE NOT NULL,
-    CEmail VARCHAR(100) UNIQUE ,
+    CEmail VARCHAR(100) UNIQUE,
     CAddress NVARCHAR(255),         
-    CType CHAR(7) CHECK (CType IN ('Regular', 'VIP', 'New')) NOT NULL
+    CType CHAR(20) CHECK (CType IN ('Regular', 'VIP', 'New')) DEFAULT 'New'
 )
 GO
 
+--Employees_Role
+CREATE TABLE Employee_Role (
+    ERole VARCHAR(100) PRIMARY KEY,   
+    ERDescription NVARCHAR(100)
+)
+GO
 
 --Employees
-CREATE TABLE Employees (
+CREATE TABLE Employees 
+(
     EID VARCHAR(100) PRIMARY KEY,   
     EName NVARCHAR(100) NOT NULL,         
     EGender CHAR(6) CHECK (EGender IN ('Male', 'Female', 'Other')) NOT NULL,  
@@ -120,221 +111,131 @@ CREATE TABLE Employees (
     EEmail VARCHAR(100) UNIQUE ,  
     EAddress NVARCHAR(255) ,          
     EStatus CHAR(10) CHECK (EStatus IN ('Active', 'Inactive', 'On Leave')) NOT NULL,  
-    ERID INT NOT NULL,                    
-    CONSTRAINT FK_Employees_Employees_Role FOREIGN KEY (ERID) REFERENCES Employees_Role(ERID)
+    ERole VARCHAR(100) FOREIGN KEY REFERENCES Employee_Role(ERole)                 
 )
 GO
 
-
-CREATE TABLE Services (
-    SID INT PRIMARY KEY IDENTITY(1,1),
-    SName NVARCHAR(255) UNIQUE NOT NULL,
+CREATE TABLE [Services] 
+(
+    SName VARCHAR(100) PRIMARY KEY,
     SPrice DECIMAL(10,2) NOT NULL CHECK (SPrice >= 0),
     SDescription NVARCHAR(MAX)
 );
 GO
 
-CREATE TABLE Bookings_Status
+CREATE TABLE Booking_Status
 (
-	BStatus VARCHAR(50) PRIMARY KEY,
+	BStatus VARCHAR(100) PRIMARY KEY,
 	BKDescription NVARCHAR(MAX)
 )
 GO
 
 
-CREATE TABLE Bookings (
-    BID INT PRIMARY KEY IDENTITY(1,1),
-    RID INT NOT NULL,                -- Mã phòng
-    CID VARCHAR(100) NOT NULL,                -- Mã khách hàng
-    BTimeCheckIn DATETIME NOT NULL,  -- Ngày giờ check-in
-    BTimeCheckOut DATETIME, -- Ngày giờ check-out
-    BStatus NVARCHAR(50) NOT NULL,   -- Trạng thái đặt phòng (VD: "Pending", "Confirmed", "Completed")
-    BCreateAt DATETIME DEFAULT GETDATE(), -- Ngày tạo booking
-    
-    FOREIGN KEY (RID) REFERENCES Rooms(RID),
-    FOREIGN KEY (CID) REFERENCES Customers(CID)
-);
-GO
-
-
-CREATE TABLE ServiceUsage 
-(
-    SUID INT PRIMARY KEY IDENTITY(1,1),
-    BID INT NOT NULL,  -- Mã đặt phòng
-    RID INT NOT NULL,  -- Mã phòng sử dụng dịch vụ (Thêm mới)
-    EID VARCHAR(100) NOT NULL,  -- Mã nhân viên thực hiện
-    SUDate DATETIME NOT NULL DEFAULT GETDATE(),  -- Ngày sử dụng dịch vụ
-    
-    FOREIGN KEY (BID) REFERENCES Bookings(BID),
-    FOREIGN KEY (RID) REFERENCES Rooms(RID),  -- Ràng buộc mới
-    FOREIGN KEY (EID) REFERENCES Employees(EID)
-);
-GO
-
-
-CREATE TABLE ServiceUsageDetail 
-(
-    SUID INT NOT NULL,
-    SID INT NOT NULL,
-    UnitPrice DECIMAL(10,2) NOT NULL CHECK (UnitPrice > 0),
-    Quantity INT NOT NULL CHECK (Quantity > 0),
-    Discount DECIMAL(5,2) DEFAULT 0 CHECK (Discount BETWEEN 0 AND 100),
-
-    PRIMARY KEY (SUID, SID),
-    FOREIGN KEY (SUID) REFERENCES ServiceUsage(SUID),
-    FOREIGN KEY (SID) REFERENCES Services(SID)
-);
-GO
-
-
 CREATE TABLE Payment_Method
 (
-	PMMethod VARCHAR(50) PRIMARY KEY,
-	Description NVARCHAR(50)
+	PMethod VARCHAR(100) PRIMARY KEY,
+	Description NVARCHAR(MAX)
 )
 GO
 
 CREATE TABLE Payment_Status
 (
-    PSStatus VARCHAR(50) PRIMARY KEY,
-    Description NVARCHAR(100)
+    PStatus VARCHAR(100) PRIMARY KEY,
+    Description NVARCHAR(MAX)
 )
 GO
 
 
-CREATE TABLE Payments_Booking 
+CREATE TABLE Bookings (
+    BID VARCHAR(100) PRIMARY KEY,
+    RFloor INT NOT NULL,
+	RNo INT NOT NULL,
+    CID VARCHAR(100) NOT NULL FOREIGN KEY (CID) REFERENCES Customers(CID),
+	EID VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Employees(EID),
+    BTimeCheckIn DATETIME NOT NULL,  
+    BTimeCheckOut DATETIME NOT NULL, 
+    BStatus VARCHAR(100) NOT NULL,  
+    BCreateAt DATETIME DEFAULT GETDATE(),
+	FOREIGN KEY (RFloor,RNo) REFERENCES Rooms(RFloor,RNo)
+);
+GO
+
+CREATE TABLE ServiceUsage 
 (
-    PBID INT PRIMARY KEY IDENTITY(1,1),
-    BID INT NOT NULL,
-    EID VARCHAR(100) NOT NULL,
-    PBAmount DECIMAL(10,2) NOT NULL CHECK (PBAmount >= 0),
-    PBDate DATETIME DEFAULT GETDATE(),
-    PMMethod VARCHAR(50),
-    PSStatus VARCHAR(50),
-    
-    FOREIGN KEY (BID) REFERENCES Bookings(BID),
-    FOREIGN KEY (EID) REFERENCES Employees(EID),
-	FOREIGN KEY (PMMethod) REFERENCES Payment_Method(PMMethod),
-	FOREIGN KEY (PSStatus) REFERENCES Payment_Status(PSStatus)
+    BID VARCHAR(100) PRIMARY KEY FOREIGN KEY (BID) REFERENCES Bookings(BID), 
+    SUDate DATETIME NOT NULL DEFAULT GETDATE(),
+	PMethod VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Payment_Method(PMethod),
+    PStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Payment_Status(PStatus)
 );
 GO
 
+CREATE TABLE ServiceUsageDetail 
+(
+    BID VARCHAR(100) FOREIGN KEY REFERENCES ServiceUsage(BID),
+    SName VARCHAR(100) FOREIGN KEY REFERENCES Services(SName),
+	PRIMARY KEY (BID, SName),
 
-CREATE TABLE Payments_Service (
-    PSID INT PRIMARY KEY,
-    SUID INT NOT NULL,
-    EID VARCHAR(100) NOT NULL,
-    PSAmount DECIMAL(10,2) NOT NULL CHECK (PSAmount >= 0),
-    PSDate DATETIME DEFAULT GETDATE(),
-    PMMethod VARCHAR(50),
-    PSStatus VARCHAR(50),
-    
-	FOREIGN KEY (PSID) REFERENCES Payments_Booking(PBID),
-    FOREIGN KEY (SUID) REFERENCES ServiceUsage(SUID),
-    FOREIGN KEY (EID) REFERENCES Employees(EID),
-	FOREIGN KEY (PMMethod) REFERENCES Payment_Method(PMMethod),
-	FOREIGN KEY (PSStatus) REFERENCES Payment_Status(PSStatus)
+	EID VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Employees(EID),
+    UnitPrice DECIMAL(10,2) NOT NULL CHECK (UnitPrice >= 0),
+    Quantity INT NOT NULL CHECK (Quantity > 0),
+    Discount DECIMAL(5,2) DEFAULT 0 CHECK (Discount BETWEEN 0 AND 100)    
 );
 GO
 
------------------TRIGGER-------------------------------
+CREATE TABLE Booking_Payments
+(
+    BID VARCHAR(100) PRIMARY KEY FOREIGN KEY (BID) REFERENCES Bookings(BID),
+    EID VARCHAR(100) FOREIGN KEY (EID) REFERENCES Employees(EID),
+    BPAmount DECIMAL(10,2) NOT NULL CHECK (BPAmount >= 0),
+    BPDate DATETIME DEFAULT GETDATE(),
+    PMethod VARCHAR(100) FOREIGN KEY (PMethod) REFERENCES Payment_Method(PMethod),
+    PStatus VARCHAR(100) FOREIGN KEY (PStatus) REFERENCES Payment_Status(PStatus)
+);
+GO
 
-CREATE TRIGGER whenBooking
-ON Bookings
-AFTER INSERT
+----------------------------PROCEDURE---------------------------
+
+CREATE PROC Table_Rooms_Detail
 AS
 BEGIN
-    SET NOCOUNT ON;
-    INSERT INTO Payments_Booking (BID, EID,PBAmount) SELECT MAX(BID), 2004,100 FROM Bookings;
+	SELECT CONCAT('Roo',[RFloor],'-',[RNo]) AS RoomID,
+       R.RType,
+       RTBedCount, 
+       RTMaxGuests,
+       R.RStatus,
+       RPricePerNight,
+       RDescription
+	FROM [HotelManagementSystem].[dbo].[Rooms] R
+		 JOIN [HotelManagementSystem].[dbo].Room_Type RT ON R.RType = RT.RType
+	ORDER BY RoomID ASC
 END;
 GO
 
-/*CREATE TRIGGER whenBookingService
-ON Bookings
-AFTER INSERT
+
+CREATE PROC When_INSERT_INTO_Bookings @BID VARCHAR(100), @RID INT, @CID VARCHAR(100), @EID VARCHAR(100), @BTimeCheckIn DATETIME, @BTimeCheckOut DATETIME, @BStatus VARCHAR(100)
 AS
 BEGIN
-    SET NOCOUNT ON;
-    INSERT INTO Payments_Service (BID, EID) SELECT MAX(BID), 1 FROM Bookings;
-END;
-GO
-*/
+	INSERT INTO Bookings
+	VALUES (@BID,@RID,@CID,@EID, @BTimeCheckIn, @BTimeCheckOut,@BStatus,GETDATE())
 
----------------------------------------INSERT INTO----------------------------
+	INSERT INTO Booking_Payments
+	VALUES (@BID, @EID ,0 ,GETDATE(),'Cash','Pending')
 
-SET NOCOUNT ON;
-GO
-
-INSERT INTO Payment_Status (PSStatus, Description) 
-VALUES ('Completed', N'Thanh toán đã hoàn tất'),
-	   ('Failed', N'Thanh toán không thành công'),
-	   ('Refunded', N'Đã hoàn tiền'),
-	   ('Canceled', N'Thanh toán đã bị hủy'),
-	   ('Overdue', N'Thanh toán quá hạn')
-GO
-	   
-
-
-INSERT INTO Bookings_Status (BStatus, BKDescription) 
-VALUES ('Confirmed', N'Đặt phòng đã được xác nhận và sẵn sàng cho khách.'),
-	   ('Checked-in', N'Khách hàng đã đến nhận phòng.'),
-	   ('Checked-out', N'Khách hàng đã trả phòng và rời đi.'),
-	   ('No-Show', N'Khách hàng không đến nhận phòng như đã đặt.'),
-	   ('Canceled', N'Đặt phòng đã bị hủy bởi khách hàng hoặc khách sạn.')
-GO
-
-INSERT INTO Payment_Method (PMMethod, Description) 
-VALUES ('Cash', N'Tiền mặt'), ('Credit Card', N'Thẻ tín dụng'),
-	   ('Debit Card', N'Thẻ ghi nợ'), ('Bank Transfer', N'Chuyển khoản ngân hàng'),
-	   ('E-Wallet', N'Ví điện tử'), ('QR Code', N'Thanh toán mã QR'),
-	   ('PayPal', N'Thanh toán qua PayPal'), ('Crypto', N'Thanh toán bằng tiền điện tử');
-GO
-
-
-INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Available',N'Phòng trống')
-INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Reserved',N'Đã nhận phòng')
-INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Occupied',N'Đã đặt')
-INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Dirty',N'Cần vệ sinh')
-INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Cleaning',N'Đang vệ sinh')
-INSERT INTO Rooms_Status (RSStatus,RSDescription) VALUES ('Maintenance',N'Đang bảo trì')
-GO
-
-
-INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests) VALUES ('Single',1,1)
-INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests) VALUES ('Double',1,2)
-INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests,RTDescription) VALUES ('Triple_2',2,3,N'3 giường đơn')
-INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests,RTDescription) VALUES ('Triple_3',1,3,N'1 giường đôi + 1 giường đơn')
-INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests) VALUES ('Twin',2,2)
-INSERT INTO Rooms_Type (RTType,RTBedCount,RTMaxGuests,RTDescription) VALUES ('Family',2,4,N'1 giường đôi + 2 giường đơn')
-GO
-
-INSERT INTO Services (SName, SPrice, SDescription)
-VALUES (N'Giặt ủi', 50.00, N'Dịch vụ giặt ủi quần áo cho khách.'),
-    (N'Đưa đón sân bay', 200.00, N'Dịch vụ xe đưa đón khách từ/đến sân bay.'),
-    (N'Ăn sáng buffet', 150.00, N'Bữa sáng buffet với nhiều món ăn phong phú.'),
-    (N'Spa & Massage', 300.00, N'Thư giãn với dịch vụ spa và massage chuyên nghiệp.'),
-    (N'Thuê xe', 500.00, N'Dịch vụ cho thuê xe máy và ô tô.');
-GO	
-
-
-INSERT INTO Employees_Role (ERDescription)
-VALUES (N'Admin'), (N'Manager'), (N'Staff');
+	INSERT INTO ServiceUsage
+	VALUES (@BID, GETDATE(),'Cash','Pending')
+END
 GO
 
 /*
-INSERT INTO Customers VALUES ('2025','Tuan','Male','0364626275',NULL,NULL,'New')
+CREATE PROC When_Order_Service @BID VARCHAR(100), @RID INT, @CID VARCHAR(100), @EID VARCHAR(100), @BTimeCheckIn DATETIME, @BTimeCheckOut DATETIME, @BStatus VARCHAR(100)
+AS
+BEGIN
+	INSERT INTO Bookings
+	VALUES (@BID,@RID,@CID,@EID, @BTimeCheckIn, @BTimeCheckOut,@BStatus,GETDATE())
+
+	INSERT INTO Booking_Payments
+	VALUES (@BID, @EID ,0 ,GETDATE(),'Cash','Pending')
+END
 GO
-
-INSERT INTO Employees 
-VALUES ('2004','Staff','Male','0364626275',NULL,NULL,'Active','1')
-GO
-
-
-INSERT INTO Bookings (RID,CID, BTimeCheckIn,BTimeCheckOut,BStatus,BCreateAt)
-VALUES (1,'2025',GETDATE(),NULL,'Pending',GETDATE());
-GO
-
-----------------------------------------
-
-select * from Bookings
 */
+--------------------------------TRIGGER---------------------------------
