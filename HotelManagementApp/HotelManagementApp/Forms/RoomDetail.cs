@@ -31,19 +31,13 @@ namespace HotelManagementApp.Forms
         private function function = new function();
 
         private ClassRoom room;
-        private ClassRooms_Type classRooms_Type;
-        private ClassRooms_Status classRooms_Status;
+        private ClassRoom_Type classRooms_Type;
 
         public RoomDetail(ClassRoom room)
         {
             InitializeComponent();
             this.room = room;
-            classRooms_Type = new ClassRooms_Type(room.GetRTID());
-            classRooms_Type.setByID();
-
-            classRooms_Status = new ClassRooms_Status(room.GetRSID());
-            classRooms_Status.setByID();
-
+            classRooms_Type = room.getRoomType();
         }
 
         private void RoomDetail_Load(object sender, EventArgs e)
@@ -54,42 +48,40 @@ namespace HotelManagementApp.Forms
 
         private void initPreview()
         {
-            groupboxPreview.Text += "\tID: " + this.room.GetRID();
+            groupboxPreview.Text += "\tID: " + this.room.getRoomID();
 
-            lbBedCount.Text = classRooms_Type.GetRTBedCount().ToString();
-            lbMaxGuests.Text = classRooms_Type.GetRTMaxGuests().ToString();
+            lbBedCount.Text = classRooms_Type.RTBedCount.ToString();
+            lbMaxGuests.Text = classRooms_Type.RTMaxGuests.ToString();
         }
 
         private void initControls()
         {
-            loadData_comboboxRoomType();
-            loadData_comboboxOtherStatus();
+            loadData_RoomType();
+            loadData_Status();
 
-            floor.Value = room.GetRFloor();
-            numRoom.Value = room.GetRNo();
+            lbFloor.Text=room.RFloor.ToString();
+            lbNo.Text=room.RNo.ToString();
 
-            int index = comboboxRoomType.Items.IndexOf(classRooms_Type.GetRTType());
+            int index = comboboxRoomType.Items.IndexOf(room.RType);
 
             if (index >= 0)
             {
                 comboboxRoomType.SelectedIndex = index;
             }
 
-
-            index = comboboxStatus.Items.IndexOf(classRooms_Status.GetRSStatus());
+            index = comboboxStatus.Items.IndexOf(room.RStatus);
             if (index >= 0)
             {
                 comboboxStatus.SelectedIndex = index;
             }
 
-            price.Text = room.GetRPricePerNight().ToString();
-            note.Text = room.GetRDescription();
+            price.Text = room.RPricePerNight.ToString();
+            note.Text = room.RDescription;
         }
 
-        private void loadData_comboboxOtherStatus()
+        public void loadData_Status()
         {
-            string query = @"SELECT RSStatus
-                             FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
+            string query = $"SELECT RStatus FROM {ClassRoom_Status.TABLE_NAME}";
 
             using (SqlConnection conn = function.getConnection())
             {
@@ -102,7 +94,7 @@ namespace HotelManagementApp.Forms
                     comboboxStatus.Items.Clear();
                     while (reader.Read())
                     {
-                        comboboxStatus.Items.Add(reader["RSStatus"].ToString());
+                        comboboxStatus.Items.Add(reader["RStatus"].ToString());
                     }
 
                     reader.Close();
@@ -115,10 +107,9 @@ namespace HotelManagementApp.Forms
             comboboxStatus.SelectedIndex = 0;
         }
 
-        private void loadData_comboboxRoomType()
+        private void loadData_RoomType()
         {
-            string query = @"SELECT [RTType]
-                        FROM (" + ClassRooms_Type.TABLE_Rooms_Type + ") AS A";
+            string query = $"SELECT [RType] FROM {ClassRoom_Type.TABLE_NAME}";
 
             using (SqlConnection conn = function.getConnection())
             {
@@ -131,7 +122,7 @@ namespace HotelManagementApp.Forms
                     comboboxRoomType.Items.Clear();
                     while (reader.Read())
                     {
-                        comboboxRoomType.Items.Add(reader["RTType"].ToString());
+                        comboboxRoomType.Items.Add(reader["RType"].ToString());
                     }
 
                     reader.Close();
@@ -182,7 +173,7 @@ namespace HotelManagementApp.Forms
         {
             if (alert("Bạn chắc chắn muốn XÓA phòng ?"))
             {
-                if (room.deleteByID())
+                if (room.delete())
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();
@@ -202,19 +193,10 @@ namespace HotelManagementApp.Forms
         {
             if (alert("Bạn chắc chắn muốn CHỈNH SỬA phòng ?"))
             {
-                ClassRooms_Status status = new ClassRooms_Status(lbStatus.Text);
-                status.setRooms_StatusByRSStatus();
-
-                ClassRooms_Type type = new ClassRooms_Type(comboboxRoomType.Text);
-                type.setRooms_TypeByRTType();
-
-                room.SetRFloor(Convert.ToInt32(lbFloor.Text));
-                room.SetRNo(Convert.ToInt32(lbNo.Text));
-
-                room.SetRPricePerNight(Convert.ToDecimal(lbPrice.Text));
-                room.SetRSID(status.GetRSID());
-                room.SetRTID(type.GetRTID());
-                room.SetRDescription(lbDescription.Text);
+                room.RPricePerNight = Convert.ToDecimal(price.Text);
+                room.RStatus = comboboxStatus.Text;
+                room.RType = comboboxRoomType.Text;
+                room.RDescription = note.Text;
 
                 if (room.updateRoom())
                 {
@@ -224,23 +206,12 @@ namespace HotelManagementApp.Forms
             }
         }
 
-        private void floor_ValueChanged(object sender, EventArgs e)
-        {
-            lbFloor.Text = floor.Value.ToString();
-        }
-
-        private void numRoom_ValueChanged(object sender, EventArgs e)
-        {
-            lbNo.Text = numRoom.Value.ToString();
-        }
-
         private void comboboxRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
             groupboxType.Text = comboboxRoomType.SelectedItem.ToString();
-            classRooms_Type = new ClassRooms_Type(groupboxType.Text);
-            classRooms_Type.setRooms_TypeByRTType();
-            lbBedCount.Text = classRooms_Type.GetRTBedCount().ToString();
-            lbMaxGuests.Text = classRooms_Type.GetRTMaxGuests().ToString();
+            classRooms_Type = new ClassRoom_Type(groupboxType.Text);
+            lbBedCount.Text = classRooms_Type.RTBedCount.ToString();
+            lbMaxGuests.Text = classRooms_Type.RTMaxGuests.ToString();
         }
 
         private void comboboxStatus_SelectedValueChanged(object sender, EventArgs e)

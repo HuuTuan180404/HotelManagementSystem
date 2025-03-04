@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_BookingManagement));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnAdd = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.titleID = new Guna.UI2.WinForms.Guna2TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -48,12 +48,7 @@
             this.pricePerNight = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rooNo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnUpdate = new Guna.UI2.WinForms.Guna2ImageButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.timeCheckOut_2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.timeCheckIn_2 = new Guna.UI2.WinForms.Guna2DateTimePicker();
-            this.timeCheckOut_1 = new System.Windows.Forms.MaskedTextBox();
-            this.timeCheckIn_1 = new System.Windows.Forms.MaskedTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -70,8 +65,9 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.titleID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.timeCheckIn = new Guna.UI2.WinForms.Guna2TextBox();
+            this.timeCheckOut = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -114,18 +110,42 @@
             this.guna2GroupBox1.BorderRadius = 20;
             this.guna2GroupBox1.Controls.Add(this.titleID);
             this.guna2GroupBox1.Controls.Add(this.groupBox3);
-            this.guna2GroupBox1.Controls.Add(this.btnUpdate);
             this.guna2GroupBox1.Controls.Add(this.groupBox2);
             this.guna2GroupBox1.Controls.Add(this.groupBox1);
             this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 30F);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
             this.guna2GroupBox1.Location = new System.Drawing.Point(780, 186);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(733, 627);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(733, 546);
             this.guna2GroupBox1.TabIndex = 14;
             this.guna2GroupBox1.Text = "Booking Detail";
             this.guna2GroupBox1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.guna2GroupBox1.UseTransparentBackground = true;
+            // 
+            // titleID
+            // 
+            this.titleID.AutoRoundedCorners = true;
+            this.titleID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.titleID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.titleID.DefaultText = "ID: 2";
+            this.titleID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.titleID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.titleID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.titleID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.titleID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.titleID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.titleID.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.titleID.ForeColor = System.Drawing.Color.White;
+            this.titleID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.titleID.Location = new System.Drawing.Point(30, 59);
+            this.titleID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.titleID.Name = "titleID";
+            this.titleID.PlaceholderText = "";
+            this.titleID.ReadOnly = true;
+            this.titleID.SelectedText = "";
+            this.titleID.Size = new System.Drawing.Size(171, 45);
+            this.titleID.TabIndex = 3;
+            this.titleID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // groupBox3
             // 
@@ -230,7 +250,7 @@
             this.roomType.AutoRoundedCorners = true;
             this.roomType.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.roomType.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.roomType.DefaultText = "họ tên";
+            this.roomType.DefaultText = "type";
             this.roomType.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.roomType.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.roomType.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -317,26 +337,10 @@
             this.rooNo.TabIndex = 7;
             this.rooNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnUpdate.HoverState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnUpdate.Image = ((System.Drawing.Image)(resources.GetObject("btnUpdate.Image")));
-            this.btnUpdate.ImageOffset = new System.Drawing.Point(0, 0);
-            this.btnUpdate.ImageRotate = 0F;
-            this.btnUpdate.Location = new System.Drawing.Point(336, 543);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnUpdate.Size = new System.Drawing.Size(64, 54);
-            this.btnUpdate.TabIndex = 2;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.timeCheckOut_2);
-            this.groupBox2.Controls.Add(this.timeCheckIn_2);
-            this.groupBox2.Controls.Add(this.timeCheckOut_1);
-            this.groupBox2.Controls.Add(this.timeCheckIn_1);
+            this.groupBox2.Controls.Add(this.timeCheckOut);
+            this.groupBox2.Controls.Add(this.timeCheckIn);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.label11);
             this.groupBox2.Controls.Add(this.label10);
@@ -348,68 +352,6 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Booking Information";
-            // 
-            // timeCheckOut_2
-            // 
-            this.timeCheckOut_2.AutoRoundedCorners = true;
-            this.timeCheckOut_2.Checked = true;
-            this.timeCheckOut_2.FillColor = System.Drawing.Color.White;
-            this.timeCheckOut_2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.timeCheckOut_2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckOut_2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.timeCheckOut_2.Location = new System.Drawing.Point(454, 90);
-            this.timeCheckOut_2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.timeCheckOut_2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.timeCheckOut_2.Name = "timeCheckOut_2";
-            this.timeCheckOut_2.Size = new System.Drawing.Size(204, 41);
-            this.timeCheckOut_2.TabIndex = 21;
-            this.timeCheckOut_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timeCheckOut_2.Value = new System.DateTime(2025, 2, 27, 0, 0, 0, 0);
-            // 
-            // timeCheckIn_2
-            // 
-            this.timeCheckIn_2.AutoRoundedCorners = true;
-            this.timeCheckIn_2.Checked = true;
-            this.timeCheckIn_2.FillColor = System.Drawing.Color.White;
-            this.timeCheckIn_2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.timeCheckIn_2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckIn_2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.timeCheckIn_2.Location = new System.Drawing.Point(237, 90);
-            this.timeCheckIn_2.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.timeCheckIn_2.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.timeCheckIn_2.Name = "timeCheckIn_2";
-            this.timeCheckIn_2.Size = new System.Drawing.Size(204, 41);
-            this.timeCheckIn_2.TabIndex = 20;
-            this.timeCheckIn_2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timeCheckIn_2.Value = new System.DateTime(2025, 2, 27, 0, 0, 0, 0);
-            // 
-            // timeCheckOut_1
-            // 
-            this.timeCheckOut_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.timeCheckOut_1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeCheckOut_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckOut_1.Location = new System.Drawing.Point(454, 65);
-            this.timeCheckOut_1.Mask = "00:00";
-            this.timeCheckOut_1.Name = "timeCheckOut_1";
-            this.timeCheckOut_1.Size = new System.Drawing.Size(204, 22);
-            this.timeCheckOut_1.TabIndex = 19;
-            this.timeCheckOut_1.Text = "1200";
-            this.timeCheckOut_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timeCheckOut_1.ValidatingType = typeof(System.DateTime);
-            // 
-            // timeCheckIn_1
-            // 
-            this.timeCheckIn_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.timeCheckIn_1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timeCheckIn_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckIn_1.Location = new System.Drawing.Point(237, 65);
-            this.timeCheckIn_1.Mask = "00:00";
-            this.timeCheckIn_1.Name = "timeCheckIn_1";
-            this.timeCheckIn_1.Size = new System.Drawing.Size(204, 22);
-            this.timeCheckIn_1.TabIndex = 3;
-            this.timeCheckIn_1.Text = "1200";
-            this.timeCheckIn_1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.timeCheckIn_1.ValidatingType = typeof(System.DateTime);
             // 
             // label12
             // 
@@ -446,7 +388,7 @@
             this.bookingStatus.AutoRoundedCorners = true;
             this.bookingStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.bookingStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bookingStatus.DefaultText = "họ tên";
+            this.bookingStatus.DefaultText = "status";
             this.bookingStatus.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.bookingStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.bookingStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -455,7 +397,7 @@
             this.bookingStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bookingStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.bookingStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bookingStatus.Location = new System.Drawing.Point(20, 90);
+            this.bookingStatus.Location = new System.Drawing.Point(20, 76);
             this.bookingStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.bookingStatus.Name = "bookingStatus";
             this.bookingStatus.PlaceholderText = "";
@@ -699,35 +641,64 @@
             this.dataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(215)))), ((int)(((byte)(95)))));
             this.dataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
+            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 43;
             // 
-            // titleID
+            // contextMenuStrip
             // 
-            this.titleID.AutoRoundedCorners = true;
-            this.titleID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.titleID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.titleID.DefaultText = "ID: 2";
-            this.titleID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.titleID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.titleID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.titleID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.titleID.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.titleID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.titleID.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.titleID.ForeColor = System.Drawing.Color.White;
-            this.titleID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.titleID.Location = new System.Drawing.Point(30, 59);
-            this.titleID.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.titleID.Name = "titleID";
-            this.titleID.PlaceholderText = "";
-            this.titleID.ReadOnly = true;
-            this.titleID.SelectedText = "";
-            this.titleID.Size = new System.Drawing.Size(171, 45);
-            this.titleID.TabIndex = 3;
-            this.titleID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
+            // 
+            // timeCheckIn
+            // 
+            this.timeCheckIn.AutoRoundedCorners = true;
+            this.timeCheckIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckIn.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.timeCheckIn.DefaultText = "time1";
+            this.timeCheckIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.timeCheckIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.timeCheckIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckIn.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckIn.Location = new System.Drawing.Point(237, 76);
+            this.timeCheckIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeCheckIn.Name = "timeCheckIn";
+            this.timeCheckIn.PlaceholderText = "";
+            this.timeCheckIn.ReadOnly = true;
+            this.timeCheckIn.SelectedText = "";
+            this.timeCheckIn.Size = new System.Drawing.Size(204, 41);
+            this.timeCheckIn.TabIndex = 22;
+            this.timeCheckIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // timeCheckOut
+            // 
+            this.timeCheckOut.AutoRoundedCorners = true;
+            this.timeCheckOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckOut.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.timeCheckOut.DefaultText = "time2";
+            this.timeCheckOut.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.timeCheckOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.timeCheckOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckOut.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckOut.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckOut.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckOut.Location = new System.Drawing.Point(454, 76);
+            this.timeCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeCheckOut.Name = "timeCheckOut";
+            this.timeCheckOut.PlaceholderText = "";
+            this.timeCheckOut.ReadOnly = true;
+            this.timeCheckOut.SelectedText = "";
+            this.timeCheckOut.Size = new System.Drawing.Size(204, 41);
+            this.timeCheckOut.TabIndex = 23;
+            this.timeCheckOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UC_BookingManagement
             // 
@@ -761,10 +732,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
-        private Guna.UI2.WinForms.Guna2ImageButton btnUpdate;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2ImageButton btnAdd;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Guna.UI2.WinForms.Guna2TextBox fullName;
         private Guna.UI2.WinForms.Guna2TextBox customerID;
         private Guna.UI2.WinForms.Guna2TextBox phoneNumber;
@@ -787,10 +756,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private Guna.UI2.WinForms.Guna2TextBox bookingStatus;
-        private System.Windows.Forms.MaskedTextBox timeCheckIn_1;
-        private System.Windows.Forms.MaskedTextBox timeCheckOut_1;
-        private Guna.UI2.WinForms.Guna2DateTimePicker timeCheckIn_2;
-        private Guna.UI2.WinForms.Guna2DateTimePicker timeCheckOut_2;
         private Guna.UI2.WinForms.Guna2TextBox titleID;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private Guna.UI2.WinForms.Guna2TextBox timeCheckOut;
+        private Guna.UI2.WinForms.Guna2TextBox timeCheckIn;
     }
 }

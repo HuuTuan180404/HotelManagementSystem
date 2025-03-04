@@ -24,13 +24,12 @@ namespace HotelManagementApp.User_Controls
 
         public UC_RoomManagement()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
-        private void loadData_comboboxOtherStatus()
+        private void loadData_Status()
         {
-            query = @"SELECT RSStatus
-                      FROM (" + ClassRooms_Status.TABLE_Rooms_Status + ") AS A";
+            query = $"SELECT RStatus FROM {ClassRoom_Status.TABLE_NAME}";
             using (SqlConnection conn = function.getConnection())
             {
                 try
@@ -43,7 +42,7 @@ namespace HotelManagementApp.User_Controls
 
                     while (reader.Read())
                     {
-                        comboboxOtherStatus.Items.Add(reader["RSStatus"].ToString());
+                        comboboxOtherStatus.Items.Add(reader["RStatus"].ToString());
                     }
 
                     reader.Close();
@@ -58,7 +57,7 @@ namespace HotelManagementApp.User_Controls
 
         private void Room_Load(object sender, EventArgs e)
         {
-            loadData_comboboxOtherStatus();
+            loadData_Status();
             loadData();
         }
 
@@ -71,19 +70,48 @@ namespace HotelManagementApp.User_Controls
             loadData();
         }
 
-        // double click vào 1 record
+        private void dataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                var hitTestInfo = dataGridView.HitTest(e.X, e.Y);
+
+                if (hitTestInfo.RowIndex >= 0) // Kiểm tra có hàng hay không
+                {
+                    dataGridView.ClearSelection();
+                    dataGridView.Rows[hitTestInfo.RowIndex].Selected = true; // Chọn hàng
+                    CreateContextMenuRightClick();
+                    contextMenuStrip.Show(dataGridView, new Point(e.X, e.Y)); // Hiển thị menu
+                }
+            }
+        }
+
+        private void demo(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateContextMenuRightClick()
+        {
+            contextMenuStrip.Items.Clear();
+            contextMenuStrip.Items.Add("Edit", null, demo);
+            contextMenuStrip.Items.Add("View detail", null, demo);
+            contextMenuStrip.Items.Add("Làm mới", null, demo);
+        }
+
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
 
-                ClassRoom room = new ClassRoom(Convert.ToInt32(row.Cells["RID"].Value.ToString()));
-                room.setRoomsByRID();
-                
+                ClassRoom room = new ClassRoom(row.Cells[0].Value.ToString());
+
+                Debug.WriteLine(room.ToString());
+
                 RoomDetail roomDetail = new RoomDetail(room);
                 if (roomDetail.ShowDialog() == DialogResult.OK)
-                    Room_Load(this, null);                
+                    Room_Load(this, null);
             }
         }
 
@@ -102,10 +130,10 @@ namespace HotelManagementApp.User_Controls
 
         private void filterByStatus()
         {
-            query = ClassRoom.TABLE_Rooms + " WHERE RSStatus = @RSStatus";
+            query = ClassRoom.TABLE_ROOMS_DETAIL + " WHERE RStatus = @RStatus";
 
             SqlCommand cmd = new SqlCommand(query);
-            cmd.Parameters.AddWithValue("@RSStatus", comboboxOtherStatus.SelectedItem.ToString());
+            cmd.Parameters.AddWithValue("@RStatus", comboboxOtherStatus.SelectedItem.ToString());
 
             DataSet dataSet = function.getDataSet(cmd);
             dataGridView.DataSource = dataSet.Tables[0];
@@ -113,9 +141,7 @@ namespace HotelManagementApp.User_Controls
 
         private void loadData()
         {
-            query = ClassRoom.TABLE_Rooms + " ORDER BY RFloor ASC, RNo ASC;";
-
-            DataSet dataSet = function.getData(query);
+            DataSet dataSet = function.getDataSet(new SqlCommand("EXEC Table_Rooms_Detail"));
             dataGridView.DataSource = dataSet.Tables[0];
         }
 
@@ -126,7 +152,8 @@ namespace HotelManagementApp.User_Controls
             addRoom.ShowDialog();
         }
 
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+        private void btnFilter_Click(object sender, EventArgs e)
         {
 
         }

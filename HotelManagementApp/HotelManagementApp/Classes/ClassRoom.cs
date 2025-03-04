@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Diagnostics;
@@ -11,72 +12,75 @@ namespace HotelManagementApp.Classes
 {
     public class ClassRoom
     {
-        private int RID;
-        private int RFloor;
-        private int RNo;
-        private decimal RPricePerNight;
-        private int RSID;
-        private int RTID;
-        private string RDescription;
+        public int RFloor { get; set; }
+        public int RNo { get; set; }
+        public decimal RPricePerNight { get; set; }
+        public string RStatus { get; set; }
+        public string RType { get; set; }
+        public string RDescription { get; set; }
+
+        public ClassRoom_Type roomType { get; set; }
 
         private static function function = new function();
 
         public static readonly string TABLE_NAME = "[HotelManagementSystem].[dbo].[Rooms]";
-        public static readonly string TABLE_Rooms = @"
-                            SELECT RID,
-                                   CONCAT('Roo',[RFloor],'0',[RNo]) AS RoomNo,
-                                   RTType,
-                                   RTBedCount, 
-                                   RTMaxGuests,
-                                   RSStatus,
-                                   RPricePerNight,
-                                   RDescription
-                            FROM [HotelManagementSystem].[dbo].[Rooms] R
-                                 JOIN [HotelManagementSystem].[dbo].Rooms_Type RT ON R.RTID = RT.RTID
-                                 JOIN [HotelManagementSystem].[dbo].Rooms_Status RS ON R.RSID = RS.RSID";
+
+        public static readonly string TABLE_ROOMS_DETAIL = @"
+            SELECT CONCAT('Roo',[RFloor],'-',[RNo]) AS RoomID,
+                   RType,
+                   RTBedCount, 
+                   RTMaxGuests,
+                   RStatus,
+                   RPricePerNight,
+                   RDescription
+	        FROM [HotelManagementSystem].[dbo].[Rooms] R";
+
 
         public ClassRoom() { }
 
-        public ClassRoom(int rID)
+        public ClassRoom(string roomID)
         {
-            this.RID = rID;
+            roomID = roomID.Substring(3);
+            string[] s = roomID.Split('-');
+            this.RFloor = int.Parse(s[0]);
+            this.RNo = int.Parse(s[1]);
+            setByRoomID();
         }
 
         public ClassRoom(int RFloor, int RNo)
         {
             this.RFloor = RFloor;
             this.RNo = RNo;
+            setByRoomID();
         }
 
-        public ClassRoom(int rID, int rFloor, int rNo, decimal rPricePerNight, int rSID, int rTID, string rDescription) : this(rID, rFloor)
+        public ClassRoom(int floor, int no, decimal price, string status, string type, string description) : this(floor, no)
         {
-            RNo = rNo;
-            RPricePerNight = rPricePerNight;
-            RSID = rSID;
-            RTID = rTID;
-            RDescription = rDescription;
+            RPricePerNight = price;
+            RStatus = status;
+            RType = type;
+            RDescription = description;
         }
 
-        public void setRoomsByRID()
+        private void setByRoomID()
         {
-            string query = "SELECT * FROM " + ClassRoom.TABLE_NAME + " WHERE RID=@RID";
+            string query = $"SELECT * FROM {ClassRoom.TABLE_NAME} WHERE RFloor=@RFloor AND RNo=@RNo";
             using (SqlConnection conn = function.getConnection())
             {
                 try
                 {
                     conn.Open();
                     SqlCommand cmd = new SqlCommand(query, conn);
-                    cmd.Parameters.AddWithValue("@RID", this.RID);
+                    cmd.Parameters.AddWithValue("@RFloor", this.RFloor);
+                    cmd.Parameters.AddWithValue("@RNo", this.RNo);
 
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        this.RFloor = Convert.ToInt32(reader["RFloor"]);
-                        this.RNo = Convert.ToInt32(reader["RNo"]);
                         this.RPricePerNight = Convert.ToDecimal(reader["RPricePerNight"]);
-                        this.RTID = Convert.ToInt32(reader["RTID"]);
-                        this.RSID = Convert.ToInt32(reader["RSID"]);
+                        this.RStatus = reader["RStatus"].ToString();
+                        this.RType = reader["RType"].ToString();
                         this.RDescription = reader["RDescription"].ToString();
                     }
                     reader.Close();
@@ -88,68 +92,23 @@ namespace HotelManagementApp.Classes
             }
         }
 
-        public bool isExistsRoom()
+        public ClassRoom_Type getRoomType()
         {
-            string query = $"SELECT COUNT(*) FROM {TABLE_NAME}" + " WHERE RFloor=@RFloor AND RNo=@RNo";
-            using (SqlConnection conn = function.getConnection())
-            {
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@RFloor", this.RFloor);
-                    cmd.Parameters.AddWithValue("@RNo", this.RNo);
-                    conn.Open();
-
-                    int count = Convert.ToInt32(cmd.ExecuteScalar());
-                    return count > 0;
-                }
-            }
+            return new ClassRoom_Type(RType);
         }
 
-        public bool insertIntoRoom()
+        public string getRoomID()
         {
-            string query = $"INSERT INTO {TABLE_NAME} (RFloor,RNo,RPricePerNight,RSID,RTID,RDescription) " +
-                         "VALUES (@RFloor,@RNo,@RPricePerNight,@RSID,@RTID,@RDescription)";
+            return $"Roo{this.RFloor}-{this.RNo}";
+        }
+
+        public bool delete()
+        {
+            string query = $"DELETE FROM {TABLE_NAME} WHERE RFloor=@RFloor AND RNo=@RNo";
 
             SqlCommand sqlCommand = new SqlCommand(query);
             sqlCommand.Parameters.AddWithValue("@RFloor", this.RFloor);
             sqlCommand.Parameters.AddWithValue("@RNo", this.RNo);
-            sqlCommand.Parameters.AddWithValue("@RPricePerNight", this.RPricePerNight);
-            sqlCommand.Parameters.AddWithValue("@RSID", this.RSID);
-            sqlCommand.Parameters.AddWithValue("@RTID", this.RTID);
-            sqlCommand.Parameters.AddWithValue("@RDescription", this.RDescription);
-
-            return editRecord(sqlCommand, "Insert into table Rooms");
-        }
-
-        public bool updateRoom()
-        {
-            string query = $"UPDATE {TABLE_NAME} " +
-                           @"SET RFloor = @RFloor,
-                                RNo = @RNo,
-                                RPricePerNight = @RPricePerNight,
-                                RDescription = @RDescription,
-                                RSID = @RSID,
-                                RTID = @RTID
-                            WHERE RID = @RID";
-
-            SqlCommand sqlCommand = new SqlCommand(query);
-            sqlCommand.Parameters.AddWithValue("@RFloor", this.RFloor);
-            sqlCommand.Parameters.AddWithValue("@RNo", this.RNo);
-            sqlCommand.Parameters.AddWithValue("@RPricePerNight", this.RPricePerNight);
-            sqlCommand.Parameters.AddWithValue("@RSID", this.RSID);
-            sqlCommand.Parameters.AddWithValue("@RTID", this.RTID);
-            sqlCommand.Parameters.AddWithValue("@RDescription", this.RDescription);
-            sqlCommand.Parameters.AddWithValue("@RID", this.RID);
-
-            return editRecord(sqlCommand, "Update table Rooms");
-        }
-
-        public bool deleteByID()
-        {
-            string query = $"DELETE FROM {TABLE_NAME} WHERE RID=@RID";
-
-            SqlCommand sqlCommand = new SqlCommand(query);
-            sqlCommand.Parameters.AddWithValue("@RID", this.RID);
 
             return editRecord(sqlCommand, "Detele a record from table " + TABLE_NAME);
         }
@@ -177,30 +136,103 @@ namespace HotelManagementApp.Classes
             return false;
         }
 
-        public string getRooNo()
+        public bool isExists()
         {
-            return $"Roo{this.RFloor}0{this.RNo}";
+            string query = $"SELECT COUNT(*) FROM {TABLE_NAME} WHERE RFloor=@RFloor AND RNo=@RNo";
+            using (SqlConnection conn = function.getConnection())
+            {
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@RFloor", this.RFloor);
+                    cmd.Parameters.AddWithValue("@RNo", this.RNo);
+                    conn.Open();
+
+                    int count = Convert.ToInt32(cmd.ExecuteScalar());
+                    return count > 0;
+                }
+            }
         }
 
-        public int GetRID() { return RID; }
-        public void SetRID(int value) { RID = value; }
+        public bool insertInto()
+        {
+            string query = $"INSERT INTO {TABLE_NAME} (RFloor,RNo,RPricePerNight,RStatus,RType,RDescription) " +
+                         "VALUES (@RFloor,@RNo,@RPricePerNight,@RStatus,@RType,@RDescription)";
 
-        public int GetRFloor() { return RFloor; }
-        public void SetRFloor(int value) { RFloor = value; }
+            SqlCommand sqlCommand = new SqlCommand(query);
+            sqlCommand.Parameters.AddWithValue("@RFloor", this.RFloor);
+            sqlCommand.Parameters.AddWithValue("@RNo", this.RNo);
+            sqlCommand.Parameters.AddWithValue("@RPricePerNight", this.RPricePerNight);
+            sqlCommand.Parameters.AddWithValue("@RStatus", this.RStatus);
+            sqlCommand.Parameters.AddWithValue("@RType", this.RType);
+            sqlCommand.Parameters.AddWithValue("@RDescription", this.RDescription);
 
-        public decimal GetRPricePerNight() { return RPricePerNight; }
-        public void SetRPricePerNight(decimal a) { RPricePerNight = a; }
+            return editRecord(sqlCommand, "Insert into table Rooms");
+        }
 
-        public int GetRNo() { return RNo; }
-        public void SetRNo(int value) { RNo = value; }
+        public bool updateRoom()
+        {
+            string query = $"UPDATE {TABLE_NAME} " +
+                           @"SET RPricePerNight = @RPricePerNight,
+                                RDescription = @RDescription,
+                                RStatus = @RStatus,
+                                RType = @RType
+                            WHERE RFloor=@RFloor AND RNo=@RNo";
 
-        public int GetRSID() { return RSID; }
-        public void SetRSID(int value) { RSID = value; }
+            SqlCommand sqlCommand = new SqlCommand(query);
+            sqlCommand.Parameters.AddWithValue("@RFloor", this.RFloor);
+            sqlCommand.Parameters.AddWithValue("@RNo", this.RNo);
+            sqlCommand.Parameters.AddWithValue("@RPricePerNight", this.RPricePerNight);
+            sqlCommand.Parameters.AddWithValue("@RStatus", this.RStatus);
+            sqlCommand.Parameters.AddWithValue("@RType", this.RType);
+            sqlCommand.Parameters.AddWithValue("@RDescription", this.RDescription);
 
-        public int GetRTID() { return RTID; }
-        public void SetRTID(int value) { RTID = value; }
+            return editRecord(sqlCommand, "Update table Rooms");
+        }
 
-        public string GetRDescription() { return RDescription; }
-        public void SetRDescription(string value) { RDescription = value; }
+        public override string ToString()
+        {
+            return $"Phòng {RNo} - Tầng {RFloor} " +
+                   $"Loại: {RType} " +
+                   $"Giá mỗi đêm: {RPricePerNight:C} " +
+                   $"Trạng thái: {RStatus} " +
+                   $"Mô tả: {RDescription}\n";
+        }
+
+        public static List<ClassRoom> getAllRooms()
+        {
+            List<ClassRoom> rooms = new List<ClassRoom>();
+
+            using (SqlConnection conn = function.getConnection())
+            {
+                SqlCommand cmd = new SqlCommand($"SELECT * FROM {TABLE_NAME}", conn);
+
+                try
+                {
+                    conn.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        ClassRoom room = new ClassRoom
+                        {
+                            RFloor = Convert.ToInt32(reader["RFloor"]),
+                            RNo = Convert.ToInt32(reader["RNo"]),
+                            RPricePerNight = Convert.ToDecimal(reader["RPricePerNight"]),
+                            RStatus = reader["RStatus"].ToString(),
+                            RType = reader["RType"].ToString(),
+                            RDescription = reader["RDescription"].ToString()
+                        };
+                        rooms.Add(room);
+                    }
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
+                }
+            }
+            return rooms;
+            }
+
+        }
     }
-}
