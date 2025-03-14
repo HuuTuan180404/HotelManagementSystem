@@ -33,9 +33,36 @@ namespace HotelManagementApp.Forms
             VideoSource.Start();
         }
 
+        private bool isQRCodeScanned = false; // Tránh đọc QR nhiều lần
+        private bool isScanning = false;
+
         private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            picturebox.Image = (Bitmap)eventArgs.Frame.Clone();
+            if (!isScanning) return; // Chỉ quét khi nhấn btnStart
+
+            try
+            {
+                using (Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone()) // Clone ảnh từ camera
+                {
+                    BarcodeReader reader = new BarcodeReader();
+                    Result result = reader.Decode(bitmap);
+
+                    if (result != null)
+                    {
+                        isScanning = false;
+                        this.Invoke((MethodInvoker)delegate
+                        {
+                            show.Text = result.Text;
+                            MessageBox.Show("Mã QR: " + result.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        });
+                        stopCamera(); // Tắt camera
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi xử lý QR: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void BookingManagement_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,37 +72,32 @@ namespace HotelManagementApp.Forms
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            if (VideoSource != null && VideoSource.IsRunning)
+            stopCamera();
+        }
+
+        private void stopCamera()
+        {
+            isScanning = false;
+            if (VideoSource != null)
             {
-                VideoSource.SignalToStop();
-                VideoSource.WaitForStop();
+                if (VideoSource.IsRunning)
+                {
+                    //VideoSource.SignalToStop();
+                    //VideoSource.WaitForStop();
+                    VideoSource.Stop();
+                }
+                VideoSource.NewFrame -= VideoSource_NewFrame;
+                VideoSource = null;
             }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (picturebox.Image == null)
+            if (VideoSource == null || !VideoSource.IsRunning)
             {
-                MessageBox.Show("Không có ảnh để quét!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                StartCamera();
             }
-
-            Bitmap bitmap = new Bitmap(picturebox.Image); // Tạo bản sao tránh lỗi đa luồng
-
-            BarcodeReader reader = new BarcodeReader();
-            Result result = reader.Decode(bitmap);
-
-            if (result != null)
-            {
-                show.Text = result.Text;
-                MessageBox.Show("Mã QR: " + result.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy mã QR!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-
-            bitmap.Dispose();
+            isScanning = true;
         }
     }
 }

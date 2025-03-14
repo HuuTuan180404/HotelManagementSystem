@@ -32,7 +32,6 @@
             this.btnStart = new Guna.UI2.WinForms.Guna2Button();
             this.show = new System.Windows.Forms.TextBox();
             this.btnStop = new Guna.UI2.WinForms.Guna2Button();
-            this.combobox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,25 +82,16 @@
             this.btnStop.Text = "stop";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
-            // combobox
-            // 
-            this.combobox.FormattingEnabled = true;
-            this.combobox.Location = new System.Drawing.Point(58, 55);
-            this.combobox.Name = "combobox";
-            this.combobox.Size = new System.Drawing.Size(199, 21);
-            this.combobox.TabIndex = 5;
-            // 
-            // BookingManagement
+            // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.combobox);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.show);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.picturebox);
-            this.Name = "BookingManagement";
+            this.Name = "Test";
             this.Text = "BookingManagement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookingManagement_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.picturebox)).EndInit();
@@ -116,6 +106,5 @@
         private Guna.UI2.WinForms.Guna2Button btnStart;
         private System.Windows.Forms.TextBox show;
         private Guna.UI2.WinForms.Guna2Button btnStop;
-        private System.Windows.Forms.ComboBox combobox;
     }
 }

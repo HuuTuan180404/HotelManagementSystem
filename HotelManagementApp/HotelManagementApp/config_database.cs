@@ -15,26 +15,13 @@ using System.Drawing;
 
 namespace HotelManagementApp
 {
-    internal class function
+    internal class config_database
     {
         public SqlConnection getConnection()
         {
             SqlConnection sqlConnection = new SqlConnection();
             sqlConnection.ConnectionString = "data source=HUUTUAN;database=HotelManagementSystem;integrated security = True";
             return sqlConnection;
-        }
-
-        public DataSet getData(string queue)
-        {
-            //SqlConnection sqlConnection = getConnection();
-            //SqlCommand sqlCommand = new SqlCommand(queue, sqlConnection);
-
-            //SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
-
-            //DataSet dataSet = new DataSet();
-            //sqlDataAdapter.Fill(dataSet);
-            //return dataSet;
-            return null;
         }
 
         public DataSet getDataSet(SqlCommand sqlCommand)
@@ -59,34 +46,5 @@ namespace HotelManagementApp
             }
             return null;
         }
-
-        public SqlDataReader getRecord(SqlCommand sqlCommand)
-        {
-            try
-            {
-                using (SqlConnection sqlConnection = getConnection())
-                {
-                    using (sqlCommand.Connection = sqlConnection)
-                    {
-                        sqlConnection.Open();
-
-                        SqlDataReader reader = sqlCommand.ExecuteReader();
-
-                        sqlConnection.Close();
-
-                        if (reader.Read())
-                        {
-                            return reader;
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            return null;
-        }
-
     }
 }

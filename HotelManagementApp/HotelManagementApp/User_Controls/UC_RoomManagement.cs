@@ -18,7 +18,7 @@ namespace HotelManagementApp.User_Controls
 {
     public partial class UC_RoomManagement : UserControl
     {
-        function function = new function();
+        config_database function = new config_database();
 
         string query;
 

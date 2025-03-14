@@ -28,7 +28,7 @@ namespace HotelManagementApp.Forms
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
-        private function function = new function();
+        private config_database function = new config_database();
 
         private ClassRoom room;
         private ClassRoom_Type classRooms_Type;

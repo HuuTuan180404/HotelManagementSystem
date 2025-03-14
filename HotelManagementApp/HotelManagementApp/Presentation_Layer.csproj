@@ -125,7 +125,7 @@
     <Compile Include="Forms\RoomDetail.Designer.cs">
       <DependentUpon>RoomDetail.cs</DependentUpon>
     </Compile>
-    <Compile Include="function.cs" />
+    <Compile Include="config_database.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User_Controls\itemRoom.cs">

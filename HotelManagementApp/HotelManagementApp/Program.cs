@@ -19,7 +19,8 @@ namespace HotelManagementApp
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
             //Application.Run(new Main());
-            Application.Run(new AddBooking());
+            //Application.Run(new AddBooking());
+            Application.Run(new Test());
         }
     }
 }

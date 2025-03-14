@@ -18,6 +18,7 @@ namespace HotelManagementApp.User_Controls
         public static string ID = null;
 
         private ClassRoom room;
+        ClassRoom_Type roomType;
 
         public itemRoom()
         {
@@ -27,14 +28,9 @@ namespace HotelManagementApp.User_Controls
         public itemRoom(ClassRoom room) : this()
         {
             this.room = room;
-        }
-
-        private void itemRoom_Load(object sender, EventArgs e)
-        {
             room_id.Text = room.getRoomID();
             type.Text = $"Type: {room.RType}";
-
-            ClassRoom_Type roomType = room.getRoomType();
+            roomType = room.getRoomType();
             guests.Text = $"Guests: {roomType.RTMaxGuests}";
             bed.Text = $"Bed: {roomType.RTBedCount}";
 
@@ -42,6 +38,11 @@ namespace HotelManagementApp.User_Controls
             description.Text = $"Price: {room.RDescription}";
 
             registerClickEvents(this);
+        }
+
+        private void itemRoom_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void registerClickEvents(Control parent)
@@ -66,7 +67,7 @@ namespace HotelManagementApp.User_Controls
         private void click()
         {
             IS_SELECTED = true;
-            ID = room_id.Text;
+            ID = $"{room_id.Text} - {roomType.RType} - Bed: {roomType.RTBedCount} - Guest: {roomType.RTMaxGuests}";
         }
     }
 }

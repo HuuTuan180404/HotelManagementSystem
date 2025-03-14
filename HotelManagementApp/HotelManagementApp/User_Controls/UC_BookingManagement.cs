@@ -17,7 +17,7 @@ namespace HotelManagementApp.User_Controls
     public partial class UC_BookingManagement : UserControl
     {
 
-        function function = new function();
+        config_database function = new config_database();
         public UC_BookingManagement()
         {
             InitializeComponent();
