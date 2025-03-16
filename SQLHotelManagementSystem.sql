@@ -50,7 +50,7 @@ GO
 --Rooms_Status
 
 
-CREATE TABLE Room_Status
+CREATE TABLE RoomStatus
 (
     RStatus VARCHAR(100) PRIMARY KEY,
     RSDescription NVARCHAR(MAX)
@@ -58,7 +58,7 @@ CREATE TABLE Room_Status
 GO
 
 --Rooms_Type
-CREATE TABLE Room_Type
+CREATE TABLE RoomType
 (
     RType VARCHAR(100) NOT NULL PRIMARY KEY,
 	RTBedCount TINYINT NOT NULL DEFAULT 1,
@@ -70,17 +70,76 @@ GO
 --Rooms
 CREATE TABLE Rooms
 (
-	RFloor INT NOT NULL DEFAULT 0,  
-    RNo INT NOT NULL,    
-	PRIMARY KEY (RFloor,RNo),
+    RId VARCHAR(50) NOT NULL PRIMARY KEY,
+	RType VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomType(RType),
+    RStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomStatus(RStatus),
 	RPricePerNight DECIMAL(10,2) NOT NULL CHECK (RPricePerNight >= 0) DEFAULT 100,
-    RStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Room_Status(RStatus),
-	RType VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Room_Type(RType),
 	RDescription NVARCHAR(MAX)
 )
 GO
 
+CREATE PROC Table_Rooms_Detail
+AS
+BEGIN
+	SELECT RId,
+		   R.RType,
+		   RTBedCount, 
+		   RTMaxGuests,
+		   RStatus,
+		   RPricePerNight,
+		   RDescription
+	FROM [HotelManagementSystem].[dbo].[Rooms] R
+		 JOIN [HotelManagementSystem].[dbo].RoomType RT ON R.RType=RT.RType
+	
+	ORDER BY RId ASC
+END;
+GO
 
+CREATE PROC Table_RoomType
+AS
+BEGIN
+	SELECT * FROM RoomType
+	ORDER BY RType ASC
+END;
+GO
+
+
+
+EXEC Table_RoomType
+GO
+
+
+SET NOCOUNT ON;
+GO
+
+INSERT INTO RoomStatus (RStatus, RSDescription) VALUES
+('Available', N'Phòng trống, sẵn sàng đón khách'),
+('Occupied', N'Phòng đang có khách'),
+('Reserved', N'Phòng đã được đặt trước'),
+('Maintenance', N'Phòng đang bảo trì'),
+('Cleaning', N'Phòng đang được dọn dẹp');
+GO
+
+
+INSERT INTO RoomType (RType, RTBedCount, RTMaxGuests, RTDescription) VALUES
+('Standard', 1, 2, N'Phòng tiêu chuẩn với 1 giường đôi'),
+('Deluxe', 2, 4, N'Phòng cao cấp với 2 giường đôi'),
+('Suite', 1, 2, N'Phòng hạng sang với nội thất cao cấp'),
+('Family', 2, 6, N'Phòng gia đình rộng rãi với 2 giường lớn'),
+('VIP', 1, 2, N'Phòng VIP với dịch vụ đặc biệt');
+GO
+
+
+INSERT INTO Rooms (RId, RPricePerNight, RDescription, RStatus, RType) VALUES
+('Roo1-1', 100.00, N'Phòng tiêu chuẩn tầng 1', 'Available','Standard' ),
+('Roo1-2', 150.00, N'Phòng Deluxe tầng 1', 'Reserved', 'Deluxe'),
+('Roo2-1', 200.00, N'Phòng Suite tầng 2', 'Occupied', 'Suite'),
+('Roo2-2', 180.00, N'Phòng Family tầng 2', 'Available', 'Family'),
+('Roo3-1', 300.00, N'Phòng VIP tầng 3', 'Cleaning', 'VIP'),
+('Roo3-2', 250.00, N'Phòng Deluxe tầng 3', 'Maintenance', 'Deluxe');
+GO
+
+-- ======================================================================================
 --Customers
 CREATE TABLE Customers
 (
