@@ -44,7 +44,7 @@ namespace HotelManagementApp.Forms
         public AddBooking()
         {
             InitializeComponent();
-          
+
         }
 
 
@@ -57,13 +57,13 @@ namespace HotelManagementApp.Forms
             timer1.Start();
             if (itemIsShow)
             {
-                btnShowItem.Image = Properties.Resources.left;
+                btnShowItem.Image = Presentation.Properties.Resources.left;
                 timer2.Stop();
                 flowLayoutPanel.AutoScroll = false;
             }
             else
             {
-                btnShowItem.Image = Properties.Resources.down;
+                btnShowItem.Image = Presentation.Properties.Resources.down;
                 flowLayoutPanel.AutoScroll = true;
                 timer2.Start();
             }
@@ -176,7 +176,7 @@ namespace HotelManagementApp.Forms
 
         private void Control_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)

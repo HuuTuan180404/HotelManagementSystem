@@ -79,7 +79,7 @@ namespace HotelManagementApp
             // 
             // groupBox1
             // 
-            this.groupBox1.BackgroundImage = global::HotelManagementApp.Properties.Resources.img_bg;
+            this.groupBox1.BackgroundImage = global::Presentation.Properties.Resources.img_bg;
             this.groupBox1.Controls.Add(this.btnLogin);
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.tb_username);
@@ -188,7 +188,7 @@ namespace HotelManagementApp
             // img_show
             // 
             this.img_show.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.img_show.Image = global::HotelManagementApp.Properties.Resources.show_password;
+            this.img_show.Image = global::Presentation.Properties.Resources.show_password;
             this.img_show.Location = new System.Drawing.Point(294, 425);
             this.img_show.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.img_show.Name = "img_show";
@@ -202,7 +202,7 @@ namespace HotelManagementApp
             // img_hide
             // 
             this.img_hide.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.img_hide.Image = global::HotelManagementApp.Properties.Resources.hide_password;
+            this.img_hide.Image = global::Presentation.Properties.Resources.hide_password;
             this.img_hide.Location = new System.Drawing.Point(294, 425);
             this.img_hide.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.img_hide.Name = "img_hide";

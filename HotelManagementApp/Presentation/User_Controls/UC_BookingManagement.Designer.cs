@@ -93,7 +93,7 @@
             this.btnAdd.BackColor = System.Drawing.Color.Transparent;
             this.btnAdd.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnAdd.HoverState.ImageSize = new System.Drawing.Size(80, 80);
-            this.btnAdd.Image = global::HotelManagementApp.Properties.Resources.add;
+            this.btnAdd.Image = global::Presentation.Properties.Resources.add;
             this.btnAdd.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnAdd.ImageRotate = 0F;
             this.btnAdd.Location = new System.Drawing.Point(672, 737);

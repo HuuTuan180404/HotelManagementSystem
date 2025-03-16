@@ -98,7 +98,7 @@ namespace Data
                     string query =  "";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@RStatus", status);
+                        //cmd.Parameters.AddWithValue("@RStatus", status);
                         SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(cmd);
                         DataSet dataSet = new DataSet();
                         sqlDataAdapter.Fill(dataSet);

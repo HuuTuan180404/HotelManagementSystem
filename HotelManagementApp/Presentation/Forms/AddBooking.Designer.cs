@@ -538,7 +538,7 @@
             this.btnShowItem.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnShowItem.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.btnShowItem.ForeColor = System.Drawing.Color.White;
-            this.btnShowItem.Image = global::HotelManagementApp.Properties.Resources.left;
+            this.btnShowItem.Image = global::Presentation.Properties.Resources.left;
             this.btnShowItem.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.btnShowItem.ImageSize = new System.Drawing.Size(30, 30);
             this.btnShowItem.Location = new System.Drawing.Point(0, 0);

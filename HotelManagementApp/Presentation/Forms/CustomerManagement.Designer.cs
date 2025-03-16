@@ -67,9 +67,8 @@
             this.panelTitle.Controls.Add(this.btnExitCustomer);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
-            this.panelTitle.Margin = new System.Windows.Forms.Padding(4);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1090, 97);
+            this.panelTitle.Size = new System.Drawing.Size(818, 79);
             this.panelTitle.TabIndex = 20;
             // 
             // materialLabel1
@@ -78,8 +77,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H3;
-            this.materialLabel1.Location = new System.Drawing.Point(16, 15);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(12, 12);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(594, 58);
@@ -90,10 +88,9 @@
             // 
             this.btnExitCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExitCustomer.Image = ((System.Drawing.Image)(resources.GetObject("btnExitCustomer.Image")));
-            this.btnExitCustomer.Location = new System.Drawing.Point(1008, 15);
-            this.btnExitCustomer.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExitCustomer.Location = new System.Drawing.Point(756, 12);
             this.btnExitCustomer.Name = "btnExitCustomer";
-            this.btnExitCustomer.Size = new System.Drawing.Size(67, 62);
+            this.btnExitCustomer.Size = new System.Drawing.Size(50, 50);
             this.btnExitCustomer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnExitCustomer.TabIndex = 11;
             this.btnExitCustomer.TabStop = false;
@@ -117,11 +114,12 @@
             "Khách lẻ",
             "Khách nhóm",
             "Khách Vip"});
-            this.materialComboBox1.Location = new System.Drawing.Point(0, 104);
+            this.materialComboBox1.Location = new System.Drawing.Point(0, 84);
+            this.materialComboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.materialComboBox1.MaxDropDownItems = 4;
             this.materialComboBox1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialComboBox1.Name = "materialComboBox1";
-            this.materialComboBox1.Size = new System.Drawing.Size(185, 49);
+            this.materialComboBox1.Size = new System.Drawing.Size(140, 49);
             this.materialComboBox1.StartIndex = 0;
             this.materialComboBox1.TabIndex = 21;
             // 
@@ -136,12 +134,12 @@
             this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(192, 104);
-            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.guna2TextBox1.Location = new System.Drawing.Point(144, 84);
+            this.guna2TextBox1.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.guna2TextBox1.Name = "guna2TextBox1";
             this.guna2TextBox1.PlaceholderText = "";
             this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(229, 48);
+            this.guna2TextBox1.Size = new System.Drawing.Size(172, 39);
             this.guna2TextBox1.TabIndex = 22;
             // 
             // guna2Button1
@@ -154,40 +152,43 @@
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
             this.guna2Button1.Image = global::Presentation.Properties.Resources.find_svgrepo_com;
-            this.guna2Button1.Location = new System.Drawing.Point(399, 104);
+            this.guna2Button1.Location = new System.Drawing.Point(299, 84);
+            this.guna2Button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(51, 49);
+            this.guna2Button1.Size = new System.Drawing.Size(38, 40);
             this.guna2Button1.TabIndex = 23;
             // 
             // btnAddCustomer
             // 
             this.btnAddCustomer.AutoRoundedCorners = true;
-            this.btnAddCustomer.BorderRadius = 21;
+            this.btnAddCustomer.BorderRadius = 17;
             this.btnAddCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnAddCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnAddCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnAddCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnAddCustomer.Location = new System.Drawing.Point(816, 107);
+            this.btnAddCustomer.Location = new System.Drawing.Point(612, 87);
+            this.btnAddCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAddCustomer.Name = "btnAddCustomer";
-            this.btnAddCustomer.Size = new System.Drawing.Size(127, 45);
+            this.btnAddCustomer.Size = new System.Drawing.Size(95, 37);
             this.btnAddCustomer.TabIndex = 24;
             this.btnAddCustomer.Text = "+ Add";
             // 
             // btnEditCustomer
             // 
             this.btnEditCustomer.AutoRoundedCorners = true;
-            this.btnEditCustomer.BorderRadius = 21;
+            this.btnEditCustomer.BorderRadius = 17;
             this.btnEditCustomer.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.btnEditCustomer.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.btnEditCustomer.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.btnEditCustomer.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnEditCustomer.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCustomer.ForeColor = System.Drawing.Color.White;
-            this.btnEditCustomer.Location = new System.Drawing.Point(951, 107);
+            this.btnEditCustomer.Location = new System.Drawing.Point(713, 87);
+            this.btnEditCustomer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEditCustomer.Name = "btnEditCustomer";
-            this.btnEditCustomer.Size = new System.Drawing.Size(127, 45);
+            this.btnEditCustomer.Size = new System.Drawing.Size(95, 37);
             this.btnEditCustomer.TabIndex = 25;
             this.btnEditCustomer.Text = "Edit";
             // 
@@ -227,12 +228,13 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(0, 160);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(0, 130);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 24;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(1090, 474);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(818, 385);
             this.guna2DataGridView1.TabIndex = 26;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -316,7 +318,8 @@
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(630, 645);
+            this.materialLabel2.Location = new System.Drawing.Point(472, 524);
+            this.materialLabel2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(151, 19);
@@ -327,61 +330,67 @@
             // cboPageSize
             // 
             this.cboPageSize.FormattingEnabled = true;
-            this.cboPageSize.Location = new System.Drawing.Point(969, 644);
+            this.cboPageSize.Location = new System.Drawing.Point(727, 523);
+            this.cboPageSize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cboPageSize.Name = "cboPageSize";
-            this.cboPageSize.Size = new System.Drawing.Size(121, 24);
+            this.cboPageSize.Size = new System.Drawing.Size(92, 21);
             this.cboPageSize.TabIndex = 28;
             // 
             // btnPrev
             // 
-            this.btnPrev.Location = new System.Drawing.Point(788, 640);
+            this.btnPrev.Location = new System.Drawing.Point(591, 520);
+            this.btnPrev.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrev.Name = "btnPrev";
-            this.btnPrev.Size = new System.Drawing.Size(30, 30);
+            this.btnPrev.Size = new System.Drawing.Size(22, 24);
             this.btnPrev.TabIndex = 29;
             this.btnPrev.Text = "<";
             this.btnPrev.UseVisualStyleBackColor = true;
             // 
             // btnNext
             // 
-            this.btnNext.Location = new System.Drawing.Point(933, 640);
+            this.btnNext.Location = new System.Drawing.Point(700, 520);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(30, 30);
+            this.btnNext.Size = new System.Drawing.Size(22, 24);
             this.btnNext.TabIndex = 30;
             this.btnNext.Text = ">";
             this.btnNext.UseVisualStyleBackColor = true;
             // 
             // btnPage1
             // 
-            this.btnPage1.Location = new System.Drawing.Point(824, 640);
+            this.btnPage1.Location = new System.Drawing.Point(618, 520);
+            this.btnPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPage1.Name = "btnPage1";
-            this.btnPage1.Size = new System.Drawing.Size(30, 30);
+            this.btnPage1.Size = new System.Drawing.Size(22, 24);
             this.btnPage1.TabIndex = 31;
             this.btnPage1.Text = "1";
             this.btnPage1.UseVisualStyleBackColor = true;
             // 
             // btnPage2
             // 
-            this.btnPage2.Location = new System.Drawing.Point(860, 640);
+            this.btnPage2.Location = new System.Drawing.Point(645, 520);
+            this.btnPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPage2.Name = "btnPage2";
-            this.btnPage2.Size = new System.Drawing.Size(30, 30);
+            this.btnPage2.Size = new System.Drawing.Size(22, 24);
             this.btnPage2.TabIndex = 32;
             this.btnPage2.Text = "2";
             this.btnPage2.UseVisualStyleBackColor = true;
             // 
             // btnPage3
             // 
-            this.btnPage3.Location = new System.Drawing.Point(896, 640);
+            this.btnPage3.Location = new System.Drawing.Point(672, 520);
+            this.btnPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPage3.Name = "btnPage3";
-            this.btnPage3.Size = new System.Drawing.Size(30, 30);
+            this.btnPage3.Size = new System.Drawing.Size(22, 24);
             this.btnPage3.TabIndex = 33;
             this.btnPage3.Text = "3";
             this.btnPage3.UseVisualStyleBackColor = true;
             // 
             // CustomerManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1090, 691);
+            this.ClientSize = new System.Drawing.Size(818, 561);
             this.Controls.Add(this.btnPage3);
             this.Controls.Add(this.btnPage2);
             this.Controls.Add(this.btnPage1);
@@ -397,6 +406,7 @@
             this.Controls.Add(this.materialComboBox1);
             this.Controls.Add(this.panelTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CustomerManagement";
             this.Text = "CustomerManagement";
             this.panelTitle.ResumeLayout(false);
