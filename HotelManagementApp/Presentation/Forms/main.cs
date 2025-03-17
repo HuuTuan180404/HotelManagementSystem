@@ -1,5 +1,6 @@
 ﻿using HotelManagementApp.Classes;
 using HotelManagementApp.Forms;
+using Presentation.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,7 +76,7 @@ namespace HotelManagementApp
         {
             //BookingManagement bookingManagement = new BookingManagement();
             //bookingManagement.Show();
-            UC_BookingManagement.BringToFront();
+            UC_BookingManagement1.BringToFront();
         }
 
         private void btnRoom_Click(object sender, EventArgs e)
@@ -112,5 +113,11 @@ namespace HotelManagementApp
         {
             timer1.Start();
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+			CustomerManagement a=new CustomerManagement();
+            a.Show();
+		}
     }
 }

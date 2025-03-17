@@ -127,6 +127,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User_Controls\itemFloor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\itemFloor.Designer.cs">
+      <DependentUpon>itemFloor.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\itemRoom.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -173,6 +179,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\itemFloor.resx">
+      <DependentUpon>itemFloor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemRoom.resx">
       <DependentUpon>itemRoom.cs</DependentUpon>
@@ -250,6 +259,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\find-svgrepo-com.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\floor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

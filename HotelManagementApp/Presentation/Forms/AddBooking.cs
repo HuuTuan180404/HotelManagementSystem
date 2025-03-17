@@ -47,9 +47,6 @@ namespace HotelManagementApp.Forms
 
         }
 
-
-
-
         bool itemIsShow = false;
 
         private void btnShowItem_Click(object sender, EventArgs e)
