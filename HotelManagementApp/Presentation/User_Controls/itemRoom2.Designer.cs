@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbRoom = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbType = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.PictureBox();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,6 +86,11 @@
             this.btnMenu.TabStop = false;
             this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 12;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // itemRoom2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -94,9 +101,9 @@
             this.Controls.Add(this.lbType);
             this.Controls.Add(this.lbRoom);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.Margin = new System.Windows.Forms.Padding(0);
+            this.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.Name = "itemRoom2";
-            this.Size = new System.Drawing.Size(174, 155);
+            this.Size = new System.Drawing.Size(174, 152);
             this.Load += new System.EventHandler(this.itemRoom2_Load);
             this.MouseHover += new System.EventHandler(this.itemRoom2_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
@@ -110,5 +117,6 @@
         private System.Windows.Forms.Label lbType;
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.PictureBox btnMenu;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

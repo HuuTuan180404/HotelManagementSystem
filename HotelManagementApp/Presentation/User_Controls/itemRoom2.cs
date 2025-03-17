@@ -14,17 +14,25 @@ namespace Presentation.User_Controls
     public partial class itemRoom2 : UserControl
     {
         RoomDTO RoomDTO;
-        public itemRoom2(RoomDTO roomDTO)
+
+        public itemRoom2()
         {
             InitializeComponent();
+        }
+
+        public itemRoom2(RoomDTO roomDTO) : this()
+        {
             this.RoomDTO = roomDTO;
         }
 
         private void itemRoom2_Load(object sender, EventArgs e)
         {
-            lbRoom.Text = RoomDTO.RId.ToString();
-            lbType.Text = "Type: " + RoomDTO.RType.ToString();
-            lbStatus.Text = "Status: " + RoomDTO.RStatus.ToString();
+            if (RoomDTO != null)
+            {
+                lbRoom.Text = RoomDTO.RId.ToString();
+                lbType.Text = "Type: " + RoomDTO.RType.ToString();
+                lbStatus.Text = "Status: " + RoomDTO.RStatus.ToString();
+            }
         }
 
         private void btnMenu_Click(object sender, EventArgs e)

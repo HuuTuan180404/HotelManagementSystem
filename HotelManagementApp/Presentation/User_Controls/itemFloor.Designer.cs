@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lbFloor = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.itemRoom21 = new Presentation.User_Controls.itemRoom2();
+            this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,23 +48,16 @@
             this.lbFloor.Text = "Fl-1";
             this.lbFloor.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // flowLayoutPanel1
+            // flowLayout
             // 
-            this.flowLayoutPanel1.Controls.Add(this.itemRoom21);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(122, 0);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1096, 155);
-            this.flowLayoutPanel1.TabIndex = 2;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
-            // itemRoom21
-            // 
-            this.itemRoom21.Location = new System.Drawing.Point(0, 0);
-            this.itemRoom21.Margin = new System.Windows.Forms.Padding(0);
-            this.itemRoom21.Name = "itemRoom21";
-            this.itemRoom21.Size = new System.Drawing.Size(174, 155);
-            this.itemRoom21.TabIndex = 0;
+            this.flowLayout.AutoScroll = true;
+            this.flowLayout.Location = new System.Drawing.Point(122, 0);
+            this.flowLayout.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayout.Name = "flowLayout";
+            this.flowLayout.Padding = new System.Windows.Forms.Padding(2);
+            this.flowLayout.Size = new System.Drawing.Size(1096, 155);
+            this.flowLayout.TabIndex = 2;
+            this.flowLayout.WrapContents = false;
             // 
             // guna2PictureBox1
             // 
@@ -79,11 +72,17 @@
             this.guna2PictureBox1.TabStop = false;
             this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 12;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // itemFloor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.flowLayout);
             this.Controls.Add(this.lbFloor);
             this.Controls.Add(this.guna2PictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -91,7 +90,6 @@
             this.Name = "itemFloor";
             this.Size = new System.Drawing.Size(1218, 155);
             this.Load += new System.EventHandler(this.itemFloor_Load);
-            this.flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -101,7 +99,7 @@
 
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI2.WinForms.Guna2HtmlLabel lbFloor;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private itemRoom2 itemRoom21;
+        private System.Windows.Forms.FlowLayoutPanel flowLayout;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }
