@@ -45,8 +45,7 @@ namespace HotelManagementApp
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            EmployeeManagement employeeManagement = new EmployeeManagement();
-            employeeManagement.Show();
+            UC_EmployeeManagement.BringToFront();
         }
 
         private void panelLogout_MouseClick(object sender, MouseEventArgs e)

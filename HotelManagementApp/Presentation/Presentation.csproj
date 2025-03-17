@@ -89,12 +89,6 @@
     <Compile Include="Forms\AddRoom.Designer.cs">
       <DependentUpon>AddRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CustomerManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerManagement.Designer.cs">
-      <DependentUpon>CustomerManagement.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +139,12 @@
     <Compile Include="User_Controls\UC_CustomerManagement.Designer.cs">
       <DependentUpon>UC_CustomerManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Controls\UC_EmployeeManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\UC_EmployeeManagement.Designer.cs">
+      <DependentUpon>UC_EmployeeManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\UC_RoomManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -156,9 +156,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerManagement.resx">
-      <DependentUpon>CustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -188,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_CustomerManagement.resx">
       <DependentUpon>UC_CustomerManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\UC_EmployeeManagement.resx">
+      <DependentUpon>UC_EmployeeManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_RoomManagement.resx">
       <DependentUpon>UC_RoomManagement.cs</DependentUpon>
