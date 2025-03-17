@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using AMRConnector;
 
-namespace HotelManagementApp
+namespace Presentation.Forms
 {
     public partial class Login : Form
     {

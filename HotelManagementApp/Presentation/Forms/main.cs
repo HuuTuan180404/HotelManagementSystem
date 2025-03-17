@@ -1,6 +1,4 @@
-﻿using HotelManagementApp.Classes;
-using HotelManagementApp.Forms;
-using Presentation.Forms;
+﻿using Presentation.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +11,7 @@ using System.Threading.Tasks;
 using System.Web.UI;
 using System.Windows.Forms;
 
-namespace HotelManagementApp
+namespace Presentation.Forms
 {
     public partial class Main : Form
     {

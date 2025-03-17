@@ -1,7 +1,6 @@
 ﻿using Business;
 using Guna.UI2.WinForms;
-using HotelManagementApp.Classes;
-using HotelManagementApp.Forms;
+using Presentation.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,7 +15,7 @@ using System.Windows.Forms;
 using TheArtOfDevHtmlRenderer.Adapters;
 using DataTransferObject;
 
-namespace HotelManagementApp.User_Controls
+namespace Presentation.User_Controls
 {
     public partial class UC_RoomManagement : UserControl
     {

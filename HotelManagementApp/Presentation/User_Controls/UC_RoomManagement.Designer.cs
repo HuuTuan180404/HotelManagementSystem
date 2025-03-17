@@ -1,4 +1,4 @@
-﻿namespace HotelManagementApp.User_Controls
+﻿namespace Presentation.User_Controls
 {
     partial class UC_RoomManagement
     {

@@ -1,5 +1,4 @@
-﻿using HotelManagementApp.Classes;
-using HotelManagementApp.Forms;
+﻿using Presentation.Forms;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelManagementApp.User_Controls
+namespace Presentation.User_Controls
 {
     public partial class UC_BookingManagement : UserControl
     {

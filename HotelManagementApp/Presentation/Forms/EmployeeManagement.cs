@@ -8,8 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Presentation.Forms;
 
-namespace HotelManagementApp.Forms
+namespace Presentation.Forms
 {
     public partial class EmployeeManagement : Form
     {

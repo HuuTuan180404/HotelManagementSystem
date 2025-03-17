@@ -1,4 +1,4 @@
-﻿namespace HotelManagementApp.Forms
+﻿namespace Presentation.Forms
 {
     partial class EmployeeManagement
     {

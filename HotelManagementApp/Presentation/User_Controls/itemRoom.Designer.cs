@@ -1,6 +1,6 @@
-﻿namespace HotelManagementApp.User_Controls
+﻿namespace Presentation.User_Controls
 {
-    partial class item
+    partial class itemRoom
     {
         /// <summary> 
         /// Required designer variable.

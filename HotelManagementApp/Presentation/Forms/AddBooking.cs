@@ -1,7 +1,5 @@
 ﻿using AForge.Video;
 using AForge.Video.DirectShow;
-using HotelManagementApp.Classes;
-using HotelManagementApp.User_Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,15 +12,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ZXing;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
-//using ZXing.Common;
-//using AForge.Video;
-//using AForge.Video.DirectShow;
 using System.Threading;
 using System.Runtime.InteropServices;
+using Presentation.User_Controls;
 
-namespace HotelManagementApp.Forms
+namespace Presentation.Forms
 {
     public partial class AddBooking : Form
     {
@@ -44,7 +38,6 @@ namespace HotelManagementApp.Forms
         public AddBooking()
         {
             InitializeComponent();
-
         }
 
         bool itemIsShow = false;
@@ -95,11 +88,11 @@ namespace HotelManagementApp.Forms
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-            if (item.IS_SELECTED)
+            if (itemRoom.IS_SELECTED)
             {
-                btnShowItem.Text = item.ID;
+                btnShowItem.Text = itemRoom.ID;
                 timer2.Start();
-                item.IS_SELECTED = false;
+                itemRoom.IS_SELECTED = false;
                 btnShowItem.PerformClick();
             }
         }

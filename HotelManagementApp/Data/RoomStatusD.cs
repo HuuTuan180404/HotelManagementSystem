@@ -1,4 +1,4 @@
-﻿using HotelManagementApp.Classes;
+﻿using DataTransferObject;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;

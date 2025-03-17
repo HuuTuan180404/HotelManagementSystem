@@ -1,5 +1,4 @@
-﻿using HotelManagementApp.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace HotelManagementApp.User_Controls
+namespace Presentation.User_Controls
 {
-    public partial class item : UserControl
+    public partial class itemRoom : UserControl
     {
         public static bool IS_SELECTED = false;
         public static string ID = null;
 
 
-        public item()
+        public itemRoom()
         {
             InitializeComponent();
         }

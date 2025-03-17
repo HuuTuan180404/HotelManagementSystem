@@ -1,6 +1,6 @@
 ﻿using System.Drawing;
 
-namespace HotelManagementApp
+namespace Presentation.Forms
 {
     partial class Login
     {

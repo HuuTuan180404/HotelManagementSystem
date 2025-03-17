@@ -6,7 +6,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Data;
-using HotelManagementApp.Classes;
 using DataTransferObject;
 
 namespace Business
@@ -26,8 +25,6 @@ namespace Business
         {
             return RoomD.getDataSetDetailAllRooms_FilterByStatus(status);
         }
-
-
 
         public List<RoomDTO> getAllRooms()
         {

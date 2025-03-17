@@ -12,7 +12,7 @@ using ZXing.Common;
 using AForge.Video;
 using AForge.Video.DirectShow;
 
-namespace HotelManagementApp.Forms
+namespace Presentation.Forms
 {
     public partial class Test : Form
     {

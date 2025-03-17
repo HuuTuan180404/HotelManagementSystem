@@ -1,5 +1,4 @@
-﻿using HotelManagementApp.Classes;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,7 +16,7 @@ using DataTransferObject;
 using Business;
 
 
-namespace HotelManagementApp.Forms
+namespace Presentation.Forms
 {
     public partial class RoomDetail : Form
     {
