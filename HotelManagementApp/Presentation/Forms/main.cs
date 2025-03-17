@@ -112,5 +112,10 @@ namespace HotelManagementApp
         {
             timer1.Start();
         }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            UC_CustomerManagement.BringToFront();
+        }
     }
 }

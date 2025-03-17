@@ -45,8 +45,8 @@
     <Reference Include="AMRConnector">
       <HintPath>..\..\..\..\..\..\OneDrive\Pictures\Máy tính\AMRConnector.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net461\MaterialSkin.dll</HintPath>
@@ -139,6 +139,12 @@
     <Compile Include="User_Controls\UC_BookingManagement.Designer.cs">
       <DependentUpon>UC_BookingManagement.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Controls\UC_CustomerManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\UC_CustomerManagement.Designer.cs">
+      <DependentUpon>UC_CustomerManagement.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\UC_RoomManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_BookingManagement.resx">
       <DependentUpon>UC_BookingManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\UC_CustomerManagement.resx">
+      <DependentUpon>UC_CustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_RoomManagement.resx">
       <DependentUpon>UC_RoomManagement.cs</DependentUpon>

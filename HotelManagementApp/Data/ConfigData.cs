@@ -9,7 +9,7 @@ namespace Data
 {
     internal class ConfigData
     {
-        private static readonly string CONNECTION_STRING = "data source=HUUTUAN;database=HotelManagementSystem;integrated security = True";
+        private static readonly string CONNECTION_STRING = "data source=TURTLEWN;database=HotelManagementSystem;integrated security = True";
 
         public static SqlConnection getConnection()
         {
