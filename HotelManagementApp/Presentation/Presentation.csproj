@@ -163,12 +163,6 @@
     <Compile Include="User_Controls\UC_ViewFloorMode.Designer.cs">
       <DependentUpon>UC_ViewFloorMode.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Controls\UC_ViewTableMode.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User_Controls\UC_ViewTableMode.Designer.cs">
-      <DependentUpon>UC_ViewTableMode.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\AddBooking.resx">
       <DependentUpon>AddBooking.cs</DependentUpon>
     </EmbeddedResource>
@@ -215,9 +209,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_ViewFloorMode.resx">
       <DependentUpon>UC_ViewFloorMode.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User_Controls\UC_ViewTableMode.resx">
-      <DependentUpon>UC_ViewTableMode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

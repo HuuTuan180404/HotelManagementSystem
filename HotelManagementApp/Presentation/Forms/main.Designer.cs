@@ -49,6 +49,7 @@
             this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
             this.UC_BookingManagement1 = new Presentation.User_Controls.UC_BookingManagement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uC_ViewFloorMode1 = new Presentation.User_Controls.UC_ViewFloorMode();
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
@@ -315,6 +316,7 @@
             // 
             // panelRoomManagement
             // 
+            this.panelRoomManagement.Controls.Add(this.uC_ViewFloorMode1);
             this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
             this.panelRoomManagement.Controls.Add(this.UC_BookingManagement1);
             this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -338,7 +340,7 @@
             this.UC_BookingManagement1.BackColor = System.Drawing.Color.White;
             this.UC_BookingManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_BookingManagement1.Location = new System.Drawing.Point(0, 0);
-            this.UC_BookingManagement1.Name = "UC_BookingManagement";
+            this.UC_BookingManagement1.Name = "UC_BookingManagement1";
             this.UC_BookingManagement1.Size = new System.Drawing.Size(1429, 738);
             this.UC_BookingManagement1.TabIndex = 0;
             // 
@@ -346,6 +348,14 @@
             // 
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // uC_ViewFloorMode1
+            // 
+            this.uC_ViewFloorMode1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_ViewFloorMode1.Location = new System.Drawing.Point(0, 0);
+            this.uC_ViewFloorMode1.Name = "uC_ViewFloorMode1";
+            this.uC_ViewFloorMode1.Size = new System.Drawing.Size(1429, 738);
+            this.uC_ViewFloorMode1.TabIndex = 2;
             // 
             // Main
             // 
@@ -395,5 +405,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private User_Controls.UC_RoomManagement UC_RoomManagement;
         private User_Controls.UC_BookingManagement UC_BookingManagement1;
+        private User_Controls.UC_ViewFloorMode uC_ViewFloorMode1;
     }
 }
