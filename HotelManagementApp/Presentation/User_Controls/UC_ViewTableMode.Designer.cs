@@ -1,6 +1,6 @@
 ﻿namespace Presentation.User_Controls
 {
-    partial class UC_ViewFloorMode
+    partial class UC_ViewTableMode
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,18 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+			this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
 			this.SuspendLayout();
 			// 
-			// UC_ViewFloorMode
+			// flowLayoutPanel1
+			// 
+			this.flowLayoutPanel1.Location = new System.Drawing.Point(49, 250);
+			this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+			this.flowLayoutPanel1.Size = new System.Drawing.Size(863, 129);
+			this.flowLayoutPanel1.TabIndex = 0;
+			// 
+			// UC_ViewTableMode
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Name = "UC_ViewFloorMode";
+			this.Controls.Add(this.flowLayoutPanel1);
+			this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+			this.Name = "UC_ViewTableMode";
 			this.Size = new System.Drawing.Size(1228, 792);
 			this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

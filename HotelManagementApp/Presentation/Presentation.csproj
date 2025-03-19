@@ -45,8 +45,8 @@
     <Reference Include="AMRConnector">
       <HintPath>..\..\..\..\..\..\OneDrive\Pictures\Máy tính\AMRConnector.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2, Version=2.0.4.7, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
-      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.7\lib\net472\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2, Version=2.0.4.6, Culture=neutral, PublicKeyToken=8b9d14aa5142e261, processorArchitecture=MSIL">
+      <HintPath>..\packages\Guna.UI2.WinForms.2.0.4.6\lib\net472\Guna.UI2.dll</HintPath>
     </Reference>
     <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.2.2.3.1\lib\net461\MaterialSkin.dll</HintPath>
@@ -88,12 +88,6 @@
     </Compile>
     <Compile Include="Forms\AddRoom.Designer.cs">
       <DependentUpon>AddRoom.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\CustomerManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CustomerManagement.Designer.cs">
-      <DependentUpon>CustomerManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Test.cs">
       <SubType>Form</SubType>
@@ -139,17 +133,23 @@
     <Compile Include="User_Controls\itemRoom.Designer.cs">
       <DependentUpon>itemRoom.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Controls\itemRoom2.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User_Controls\itemRoom2.Designer.cs">
-      <DependentUpon>itemRoom2.cs</DependentUpon>
-    </Compile>
     <Compile Include="User_Controls\UC_BookingManagement.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="User_Controls\UC_BookingManagement.Designer.cs">
       <DependentUpon>UC_BookingManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\UC_CustomerManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\UC_CustomerManagement.Designer.cs">
+      <DependentUpon>UC_CustomerManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\UC_EmployeeManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\UC_EmployeeManagement.Designer.cs">
+      <DependentUpon>UC_EmployeeManagement.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\UC_RoomManagement.cs">
       <SubType>UserControl</SubType>
@@ -157,20 +157,11 @@
     <Compile Include="User_Controls\UC_RoomManagement.Designer.cs">
       <DependentUpon>UC_RoomManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Controls\UC_ViewFloorMode.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User_Controls\UC_ViewFloorMode.Designer.cs">
-      <DependentUpon>UC_ViewFloorMode.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\AddBooking.resx">
       <DependentUpon>AddBooking.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CustomerManagement.resx">
-      <DependentUpon>CustomerManagement.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -198,17 +189,17 @@
     <EmbeddedResource Include="User_Controls\itemRoom.resx">
       <DependentUpon>itemRoom.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Controls\itemRoom2.resx">
-      <DependentUpon>itemRoom2.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_BookingManagement.resx">
       <DependentUpon>UC_BookingManagement.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\UC_CustomerManagement.resx">
+      <DependentUpon>UC_CustomerManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\UC_EmployeeManagement.resx">
+      <DependentUpon>UC_EmployeeManagement.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_RoomManagement.resx">
       <DependentUpon>UC_RoomManagement.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User_Controls\UC_ViewFloorMode.resx">
-      <DependentUpon>UC_ViewFloorMode.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -280,12 +271,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\floor.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\image\door_handle.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\image\mode_floor.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

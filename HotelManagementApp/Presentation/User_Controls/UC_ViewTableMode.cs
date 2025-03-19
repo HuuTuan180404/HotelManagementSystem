@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace Presentation.User_Controls
 {
-    public partial class UC_ViewFloorMode : UserControl
+    public partial class UC_ViewTableMode : UserControl
     {
-        public UC_ViewFloorMode()
+        public UC_ViewTableMode()
         {
             InitializeComponent();
         }
-    }
+
+	}
 }

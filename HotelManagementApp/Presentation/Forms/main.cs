@@ -44,8 +44,7 @@ namespace Presentation.Forms
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            EmployeeManagement employeeManagement = new EmployeeManagement();
-            employeeManagement.Show();
+            UC_EmployeeManagement.BringToFront();
         }
 
         private void panelLogout_MouseClick(object sender, MouseEventArgs e)
@@ -66,7 +65,7 @@ namespace Presentation.Forms
         private void logout()
         {
             //Debug.WriteLine("CLICK");
-            Test test=new Test();
+            Test test = new Test();
             test.Show();
         }
 
@@ -74,12 +73,10 @@ namespace Presentation.Forms
         {
             //BookingManagement bookingManagement = new BookingManagement();
             //bookingManagement.Show();
-            UC_BookingManagement1.BringToFront();
         }
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
-            UC_RoomManagement.BringToFront();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -114,8 +111,14 @@ namespace Presentation.Forms
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-			CustomerManagement a=new CustomerManagement();
-            a.Show();
-		}
+
+            //         UC_CustomerManagement.BringToFront();
+
+
+
+            //CustomerManagement a=new CustomerManagement();
+            //         a.Show();
+        }
+
     }
 }

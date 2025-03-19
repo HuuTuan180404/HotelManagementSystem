@@ -28,12 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.picturebox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnStart = new Guna.UI2.WinForms.Guna2Button();
             this.show = new System.Windows.Forms.TextBox();
             this.btnStop = new Guna.UI2.WinForms.Guna2Button();
-            this.picturebox = new Guna.UI2.WinForms.Guna2PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox)).BeginInit();
             this.SuspendLayout();
+            // 
+            // picturebox
+            // 
+            this.picturebox.ImageRotate = 0F;
+            this.picturebox.Location = new System.Drawing.Point(349, 26);
+            this.picturebox.Name = "picturebox";
+            this.picturebox.Size = new System.Drawing.Size(400, 400);
+            this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picturebox.TabIndex = 0;
+            this.picturebox.TabStop = false;
             // 
             // btnStart
             // 
@@ -71,16 +81,6 @@
             this.btnStop.TabIndex = 4;
             this.btnStop.Text = "stop";
             this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
-            // 
-            // picturebox
-            // 
-            this.picturebox.ImageRotate = 0F;
-            this.picturebox.Location = new System.Drawing.Point(349, 26);
-            this.picturebox.Name = "picturebox";
-            this.picturebox.Size = new System.Drawing.Size(400, 400);
-            this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picturebox.TabIndex = 0;
-            this.picturebox.TabStop = false;
             // 
             // Test
             // 
