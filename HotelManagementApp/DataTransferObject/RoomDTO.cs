@@ -35,6 +35,11 @@ namespace DataTransferObject
             return Convert.ToInt32(s[0]);
         }
 
+        public int getNumberOfFloor()
+        {
+            string temp = this.RId.Substring(3);
+            return Convert.ToInt32(temp.Split('-')[0]);
+        }
 
 
         public RoomTypeDTO getRoomTypeDTO()

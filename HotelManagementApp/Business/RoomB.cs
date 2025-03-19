@@ -47,11 +47,6 @@ namespace Business
             return RoomTypeD.getListRoomType();
         }
 
-        public void addRoom(RoomDTO room)
-        {
-
-        }
-
 
     }
 }
