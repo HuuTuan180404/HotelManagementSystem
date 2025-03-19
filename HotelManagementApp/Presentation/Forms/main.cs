@@ -37,6 +37,22 @@ namespace Presentation.Forms
             this.WindowState = FormWindowState.Minimized;
         }
 
+
+        private void btnBooking_Click(object sender, EventArgs e)
+        {
+            UC_BookingManagement.BringToFront();
+        }
+
+        private void btnRoom_Click(object sender, EventArgs e)
+        {
+            UC_RoomManagement.BringToFront();
+        }
+
+        private void btnCustomer_Click(object sender, EventArgs e)
+        {
+            UC_CustomerManagement.BringToFront();
+        }
+
         private void pic_close_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -64,20 +80,10 @@ namespace Presentation.Forms
 
         private void logout()
         {
-            //Debug.WriteLine("CLICK");
             Test test = new Test();
             test.Show();
         }
 
-        private void btnBooking_Click(object sender, EventArgs e)
-        {
-            //BookingManagement bookingManagement = new BookingManagement();
-            //bookingManagement.Show();
-        }
-
-        private void btnRoom_Click(object sender, EventArgs e)
-        {
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -109,16 +115,7 @@ namespace Presentation.Forms
             timer1.Start();
         }
 
-        private void btnCustomer_Click(object sender, EventArgs e)
-        {
-
-            //         UC_CustomerManagement.BringToFront();
-
-
-
-            //CustomerManagement a=new CustomerManagement();
-            //         a.Show();
-        }
+        
 
     }
 }

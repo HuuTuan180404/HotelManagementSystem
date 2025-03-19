@@ -46,9 +46,11 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
+            this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
+            this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
+            this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.uC_BookingManagement2 = new Presentation.User_Controls.UC_BookingManagement();
-            this.uC_RoomManagement1 = new Presentation.User_Controls.UC_RoomManagement();
+            this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
@@ -315,37 +317,59 @@
             // 
             // panelRoomManagement
             // 
-            this.panelRoomManagement.Controls.Add(this.uC_RoomManagement1);
-            this.panelRoomManagement.Controls.Add(this.uC_BookingManagement2);
+            this.panelRoomManagement.Controls.Add(this.UC_EmployeeManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_CustomerManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
             this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRoomManagement.Location = new System.Drawing.Point(80, 64);
             this.panelRoomManagement.Name = "panelRoomManagement";
             this.panelRoomManagement.Size = new System.Drawing.Size(1376, 753);
             this.panelRoomManagement.TabIndex = 19;
             // 
+            // UC_RoomManagement
+            // 
+            this.UC_RoomManagement.BackColor = System.Drawing.Color.White;
+            this.UC_RoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_RoomManagement.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UC_RoomManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_RoomManagement.Name = "UC_RoomManagement";
+            this.UC_RoomManagement.Size = new System.Drawing.Size(1376, 753);
+            this.UC_RoomManagement.TabIndex = 0;
+            // 
+            // UC_CustomerManagement
+            // 
+            this.UC_CustomerManagement.BackColor = System.Drawing.Color.White;
+            this.UC_CustomerManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_CustomerManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_CustomerManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UC_CustomerManagement.Name = "UC_CustomerManagement";
+            this.UC_CustomerManagement.Size = new System.Drawing.Size(1376, 753);
+            this.UC_CustomerManagement.TabIndex = 2;
+            // 
+            // UC_BookingManagement
+            // 
+            this.UC_BookingManagement.BackColor = System.Drawing.Color.White;
+            this.UC_BookingManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_BookingManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_BookingManagement.Name = "UC_BookingManagement";
+            this.UC_BookingManagement.Size = new System.Drawing.Size(1376, 753);
+            this.UC_BookingManagement.TabIndex = 1;
+            // 
             // timer1
             // 
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // uC_BookingManagement2
+            // UC_EmployeeManagement
             // 
-            this.uC_BookingManagement2.BackColor = System.Drawing.Color.White;
-            this.uC_BookingManagement2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_BookingManagement2.Location = new System.Drawing.Point(0, 0);
-            this.uC_BookingManagement2.Name = "uC_BookingManagement2";
-            this.uC_BookingManagement2.Size = new System.Drawing.Size(1376, 753);
-            this.uC_BookingManagement2.TabIndex = 0;
-            // 
-            // uC_RoomManagement1
-            // 
-            this.uC_RoomManagement1.BackColor = System.Drawing.Color.White;
-            this.uC_RoomManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.uC_RoomManagement1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.uC_RoomManagement1.Location = new System.Drawing.Point(0, 0);
-            this.uC_RoomManagement1.Name = "uC_RoomManagement1";
-            this.uC_RoomManagement1.Size = new System.Drawing.Size(1376, 753);
-            this.uC_RoomManagement1.TabIndex = 1;
+            this.UC_EmployeeManagement.BackColor = System.Drawing.Color.White;
+            this.UC_EmployeeManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_EmployeeManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UC_EmployeeManagement.Name = "UC_EmployeeManagement";
+            this.UC_EmployeeManagement.Size = new System.Drawing.Size(1376, 753);
+            this.UC_EmployeeManagement.TabIndex = 3;
             // 
             // Main
             // 
@@ -393,16 +417,10 @@
         private Guna.UI2.WinForms.Guna2PictureBox btnMenu;
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
- 
- 
-        private Presentation.User_Controls.UC_CustomerManagement uC_CustomerManagement1;
-        private User_Controls.UC_BookingManagement uC_BookingManagement1;
-        private Presentation.User_Controls.UC_CustomerManagement UC_CustomerManagement;
-        private Presentation.User_Controls.UC_EmployeeManagement UC_EmployeeManagement;
 
         private User_Controls.UC_RoomManagement UC_RoomManagement;
-        private User_Controls.UC_BookingManagement UC_BookingManagement1;
-        private User_Controls.UC_BookingManagement uC_BookingManagement2;
-        private User_Controls.UC_RoomManagement uC_RoomManagement1;
+        private User_Controls.UC_BookingManagement UC_BookingManagement;
+        private User_Controls.UC_CustomerManagement UC_CustomerManagement;
+        private User_Controls.UC_EmployeeManagement UC_EmployeeManagement;
     }
 }
