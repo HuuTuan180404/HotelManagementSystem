@@ -41,12 +41,15 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnFloorMode = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFloorMode)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnFloorMode);
             this.panel1.Controls.Add(this.btnFilter);
             this.panel1.Controls.Add(this.btnAddRoom);
             this.panel1.Controls.Add(this.comboboxStatus);
@@ -225,6 +228,16 @@
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnFloorMode
+            // 
+            this.btnFloorMode.Image = global::Presentation.Properties.Resources.mode_floor;
+            this.btnFloorMode.Location = new System.Drawing.Point(495, 130);
+            this.btnFloorMode.Name = "btnFloorMode";
+            this.btnFloorMode.Size = new System.Drawing.Size(30, 30);
+            this.btnFloorMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnFloorMode.TabIndex = 15;
+            this.btnFloorMode.TabStop = false;
+            // 
             // UC_RoomManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +251,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnFloorMode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,5 +265,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView;
         private Guna.UI2.WinForms.Guna2Button btnFilter;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+        private System.Windows.Forms.PictureBox btnFloorMode;
     }
 }

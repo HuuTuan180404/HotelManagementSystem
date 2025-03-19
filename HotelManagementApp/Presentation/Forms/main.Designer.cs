@@ -46,11 +46,11 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
+            this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
             this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
             this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
             this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
@@ -317,15 +317,25 @@
             // 
             // panelRoomManagement
             // 
-            this.panelRoomManagement.Controls.Add(this.UC_EmployeeManagement);
             this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
             this.panelRoomManagement.Controls.Add(this.UC_CustomerManagement);
             this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_EmployeeManagement);
             this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelRoomManagement.Location = new System.Drawing.Point(80, 64);
             this.panelRoomManagement.Name = "panelRoomManagement";
             this.panelRoomManagement.Size = new System.Drawing.Size(1376, 753);
             this.panelRoomManagement.TabIndex = 19;
+            // 
+            // UC_EmployeeManagement
+            // 
+            this.UC_EmployeeManagement.BackColor = System.Drawing.Color.White;
+            this.UC_EmployeeManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_EmployeeManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.UC_EmployeeManagement.Name = "UC_EmployeeManagement";
+            this.UC_EmployeeManagement.Size = new System.Drawing.Size(1376, 753);
+            this.UC_EmployeeManagement.TabIndex = 3;
             // 
             // UC_RoomManagement
             // 
@@ -360,16 +370,6 @@
             // 
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // UC_EmployeeManagement
-            // 
-            this.UC_EmployeeManagement.BackColor = System.Drawing.Color.White;
-            this.UC_EmployeeManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_EmployeeManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.UC_EmployeeManagement.Name = "UC_EmployeeManagement";
-            this.UC_EmployeeManagement.Size = new System.Drawing.Size(1376, 753);
-            this.UC_EmployeeManagement.TabIndex = 3;
             // 
             // Main
             // 
