@@ -15,7 +15,7 @@ namespace Presentation.User_Controls
     {
         RoomDTO RoomDTO;
 
-        public itemRoom2()
+        private itemRoom2()
         {
             InitializeComponent();
         }
@@ -30,8 +30,12 @@ namespace Presentation.User_Controls
             if (RoomDTO != null)
             {
                 lbRoom.Text = RoomDTO.RId.ToString();
-                lbType.Text = "Type: " + RoomDTO.RType.ToString();
-                lbStatus.Text = "Status: " + RoomDTO.RStatus.ToString();
+                lbType.Text = string.Format("{0,-8}: {1}", "Type", RoomDTO.RType);
+                lbStatus.Text = string.Format("{0,-8}: {1}", "Status", RoomDTO.RStatus);
+            }
+            foreach (Control ctrl in this.Controls)
+            {
+                gunaToolTip_Room.SetToolTip(ctrl, "dads");
             }
         }
 
@@ -42,7 +46,7 @@ namespace Presentation.User_Controls
 
         private void itemRoom2_MouseHover(object sender, EventArgs e)
         {
-
+            gunaToolTip_Room.SetToolTip((Control)sender, "dads");
         }
     }
 }

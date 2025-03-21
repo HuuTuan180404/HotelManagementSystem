@@ -34,6 +34,7 @@
             this.lbStatus = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.gunaToolTip_Room = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             this.lbType.Size = new System.Drawing.Size(140, 33);
             this.lbType.TabIndex = 3;
             this.lbType.Text = "Type: Family";
-            this.lbType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbStatus
             // 
@@ -73,7 +74,7 @@
             this.lbStatus.Size = new System.Drawing.Size(140, 33);
             this.lbStatus.TabIndex = 4;
             this.lbStatus.Text = "Status: ";
-            this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnMenu
             // 
@@ -90,6 +91,12 @@
             // 
             this.guna2Elipse1.BorderRadius = 12;
             this.guna2Elipse1.TargetControl = this;
+            // 
+            // gunaToolTip_Room
+            // 
+            this.gunaToolTip_Room.AllowLinksHandling = true;
+            this.gunaToolTip_Room.MaximumSize = new System.Drawing.Size(0, 0);
+            this.gunaToolTip_Room.ToolTipTitle = "Thông báo";
             // 
             // itemRoom2
             // 
@@ -118,5 +125,6 @@
         private System.Windows.Forms.Label lbStatus;
         private System.Windows.Forms.PictureBox btnMenu;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2HtmlToolTip gunaToolTip_Room;
     }
 }

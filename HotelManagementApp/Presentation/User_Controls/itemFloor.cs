@@ -24,7 +24,7 @@ namespace Presentation.User_Controls
 
         private void itemFloor_Load(object sender, EventArgs e)
         {
-            lbFloor.Text = listRooms[0].RId;
+            lbFloor.Text = listRooms[0].getNumberOfFloor().ToString();
             foreach (var item in listRooms)
             {
                 itemRoom2 itemRoom2 = new itemRoom2(item);

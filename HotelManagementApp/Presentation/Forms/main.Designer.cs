@@ -45,12 +45,9 @@
             this.lbTime = new MaterialSkin.Controls.MaterialLabel();
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
-            this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
-            this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
-            this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
-            this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
-            this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
+            this.panelUC = new Guna.UI2.WinForms.Guna2Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
@@ -58,7 +55,7 @@
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
-            this.panelRoomManagement.SuspendLayout();
+            this.panelUC.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBar
@@ -99,7 +96,7 @@
             this.lbLogout.Location = new System.Drawing.Point(154, 24);
             this.lbLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbLogout.Name = "lbLogout";
-            this.lbLogout.Size = new System.Drawing.Size(123, 48);
+            this.lbLogout.Size = new System.Drawing.Size(82, 30);
             this.lbLogout.TabIndex = 1;
             this.lbLogout.Text = "LOGOUT";
             this.lbLogout.Click += new System.EventHandler(this.lbLogout_Click);
@@ -160,6 +157,7 @@
             this.guna2Button1.TabIndex = 22;
             this.guna2Button1.Text = "Services";
             this.guna2Button1.UseTransparentBackground = true;
+            this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
             // btnBooking
             // 
@@ -287,7 +285,7 @@
             this.guna2Panel1.Location = new System.Drawing.Point(120, 0);
             this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(2064, 103);
+            this.guna2Panel1.Size = new System.Drawing.Size(1804, 103);
             this.guna2Panel1.TabIndex = 18;
             // 
             // lbTime
@@ -307,7 +305,7 @@
             // 
             this.pic_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
-            this.pic_close.Location = new System.Drawing.Point(1994, 16);
+            this.pic_close.Location = new System.Drawing.Point(1734, 16);
             this.pic_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_close.Name = "pic_close";
             this.pic_close.Size = new System.Drawing.Size(57, 66);
@@ -320,7 +318,7 @@
             // 
             this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
-            this.pic_minus.Location = new System.Drawing.Point(1930, 16);
+            this.pic_minus.Location = new System.Drawing.Point(1670, 16);
             this.pic_minus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_minus.Name = "pic_minus";
             this.pic_minus.Size = new System.Drawing.Size(57, 66);
@@ -329,69 +327,41 @@
             this.pic_minus.TabStop = false;
             this.pic_minus.Click += new System.EventHandler(this.pic_minus_Click);
             // 
-            // panelRoomManagement
+            // panelUC
             // 
-            this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
-            this.panelRoomManagement.Controls.Add(this.UC_CustomerManagement);
-            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
-            this.panelRoomManagement.Controls.Add(this.UC_EmployeeManagement);
-            this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRoomManagement.Location = new System.Drawing.Point(120, 103);
-            this.panelRoomManagement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelRoomManagement.Name = "panelRoomManagement";
-            this.panelRoomManagement.Size = new System.Drawing.Size(2064, 997);
-            this.panelRoomManagement.TabIndex = 19;
-            // 
-            // UC_RoomManagement
-            // 
-            this.UC_RoomManagement.BackColor = System.Drawing.Color.White;
-            this.UC_RoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_RoomManagement.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UC_RoomManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_RoomManagement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UC_RoomManagement.Name = "UC_RoomManagement";
-            this.UC_RoomManagement.Size = new System.Drawing.Size(2064, 997);
-            this.UC_RoomManagement.TabIndex = 0;
-            // 
-            // UC_CustomerManagement
-            // 
-            this.UC_CustomerManagement.BackColor = System.Drawing.Color.White;
-            this.UC_CustomerManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_CustomerManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_CustomerManagement.Name = "UC_CustomerManagement";
-            this.UC_CustomerManagement.Size = new System.Drawing.Size(2064, 997);
-            this.UC_CustomerManagement.TabIndex = 2;
-            // 
-            // UC_BookingManagement
-            // 
-            this.UC_BookingManagement.BackColor = System.Drawing.Color.White;
-            this.UC_BookingManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_BookingManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_BookingManagement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UC_BookingManagement.Name = "UC_BookingManagement";
-            this.UC_BookingManagement.Size = new System.Drawing.Size(2064, 997);
-            this.UC_BookingManagement.TabIndex = 1;
-            // 
-            // UC_EmployeeManagement
-            // 
-            this.UC_EmployeeManagement.BackColor = System.Drawing.Color.White;
-            this.UC_EmployeeManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_EmployeeManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_EmployeeManagement.Name = "UC_EmployeeManagement";
-            this.UC_EmployeeManagement.Size = new System.Drawing.Size(2064, 997);
-            this.UC_EmployeeManagement.TabIndex = 3;
+            this.panelUC.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelUC.BackColor = System.Drawing.Color.Transparent;
+            this.panelUC.Controls.Add(this.UC_BookingManagement);
+            this.panelUC.Location = new System.Drawing.Point(120, 103);
+            this.panelUC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelUC.Name = "panelUC";
+            this.panelUC.Size = new System.Drawing.Size(1820, 997);
+            this.panelUC.TabIndex = 19;
             // 
             // timer1
             // 
             this.timer1.Interval = 1;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // UC_BookingManagement
+            // 
+            this.UC_BookingManagement.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.UC_BookingManagement.BackColor = System.Drawing.Color.IndianRed;
+            this.UC_BookingManagement.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UC_BookingManagement.Location = new System.Drawing.Point(174, 53);
+            this.UC_BookingManagement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_BookingManagement.Name = "UC_BookingManagement";
+            this.UC_BookingManagement.Size = new System.Drawing.Size(1804, 958);
+            this.UC_BookingManagement.TabIndex = 0;
+            this.UC_BookingManagement.Load += new System.EventHandler(this.UC_BookingManagement_Load);
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2184, 1100);
-            this.Controls.Add(this.panelRoomManagement);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.ClientSize = new System.Drawing.Size(1924, 1061);
+            this.Controls.Add(this.panelUC);
             this.Controls.Add(this.guna2Panel1);
             this.Controls.Add(this.sideBar);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
@@ -401,6 +371,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.Main_Load);
             this.sideBar.ResumeLayout(false);
             this.panelLogout.ResumeLayout(false);
             this.panelLogout.PerformLayout();
@@ -410,7 +381,7 @@
             this.guna2Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
-            this.panelRoomManagement.ResumeLayout(false);
+            this.panelUC.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -423,7 +394,7 @@
         private Guna.UI2.WinForms.Guna2Button btnCustomer;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
-        private Guna.UI2.WinForms.Guna2Panel panelRoomManagement;
+        private Guna.UI2.WinForms.Guna2Panel panelUC;
         private Guna.UI2.WinForms.Guna2Button btnRoom;
         private MaterialSkin.Controls.MaterialLabel lbTime;
         private Guna.UI2.WinForms.Guna2Button btnEmployee;
@@ -434,10 +405,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox btnMenu;
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
-
-        private User_Controls.UC_RoomManagement UC_RoomManagement;
         private User_Controls.UC_BookingManagement UC_BookingManagement;
-        private User_Controls.UC_CustomerManagement UC_CustomerManagement;
-        private User_Controls.UC_EmployeeManagement UC_EmployeeManagement;
     }
 }

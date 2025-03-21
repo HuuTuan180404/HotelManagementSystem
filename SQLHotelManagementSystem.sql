@@ -89,8 +89,7 @@ BEGIN
 		   RPricePerNight,
 		   RDescription
 	FROM [HotelManagementSystem].[dbo].[Rooms] R
-		 JOIN [HotelManagementSystem].[dbo].RoomType RT ON R.RType=RT.RType
-	
+		 JOIN [HotelManagementSystem].[dbo].RoomType RT ON R.RType=RT.RType	
 	ORDER BY RId ASC
 END;
 GO

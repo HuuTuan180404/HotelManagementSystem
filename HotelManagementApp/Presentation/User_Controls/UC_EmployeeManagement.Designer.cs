@@ -33,8 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UC_EmployeeManagement));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSearchEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.txtSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.btnFilterEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddEmployee = new Guna.UI2.WinForms.Guna2Button();
@@ -43,6 +43,7 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.dtgEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnSearchEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmployee)).BeginInit();
             this.SuspendLayout();
@@ -61,21 +62,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1440, 1065);
             this.panel1.TabIndex = 8;
-            // 
-            // btnSearchEmployee
-            // 
-            this.btnSearchEmployee.BorderRadius = 8;
-            this.btnSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnSearchEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btnSearchEmployee.ForeColor = System.Drawing.Color.White;
-            this.btnSearchEmployee.Image = global::Presentation.Properties.Resources.find_svgrepo_com;
-            this.btnSearchEmployee.Location = new System.Drawing.Point(714, 162);
-            this.btnSearchEmployee.Name = "btnSearchEmployee";
-            this.btnSearchEmployee.Size = new System.Drawing.Size(57, 48);
-            this.btnSearchEmployee.TabIndex = 39;
             // 
             // txtSearchEmployee
             // 
@@ -259,6 +245,21 @@
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
+            // btnSearchEmployee
+            // 
+            this.btnSearchEmployee.BorderRadius = 8;
+            this.btnSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearchEmployee.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btnSearchEmployee.ForeColor = System.Drawing.Color.White;
+            this.btnSearchEmployee.Image = ((System.Drawing.Image)(resources.GetObject("btnSearchEmployee.Image")));
+            this.btnSearchEmployee.Location = new System.Drawing.Point(714, 162);
+            this.btnSearchEmployee.Name = "btnSearchEmployee";
+            this.btnSearchEmployee.Size = new System.Drawing.Size(57, 48);
+            this.btnSearchEmployee.TabIndex = 39;
+            // 
             // UC_EmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
@@ -267,7 +268,7 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Name = "UC_EmployeeManagement";
-            this.Size = new System.Drawing.Size(1416, 1200);
+            this.Size = new System.Drawing.Size(1486, 1175);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmployee)).EndInit();

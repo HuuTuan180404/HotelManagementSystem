@@ -29,39 +29,67 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
+            this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
+            this.btnChangeViewMode = new System.Windows.Forms.PictureBox();
             this.btnFilter = new Guna.UI2.WinForms.Guna2Button();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.comboboxStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnFloorMode = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFloorMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnFloorMode);
+            this.panel1.Controls.Add(this.UC_ViewFloorMode);
+            this.panel1.Controls.Add(this.btnChangeViewMode);
             this.panel1.Controls.Add(this.btnFilter);
             this.panel1.Controls.Add(this.btnAddRoom);
             this.panel1.Controls.Add(this.comboboxStatus);
             this.panel1.Controls.Add(this.btnAllRoom);
             this.panel1.Controls.Add(this.materialLabel1);
-            this.panel1.Controls.Add(this.dataGridView);
+            this.panel1.Controls.Add(this.UC_ViewTableMode);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1528, 837);
+            this.panel1.Size = new System.Drawing.Size(1406, 923);
             this.panel1.TabIndex = 7;
+            // 
+            // UC_ViewTableMode
+            // 
+            this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UC_ViewTableMode.Location = new System.Drawing.Point(20, 167);
+            this.UC_ViewTableMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_ViewTableMode.Name = "UC_ViewTableMode";
+            this.UC_ViewTableMode.Size = new System.Drawing.Size(1363, 745);
+            this.UC_ViewTableMode.TabIndex = 17;
+            // 
+            // UC_ViewFloorMode
+            // 
+            this.UC_ViewFloorMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewFloorMode.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UC_ViewFloorMode.Location = new System.Drawing.Point(20, 167);
+            this.UC_ViewFloorMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_ViewFloorMode.Name = "UC_ViewFloorMode";
+            this.UC_ViewFloorMode.Size = new System.Drawing.Size(1363, 745);
+            this.UC_ViewFloorMode.TabIndex = 16;
+            // 
+            // btnChangeViewMode
+            // 
+            this.btnChangeViewMode.Image = global::Presentation.Properties.Resources.mode_floor;
+            this.btnChangeViewMode.Location = new System.Drawing.Point(452, 121);
+            this.btnChangeViewMode.Name = "btnChangeViewMode";
+            this.btnChangeViewMode.Size = new System.Drawing.Size(30, 30);
+            this.btnChangeViewMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnChangeViewMode.TabIndex = 15;
+            this.btnChangeViewMode.TabStop = false;
+            this.btnChangeViewMode.Click += new System.EventHandler(this.btnChangeViewMode_Click);
             // 
             // btnFilter
             // 
@@ -157,87 +185,10 @@
             this.materialLabel1.TabIndex = 10;
             this.materialLabel1.Text = "ROOM MANAGEMENT";
             // 
-            // dataGridView
-            // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToResizeColumns = false;
-            this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView.BackgroundColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView.ColumnHeadersHeight = 30;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(215)))), ((int)(((byte)(95)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(233)))), ((int)(((byte)(170)))));
-            this.dataGridView.Location = new System.Drawing.Point(20, 186);
-            this.dataGridView.MultiSelect = false;
-            this.dataGridView.Name = "dataGridView";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridView.RowHeadersVisible = false;
-            this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size(1112, 619);
-            this.dataGridView.TabIndex = 9;
-            this.dataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.SunFlower;
-            this.dataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
-            this.dataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
-            this.dataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-            this.dataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-            this.dataGridView.ThemeStyle.BackColor = System.Drawing.Color.Silver;
-            this.dataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(233)))), ((int)(((byte)(170)))));
-            this.dataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(196)))), ((int)(((byte)(15)))));
-            this.dataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-            this.dataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            this.dataGridView.ThemeStyle.HeaderStyle.Height = 30;
-            this.dataGridView.ThemeStyle.ReadOnly = false;
-            this.dataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(243)))), ((int)(((byte)(207)))));
-            this.dataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.dataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-            this.dataGridView.ThemeStyle.RowsStyle.Height = 22;
-            this.dataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(215)))), ((int)(((byte)(95)))));
-            this.dataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
-            this.dataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseDown);
-            // 
             // contextMenuStrip
             // 
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
-            // 
-            // btnFloorMode
-            // 
-            this.btnFloorMode.Image = global::Presentation.Properties.Resources.mode_floor;
-            this.btnFloorMode.Location = new System.Drawing.Point(495, 130);
-            this.btnFloorMode.Name = "btnFloorMode";
-            this.btnFloorMode.Size = new System.Drawing.Size(30, 30);
-            this.btnFloorMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnFloorMode.TabIndex = 15;
-            this.btnFloorMode.TabStop = false;
             // 
             // UC_RoomManagement
             // 
@@ -247,12 +198,11 @@
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "UC_RoomManagement";
-            this.Size = new System.Drawing.Size(1528, 837);
+            this.Size = new System.Drawing.Size(1406, 923);
             this.Load += new System.EventHandler(this.Room_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnFloorMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -263,9 +213,10 @@
         private Guna.UI2.WinForms.Guna2ComboBox comboboxStatus;
         private Guna.UI2.WinForms.Guna2Button btnAllRoom;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private Guna.UI2.WinForms.Guna2DataGridView dataGridView;
         private Guna.UI2.WinForms.Guna2Button btnFilter;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-        private System.Windows.Forms.PictureBox btnFloorMode;
+        private System.Windows.Forms.PictureBox btnChangeViewMode;
+        private UC_ViewFloorMode UC_ViewFloorMode;
+        private UC_ViewTableMode UC_ViewTableMode;
     }
 }

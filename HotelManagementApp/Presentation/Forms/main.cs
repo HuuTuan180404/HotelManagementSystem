@@ -1,4 +1,5 @@
 ﻿using Presentation.Forms;
+using Presentation.User_Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,8 @@ namespace Presentation.Forms
         }
 
 
+        
+
         private void btnBooking_Click(object sender, EventArgs e)
         {
             UC_BookingManagement.BringToFront();
@@ -45,12 +48,12 @@ namespace Presentation.Forms
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
-            UC_RoomManagement.BringToFront();
+            //UC_RoomManagement.BringToFront();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            UC_CustomerManagement.BringToFront();
+            //UC_CustomerManagement.BringToFront();
         }
 
         private void pic_close_Click(object sender, EventArgs e)
@@ -60,7 +63,7 @@ namespace Presentation.Forms
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            UC_EmployeeManagement.BringToFront();
+            //UC_EmployeeManagement.BringToFront();
         }
 
         private void panelLogout_MouseClick(object sender, MouseEventArgs e)
@@ -95,7 +98,6 @@ namespace Presentation.Forms
                     sideBarIsShow = false;
                     timer1.Stop();
                 }
-
             }
             else
             {
@@ -105,7 +107,6 @@ namespace Presentation.Forms
                     sideBarIsShow = true;
                     timer1.Stop();
                 }
-
             }
 
         }
@@ -115,7 +116,20 @@ namespace Presentation.Forms
             timer1.Start();
         }
 
-        
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            //UC_Test.BringToFront();
+        }
 
+        private void UC_BookingManagement_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Main_Load(object sender, EventArgs e)
+        {
+            UC_BookingManagement.Left = (panelUC.ClientSize.Width - UC_BookingManagement.Width) / 2;
+            UC_BookingManagement.Top = (panelUC.ClientSize.Height - UC_BookingManagement.Height) / 2;
+        }
     }
 }

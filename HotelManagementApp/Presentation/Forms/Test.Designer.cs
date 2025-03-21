@@ -37,10 +37,13 @@
             // 
             // picturebox
             // 
+            this.picturebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.picturebox.ImageRotate = 0F;
             this.picturebox.Location = new System.Drawing.Point(349, 26);
             this.picturebox.Name = "picturebox";
-            this.picturebox.Size = new System.Drawing.Size(400, 400);
+            this.picturebox.Size = new System.Drawing.Size(386, 397);
             this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picturebox.TabIndex = 0;
             this.picturebox.TabStop = false;
@@ -86,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(786, 447);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.show);
             this.Controls.Add(this.btnStart);

@@ -29,13 +29,11 @@ namespace DataTransferObject
             RDescription = rDescription;
         }
 
-        public int getFloor()
+        public int getNumberOfFloor()
         {
             string[] s = this.RId.Substring(3).Split('-');
             return Convert.ToInt32(s[0]);
         }
-
-
 
         public RoomTypeDTO getRoomTypeDTO()
         {

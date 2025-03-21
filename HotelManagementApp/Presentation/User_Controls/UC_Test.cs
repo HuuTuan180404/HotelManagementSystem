@@ -16,5 +16,15 @@ namespace Presentation.User_Controls
         {
             InitializeComponent();
         }
+
+        private void UC_Test_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

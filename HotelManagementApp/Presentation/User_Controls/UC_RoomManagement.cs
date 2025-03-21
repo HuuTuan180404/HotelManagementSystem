@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TheArtOfDevHtmlRenderer.Adapters;
 using DataTransferObject;
+using System.Security.Cryptography;
 
 namespace Presentation.User_Controls
 {
@@ -30,13 +31,9 @@ namespace Presentation.User_Controls
 
         private void Room_Load(object sender, EventArgs e)
         {
-            loadDataFor_dataGridView();
+
         }
 
-        private void loadDataFor_dataGridView()
-        {
-            dataGridView.DataSource = RoomB.getDataSetDetailAllRooms().Tables[0];
-        }
 
         private void loadDataFor_comboboxStatus()
         {
@@ -59,8 +56,8 @@ namespace Presentation.User_Controls
             if (comboboxStatus.SelectedIndex != 0)
             {
                 string status = comboboxStatus.SelectedItem.ToString();
-                dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
-                Debug.WriteLine(status);
+                //dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
+                //Debug.WriteLine(status);
             }
         }
 
@@ -69,11 +66,12 @@ namespace Presentation.User_Controls
             if (comboboxStatus.SelectedIndex != 0)
             {
                 string status = comboboxStatus.SelectedItem.ToString();
-                dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
+                //dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
+                UC_ViewFloorMode.show();
             }
             else
             {
-                loadDataFor_dataGridView();
+                //loadDataFor_dataGridView();
             }
         }
 
@@ -84,19 +82,18 @@ namespace Presentation.User_Controls
             comboboxStatus.ForeColor = comboboxStatus.BorderColor;
             comboboxStatus.FillColor = Color.White;
 
-            loadDataFor_dataGridView();
+            //loadDataFor_dataGridView();
         }
 
-        private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void btnChangeViewMode_Click(object sender, EventArgs e)
         {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                RoomDetail roomDetail = new RoomDetail(RoomB.getInfoRoom(row.Cells["RId"].Value.ToString()));
-                roomDetail.ShowDialog();
-            }
-        }
+            int indexUC_ViewFloorMode = panel1.Controls.GetChildIndex(UC_ViewFloorMode);
+            int indexUC_ViewTableMode = panel1.Controls.GetChildIndex(UC_ViewTableMode);
 
+            if (indexUC_ViewFloorMode < indexUC_ViewTableMode) UC_ViewTableMode.BringToFront();
+            else UC_ViewFloorMode.BringToFront();
+
+        }
 
 
 
@@ -118,18 +115,18 @@ namespace Presentation.User_Controls
 
         private void dataGridView_MouseDown(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                var hitTestInfo = dataGridView.HitTest(e.X, e.Y);
+            //if (e.Button == MouseButtons.Right)
+            //{
+            //    var hitTestInfo = dataGridView.HitTest(e.X, e.Y);
 
-                if (hitTestInfo.RowIndex >= 0) // Kiểm tra có hàng hay không
-                {
-                    dataGridView.ClearSelection();
-                    dataGridView.Rows[hitTestInfo.RowIndex].Selected = true; // Chọn hàng
-                    CreateContextMenuRightClick();
-                    contextMenuStrip.Show(dataGridView, new Point(e.X, e.Y)); // Hiển thị menu
-                }
-            }
+            //    if (hitTestInfo.RowIndex >= 0) // Kiểm tra có hàng hay không
+            //    {
+            //        dataGridView.ClearSelection();
+            //        dataGridView.Rows[hitTestInfo.RowIndex].Selected = true; // Chọn hàng
+            //        CreateContextMenuRightClick();
+            //        contextMenuStrip.Show(dataGridView, new Point(e.X, e.Y)); // Hiển thị menu
+            //    }
+            //}
         }
 
         private void demo(object sender, EventArgs e)
@@ -151,7 +148,7 @@ namespace Presentation.User_Controls
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             AddRoom addRoom = new AddRoom();
-            addRoom.DataChanged += loadDataFor_dataGridView;
+            //addRoom.DataChanged += loadDataFor_dataGridView;
             addRoom.ShowDialog();
         }
 
@@ -164,5 +161,7 @@ namespace Presentation.User_Controls
         {
             filterByStatus();
         }
+
+
     }
 }
