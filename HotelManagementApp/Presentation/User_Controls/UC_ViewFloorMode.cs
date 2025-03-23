@@ -10,13 +10,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Presentation.User_Controls
 {
     public partial class UC_ViewFloorMode : UserControl
     {
-        RoomB RoomB = new RoomB();
-        List<RoomDTO> list;
+        RoomBusiness RoomBusiness = new RoomBusiness();
         public UC_ViewFloorMode()
         {
             InitializeComponent();
@@ -24,49 +24,66 @@ namespace Presentation.User_Controls
 
         private void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
-            List<RoomDTO> list = RoomB.getAllRooms();
-            list.Sort((a, b) => a.RId.CompareTo(b.RId));
+            //string connString = ConfigurationManager.ConnectionStrings["HotelManagementSystemContext"]?.ConnectionString;
+            //if (string.IsNullOrEmpty(connString))
+            //{
+            //    MessageBox.Show("Connection string không tìm thấy!");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Kết nối thành công!");
+            //}
+            //MessageBox.Show(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
 
-            itemFloor itemFloor = null;
 
-            List<RoomDTO> listFloor = null;
-
-            if (list != null)
+            List<RoomDTO> list = RoomBusiness.GetAllRooms();
+            if (list.Count > 0)
             {
-                foreach (RoomDTO room in list)
+                list.Sort((a, b) => a.RId.CompareTo(b.RId));
+
+                itemFloor itemFloor = null;
+
+                List<RoomDTO> listFloor = null;
+
+                if (list != null)
                 {
-                    if (listFloor == null)
+                    foreach (RoomDTO room in list)
                     {
-                        listFloor = new List<RoomDTO>();
-                        listFloor.Add(room);
-                    }
-                    else
-                    {
-                        int idFloor = listFloor[0].getNumberOfFloor();
-                        if (room.getNumberOfFloor() == idFloor)
+                        if (listFloor == null)
                         {
+                            listFloor = new List<RoomDTO>();
                             listFloor.Add(room);
                         }
                         else
                         {
-                            itemFloor = new itemFloor(listFloor);
-                            flowLayoutPanel.Controls.Add(itemFloor);
+                            int idFloor = listFloor[0].getNumberOfFloor();
+                            if (room.getNumberOfFloor() == idFloor)
+                            {
+                                listFloor.Add(room);
+                            }
+                            else
+                            {
+                                itemFloor = new itemFloor(listFloor);
+                                flowLayoutPanel.Controls.Add(itemFloor);
 
-                            listFloor = null;
-                            listFloor = new List<RoomDTO>();
-                            listFloor.Add(room);
+                                listFloor = null;
+                                listFloor = new List<RoomDTO>();
+                                listFloor.Add(room);
+                            }
                         }
                     }
-                }
 
+                }
+                itemFloor = new itemFloor(listFloor);
+                flowLayoutPanel.Controls.Add(itemFloor);
             }
-            itemFloor = new itemFloor(listFloor);
-            flowLayoutPanel.Controls.Add(itemFloor);
+            //show();
         }
 
         public void show()
         {
-            Debug.WriteLine("click");
+            //Debug.WriteLine(RoomBusiness.test());
+
         }
     }
 }

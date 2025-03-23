@@ -14,7 +14,8 @@ namespace Presentation.User_Controls
 {
     public partial class UC_ViewTableMode : UserControl
     {
-        RoomB RoomB = new RoomB();
+        RoomBusiness RoomBusiness = new RoomBusiness();
+
         public UC_ViewTableMode()
         {
             InitializeComponent();
@@ -27,7 +28,47 @@ namespace Presentation.User_Controls
 
         private void loadDataFor_dataGridView()
         {
-            dataGridView.DataSource = RoomB.getDataSetDetailAllRooms().Tables[0];
+            dataGridView.DataSource = RoomBusiness.GetAllRooms();
+            RenameColumns();
+        }
+
+        private void RenameColumns()
+        {
+            foreach (DataGridViewColumn column in dataGridView.Columns)
+            {
+                switch (column.Name)
+                {
+                    case "RId":
+                        column.HeaderText = "Mã Phòng";
+                        break;
+                    case "RType":
+                        column.HeaderText = "Loại Phòng";
+                        break;
+                    case "RTBedCount":
+                        column.HeaderText = "Số giường";
+                        break;
+                    case "RTMaxGuests":
+                        column.HeaderText = "Người tối đa";
+                        break;
+                    case "RTypeDescription":
+                        column.HeaderText = "Mô tả loại phòng";
+                        break;
+                    case "RStatus":
+                        column.HeaderText = "Trạng thái";
+                        break;
+                    case "RStatusDescription":
+                        column.HeaderText = "Mô tả trạng thái";
+                        break;
+                    case "RPricePerNight":
+                        column.HeaderText = "Giá";
+                        break;
+                    case "RDescription":
+                        column.HeaderText = "Mô Tả phòng";
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -35,7 +76,7 @@ namespace Presentation.User_Controls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                RoomDetail roomDetail = new RoomDetail(RoomB.getInfoRoom(row.Cells["RId"].Value.ToString()));
+                RoomDetail roomDetail = new RoomDetail(row.Cells["RId"].ToString());
                 roomDetail.ShowDialog();
             }
         }

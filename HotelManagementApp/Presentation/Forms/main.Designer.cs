@@ -46,8 +46,9 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelUC = new Guna.UI2.WinForms.Guna2Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.uC_RoomManagement1 = new Presentation.User_Controls.UC_RoomManagement();
             this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
@@ -308,7 +309,7 @@
             this.pic_close.Location = new System.Drawing.Point(1734, 16);
             this.pic_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_close.Name = "pic_close";
-            this.pic_close.Size = new System.Drawing.Size(57, 66);
+            this.pic_close.Size = new System.Drawing.Size(56, 56);
             this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_close.TabIndex = 11;
             this.pic_close.TabStop = false;
@@ -321,7 +322,7 @@
             this.pic_minus.Location = new System.Drawing.Point(1670, 16);
             this.pic_minus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pic_minus.Name = "pic_minus";
-            this.pic_minus.Size = new System.Drawing.Size(57, 66);
+            this.pic_minus.Size = new System.Drawing.Size(56, 56);
             this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_minus.TabIndex = 12;
             this.pic_minus.TabStop = false;
@@ -333,6 +334,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelUC.BackColor = System.Drawing.Color.Transparent;
+            this.panelUC.Controls.Add(this.uC_RoomManagement1);
             this.panelUC.Controls.Add(this.UC_BookingManagement);
             this.panelUC.Location = new System.Drawing.Point(120, 103);
             this.panelUC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -340,22 +342,33 @@
             this.panelUC.Size = new System.Drawing.Size(1820, 997);
             this.panelUC.TabIndex = 19;
             // 
-            // timer1
+            // uC_RoomManagement1
             // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            this.uC_RoomManagement1.BackColor = System.Drawing.Color.White;
+            this.uC_RoomManagement1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.uC_RoomManagement1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.uC_RoomManagement1.Location = new System.Drawing.Point(0, 0);
+            this.uC_RoomManagement1.Name = "uC_RoomManagement1";
+            this.uC_RoomManagement1.Size = new System.Drawing.Size(1820, 997);
+            this.uC_RoomManagement1.TabIndex = 1;
             // 
             // UC_BookingManagement
             // 
             this.UC_BookingManagement.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.UC_BookingManagement.BackColor = System.Drawing.Color.IndianRed;
+            this.UC_BookingManagement.BackColor = System.Drawing.Color.White;
+            this.UC_BookingManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_BookingManagement.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UC_BookingManagement.Location = new System.Drawing.Point(174, 53);
+            this.UC_BookingManagement.Location = new System.Drawing.Point(0, 0);
             this.UC_BookingManagement.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UC_BookingManagement.Name = "UC_BookingManagement";
-            this.UC_BookingManagement.Size = new System.Drawing.Size(1804, 958);
+            this.UC_BookingManagement.Size = new System.Drawing.Size(1820, 997);
             this.UC_BookingManagement.TabIndex = 0;
             this.UC_BookingManagement.Load += new System.EventHandler(this.UC_BookingManagement_Load);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 
@@ -406,5 +419,6 @@
         private System.Windows.Forms.Timer timer1;
         private Guna.UI2.WinForms.Guna2Button guna2Button1;
         private User_Controls.UC_BookingManagement UC_BookingManagement;
+        private User_Controls.UC_RoomManagement uC_RoomManagement1;
     }
 }

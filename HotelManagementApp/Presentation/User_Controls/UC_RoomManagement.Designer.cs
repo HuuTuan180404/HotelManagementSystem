@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
             this.btnChangeViewMode = new System.Windows.Forms.PictureBox();
             this.btnFilter = new Guna.UI2.WinForms.Guna2Button();
@@ -38,6 +37,7 @@
             this.comboboxStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
@@ -59,16 +59,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1406, 923);
             this.panel1.TabIndex = 7;
-            // 
-            // UC_ViewTableMode
-            // 
-            this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
-            this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UC_ViewTableMode.Location = new System.Drawing.Point(20, 167);
-            this.UC_ViewTableMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UC_ViewTableMode.Name = "UC_ViewTableMode";
-            this.UC_ViewTableMode.Size = new System.Drawing.Size(1363, 745);
-            this.UC_ViewTableMode.TabIndex = 17;
             // 
             // UC_ViewFloorMode
             // 
@@ -184,6 +174,16 @@
             this.materialLabel1.Size = new System.Drawing.Size(481, 58);
             this.materialLabel1.TabIndex = 10;
             this.materialLabel1.Text = "ROOM MANAGEMENT";
+            // 
+            // UC_ViewTableMode
+            // 
+            this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UC_ViewTableMode.Location = new System.Drawing.Point(20, 167);
+            this.UC_ViewTableMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_ViewTableMode.Name = "UC_ViewTableMode";
+            this.UC_ViewTableMode.Size = new System.Drawing.Size(1363, 745);
+            this.UC_ViewTableMode.TabIndex = 17;
             // 
             // contextMenuStrip
             // 

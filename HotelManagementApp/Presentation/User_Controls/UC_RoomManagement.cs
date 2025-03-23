@@ -21,7 +21,7 @@ namespace Presentation.User_Controls
     public partial class UC_RoomManagement : UserControl
     {
 
-        RoomB RoomB = new RoomB();
+        //RoomB RoomB = new RoomB();
 
         public UC_RoomManagement()
         {
@@ -37,13 +37,13 @@ namespace Presentation.User_Controls
 
         private void loadDataFor_comboboxStatus()
         {
-            comboboxStatus.Items.Clear();
-            comboboxStatus.Items.Add("All status");
-            comboboxStatus.SelectedIndex = 0;
-            var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
+            //comboboxStatus.Items.Clear();
+            //comboboxStatus.Items.Add("All status");
+            //comboboxStatus.SelectedIndex = 0;
+            //var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
 
-            foreach (var item in status)
-                comboboxStatus.Items.Add(item.ToString());
+            //foreach (var item in status)
+            //    comboboxStatus.Items.Add(item.ToString());
         }
 
         private void comboboxStatus_Click(object sender, EventArgs e)
@@ -67,7 +67,7 @@ namespace Presentation.User_Controls
             {
                 string status = comboboxStatus.SelectedItem.ToString();
                 //dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
-                UC_ViewFloorMode.show();
+                //UC_ViewFloorMode.show();
             }
             else
             {

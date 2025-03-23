@@ -30,13 +30,18 @@ namespace Presentation.Forms
         private const int HTCAPTION = 0x2;
 
         private RoomDTO RoomDTO;
-        private RoomB RoomB;
+        //private RoomB RoomB;
 
-        public RoomDetail(RoomDTO RoomDTO)
+        public RoomDetail()
         {
             InitializeComponent();
-            this.RoomDTO = RoomDTO;
         }
+
+        public RoomDetail(string RId) : this()
+        {
+            
+        }
+
 
         private void RoomDetail_Load(object sender, EventArgs e)
         {
@@ -60,11 +65,11 @@ namespace Presentation.Forms
 
         private void loadDataFor_comboboxStatus()
         {
-            comboboxStatus.Items.Clear();
-            comboboxStatus.SelectedIndex = 0;
-            var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
-            foreach (var item in status)
-                comboboxStatus.Items.Add(item.ToString());
+            //comboboxStatus.Items.Clear();
+            //comboboxStatus.SelectedIndex = 0;
+            //var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
+            //foreach (var item in status)
+            //    comboboxStatus.Items.Add(item.ToString());
         }
 
 

@@ -47,10 +47,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="RoomStatusDTO.cs" />
-    <Compile Include="RoomTypeDTO.cs" />
-    <Compile Include="RoomDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoomDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

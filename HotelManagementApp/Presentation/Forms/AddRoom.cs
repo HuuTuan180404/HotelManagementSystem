@@ -20,7 +20,7 @@ namespace Presentation.Forms
         private const int HTCAPTION = 0x2;
 
         public event Action DataChanged;
-        private RoomB RoomB = new RoomB();
+        //private RoomB RoomB = new RoomB();
 
         public AddRoom()
         {
@@ -36,29 +36,29 @@ namespace Presentation.Forms
 
         private void loadDataFor_comboboxRoomType()
         {
-            comboboxRoomType.Items.Clear();
-            var types = RoomB.getListRoomType().Select(type => type.RType);
-            foreach (var type in types)
-                comboboxRoomType.Items.Add(type.ToString());
-            comboboxRoomType.SelectedIndex = 0;
+            //comboboxRoomType.Items.Clear();
+            //var types = RoomB.getListRoomType().Select(type => type.RType);
+            //foreach (var type in types)
+            //    comboboxRoomType.Items.Add(type.ToString());
+            //comboboxRoomType.SelectedIndex = 0;
         }
 
         private void loadDataFor_comboboxStatus()
         {
-            comboboxStatus.Items.Clear();
-            var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
-            foreach (var item in status)
-                comboboxStatus.Items.Add(item.ToString());
-            comboboxStatus.SelectedIndex = 0;
+            //comboboxStatus.Items.Clear();
+            //var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
+            //foreach (var item in status)
+            //    comboboxStatus.Items.Add(item.ToString());
+            //comboboxStatus.SelectedIndex = 0;
         }
 
         private void comboboxRoomType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            groupboxType.Text = comboboxRoomType.SelectedItem.ToString();
-            var types = RoomB.getListRoomType();
-            RoomTypeDTO type = types.FirstOrDefault(item => item.RType == groupboxType.Text);
-            lbBedCount.Text = type.RTBedCount.ToString();
-            lbMaxGuests.Text = type.RTMaxGuests.ToString();
+            //groupboxType.Text = comboboxRoomType.SelectedItem.ToString();
+            //var types = RoomB.getListRoomType();
+            //RoomTypeDTO type = types.FirstOrDefault(item => item.RType == groupboxType.Text);
+            //lbBedCount.Text = type.RTBedCount.ToString();
+            //lbMaxGuests.Text = type.RTMaxGuests.ToString();
         }
 
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)

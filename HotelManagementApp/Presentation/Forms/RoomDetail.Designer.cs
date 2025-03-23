@@ -75,7 +75,7 @@
             this.panelTitle.Location = new System.Drawing.Point(0, 0);
             this.panelTitle.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(1226, 128);
+            this.panelTitle.Size = new System.Drawing.Size(1053, 88);
             this.panelTitle.TabIndex = 19;
             this.panelTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitle_MouseDown);
             // 
@@ -85,7 +85,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H3;
-            this.materialLabel1.Location = new System.Drawing.Point(18, 19);
+            this.materialLabel1.Location = new System.Drawing.Point(24, 17);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -97,10 +97,10 @@
             // 
             this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(1132, 19);
+            this.btnExit.Location = new System.Drawing.Point(979, 14);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(75, 81);
+            this.btnExit.Size = new System.Drawing.Size(56, 56);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnExit.TabIndex = 11;
             this.btnExit.TabStop = false;
@@ -117,7 +117,7 @@
             this.price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.price.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.price.Location = new System.Drawing.Point(266, 536);
+            this.price.Location = new System.Drawing.Point(192, 447);
             this.price.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.price.Name = "price";
             this.price.PlaceholderText = "";
@@ -132,7 +132,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(742, 546);
+            this.materialLabel4.Location = new System.Drawing.Point(596, 453);
             this.materialLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
@@ -146,7 +146,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel3.Location = new System.Drawing.Point(166, 546);
+            this.materialLabel3.Location = new System.Drawing.Point(111, 453);
             this.materialLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
@@ -169,11 +169,11 @@
             this.groupboxPreview.Controls.Add(this.materialLabel9);
             this.groupboxPreview.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupboxPreview.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupboxPreview.Location = new System.Drawing.Point(0, 128);
+            this.groupboxPreview.Location = new System.Drawing.Point(0, 88);
             this.groupboxPreview.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupboxPreview.Name = "groupboxPreview";
             this.groupboxPreview.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupboxPreview.Size = new System.Drawing.Size(1226, 244);
+            this.groupboxPreview.Size = new System.Drawing.Size(1053, 210);
             this.groupboxPreview.TabIndex = 38;
             this.groupboxPreview.TabStop = false;
             this.groupboxPreview.Text = "Preview";
@@ -189,12 +189,12 @@
             this.groupboxType.Controls.Add(this.lbMaxGuests);
             this.groupboxType.CustomBorderColor = System.Drawing.Color.Transparent;
             this.groupboxType.FillColor = System.Drawing.Color.Transparent;
-            this.groupboxType.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupboxType.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.groupboxType.ForeColor = System.Drawing.Color.Black;
-            this.groupboxType.Location = new System.Drawing.Point(333, 39);
+            this.groupboxType.Location = new System.Drawing.Point(213, 39);
             this.groupboxType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupboxType.Name = "groupboxType";
-            this.groupboxType.Size = new System.Drawing.Size(339, 186);
+            this.groupboxType.Size = new System.Drawing.Size(339, 151);
             this.groupboxType.TabIndex = 49;
             this.groupboxType.Text = "Loại";
             this.groupboxType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -231,7 +231,7 @@
             // 
             this.lbBedCount.Depth = 0;
             this.lbBedCount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbBedCount.Location = new System.Drawing.Point(35, 130);
+            this.lbBedCount.Location = new System.Drawing.Point(35, 103);
             this.lbBedCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbBedCount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbBedCount.Name = "lbBedCount";
@@ -244,7 +244,7 @@
             // 
             this.lbMaxGuests.Depth = 0;
             this.lbMaxGuests.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbMaxGuests.Location = new System.Drawing.Point(192, 130);
+            this.lbMaxGuests.Location = new System.Drawing.Point(192, 103);
             this.lbMaxGuests.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbMaxGuests.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbMaxGuests.Name = "lbMaxGuests";
@@ -256,12 +256,12 @@
             // lbStatus
             // 
             this.lbStatus.Depth = 0;
-            this.lbStatus.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbStatus.Location = new System.Drawing.Point(720, 157);
+            this.lbStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbStatus.Location = new System.Drawing.Point(573, 133);
             this.lbStatus.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbStatus.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(168, 31);
+            this.lbStatus.Size = new System.Drawing.Size(144, 31);
             this.lbStatus.TabIndex = 48;
             this.lbStatus.Text = "Available";
             this.lbStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -270,9 +270,9 @@
             // 
             this.materialLabel18.AutoSize = true;
             this.materialLabel18.Depth = 0;
-            this.materialLabel18.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel18.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel18.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel18.Location = new System.Drawing.Point(735, 99);
+            this.materialLabel18.Location = new System.Drawing.Point(599, 75);
             this.materialLabel18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel18.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel18.Name = "materialLabel18";
@@ -283,8 +283,8 @@
             // lbDescription
             // 
             this.lbDescription.Depth = 0;
-            this.lbDescription.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbDescription.Location = new System.Drawing.Point(1016, 157);
+            this.lbDescription.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDescription.Location = new System.Drawing.Point(866, 133);
             this.lbDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbDescription.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbDescription.Name = "lbDescription";
@@ -296,12 +296,12 @@
             // lbPrice
             // 
             this.lbPrice.Depth = 0;
-            this.lbPrice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbPrice.Location = new System.Drawing.Point(915, 157);
+            this.lbPrice.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbPrice.Location = new System.Drawing.Point(777, 133);
             this.lbPrice.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(87, 31);
+            this.lbPrice.Size = new System.Drawing.Size(77, 31);
             this.lbPrice.TabIndex = 45;
             this.lbPrice.Text = "100";
             this.lbPrice.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -309,12 +309,12 @@
             // lbNo
             // 
             this.lbNo.Depth = 0;
-            this.lbNo.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbNo.Location = new System.Drawing.Point(156, 162);
+            this.lbNo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNo.Location = new System.Drawing.Point(99, 121);
             this.lbNo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbNo.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbNo.Name = "lbNo";
-            this.lbNo.Size = new System.Drawing.Size(142, 31);
+            this.lbNo.Size = new System.Drawing.Size(77, 31);
             this.lbNo.TabIndex = 43;
             this.lbNo.Text = "2";
             this.lbNo.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -322,12 +322,12 @@
             // lbFloor
             // 
             this.lbFloor.Depth = 0;
-            this.lbFloor.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbFloor.Location = new System.Drawing.Point(20, 162);
+            this.lbFloor.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFloor.Location = new System.Drawing.Point(5, 121);
             this.lbFloor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbFloor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbFloor.Name = "lbFloor";
-            this.lbFloor.Size = new System.Drawing.Size(134, 31);
+            this.lbFloor.Size = new System.Drawing.Size(77, 31);
             this.lbFloor.TabIndex = 40;
             this.lbFloor.Text = "1";
             this.lbFloor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -336,9 +336,9 @@
             // 
             this.materialLabel15.AutoSize = true;
             this.materialLabel15.Depth = 0;
-            this.materialLabel15.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel15.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel15.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel15.Location = new System.Drawing.Point(1066, 99);
+            this.materialLabel15.Location = new System.Drawing.Point(930, 75);
             this.materialLabel15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel15.Name = "materialLabel15";
@@ -350,9 +350,9 @@
             // 
             this.materialLabel14.AutoSize = true;
             this.materialLabel14.Depth = 0;
-            this.materialLabel14.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel14.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel14.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel14.Location = new System.Drawing.Point(183, 104);
+            this.materialLabel14.Location = new System.Drawing.Point(108, 63);
             this.materialLabel14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel14.Name = "materialLabel14";
@@ -364,9 +364,9 @@
             // 
             this.materialLabel12.AutoSize = true;
             this.materialLabel12.Depth = 0;
-            this.materialLabel12.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel12.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel12.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel12.Location = new System.Drawing.Point(936, 99);
+            this.materialLabel12.Location = new System.Drawing.Point(800, 75);
             this.materialLabel12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel12.Name = "materialLabel12";
@@ -378,9 +378,9 @@
             // 
             this.materialLabel9.AutoSize = true;
             this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel9.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.materialLabel9.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel9.Location = new System.Drawing.Point(51, 104);
+            this.materialLabel9.Location = new System.Drawing.Point(20, 63);
             this.materialLabel9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
@@ -394,7 +394,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel5.Location = new System.Drawing.Point(93, 434);
+            this.materialLabel5.Location = new System.Drawing.Point(62, 341);
             this.materialLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
@@ -413,7 +413,7 @@
             this.note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.note.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.note.Location = new System.Drawing.Point(822, 536);
+            this.note.Location = new System.Drawing.Point(676, 447);
             this.note.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.note.Name = "note";
             this.note.PlaceholderText = "";
@@ -473,7 +473,7 @@
             this.comboboxRoomType.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboboxRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboboxRoomType.ItemHeight = 30;
-            this.comboboxRoomType.Location = new System.Drawing.Point(268, 424);
+            this.comboboxRoomType.Location = new System.Drawing.Point(194, 335);
             this.comboboxRoomType.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboboxRoomType.Name = "comboboxRoomType";
             this.comboboxRoomType.Size = new System.Drawing.Size(238, 36);
@@ -490,7 +490,7 @@
             this.comboboxStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboboxStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboboxStatus.ItemHeight = 30;
-            this.comboboxStatus.Location = new System.Drawing.Point(822, 424);
+            this.comboboxStatus.Location = new System.Drawing.Point(676, 335);
             this.comboboxStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboboxStatus.Name = "comboboxStatus";
             this.comboboxStatus.Size = new System.Drawing.Size(238, 36);
@@ -503,7 +503,7 @@
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel16.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel16.Location = new System.Drawing.Point(720, 434);
+            this.materialLabel16.Location = new System.Drawing.Point(574, 341);
             this.materialLabel16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
@@ -520,7 +520,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 827);
+            this.ClientSize = new System.Drawing.Size(1053, 612);
             this.Controls.Add(this.comboboxStatus);
             this.Controls.Add(this.materialLabel16);
             this.Controls.Add(this.comboboxRoomType);
