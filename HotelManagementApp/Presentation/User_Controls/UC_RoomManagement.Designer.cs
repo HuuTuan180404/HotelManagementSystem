@@ -39,8 +39,10 @@
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,8 +53,8 @@
             this.panel1.Controls.Add(this.btnAddRoom);
             this.panel1.Controls.Add(this.comboboxStatus);
             this.panel1.Controls.Add(this.btnAllRoom);
-            this.panel1.Controls.Add(this.materialLabel1);
             this.panel1.Controls.Add(this.UC_ViewTableMode);
+            this.panel1.Controls.Add(this.panel2);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -91,7 +93,7 @@
             this.btnFilter.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFilter.ForeColor = System.Drawing.Color.White;
-            this.btnFilter.Location = new System.Drawing.Point(847, 114);
+            this.btnFilter.Location = new System.Drawing.Point(617, 114);
             this.btnFilter.Name = "btnFilter";
             this.btnFilter.Size = new System.Drawing.Size(127, 45);
             this.btnFilter.TabIndex = 14;
@@ -108,7 +110,7 @@
             this.btnAddRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddRoom.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddRoom.ForeColor = System.Drawing.Color.White;
-            this.btnAddRoom.Location = new System.Drawing.Point(1005, 114);
+            this.btnAddRoom.Location = new System.Drawing.Point(775, 114);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.Size = new System.Drawing.Size(127, 45);
             this.btnAddRoom.TabIndex = 13;
@@ -168,7 +170,7 @@
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H3;
-            this.materialLabel1.Location = new System.Drawing.Point(9, 31);
+            this.materialLabel1.Location = new System.Drawing.Point(10, 25);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(481, 58);
@@ -190,6 +192,15 @@
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.materialLabel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1406, 100);
+            this.panel2.TabIndex = 18;
+            // 
             // UC_RoomManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -201,8 +212,9 @@
             this.Size = new System.Drawing.Size(1406, 923);
             this.Load += new System.EventHandler(this.Room_Load);
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -218,5 +230,6 @@
         private System.Windows.Forms.PictureBox btnChangeViewMode;
         private UC_ViewFloorMode UC_ViewFloorMode;
         private UC_ViewTableMode UC_ViewTableMode;
+        private System.Windows.Forms.Panel panel2;
     }
 }

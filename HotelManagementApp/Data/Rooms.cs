@@ -12,24 +12,23 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class ServiceUsage
+    public partial class Rooms
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ServiceUsage()
+        public Rooms()
         {
-            this.ServiceUsageDetail = new HashSet<ServiceUsageDetail>();
+            this.Bookings = new HashSet<Bookings>();
         }
     
-        public string SUId { get; set; }
-        public string BId { get; set; }
-        public System.DateTime SUDate { get; set; }
-        public string PMethod { get; set; }
-        public string PStatus { get; set; }
+        public string RId { get; set; }
+        public string Type { get; set; }
+        public string Status { get; set; }
+        public decimal PricePerNight { get; set; }
+        public string Description { get; set; }
     
-        public virtual Bookings Bookings { get; set; }
-        public virtual PaymentMethod PaymentMethod { get; set; }
-        public virtual PaymentStatus PaymentStatus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsageDetail> ServiceUsageDetail { get; set; }
+        public virtual ICollection<Bookings> Bookings { get; set; }
+        public virtual RStatus RStatus { get; set; }
+        public virtual RType RType { get; set; }
     }
 }

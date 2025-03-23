@@ -14,15 +14,15 @@ namespace Data
     
     public partial class ServiceUsageDetail
     {
-        public string BID { get; set; }
+        public string SUId { get; set; }
         public string SName { get; set; }
-        public string EID { get; set; }
+        public string EId { get; set; }
         public decimal UnitPrice { get; set; }
         public int Quantity { get; set; }
         public Nullable<decimal> Discount { get; set; }
     
-        public virtual Employee Employee { get; set; }
-        public virtual Service Service { get; set; }
+        public virtual Employees Employees { get; set; }
+        public virtual Services Services { get; set; }
         public virtual ServiceUsage ServiceUsage { get; set; }
     }
 }

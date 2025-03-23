@@ -5,36 +5,37 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="0b54a441c0f449c9a37b4cd1343afc1c" Name="Diagram1">
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Booking_Payments" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Booking_Status" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Booking" Width="1.5" PointX="8.25" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Customer" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Employee_Role" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Employee" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Payment_Method" Width="1.5" PointX="3" PointY="13.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Payment_Status" Width="1.5" PointX="3" PointY="16.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Room" Width="1.5" PointX="6" PointY="9" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.RoomStatu" Width="1.5" PointX="3.75" PointY="8" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.RoomType" Width="1.5" PointX="3.75" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Service" Width="1.5" PointX="10.5" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsage" Width="1.5" PointX="10.5" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsageDetail" Width="1.5" PointX="12.75" PointY="4.25" IsExpanded="true" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking_P__PMeth__72C60C4A" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking_P__PStat__73BA3083" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking_Pay__BID__6EF57B66" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking_Pay__EID__6FE99F9F" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__CID__5BE2A6F2" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__EID__5CD6CB2B" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__RId__5AEE82B9" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsag__BID__60A75C0F" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Employees__ERole__4F7CD00D" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsag__EID__68487DD7" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__PMeth__628FA481" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__PStat__6383C8BA" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Rooms__RStatus__3E52440B" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__Rooms__RType__3D5E1FD2" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__SName__6754599E" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsag__BID__66603565" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.BookingPayments" Width="1.5" PointX="7.5" PointY="4.125" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Bookings" Width="1.5" PointX="5.25" PointY="3.75" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.BookingStatus" Width="1.5" PointX="3" PointY="12.25" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Customers" Width="1.5" PointX="3" PointY="9" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.EmployeeRole" Width="1.5" PointX="0.75" PointY="4.875" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Employees" Width="1.5" PointX="3" PointY="4" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.PaymentMethod" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.PaymentStatus" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Rooms" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.RStatus" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.RType" Width="1.5" PointX="0.75" PointY="17" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Services" Width="1.5" PointX="10.5" PointY="0.75" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsage" Width="1.5" PointX="10.5" PointY="4.25" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsageDetail" Width="1.5" PointX="12.75" PointY="4.25" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPa__PMeth__73BA3083" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPa__PStat__74AE54BC" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPaym__BId__71D1E811" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPaym__EId__72C60C4A" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__BStatu__5EBF139D" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__CId__5CD6CB2B" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__EId__5DCAEF64" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Bookings__RId__5BE2A6F2" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsag__BId__628FA481" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Employees__ERole__4F7CD00D" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsag__EId__6D0D32F4" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__PMeth__6383C8BA" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__PStat__6477ECF3" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Rooms__Status__403A8C7D" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Rooms__Type__3F466844" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__SName__6C190EBB" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsa__SUId__6B24EA82" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

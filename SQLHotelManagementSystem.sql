@@ -1,64 +1,25 @@
 ﻿USE master
 GO
 
+DROP DATABASE HotelManagementSystem
+GO
+
 CREATE DATABASE HotelManagementSystem
 GO
 
 USE HotelManagementSystem
 GO
-/*
-----------------------------------DROP TABLE IF EXISTS----------------------
-
-DROP TABLE IF EXISTS Payments_Service
-GO
-
-DROP TABLE IF EXISTS Payments_Booking
-GO
-
-DROP TABLE IF EXISTS ServiceUsageDetail
-GO
-
-DROP TABLE IF EXISTS ServiceUsage
-GO
-
-DROP TABLE IF EXISTS Bookings
-GO
-
-DROP TABLE IF EXISTS Services
-GO
-
-DROP TABLE IF EXISTS Employees
-GO
-
-DROP TABLE IF EXISTS Customers;
-GO
-
-DROP TABLE IF EXISTS Rooms;
-GO
-
-DROP TABLE IF EXISTS Employees_Role
-GO
-
-DROP TABLE IF EXISTS Rooms_Type;
-GO
-
-DROP TABLE IF EXISTS Rooms_Status;
-GO
-*/
-----------------------------------CREATE TABLE----------------------------
-
---Rooms_Status
 
 
-CREATE TABLE RoomStatus
+CREATE TABLE RStatus
 (
-    RStatus VARCHAR(100) PRIMARY KEY,
-    RSDescription NVARCHAR(MAX)
+    Status VARCHAR(100) PRIMARY KEY,
+    Description NVARCHAR(MAX)
 )
 GO
 
 --Rooms_Type
-CREATE TABLE RoomType
+CREATE TABLE RoomTypes
 (
     RType VARCHAR(100) NOT NULL PRIMARY KEY,
 	RTBedCount TINYINT NOT NULL DEFAULT 1,
@@ -71,75 +32,14 @@ GO
 CREATE TABLE Rooms
 (
     RId VARCHAR(50) NOT NULL PRIMARY KEY,
-	RType VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomType(RType),
+	RType VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomTypes(RType),
     RStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomStatus(RStatus),
 	RPricePerNight DECIMAL(10,2) NOT NULL CHECK (RPricePerNight >= 0) DEFAULT 100,
 	RDescription NVARCHAR(MAX)
 )
 GO
 
-CREATE PROC Table_Rooms_Detail
-AS
-BEGIN
-	SELECT RId,
-		   R.RType,
-		   RTBedCount, 
-		   RTMaxGuests,
-		   RStatus,
-		   RPricePerNight,
-		   RDescription
-	FROM [HotelManagementSystem].[dbo].[Rooms] R
-		 JOIN [HotelManagementSystem].[dbo].RoomType RT ON R.RType=RT.RType	
-	ORDER BY RId ASC
-END;
-GO
 
-CREATE PROC Table_RoomType
-AS
-BEGIN
-	SELECT * FROM RoomType
-	ORDER BY RType ASC
-END;
-GO
-
-
-
-EXEC Table_RoomType
-GO
-
-
-SET NOCOUNT ON;
-GO
-
-INSERT INTO RoomStatus (RStatus, RSDescription) VALUES
-('Available', N'Phòng trống, sẵn sàng đón khách'),
-('Occupied', N'Phòng đang có khách'),
-('Reserved', N'Phòng đã được đặt trước'),
-('Maintenance', N'Phòng đang bảo trì'),
-('Cleaning', N'Phòng đang được dọn dẹp');
-GO
-
-
-INSERT INTO RoomType (RType, RTBedCount, RTMaxGuests, RTDescription) VALUES
-('Standard', 1, 2, N'Phòng tiêu chuẩn với 1 giường đôi'),
-('Deluxe', 2, 4, N'Phòng cao cấp với 2 giường đôi'),
-('Suite', 1, 2, N'Phòng hạng sang với nội thất cao cấp'),
-('Family', 2, 6, N'Phòng gia đình rộng rãi với 2 giường lớn'),
-('VIP', 1, 2, N'Phòng VIP với dịch vụ đặc biệt');
-GO
-
-
-INSERT INTO Rooms (RId, RPricePerNight, RDescription, RStatus, RType) VALUES
-('Roo1-1', 100.00, N'Phòng tiêu chuẩn tầng 1', 'Available','Standard' ),
-('Roo1-2', 150.00, N'Phòng Deluxe tầng 1', 'Reserved', 'Deluxe'),
-('Roo2-1', 200.00, N'Phòng Suite tầng 2', 'Occupied', 'Suite'),
-('Roo2-2', 180.00, N'Phòng Family tầng 2', 'Available', 'Family'),
-('Roo3-1', 300.00, N'Phòng VIP tầng 3', 'Cleaning', 'VIP'),
-('Roo3-2', 250.00, N'Phòng Deluxe tầng 3', 'Maintenance', 'Deluxe');
-GO
-
--- ======================================================================================
---Customers
 CREATE TABLE Customers
 (
     CID VARCHAR(100) PRIMARY KEY,   
@@ -152,14 +52,12 @@ CREATE TABLE Customers
 )
 GO
 
---Employees_Role
-CREATE TABLE Employee_Role (
+CREATE TABLE EmployeeRole (
     ERole VARCHAR(100) PRIMARY KEY,   
     ERDescription NVARCHAR(100)
 )
 GO
 
---Employees
 CREATE TABLE Employees 
 (
     EID VARCHAR(100) PRIMARY KEY,   
@@ -169,7 +67,7 @@ CREATE TABLE Employees
     EEmail VARCHAR(100) UNIQUE ,  
     EAddress NVARCHAR(255) ,          
     EStatus CHAR(10) CHECK (EStatus IN ('Active', 'Inactive', 'On Leave')) NOT NULL,  
-    ERole VARCHAR(100) FOREIGN KEY REFERENCES Employee_Role(ERole)                 
+    ERole VARCHAR(100) FOREIGN KEY REFERENCES EmployeeRole(ERole)                 
 )
 GO
 
@@ -181,40 +79,38 @@ CREATE TABLE [Services]
 );
 GO
 
-CREATE TABLE Booking_Status
+
+CREATE TABLE BookingStatus
 (
 	BStatus VARCHAR(100) PRIMARY KEY,
 	BKDescription NVARCHAR(MAX)
 )
 GO
 
-
-CREATE TABLE Payment_Method
+CREATE TABLE PaymentMethod
 (
 	PMethod VARCHAR(100) PRIMARY KEY,
 	Description NVARCHAR(MAX)
 )
 GO
 
-CREATE TABLE Payment_Status
+CREATE TABLE PaymentStatus
 (
     PStatus VARCHAR(100) PRIMARY KEY,
     Description NVARCHAR(MAX)
 )
 GO
 
-
 CREATE TABLE Bookings (
     BID VARCHAR(100) PRIMARY KEY,
-    RFloor INT NOT NULL,
-	RNo INT NOT NULL,
+	RId VARCHAR(50) FOREIGN KEY REFERENCES Rooms(RId),
     CID VARCHAR(100) NOT NULL FOREIGN KEY (CID) REFERENCES Customers(CID),
 	EID VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Employees(EID),
     BTimeCheckIn DATETIME NOT NULL,  
     BTimeCheckOut DATETIME NOT NULL, 
     BStatus VARCHAR(100) NOT NULL,  
     BCreateAt DATETIME DEFAULT GETDATE(),
-	FOREIGN KEY (RFloor,RNo) REFERENCES Rooms(RFloor,RNo)
+	
 );
 GO
 
@@ -222,8 +118,8 @@ CREATE TABLE ServiceUsage
 (
     BID VARCHAR(100) PRIMARY KEY FOREIGN KEY (BID) REFERENCES Bookings(BID), 
     SUDate DATETIME NOT NULL DEFAULT GETDATE(),
-	PMethod VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Payment_Method(PMethod),
-    PStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Payment_Status(PStatus)
+	PMethod VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES PaymentMethod(PMethod),
+    PStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES PaymentStatus(PStatus)
 );
 GO
 
@@ -240,60 +136,13 @@ CREATE TABLE ServiceUsageDetail
 );
 GO
 
-CREATE TABLE Booking_Payments
+CREATE TABLE BookingPayments
 (
     BID VARCHAR(100) PRIMARY KEY FOREIGN KEY (BID) REFERENCES Bookings(BID),
     EID VARCHAR(100) FOREIGN KEY (EID) REFERENCES Employees(EID),
     BPAmount DECIMAL(10,2) NOT NULL CHECK (BPAmount >= 0),
     BPDate DATETIME DEFAULT GETDATE(),
-    PMethod VARCHAR(100) FOREIGN KEY (PMethod) REFERENCES Payment_Method(PMethod),
-    PStatus VARCHAR(100) FOREIGN KEY (PStatus) REFERENCES Payment_Status(PStatus)
+    PMethod VARCHAR(100) FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod),
+    PStatus VARCHAR(100) FOREIGN KEY (PStatus) REFERENCES PaymentStatus(PStatus)
 );
 GO
-
-----------------------------PROCEDURE---------------------------
-
-CREATE PROC Table_Rooms_Detail
-AS
-BEGIN
-	SELECT CONCAT('Roo',[RFloor],'-',[RNo]) AS RoomID,
-       R.RType,
-       RTBedCount, 
-       RTMaxGuests,
-       R.RStatus,
-       RPricePerNight,
-       RDescription
-	FROM [HotelManagementSystem].[dbo].[Rooms] R
-		 JOIN [HotelManagementSystem].[dbo].Room_Type RT ON R.RType = RT.RType
-	ORDER BY RoomID ASC
-END;
-GO
-
-
-CREATE PROC When_INSERT_INTO_Bookings @BID VARCHAR(100), @RID INT, @CID VARCHAR(100), @EID VARCHAR(100), @BTimeCheckIn DATETIME, @BTimeCheckOut DATETIME, @BStatus VARCHAR(100)
-AS
-BEGIN
-	INSERT INTO Bookings
-	VALUES (@BID,@RID,@CID,@EID, @BTimeCheckIn, @BTimeCheckOut,@BStatus,GETDATE())
-
-	INSERT INTO Booking_Payments
-	VALUES (@BID, @EID ,0 ,GETDATE(),'Cash','Pending')
-
-	INSERT INTO ServiceUsage
-	VALUES (@BID, GETDATE(),'Cash','Pending')
-END
-GO
-
-/*
-CREATE PROC When_Order_Service @BID VARCHAR(100), @RID INT, @CID VARCHAR(100), @EID VARCHAR(100), @BTimeCheckIn DATETIME, @BTimeCheckOut DATETIME, @BStatus VARCHAR(100)
-AS
-BEGIN
-	INSERT INTO Bookings
-	VALUES (@BID,@RID,@CID,@EID, @BTimeCheckIn, @BTimeCheckOut,@BStatus,GETDATE())
-
-	INSERT INTO Booking_Payments
-	VALUES (@BID, @EID ,0 ,GETDATE(),'Cash','Pending')
-END
-GO
-*/
---------------------------------TRIGGER---------------------------------

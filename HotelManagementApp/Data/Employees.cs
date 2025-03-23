@@ -12,31 +12,31 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Employee
+    public partial class Employees
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Employee()
+        public Employees()
         {
-            this.Booking_Payments = new HashSet<Booking_Payments>();
-            this.Bookings = new HashSet<Booking>();
-            this.ServiceUsageDetails = new HashSet<ServiceUsageDetail>();
+            this.BookingPayments = new HashSet<BookingPayments>();
+            this.Bookings = new HashSet<Bookings>();
+            this.ServiceUsageDetail = new HashSet<ServiceUsageDetail>();
         }
     
-        public string EID { get; set; }
-        public string EName { get; set; }
-        public string EGender { get; set; }
-        public string EPhone { get; set; }
-        public string EEmail { get; set; }
-        public string EAddress { get; set; }
-        public string EStatus { get; set; }
+        public string EId { get; set; }
+        public string Name { get; set; }
+        public string Gender { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string Status { get; set; }
         public string ERole { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking_Payments> Booking_Payments { get; set; }
+        public virtual ICollection<BookingPayments> BookingPayments { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual Employee_Role Employee_Role { get; set; }
+        public virtual ICollection<Bookings> Bookings { get; set; }
+        public virtual EmployeeRole EmployeeRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsageDetail> ServiceUsageDetails { get; set; }
+        public virtual ICollection<ServiceUsageDetail> ServiceUsageDetail { get; set; }
     }
 }

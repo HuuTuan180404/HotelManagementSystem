@@ -26,7 +26,14 @@ namespace Presentation.User_Controls
         public UC_RoomManagement()
         {
             InitializeComponent();
-            loadDataFor_comboboxStatus();
+#if DEBUG
+            if (System.ComponentModel.LicenseManager.UsageMode != System.ComponentModel.LicenseUsageMode.Designtime)
+            {
+                // Chỉ chạy khi không ở chế độ thiết kế
+                loadDataFor_comboboxStatus();
+            }
+#endif
+            
         }
 
         private void Room_Load(object sender, EventArgs e)

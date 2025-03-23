@@ -12,23 +12,18 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class EmployeeRole
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public EmployeeRole()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.Employees = new HashSet<Employees>();
         }
     
-        public string CID { get; set; }
-        public string CName { get; set; }
-        public string CGender { get; set; }
-        public string CPhone { get; set; }
-        public string CEmail { get; set; }
-        public string CAddress { get; set; }
-        public string CType { get; set; }
+        public string ERole { get; set; }
+        public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual ICollection<Employees> Employees { get; set; }
     }
 }

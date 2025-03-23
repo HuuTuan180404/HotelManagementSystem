@@ -11,10 +11,7 @@ namespace Data
     internal class ConfigData
     {
         private static readonly string CONNECTION_STRING = "data source=.;database=HotelManagementSystem;integrated security = True";
-        //public static string ConnectionString = "metadata=res://*/MyDatabase.csdl|res://*/MyDatabase.ssdl|res://*/MyDatabase.msl;provider=System.Data.SqlClient;provider connection string=&quot;Server=.;initial catalog=HotelManagementSystem;integrated security=True;multipleactiveresultsets=True;encrypt=True;trustservercertificate=True;application name=EntityFramework&quot";
-
-        //public static string SqlConnectionString = "data source=.;initial catalog=HotelManagementSystem;integrated security=True;multipleactiveresultsets=True;encrypt=True;trustservercertificate=True;application name=EntityFramework";
-
+      
         public static string EntityConnectionString
         {
             get

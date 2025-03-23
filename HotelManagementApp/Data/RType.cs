@@ -12,21 +12,20 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment_Method
+    public partial class RType
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Payment_Method()
+        public RType()
         {
-            this.Booking_Payments = new HashSet<Booking_Payments>();
-            this.ServiceUsages = new HashSet<ServiceUsage>();
+            this.Rooms = new HashSet<Rooms>();
         }
     
-        public string PMethod { get; set; }
+        public string RType_ { get; set; }
+        public byte BedCount { get; set; }
+        public byte MaxGuests { get; set; }
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking_Payments> Booking_Payments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsage> ServiceUsages { get; set; }
+        public virtual ICollection<Rooms> Rooms { get; set; }
     }
 }

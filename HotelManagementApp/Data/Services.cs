@@ -12,18 +12,19 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class RoomStatu
+    public partial class Services
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public RoomStatu()
+        public Services()
         {
-            this.Rooms = new HashSet<Room>();
+            this.ServiceUsageDetail = new HashSet<ServiceUsageDetail>();
         }
     
-        public string RStatus { get; set; }
-        public string RSDescription { get; set; }
+        public string SName { get; set; }
+        public decimal SPrice { get; set; }
+        public string SDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room> Rooms { get; set; }
+        public virtual ICollection<ServiceUsageDetail> ServiceUsageDetail { get; set; }
     }
 }

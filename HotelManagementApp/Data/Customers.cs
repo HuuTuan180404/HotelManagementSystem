@@ -12,23 +12,23 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Room
+    public partial class Customers
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Room()
+        public Customers()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.Bookings = new HashSet<Bookings>();
         }
     
-        public string RId { get; set; }
-        public string RType { get; set; }
-        public string RStatus { get; set; }
-        public decimal RPricePerNight { get; set; }
-        public string RDescription { get; set; }
+        public string CId { get; set; }
+        public string Name { get; set; }
+        public string Gender { get; set; }
+        public string Phone { get; set; }
+        public string Email { get; set; }
+        public string Address { get; set; }
+        public string Type { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual RoomStatu RoomStatu { get; set; }
-        public virtual RoomType RoomType { get; set; }
+        public virtual ICollection<Bookings> Bookings { get; set; }
     }
 }

@@ -16,17 +16,17 @@ namespace Data
             List<RoomDTO> list = new List<RoomDTO>();
             using (var DB = new HotelManagementSystemContext())
             {
-                var rooms = DB.Rooms.Include("RoomType").Include("RoomStatu").Select(r => new RoomDTO
+                var rooms = DB.Rooms.Include("RType_").Include("RStatus_").Select(r => new RoomDTO
                 {
                     RId = r.RId,
-                    RType = r.RoomType.RType,
-                    RTBedCount = r.RoomType.RTBedCount,
-                    RTMaxGuests = r.RoomType.RTMaxGuests,
-                    RTypeDescription = r.RoomType.RTDescription,
-                    RStatus = r.RStatus,
-                    RStatusDescription = r.RoomStatu.RSDescription,
-                    RPricePerNight = r.RPricePerNight,
-                    RDescription = r.RDescription
+                    RType = r.RType.RType_,
+                    RTBedCount = r.RType.BedCount,
+                    RTMaxGuests = r.RType.MaxGuests,
+                    RTypeDescription = r.RType.Description,
+                    RStatus = r.RStatus.RStatus_,
+                    RStatusDescription = r.RStatus.Description,
+                    RPricePerNight = r.PricePerNight,
+                    RDescription = r.Description
                 });
 
                 if (rooms != null)

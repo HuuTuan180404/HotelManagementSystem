@@ -12,21 +12,18 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Payment_Status
+    public partial class BookingStatus
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Payment_Status()
+        public BookingStatus()
         {
-            this.Booking_Payments = new HashSet<Booking_Payments>();
-            this.ServiceUsages = new HashSet<ServiceUsage>();
+            this.Bookings = new HashSet<Bookings>();
         }
     
-        public string PStatus { get; set; }
-        public string Description { get; set; }
+        public string BStatus { get; set; }
+        public string BKDescription { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking_Payments> Booking_Payments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsage> ServiceUsages { get; set; }
+        public virtual ICollection<Bookings> Bookings { get; set; }
     }
 }

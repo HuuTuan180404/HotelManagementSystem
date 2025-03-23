@@ -15,14 +15,8 @@ namespace Data
 
     public partial class HotelManagementSystemContext : DbContext
     {
-        //public HotelManagementSystemContext() : base("name=HotelManagementSystemContext")
-        //{
-        //}
-        public HotelManagementSystemContext() : base(ConfigData.EntityConnectionString)
-        {
-        }
-
-        public HotelManagementSystemContext(string connectionString) : base(connectionString)
+        public HotelManagementSystemContext()
+            : base(ConfigData.EntityConnectionString)
         {
         }
 
@@ -31,19 +25,19 @@ namespace Data
             throw new UnintentionalCodeFirstException();
         }
 
-        public virtual DbSet<Booking_Payments> Booking_Payments { get; set; }
-        public virtual DbSet<Booking_Status> Booking_Status { get; set; }
-        public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Employee_Role> Employee_Role { get; set; }
-        public virtual DbSet<Employee> Employees { get; set; }
-        public virtual DbSet<Payment_Method> Payment_Method { get; set; }
-        public virtual DbSet<Payment_Status> Payment_Status { get; set; }
-        public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<RoomStatu> RoomStatus { get; set; }
-        public virtual DbSet<RoomType> RoomTypes { get; set; }
-        public virtual DbSet<Service> Services { get; set; }
-        public virtual DbSet<ServiceUsage> ServiceUsages { get; set; }
-        public virtual DbSet<ServiceUsageDetail> ServiceUsageDetails { get; set; }
+        public virtual DbSet<BookingPayments> BookingPayments { get; set; }
+        public virtual DbSet<Bookings> Bookings { get; set; }
+        public virtual DbSet<BookingStatus> BookingStatus { get; set; }
+        public virtual DbSet<Customers> Customers { get; set; }
+        public virtual DbSet<EmployeeRole> EmployeeRole { get; set; }
+        public virtual DbSet<Employees> Employees { get; set; }
+        public virtual DbSet<PaymentMethod> PaymentMethod { get; set; }
+        public virtual DbSet<PaymentStatus> PaymentStatus { get; set; }
+        public virtual DbSet<Rooms> Rooms { get; set; }
+        public virtual DbSet<RStatus> RStatus { get; set; }
+        public virtual DbSet<RType> RType { get; set; }
+        public virtual DbSet<Services> Services { get; set; }
+        public virtual DbSet<ServiceUsage> ServiceUsage { get; set; }
+        public virtual DbSet<ServiceUsageDetail> ServiceUsageDetail { get; set; }
     }
 }

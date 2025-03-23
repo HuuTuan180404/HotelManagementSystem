@@ -12,18 +12,19 @@ namespace Data
     using System;
     using System.Collections.Generic;
     
-    public partial class Booking_Payments
+    public partial class BookingPayments
     {
-        public string BID { get; set; }
-        public string EID { get; set; }
-        public decimal BPAmount { get; set; }
-        public Nullable<System.DateTime> BPDate { get; set; }
+        public string BPId { get; set; }
+        public string BId { get; set; }
+        public string EId { get; set; }
+        public decimal Amount { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
         public string PMethod { get; set; }
         public string PStatus { get; set; }
     
-        public virtual Payment_Method Payment_Method { get; set; }
-        public virtual Payment_Status Payment_Status { get; set; }
-        public virtual Booking Booking { get; set; }
-        public virtual Employee Employee { get; set; }
+        public virtual PaymentMethod PaymentMethod { get; set; }
+        public virtual PaymentStatus PaymentStatus { get; set; }
+        public virtual Bookings Bookings { get; set; }
+        public virtual Employees Employees { get; set; }
     }
 }
