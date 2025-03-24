@@ -17,22 +17,29 @@ namespace Presentation.User_Controls
             InitializeComponent();
         }
 
-        private void txtSearchEmployee_Leave(object sender, EventArgs e)
+        private void UC_EmployeeManagement_Load(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtSearchEmployee.Text))
-            {
-                txtSearchEmployee.Text = "Tìm kiếm...";
-                txtSearchEmployee.ForeColor = Color.Gray;
-            }
+
         }
 
-        private void txtSearchEmployee_Enter(object sender, EventArgs e)
+        private void cardActive_Paint(object sender, PaintEventArgs e)
         {
-            if (txtSearchEmployee.Text == "Tìm kiếm...")
-            {
-                txtSearchEmployee.Text = "";
-                txtSearchEmployee.ForeColor = Color.Black;
-            }
+
+        }
+
+        private void guna2ShadowPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cardTotal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tbLayoutCard_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

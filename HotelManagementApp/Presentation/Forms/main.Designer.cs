@@ -33,13 +33,6 @@
             this.sideBar = new Guna.UI2.WinForms.Guna2CustomGradientPanel();
             this.panelLogout = new Guna.UI2.WinForms.Guna2Panel();
             this.lbLogout = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.lbTime = new MaterialSkin.Controls.MaterialLabel();
-            this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.pic_close = new System.Windows.Forms.PictureBox();
-            this.pic_minus = new System.Windows.Forms.PictureBox();
             this.picLogout = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnMenu = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
@@ -47,20 +40,27 @@
             this.btnEmployee = new Guna.UI2.WinForms.Guna2Button();
             this.btnRoom = new Guna.UI2.WinForms.Guna2Button();
             this.btnCustomer = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.lbTime = new MaterialSkin.Controls.MaterialLabel();
+            this.uC_CustomerManagement1 = new Presentation.User_Controls.UC_CustomerManagement();
+            this.pic_close = new System.Windows.Forms.PictureBox();
+            this.pic_minus = new System.Windows.Forms.PictureBox();
+            this.panelRoomManagement = new Guna.UI2.WinForms.Guna2Panel();
             this.uC_BookingManagement1 = new HotelManagementApp.User_Controls.UC_BookingManagement();
             this.UC_RoomManagement = new HotelManagementApp.User_Controls.UC_RoomManagement();
             this.UC_BookingManagement = new HotelManagementApp.User_Controls.UC_BookingManagement();
             this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
             this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
-            this.uC_CustomerManagement1 = new Presentation.User_Controls.UC_CustomerManagement();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
-            this.guna2Panel1.SuspendLayout();
-            this.panelRoomManagement.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
+            this.guna2Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).BeginInit();
+            this.panelRoomManagement.SuspendLayout();
             this.SuspendLayout();
             // 
             // sideBar
@@ -105,77 +105,6 @@
             this.lbLogout.TabIndex = 1;
             this.lbLogout.Text = "LOGOUT";
             this.lbLogout.Click += new System.EventHandler(this.lbLogout_Click);
-            // 
-            // guna2Panel1
-            // 
-            this.guna2Panel1.Controls.Add(this.lbTime);
-            this.guna2Panel1.Controls.Add(this.uC_CustomerManagement1);
-            this.guna2Panel1.Controls.Add(this.pic_close);
-            this.guna2Panel1.Controls.Add(this.pic_minus);
-            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.guna2Panel1.Location = new System.Drawing.Point(107, 0);
-            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
-            this.guna2Panel1.Name = "guna2Panel1";
-            this.guna2Panel1.Size = new System.Drawing.Size(1835, 97);
-            this.guna2Panel1.TabIndex = 18;
-            // 
-            // lbTime
-            // 
-            this.lbTime.AutoSize = true;
-            this.lbTime.Depth = 0;
-            this.lbTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbTime.Location = new System.Drawing.Point(91, 39);
-            this.lbTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lbTime.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbTime.Name = "lbTime";
-            this.lbTime.Size = new System.Drawing.Size(174, 19);
-            this.lbTime.TabIndex = 13;
-            this.lbTime.Text = "giờ, thứ ngày tháng nam";
-            // 
-            // panelRoomManagement
-            // 
-            this.panelRoomManagement.Controls.Add(this.uC_BookingManagement1);
-            this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
-            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
-            this.panelRoomManagement.Controls.Add(this.UC_CustomerManagement);
-            this.panelRoomManagement.Controls.Add(this.UC_EmployeeManagement);
-            this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelRoomManagement.Location = new System.Drawing.Point(107, 97);
-            this.panelRoomManagement.Margin = new System.Windows.Forms.Padding(4);
-            this.panelRoomManagement.Name = "panelRoomManagement";
-            this.panelRoomManagement.Size = new System.Drawing.Size(1835, 909);
-            this.panelRoomManagement.TabIndex = 19;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 1;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // pic_close
-            // 
-            this.pic_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
-            this.pic_close.Location = new System.Drawing.Point(1753, 15);
-            this.pic_close.Margin = new System.Windows.Forms.Padding(4);
-            this.pic_close.Name = "pic_close";
-            this.pic_close.Size = new System.Drawing.Size(67, 62);
-            this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_close.TabIndex = 11;
-            this.pic_close.TabStop = false;
-            this.pic_close.Click += new System.EventHandler(this.pic_close_Click);
-            // 
-            // pic_minus
-            // 
-            this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
-            this.pic_minus.Location = new System.Drawing.Point(1678, 15);
-            this.pic_minus.Margin = new System.Windows.Forms.Padding(4);
-            this.pic_minus.Name = "pic_minus";
-            this.pic_minus.Size = new System.Drawing.Size(67, 62);
-            this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_minus.TabIndex = 12;
-            this.pic_minus.TabStop = false;
-            this.pic_minus.Click += new System.EventHandler(this.pic_minus_Click);
             // 
             // picLogout
             // 
@@ -351,6 +280,80 @@
             this.btnCustomer.UseTransparentBackground = true;
             this.btnCustomer.Click += new System.EventHandler(this.btnCustomer_Click);
             // 
+            // guna2Panel1
+            // 
+            this.guna2Panel1.Controls.Add(this.lbTime);
+            this.guna2Panel1.Controls.Add(this.uC_CustomerManagement1);
+            this.guna2Panel1.Controls.Add(this.pic_close);
+            this.guna2Panel1.Controls.Add(this.pic_minus);
+            this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.guna2Panel1.Location = new System.Drawing.Point(107, 0);
+            this.guna2Panel1.Margin = new System.Windows.Forms.Padding(4);
+            this.guna2Panel1.Name = "guna2Panel1";
+            this.guna2Panel1.Size = new System.Drawing.Size(1835, 97);
+            this.guna2Panel1.TabIndex = 18;
+            // 
+            // lbTime
+            // 
+            this.lbTime.AutoSize = true;
+            this.lbTime.Depth = 0;
+            this.lbTime.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTime.Location = new System.Drawing.Point(91, 39);
+            this.lbTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbTime.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbTime.Name = "lbTime";
+            this.lbTime.Size = new System.Drawing.Size(174, 19);
+            this.lbTime.TabIndex = 13;
+            this.lbTime.Text = "giờ, thứ ngày tháng nam";
+            // 
+            // uC_CustomerManagement1
+            // 
+            this.uC_CustomerManagement1.BackColor = System.Drawing.Color.White;
+            this.uC_CustomerManagement1.Location = new System.Drawing.Point(0, 97);
+            this.uC_CustomerManagement1.Name = "uC_CustomerManagement1";
+            this.uC_CustomerManagement1.Size = new System.Drawing.Size(1134, 836);
+            this.uC_CustomerManagement1.TabIndex = 2;
+            // 
+            // pic_close
+            // 
+            this.pic_close.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
+            this.pic_close.Location = new System.Drawing.Point(1753, 15);
+            this.pic_close.Margin = new System.Windows.Forms.Padding(4);
+            this.pic_close.Name = "pic_close";
+            this.pic_close.Size = new System.Drawing.Size(67, 62);
+            this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_close.TabIndex = 11;
+            this.pic_close.TabStop = false;
+            this.pic_close.Click += new System.EventHandler(this.pic_close_Click);
+            // 
+            // pic_minus
+            // 
+            this.pic_minus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pic_minus.Image = ((System.Drawing.Image)(resources.GetObject("pic_minus.Image")));
+            this.pic_minus.Location = new System.Drawing.Point(1678, 15);
+            this.pic_minus.Margin = new System.Windows.Forms.Padding(4);
+            this.pic_minus.Name = "pic_minus";
+            this.pic_minus.Size = new System.Drawing.Size(67, 62);
+            this.pic_minus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_minus.TabIndex = 12;
+            this.pic_minus.TabStop = false;
+            this.pic_minus.Click += new System.EventHandler(this.pic_minus_Click);
+            // 
+            // panelRoomManagement
+            // 
+            this.panelRoomManagement.Controls.Add(this.uC_BookingManagement1);
+            this.panelRoomManagement.Controls.Add(this.UC_RoomManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_BookingManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_CustomerManagement);
+            this.panelRoomManagement.Controls.Add(this.UC_EmployeeManagement);
+            this.panelRoomManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRoomManagement.Location = new System.Drawing.Point(107, 97);
+            this.panelRoomManagement.Margin = new System.Windows.Forms.Padding(4);
+            this.panelRoomManagement.Name = "panelRoomManagement";
+            this.panelRoomManagement.Size = new System.Drawing.Size(1835, 909);
+            this.panelRoomManagement.TabIndex = 19;
+            // 
             // uC_BookingManagement1
             // 
             this.uC_BookingManagement1.BackColor = System.Drawing.Color.White;
@@ -396,13 +399,10 @@
             this.UC_EmployeeManagement.Size = new System.Drawing.Size(1958, 973);
             this.UC_EmployeeManagement.TabIndex = 5;
             // 
-            // uC_CustomerManagement1
+            // timer1
             // 
-            this.uC_CustomerManagement1.BackColor = System.Drawing.Color.White;
-            this.uC_CustomerManagement1.Location = new System.Drawing.Point(0, 97);
-            this.uC_CustomerManagement1.Name = "uC_CustomerManagement1";
-            this.uC_CustomerManagement1.Size = new System.Drawing.Size(1134, 836);
-            this.uC_CustomerManagement1.TabIndex = 2;
+            this.timer1.Interval = 1;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Main
             // 
@@ -421,13 +421,13 @@
             this.sideBar.ResumeLayout(false);
             this.panelLogout.ResumeLayout(false);
             this.panelLogout.PerformLayout();
-            this.guna2Panel1.ResumeLayout(false);
-            this.guna2Panel1.PerformLayout();
-            this.panelRoomManagement.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pic_close)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
+            this.guna2Panel1.ResumeLayout(false);
+            this.guna2Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_minus)).EndInit();
+            this.panelRoomManagement.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
