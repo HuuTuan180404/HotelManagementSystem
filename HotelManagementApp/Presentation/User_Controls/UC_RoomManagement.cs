@@ -22,23 +22,16 @@ namespace Presentation.User_Controls
     {
 
         //RoomB RoomB = new RoomB();
+        RoomBusiness RoomBusiness = new RoomBusiness();
 
         public UC_RoomManagement()
         {
             InitializeComponent();
-#if DEBUG
-            if (System.ComponentModel.LicenseManager.UsageMode != System.ComponentModel.LicenseUsageMode.Designtime)
-            {
-                // Chỉ chạy khi không ở chế độ thiết kế
-                loadDataFor_comboboxStatus();
-            }
-#endif
-            
         }
 
         private void Room_Load(object sender, EventArgs e)
         {
-
+            loadDataFor_comboboxStatus();
         }
 
 
@@ -84,22 +77,25 @@ namespace Presentation.User_Controls
 
         private void btnAllRoom_Click(object sender, EventArgs e)
         {
-            //btnAllRoom.Checked = true;
-
             comboboxStatus.ForeColor = comboboxStatus.BorderColor;
             comboboxStatus.FillColor = Color.White;
-
-            //loadDataFor_dataGridView();
         }
 
+        bool isFloor = true;
         private void btnChangeViewMode_Click(object sender, EventArgs e)
         {
-            int indexUC_ViewFloorMode = panel1.Controls.GetChildIndex(UC_ViewFloorMode);
-            int indexUC_ViewTableMode = panel1.Controls.GetChildIndex(UC_ViewTableMode);
-
-            if (indexUC_ViewFloorMode < indexUC_ViewTableMode) UC_ViewTableMode.BringToFront();
-            else UC_ViewFloorMode.BringToFront();
-
+            if (isFloor)
+            {
+                UC_ViewTableMode.BringToFront();
+                isFloor = false;
+                btnChangeViewMode.Image = Properties.Resources.mode_floor;
+            }
+            else
+            {
+                UC_ViewFloorMode.BringToFront();
+                isFloor = true;
+                btnChangeViewMode.Image = Properties.Resources.mode_table;
+            }
         }
 
 
@@ -116,47 +112,23 @@ namespace Presentation.User_Controls
 
 
 
-
-
-
-
-        private void dataGridView_MouseDown(object sender, MouseEventArgs e)
-        {
-            //if (e.Button == MouseButtons.Right)
-            //{
-            //    var hitTestInfo = dataGridView.HitTest(e.X, e.Y);
-
-            //    if (hitTestInfo.RowIndex >= 0) // Kiểm tra có hàng hay không
-            //    {
-            //        dataGridView.ClearSelection();
-            //        dataGridView.Rows[hitTestInfo.RowIndex].Selected = true; // Chọn hàng
-            //        CreateContextMenuRightClick();
-            //        contextMenuStrip.Show(dataGridView, new Point(e.X, e.Y)); // Hiển thị menu
-            //    }
-            //}
-        }
 
         private void demo(object sender, EventArgs e)
         {
 
         }
 
-        private void CreateContextMenuRightClick()
-        {
-            contextMenuStrip.Items.Clear();
-            contextMenuStrip.Items.Add("Edit", null, demo);
-            contextMenuStrip.Items.Add("View detail", null, demo);
-            contextMenuStrip.Items.Add("Làm mới", null, demo);
-        }
-
-
-
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             AddRoom addRoom = new AddRoom();
-            //addRoom.DataChanged += loadDataFor_dataGridView;
+            addRoom.DataChanged += LoadDataRoom;
             addRoom.ShowDialog();
+        }
+
+        private void LoadDataRoom()
+        {
+
         }
 
         private void btnFilter_Click(object sender, EventArgs e)

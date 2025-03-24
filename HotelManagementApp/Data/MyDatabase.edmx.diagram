@@ -7,18 +7,18 @@
       <Diagram DiagramId="0b54a441c0f449c9a37b4cd1343afc1c" Name="Diagram1">
         <EntityTypeShape EntityType="HotelManagementSystemModel.BookingPayments" Width="1.5" PointX="7.5" PointY="4.125" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Bookings" Width="1.5" PointX="5.25" PointY="3.75" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.BookingStatus" Width="1.5" PointX="3" PointY="17.375" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.BookingStatus" Width="1.5" PointX="3" PointY="12.25" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Customers" Width="1.5" PointX="3" PointY="9" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.EmployeeRole" Width="1.5" PointX="0.75" PointY="4.875" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Employees" Width="1.5" PointX="3" PointY="4" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.PaymentMethod" Width="1.5" PointX="5.25" PointY="12.625" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.PaymentStatus" Width="1.5" PointX="5.25" PointY="10.125" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.Rooms" Width="1.5" PointX="3" PointY="13.125" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.RStatus" Width="1.5" PointX="0.75" PointY="12.25" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.RType" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.PaymentMethod" Width="1.5" PointX="5.25" PointY="10.125" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.PaymentStatus" Width="1.5" PointX="5.25" PointY="12.625" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Rooms" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.RStatus" Width="1.5" PointX="0.75" PointY="14.625" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.RType" Width="1.5" PointX="0.75" PointY="17" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Services" Width="1.5" PointX="10.5" PointY="0.75" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsage" Width="1.5" PointX="10.5" PointY="4.25" />
-        <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsageDetail" Width="1.5" PointX="12.75" PointY="4.25" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.ServiceUsageDetail" Width="2.25" PointX="12.75" PointY="4.25" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPa__PMeth__73BA3083" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPa__PStat__74AE54BC" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__BookingPaym__BId__71D1E811" />

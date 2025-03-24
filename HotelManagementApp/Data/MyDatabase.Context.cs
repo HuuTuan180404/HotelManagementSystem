@@ -12,19 +12,18 @@ namespace Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class HotelManagementSystemContext : DbContext
     {
-        public HotelManagementSystemContext()
-            : base(ConfigData.EntityConnectionString)
+        public HotelManagementSystemContext() : base(ConfigData.EntityConnectionString)
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<BookingPayments> BookingPayments { get; set; }
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<BookingStatus> BookingStatus { get; set; }

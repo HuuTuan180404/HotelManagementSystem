@@ -91,15 +91,5 @@ namespace Presentation.User_Controls
         {
             
         }
-
-        private void groupBox3_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

@@ -16,6 +16,12 @@ namespace Business
             return RoomData.GetAllRooms();
         }
 
+        public List<RoomDTO> GetAllRoomTypes()
+        {
+
+            return null;
+        }
+
         public void GetÌnfoRoom(string RId)
         {
 
