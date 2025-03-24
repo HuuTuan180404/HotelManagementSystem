@@ -15,9 +15,7 @@ namespace Presentation.User_Controls
         public UC_CustomerManagement()
         {
             InitializeComponent();
-        }
-
-        
+        }        
 
         private void txtSearchCustom_Enter(object sender, EventArgs e)
         {
