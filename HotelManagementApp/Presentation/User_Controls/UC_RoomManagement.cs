@@ -55,7 +55,7 @@ namespace Presentation.User_Controls
 
         private void comboboxStatus_Click(object sender, EventArgs e)
         {
-            btnAllRoom.Checked = false;
+            //btnAllRoom.Checked = false;
             comboboxStatus.ForeColor = Color.White;
             comboboxStatus.FillColor = Color.FromArgb(19, 102, 217);
             filterByStatus();
@@ -84,7 +84,7 @@ namespace Presentation.User_Controls
 
         private void btnAllRoom_Click(object sender, EventArgs e)
         {
-            btnAllRoom.Checked = true;
+            //btnAllRoom.Checked = true;
 
             comboboxStatus.ForeColor = comboboxStatus.BorderColor;
             comboboxStatus.FillColor = Color.White;

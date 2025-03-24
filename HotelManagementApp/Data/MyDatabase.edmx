@@ -95,16 +95,16 @@
         </EntityType>
         <EntityType Name="RStatus">
           <Key>
-            <PropertyRef Name="RStatus" />
+            <PropertyRef Name="RStatus_" />
           </Key>
-          <Property Name="RStatus" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RStatus_" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="RType">
           <Key>
-            <PropertyRef Name="RType" />
+            <PropertyRef Name="RType_" />
           </Key>
-          <Property Name="RType" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RType_" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="BedCount" Type="tinyint" Nullable="false" />
           <Property Name="MaxGuests" Type="tinyint" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" />
@@ -252,7 +252,7 @@
           <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RStatus">
-              <PropertyRef Name="RStatus" />
+              <PropertyRef Name="RStatus_" />
             </Principal>
             <Dependent Role="Rooms">
               <PropertyRef Name="Status" />
@@ -264,7 +264,7 @@
           <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="RType">
-              <PropertyRef Name="RType" />
+              <PropertyRef Name="RType_" />
             </Principal>
             <Dependent Role="Rooms">
               <PropertyRef Name="Type" />
@@ -994,7 +994,7 @@
             <EntityTypeMapping TypeName="HotelManagementSystemModel.RStatus">
               <MappingFragment StoreEntitySet="RStatus">
                 <ScalarProperty Name="Description" ColumnName="Description" />
-                <ScalarProperty Name="RStatus_" ColumnName="RStatus" />
+                <ScalarProperty Name="RStatus_" ColumnName="RStatus_" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1004,7 +1004,7 @@
                 <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="MaxGuests" ColumnName="MaxGuests" />
                 <ScalarProperty Name="BedCount" ColumnName="BedCount" />
-                <ScalarProperty Name="RType_" ColumnName="RType" />
+                <ScalarProperty Name="RType_" ColumnName="RType_" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

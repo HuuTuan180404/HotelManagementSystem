@@ -471,6 +471,21 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\flag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\heart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\other.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\find1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

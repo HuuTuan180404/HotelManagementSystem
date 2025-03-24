@@ -263,7 +263,7 @@
             this.btnSearchCustom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnSearchCustom.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnSearchCustom.ForeColor = System.Drawing.Color.White;
-            this.btnSearchCustom.Image = global::Presentation.Properties.Resources.find_svgrepo_com;
+            this.btnSearchCustom.Image = global::Presentation.Properties.Resources.find1;
             this.btnSearchCustom.Location = new System.Drawing.Point(531, 179);
             this.btnSearchCustom.Name = "btnSearchCustom";
             this.btnSearchCustom.Size = new System.Drawing.Size(57, 65);
@@ -283,7 +283,6 @@
             this.txtSearchCustom.Location = new System.Drawing.Point(298, 179);
             this.txtSearchCustom.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.txtSearchCustom.Name = "txtSearchCustom";
-            this.txtSearchCustom.PasswordChar = '\0';
             this.txtSearchCustom.PlaceholderText = "";
             this.txtSearchCustom.SelectedText = "";
             this.txtSearchCustom.Size = new System.Drawing.Size(258, 63);
