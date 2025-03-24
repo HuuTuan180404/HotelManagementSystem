@@ -1,99 +1,104 @@
 ﻿USE master
 GO
 
-DROP DATABASE HotelManagementSystem
-GO
-
 CREATE DATABASE HotelManagementSystem
 GO
 
 USE HotelManagementSystem
 GO
 
-
+-- 1. RStatus
 CREATE TABLE RStatus
 (
-    Status VARCHAR(100) PRIMARY KEY,
+    RStatus_ VARCHAR(100) PRIMARY KEY,
     Description NVARCHAR(MAX)
 )
 GO
 
---Rooms_Type
-CREATE TABLE RoomTypes
+-- 2. RType
+CREATE TABLE RType
 (
-    RType VARCHAR(100) NOT NULL PRIMARY KEY,
-	RTBedCount TINYINT NOT NULL DEFAULT 1,
-	RTMaxGuests TINYINT NOT NULL DEFAULT 1,
-	RTDescription NVARCHAR(MAX)
+    RType_ VARCHAR(100) PRIMARY KEY,
+    BedCount TINYINT NOT NULL DEFAULT 1,
+    MaxGuests TINYINT NOT NULL DEFAULT 1,
+    Description NVARCHAR(MAX)
 )
 GO
 
---Rooms
+-- 3. Rooms
 CREATE TABLE Rooms
 (
-    RId VARCHAR(50) NOT NULL PRIMARY KEY,
-	RType VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomTypes(RType),
-    RStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES RoomStatus(RStatus),
-	RPricePerNight DECIMAL(10,2) NOT NULL CHECK (RPricePerNight >= 0) DEFAULT 100,
-	RDescription NVARCHAR(MAX)
+    RId VARCHAR(50) PRIMARY KEY,
+    Type VARCHAR(100) NOT NULL,
+    Status VARCHAR(100) NOT NULL,
+    PricePerNight DECIMAL(10,2) NOT NULL CHECK (PricePerNight >= 0) DEFAULT 100,
+    Description NVARCHAR(MAX),
+    FOREIGN KEY (Type) REFERENCES RType(RType_),
+    FOREIGN KEY (Status) REFERENCES RStatus(RStatus_)
 )
 GO
 
-
+-- 4. Customers
 CREATE TABLE Customers
 (
-    CID VARCHAR(100) PRIMARY KEY,   
-    CName NVARCHAR(100) NOT NULL,        
-    CGender CHAR(6) CHECK (CGender IN ('Male', 'Female', 'Other')) NOT NULL,  
-    CPhone VARCHAR(15) UNIQUE NOT NULL,
-    CEmail VARCHAR(100) UNIQUE,
-    CAddress NVARCHAR(255),         
-    CType CHAR(20) CHECK (CType IN ('Regular', 'VIP', 'New')) DEFAULT 'New'
+    CId VARCHAR(100) PRIMARY KEY,   
+    Name NVARCHAR(100) NOT NULL,        
+    Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')) NOT NULL,  
+    Phone VARCHAR(15) UNIQUE NOT NULL,
+    Email VARCHAR(100) UNIQUE,
+    Address NVARCHAR(255),         
+    Type VARCHAR(20) CHECK (Type IN ('Regular', 'VIP', 'New')) DEFAULT 'New'
 )
 GO
 
+-- 5. EmployeeRole
 CREATE TABLE EmployeeRole (
     ERole VARCHAR(100) PRIMARY KEY,   
-    ERDescription NVARCHAR(100)
+    Description NVARCHAR(100)
 )
 GO
 
+-- 6. Employees
 CREATE TABLE Employees 
 (
-    EID VARCHAR(100) PRIMARY KEY,   
-    EName NVARCHAR(100) NOT NULL,         
-    EGender CHAR(6) CHECK (EGender IN ('Male', 'Female', 'Other')) NOT NULL,  
-    EPhone VARCHAR(15) UNIQUE NOT NULL,   
-    EEmail VARCHAR(100) UNIQUE ,  
-    EAddress NVARCHAR(255) ,          
-    EStatus CHAR(10) CHECK (EStatus IN ('Active', 'Inactive', 'On Leave')) NOT NULL,  
-    ERole VARCHAR(100) FOREIGN KEY REFERENCES EmployeeRole(ERole)                 
+    EId VARCHAR(100) PRIMARY KEY,   
+    Name NVARCHAR(100) NOT NULL,         
+    Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')) NOT NULL,  
+    Phone VARCHAR(15) UNIQUE NOT NULL,   
+    Email VARCHAR(100) UNIQUE,  
+    Address NVARCHAR(255),          
+    Status VARCHAR(15) CHECK (Status IN ('Active', 'Inactive', 'On Leave')) NOT NULL,  
+    ERole VARCHAR(100) NOT NULL,
+    FOREIGN KEY (ERole) REFERENCES EmployeeRole(ERole)                 
 )
 GO
 
-CREATE TABLE [Services] 
+-- 7. Services
+CREATE TABLE Services
 (
     SName VARCHAR(100) PRIMARY KEY,
     SPrice DECIMAL(10,2) NOT NULL CHECK (SPrice >= 0),
     SDescription NVARCHAR(MAX)
-);
+)
 GO
 
-
+-- 8. BookingStatus
 CREATE TABLE BookingStatus
 (
-	BStatus VARCHAR(100) PRIMARY KEY,
-	BKDescription NVARCHAR(MAX)
+    BStatus VARCHAR(100) PRIMARY KEY,
+    BKDescription NVARCHAR(MAX)
 )
 GO
 
+-- 9. PaymentMethod
 CREATE TABLE PaymentMethod
 (
-	PMethod VARCHAR(100) PRIMARY KEY,
-	Description NVARCHAR(MAX)
+    PMethod VARCHAR(100) PRIMARY KEY,
+    Description NVARCHAR(MAX)
 )
 GO
 
+-- 10. PaymentStatus
 CREATE TABLE PaymentStatus
 (
     PStatus VARCHAR(100) PRIMARY KEY,
@@ -101,48 +106,67 @@ CREATE TABLE PaymentStatus
 )
 GO
 
-CREATE TABLE Bookings (
-    BID VARCHAR(100) PRIMARY KEY,
-	RId VARCHAR(50) FOREIGN KEY REFERENCES Rooms(RId),
-    CID VARCHAR(100) NOT NULL FOREIGN KEY (CID) REFERENCES Customers(CID),
-	EID VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Employees(EID),
+-- 11. Bookings
+CREATE TABLE Bookings 
+(
+    BId VARCHAR(100) PRIMARY KEY,
+    RId VARCHAR(50) NOT NULL,
+    CId VARCHAR(100) NOT NULL,
+    EId VARCHAR(100) NOT NULL,
     BTimeCheckIn DATETIME NOT NULL,  
     BTimeCheckOut DATETIME NOT NULL, 
-    BStatus VARCHAR(100) NOT NULL,  
+    BStatus VARCHAR(100) NOT NULL,
     BCreateAt DATETIME DEFAULT GETDATE(),
-	
-);
+    FOREIGN KEY (RId) REFERENCES Rooms(RId),
+    FOREIGN KEY (CId) REFERENCES Customers(CId),
+    FOREIGN KEY (EId) REFERENCES Employees(EId),
+    FOREIGN KEY (BStatus) REFERENCES BookingStatus(BStatus)
+)
 GO
 
+-- 12. ServiceUsage
 CREATE TABLE ServiceUsage 
 (
-    BID VARCHAR(100) PRIMARY KEY FOREIGN KEY (BID) REFERENCES Bookings(BID), 
+    SUId VARCHAR(100) PRIMARY KEY,
+    BId VARCHAR(100) NOT NULL,
     SUDate DATETIME NOT NULL DEFAULT GETDATE(),
-	PMethod VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES PaymentMethod(PMethod),
-    PStatus VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES PaymentStatus(PStatus)
-);
+    PMethod VARCHAR(100) NOT NULL,
+    PStatus VARCHAR(100) NOT NULL,
+    FOREIGN KEY (BId) REFERENCES Bookings(BId),
+    FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod),
+    FOREIGN KEY (PStatus) REFERENCES PaymentStatus(PStatus)
+)
 GO
 
+-- 13. ServiceUsageDetail
 CREATE TABLE ServiceUsageDetail 
 (
-    BID VARCHAR(100) FOREIGN KEY REFERENCES ServiceUsage(BID),
-    SName VARCHAR(100) FOREIGN KEY REFERENCES Services(SName),
-	PRIMARY KEY (BID, SName),
-
-	EID VARCHAR(100) NOT NULL FOREIGN KEY REFERENCES Employees(EID),
+    SUId VARCHAR(100) NOT NULL,
+    SName VARCHAR(100) NOT NULL,
+    EId VARCHAR(100) NOT NULL,
     UnitPrice DECIMAL(10,2) NOT NULL CHECK (UnitPrice >= 0),
     Quantity INT NOT NULL CHECK (Quantity > 0),
-    Discount DECIMAL(5,2) DEFAULT 0 CHECK (Discount BETWEEN 0 AND 100)    
-);
+    Discount DECIMAL(5,2) DEFAULT 0 CHECK (Discount BETWEEN 0 AND 100),
+    PRIMARY KEY (SUId, SName),
+    FOREIGN KEY (SUId) REFERENCES ServiceUsage(SUId),
+    FOREIGN KEY (SName) REFERENCES Services(SName),
+    FOREIGN KEY (EId) REFERENCES Employees(EId)
+)
 GO
 
+-- 14. BookingPayments
 CREATE TABLE BookingPayments
 (
-    BID VARCHAR(100) PRIMARY KEY FOREIGN KEY (BID) REFERENCES Bookings(BID),
-    EID VARCHAR(100) FOREIGN KEY (EID) REFERENCES Employees(EID),
-    BPAmount DECIMAL(10,2) NOT NULL CHECK (BPAmount >= 0),
-    BPDate DATETIME DEFAULT GETDATE(),
-    PMethod VARCHAR(100) FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod),
-    PStatus VARCHAR(100) FOREIGN KEY (PStatus) REFERENCES PaymentStatus(PStatus)
-);
+    BPId VARCHAR(100) PRIMARY KEY,
+    BId VARCHAR(100) NOT NULL,
+    EId VARCHAR(100) NOT NULL,
+    Amount DECIMAL(10,2) NOT NULL CHECK (Amount >= 0),
+    Date DATETIME DEFAULT GETDATE(),
+    PMethod VARCHAR(100) NOT NULL,
+    PStatus VARCHAR(100) NOT NULL,
+    FOREIGN KEY (BId) REFERENCES Bookings(BId),
+    FOREIGN KEY (EId) REFERENCES Employees(EId),
+    FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod),
+    FOREIGN KEY (PStatus) REFERENCES PaymentStatus(PStatus)
+)
 GO
