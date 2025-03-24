@@ -174,6 +174,24 @@ CREATE TABLE Employees
 )
 GO
 
+INSERT INTO Employee_Role (ERole, ERDescription)
+VALUES 
+('Manager', N'Quản lý bộ phận'),
+('Developer', N'Lập trình viên'),
+('Tester', N'Kiểm thử viên'),
+('HR', N'Nhân sự'),
+('Support', N'Hỗ trợ kỹ thuật');
+
+
+INSERT INTO Employees (EID, EName, EGender, EPhone, EEmail, EAddress, EStatus, ERole)
+VALUES 
+('E001', N'Nguyễn Văn A', 'Male', '0987654321', 'vana@example.com', N'123 Đường A, TP.HCM', 'Active', 'Manager'),
+('E002', N'Lê Thị B', 'Female', '0987654322', 'thib@example.com', N'456 Đường B, TP.HCM', 'On Leave', 'HR'),
+('E003', N'Trần Văn C', 'Male', '0987654323', 'vanc@example.com', N'789 Đường C, TP.HCM', 'Active', 'Developer'),
+('E004', N'Phạm Thị D', 'Female', '0987654324', 'thid@example.com', N'101 Đường D, TP.HCM', 'Inactive', 'Tester'),
+('E005', N'Hoàng Văn E', 'Male', '0987654325', 'vane@example.com', N'202 Đường E, TP.HCM', 'Active', 'Support');
+
+
 CREATE TABLE [Services] 
 (
     SName VARCHAR(100) PRIMARY KEY,

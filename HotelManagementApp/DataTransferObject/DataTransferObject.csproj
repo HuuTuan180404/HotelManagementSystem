@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeDTO.cs" />
     <Compile Include="RoomStatusDTO.cs" />
     <Compile Include="RoomTypeDTO.cs" />
     <Compile Include="RoomDTO.cs" />
