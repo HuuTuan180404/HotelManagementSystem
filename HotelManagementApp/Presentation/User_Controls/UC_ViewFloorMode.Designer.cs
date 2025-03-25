@@ -33,11 +33,12 @@
             // 
             // flowLayoutPanel
             // 
+            this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel.Location = new System.Drawing.Point(38, 33);
+            this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.flowLayoutPanel.Name = "flowLayoutPanel";
-            this.flowLayoutPanel.Size = new System.Drawing.Size(1218, 685);
+            this.flowLayoutPanel.Size = new System.Drawing.Size(1294, 745);
             this.flowLayoutPanel.TabIndex = 2;
             // 
             // UC_ViewFloorMode
@@ -45,7 +46,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.flowLayoutPanel);
-            this.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "UC_ViewFloorMode";
             this.Size = new System.Drawing.Size(1294, 745);

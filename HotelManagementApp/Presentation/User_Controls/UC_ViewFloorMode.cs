@@ -24,18 +24,6 @@ namespace Presentation.User_Controls
 
         private void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
-            //string connString = ConfigurationManager.ConnectionStrings["HotelManagementSystemContext"]?.ConnectionString;
-            //if (string.IsNullOrEmpty(connString))
-            //{
-            //    MessageBox.Show("Connection string không tìm thấy!");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Kết nối thành công!");
-            //}
-            //MessageBox.Show(AppDomain.CurrentDomain.SetupInformation.ConfigurationFile);
-
-
             List<RoomDTO> list = RoomBusiness.GetAllRooms();
             if (list.Count > 0)
             {
@@ -77,13 +65,7 @@ namespace Presentation.User_Controls
                 itemFloor = new itemFloor(listFloor);
                 flowLayoutPanel.Controls.Add(itemFloor);
             }
-            //show();
         }
 
-        public void show()
-        {
-            //Debug.WriteLine(RoomBusiness.test());
-
-        }
     }
 }
