@@ -48,12 +48,12 @@ namespace Presentation.Forms
 
         private void btnRoom_Click(object sender, EventArgs e)
         {
-            //UC_RoomManagement.BringToFront();
+            UC_RoomManagement.BringToFront();
         }
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
-            //UC_CustomerManagement.BringToFront();
+            UC_CustomerManagement.BringToFront();
         }
 
         private void pic_close_Click(object sender, EventArgs e)
@@ -63,7 +63,7 @@ namespace Presentation.Forms
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            //uC_EmployeeManagement1.BringToFront();
+            UC_EmployeeManagement.BringToFront();
         }
 
         private void panelLogout_MouseClick(object sender, MouseEventArgs e)

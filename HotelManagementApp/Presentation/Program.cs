@@ -19,6 +19,7 @@ namespace Presentation
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Login());
             Application.Run(new Main());
+            //Application.Run(new Form1());
             //Application.Run(new AddBooking());
             //Application.Run(new Test());
         }

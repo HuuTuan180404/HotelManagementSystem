@@ -275,6 +275,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="User_Controls\itemAttribute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\itemAttribute.Designer.cs">
+      <DependentUpon>itemAttribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\itemFloor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -292,6 +298,12 @@
     </Compile>
     <Compile Include="User_Controls\itemRoom2.Designer.cs">
       <DependentUpon>itemRoom2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\SelectAttribute.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\SelectAttribute.Designer.cs">
+      <DependentUpon>SelectAttribute.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\UC_BookingManagement.cs">
       <SubType>UserControl</SubType>
@@ -341,6 +353,9 @@
     <EmbeddedResource Include="Forms\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
@@ -358,6 +373,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\itemAttribute.resx">
+      <DependentUpon>itemAttribute.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemFloor.resx">
       <DependentUpon>itemFloor.cs</DependentUpon>
     </EmbeddedResource>
@@ -366,6 +384,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemRoom2.resx">
       <DependentUpon>itemRoom2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\SelectAttribute.resx">
+      <DependentUpon>SelectAttribute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_BookingManagement.resx">
       <DependentUpon>UC_BookingManagement.cs</DependentUpon>
@@ -483,6 +504,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\mode_table.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\select_field.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

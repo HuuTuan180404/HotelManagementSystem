@@ -34,7 +34,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.btnSelectAttribute = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSelectAttribute)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView
@@ -107,17 +109,29 @@
             this.dataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
             // 
+            // btnSelectAttribute
+            // 
+            this.btnSelectAttribute.Image = global::Presentation.Properties.Resources.select_field;
+            this.btnSelectAttribute.Location = new System.Drawing.Point(0, 0);
+            this.btnSelectAttribute.Name = "btnSelectAttribute";
+            this.btnSelectAttribute.Size = new System.Drawing.Size(29, 29);
+            this.btnSelectAttribute.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnSelectAttribute.TabIndex = 1;
+            this.btnSelectAttribute.TabStop = false;
+            // 
             // UC_ViewTableMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.btnSelectAttribute);
             this.Controls.Add(this.dataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.Name = "UC_ViewTableMode";
             this.Size = new System.Drawing.Size(863, 461);
             this.Load += new System.EventHandler(this.UC_ViewTableMode_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSelectAttribute)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -125,5 +139,6 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView dataGridView;
+        private System.Windows.Forms.PictureBox btnSelectAttribute;
     }
 }
