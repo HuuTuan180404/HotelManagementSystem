@@ -24,15 +24,26 @@ namespace Presentation.User_Controls
 
         private void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
-            List<RoomDTO> list = RoomBusiness.GetAllRooms();
+            LoadAllRooms("");
+        }
+
+        private void LoadAllRooms(string str)
+        {
+            List<RoomDTO> list = null;
+            if (str.Trim() == "")
+            {
+                list = RoomBusiness.GetAllRooms();
+            }
+            else
+            {
+                list = RoomBusiness.GetAllRooms(str);
+            }
+            flowLayoutPanel.Controls.Clear();
             if (list.Count > 0)
             {
                 list.Sort((a, b) => a.RId.CompareTo(b.RId));
-
                 itemFloor itemFloor = null;
-
                 List<RoomDTO> listFloor = null;
-
                 if (list != null)
                 {
                     foreach (RoomDTO room in list)
@@ -65,6 +76,11 @@ namespace Presentation.User_Controls
                 itemFloor = new itemFloor(listFloor);
                 flowLayoutPanel.Controls.Add(itemFloor);
             }
+        }
+
+        public void FIlterByStatus(string status)
+        {
+            LoadAllRooms(status);
         }
 
     }

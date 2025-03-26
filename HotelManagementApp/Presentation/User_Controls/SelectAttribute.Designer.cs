@@ -59,6 +59,8 @@
             this.Padding = new System.Windows.Forms.Padding(6);
             this.Size = new System.Drawing.Size(242, 90);
             this.Load += new System.EventHandler(this.SelectAttribute_Load);
+            this.MouseEnter += new System.EventHandler(this.SelectAttribute_MouseEnter);
+            this.MouseLeave += new System.EventHandler(this.SelectAttribute_MouseLeave);
             this.ResumeLayout(false);
             this.PerformLayout();
 

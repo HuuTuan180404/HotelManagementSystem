@@ -11,20 +11,35 @@ namespace Business
     public class RoomBusiness
     {
         RoomData RoomData = new RoomData();
+
         public List<RoomDTO> GetAllRooms()
         {
             return RoomData.GetAllRooms();
         }
 
+        public List<RoomDTO> GetAllRooms(string status)
+        {
+            return RoomData.GetAllRooms(status);
+        }
+
         public List<RoomDTO> GetAllRoomTypes()
         {
+            return RoomData.GetAllRoomTypes();
+        }
 
-            return null;
+        public List<RoomDTO> GetAllRoomStates()
+        {
+            return RoomData.GetAllRoomStates();
         }
 
         public void GetÌnfoRoom(string RId)
         {
 
+        }
+
+        public void demo()
+        {
+            RoomData.demo();
         }
 
     }

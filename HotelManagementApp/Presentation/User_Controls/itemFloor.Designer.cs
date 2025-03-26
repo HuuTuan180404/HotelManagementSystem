@@ -33,7 +33,9 @@
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.lbFloor = new MaterialSkin.Controls.MaterialLabel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayout
@@ -49,12 +51,13 @@
             // 
             // guna2PictureBox1
             // 
+            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.guna2PictureBox1.Image = global::Presentation.Properties.Resources.floor;
             this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(22, 33);
+            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(75, 89);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(119, 155);
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
@@ -67,36 +70,43 @@
             // 
             // lbFloor
             // 
-            this.lbFloor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lbFloor.AutoSize = true;
             this.lbFloor.BackColor = System.Drawing.Color.Transparent;
             this.lbFloor.Depth = 0;
+            this.lbFloor.Dock = System.Windows.Forms.DockStyle.Top;
             this.lbFloor.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbFloor.Location = new System.Drawing.Point(54, 68);
+            this.lbFloor.Location = new System.Drawing.Point(0, 0);
             this.lbFloor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbFloor.Name = "lbFloor";
-            this.lbFloor.Size = new System.Drawing.Size(10, 19);
+            this.lbFloor.Size = new System.Drawing.Size(119, 23);
             this.lbFloor.TabIndex = 3;
             this.lbFloor.Text = "2";
+            this.lbFloor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lbFloor);
+            this.panel1.Controls.Add(this.guna2PictureBox1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(119, 155);
+            this.panel1.TabIndex = 4;
             // 
             // itemFloor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.lbFloor);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.flowLayout);
-            this.Controls.Add(this.guna2PictureBox1);
             this.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "itemFloor";
             this.Size = new System.Drawing.Size(1218, 155);
             this.Load += new System.EventHandler(this.itemFloor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -106,5 +116,6 @@
         private System.Windows.Forms.FlowLayoutPanel flowLayout;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private MaterialSkin.Controls.MaterialLabel lbFloor;
+        private System.Windows.Forms.Panel panel1;
     }
 }

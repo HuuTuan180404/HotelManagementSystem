@@ -38,9 +38,6 @@ namespace Presentation.Forms
             this.WindowState = FormWindowState.Minimized;
         }
 
-
-        
-
         private void btnBooking_Click(object sender, EventArgs e)
         {
             UC_BookingManagement.BringToFront();
@@ -56,14 +53,14 @@ namespace Presentation.Forms
             UC_CustomerManagement.BringToFront();
         }
 
-        private void pic_close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         private void btnEmployee_Click(object sender, EventArgs e)
         {
             UC_EmployeeManagement.BringToFront();
+        }
+
+        private void pic_close_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
 
         private void panelLogout_MouseClick(object sender, MouseEventArgs e)

@@ -59,7 +59,7 @@
             this.lbType.Location = new System.Drawing.Point(0, 65);
             this.lbType.Margin = new System.Windows.Forms.Padding(0);
             this.lbType.Name = "lbType";
-            this.lbType.Size = new System.Drawing.Size(140, 33);
+            this.lbType.Size = new System.Drawing.Size(174, 33);
             this.lbType.TabIndex = 3;
             this.lbType.Text = "Type: Family";
             this.lbType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -71,7 +71,7 @@
             this.lbStatus.Location = new System.Drawing.Point(0, 100);
             this.lbStatus.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(140, 33);
+            this.lbStatus.Size = new System.Drawing.Size(174, 33);
             this.lbStatus.TabIndex = 4;
             this.lbStatus.Text = "Status: ";
             this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

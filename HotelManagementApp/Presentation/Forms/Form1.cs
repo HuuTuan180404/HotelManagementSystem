@@ -18,9 +18,9 @@ namespace Presentation.Forms
         public Form1()
         {
             InitializeComponent();
-            SelectAttribute = new SelectAttribute(8);
-            this.Controls.Add(SelectAttribute);
-            SelectAttribute.Location = new Point(10, 10);
+            //SelectAttribute = new SelectAttribute(8);
+            //this.Controls.Add(SelectAttribute);
+            //SelectAttribute.Location = new Point(10, 10);
         }
 
         private void selectAttribute1_Load(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Presentation.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            SelectAttribute.addAttribute(new itemAttribute("attribute " + (++count), true));
+            //SelectAttribute.addAttribute(new itemAttribute("attribute " + (++count), true));
         }
     }
 }

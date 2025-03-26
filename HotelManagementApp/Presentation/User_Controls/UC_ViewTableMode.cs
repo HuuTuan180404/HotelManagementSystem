@@ -1,4 +1,5 @@
 ﻿using Business;
+using DataTransferObject;
 using Presentation.Forms;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,31 @@ namespace Presentation.User_Controls
     public partial class UC_ViewTableMode : UserControl
     {
         RoomBusiness RoomBusiness = new RoomBusiness();
+        SelectAttribute SelectAttribute = new SelectAttribute(RoomDTO.Properties());
 
         public UC_ViewTableMode()
         {
             InitializeComponent();
+            this.Controls.Add(SelectAttribute);
+            SelectAttribute.BringToFront();
+            SelectAttribute.Visible = false;
         }
 
         private void UC_ViewTableMode_Load(object sender, EventArgs e)
         {
-            loadDataFor_dataGridView();
+            LoadAllRooms("");
         }
 
-        private void loadDataFor_dataGridView()
+        private void LoadAllRooms(string str)
         {
-            dataGridView.DataSource = RoomBusiness.GetAllRooms();
+            if (str.Trim() == "") dataGridView.DataSource = RoomBusiness.GetAllRooms();
+            else dataGridView.DataSource = RoomBusiness.GetAllRooms(str);
             RenameColumns();
+        }
+
+        public void FIlterByStatus(string status)
+        {
+            LoadAllRooms(status);
         }
 
         private void RenameColumns()
@@ -79,6 +90,17 @@ namespace Presentation.User_Controls
                 RoomDetail roomDetail = new RoomDetail(row.Cells["RId"].ToString());
                 roomDetail.ShowDialog();
             }
+        }
+
+        private void btnSelectAttribute_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSelectAttribute_MouseClick(object sender, MouseEventArgs e)
+        {
+            SelectAttribute.Location = e.Location;
+            SelectAttribute.Visible = true;
         }
     }
 }

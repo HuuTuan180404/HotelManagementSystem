@@ -12,7 +12,7 @@ namespace Presentation.User_Controls
 {
     public partial class itemAttribute : UserControl
     {
-        public string col { get; set; }
+        public string nameCol { get; set; }
 
         public itemAttribute()
         {

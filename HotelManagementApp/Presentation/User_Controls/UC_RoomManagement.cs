@@ -15,70 +15,27 @@ using System.Windows.Forms;
 using TheArtOfDevHtmlRenderer.Adapters;
 using DataTransferObject;
 using System.Security.Cryptography;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentation.User_Controls
 {
     public partial class UC_RoomManagement : UserControl
     {
 
-        //RoomB RoomB = new RoomB();
         RoomBusiness RoomBusiness = new RoomBusiness();
 
         public UC_RoomManagement()
         {
             InitializeComponent();
+            foreach (var x in RoomDTO.Properties())
+            {
+                Debug.WriteLine(x);
+            }
         }
 
         private void Room_Load(object sender, EventArgs e)
         {
             loadDataFor_comboboxStatus();
-        }
-
-
-        private void loadDataFor_comboboxStatus()
-        {
-            //comboboxStatus.Items.Clear();
-            //comboboxStatus.Items.Add("All status");
-            //comboboxStatus.SelectedIndex = 0;
-            //var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
-
-            //foreach (var item in status)
-            //    comboboxStatus.Items.Add(item.ToString());
-        }
-
-        private void comboboxStatus_Click(object sender, EventArgs e)
-        {
-            //btnAllRoom.Checked = false;
-            comboboxStatus.ForeColor = Color.White;
-            comboboxStatus.FillColor = Color.FromArgb(19, 102, 217);
-            filterByStatus();
-
-            if (comboboxStatus.SelectedIndex != 0)
-            {
-                string status = comboboxStatus.SelectedItem.ToString();
-                //dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
-                //Debug.WriteLine(status);
-            }
-        }
-
-        private void filterByStatus()
-        {
-            if (comboboxStatus.SelectedIndex != 0)
-            {
-                string status = comboboxStatus.SelectedItem.ToString();
-                //dataGridView.DataSource = RoomB.getDataSetDetailAllRooms_FilterByStatus(status).Tables[0];
-                //UC_ViewFloorMode.show();
-            }
-            else
-            {
-                //loadDataFor_dataGridView();
-            }
-        }
-
-        private void btnAllRoom_Click(object sender, EventArgs e)
-        {
-            comboboxStatus.ForeColor = comboboxStatus.BorderColor;
-            comboboxStatus.FillColor = Color.White;
         }
 
         bool isFloor = true;
@@ -98,25 +55,62 @@ namespace Presentation.User_Controls
             }
         }
 
+        private void loadDataFor_comboboxStatus()
+        {
+            comboboxStatus.Items.Clear();
+            comboboxStatus.Items.Add("All status");
+            comboboxStatus.SelectedIndex = 0;
+            List<string> status = RoomBusiness.GetAllRoomStates().Select(x => x.RStatus).ToList();
+            foreach (var item in status)
+                comboboxStatus.Items.Add(item);
+        }
 
+        private void filterByStatus()
+        {
+            if (comboboxStatus.SelectedIndex != 0)
+            {
+                string status = comboboxStatus.SelectedItem.ToString();
+                UC_ViewFloorMode.FIlterByStatus(status);
+                UC_ViewTableMode.FIlterByStatus(status);
+            }
+            else
+            {
+                UC_ViewFloorMode.FIlterByStatus("");
+                UC_ViewTableMode.FIlterByStatus("");
+            }
+        }
 
+        private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            filterByStatus();
+        }
 
+        private void btnAllRoom_Click(object sender, EventArgs e)
+        {
+            UC_ViewFloorMode.FIlterByStatus("");
+            UC_ViewTableMode.FIlterByStatus("");
+        }
 
+        private void btnAvailabelRoom_Click(object sender, EventArgs e)
+        {
+            UC_ViewFloorMode.FIlterByStatus("Availabel");
+            UC_ViewTableMode.FIlterByStatus("Availabel");
+        }
 
+        private void btnOccupiedRoom_Click(object sender, EventArgs e)
+        {
+            UC_ViewFloorMode.FIlterByStatus("Occupied");
+            UC_ViewTableMode.FIlterByStatus("Occupied");
+        }
 
-
-
-
-
-
-
-
-
-
-        private void demo(object sender, EventArgs e)
+        private void btnOhterRoom_Click(object sender, EventArgs e)
         {
 
         }
+
+
+
+
 
 
         private void btnAddRoom_Click(object sender, EventArgs e)
@@ -135,12 +129,5 @@ namespace Presentation.User_Controls
         {
 
         }
-
-        private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filterByStatus();
-        }
-
-
     }
 }
