@@ -27,10 +27,6 @@ namespace Presentation.User_Controls
         public UC_RoomManagement()
         {
             InitializeComponent();
-            foreach (var x in RoomDTO.Properties())
-            {
-                Debug.WriteLine(x);
-            }
         }
 
         private void Room_Load(object sender, EventArgs e)
@@ -87,31 +83,21 @@ namespace Presentation.User_Controls
 
         private void btnAllRoom_Click(object sender, EventArgs e)
         {
-            UC_ViewFloorMode.FIlterByStatus("");
-            UC_ViewTableMode.FIlterByStatus("");
+            comboboxStatus.SelectedIndex = 0;
         }
 
         private void btnAvailabelRoom_Click(object sender, EventArgs e)
         {
-            UC_ViewFloorMode.FIlterByStatus("Availabel");
-            UC_ViewTableMode.FIlterByStatus("Availabel");
+            comboboxStatus.SelectedItem = "Available";
+            comboboxStatus.SelectedItem = "Available";
+
         }
 
         private void btnOccupiedRoom_Click(object sender, EventArgs e)
         {
-            UC_ViewFloorMode.FIlterByStatus("Occupied");
-            UC_ViewTableMode.FIlterByStatus("Occupied");
-        }
-
-        private void btnOhterRoom_Click(object sender, EventArgs e)
-        {
+            comboboxStatus.SelectedItem = "Occupied";
 
         }
-
-
-
-
-
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
