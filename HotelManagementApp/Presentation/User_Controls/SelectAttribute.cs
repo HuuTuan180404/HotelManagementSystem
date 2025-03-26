@@ -49,7 +49,7 @@ namespace Presentation.User_Controls
 
             foreach (var i in attributes)
             {
-                itemAttribute itemAttribute = new itemAttribute();
+                itemAttribute itemAttribute = new itemAttribute(i);
                 itemAttribute.nameCol = i;
                 addAttribute(itemAttribute);
             }

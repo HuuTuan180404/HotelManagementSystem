@@ -38,7 +38,7 @@ namespace Data
             return list;
         }
 
-        public List<RoomDTO> GetAllRooms(string status)
+        public List<RoomDTO> GetRoomsByStatus(string status)
         {
             List<RoomDTO> list = new List<RoomDTO>();
             using (var DB = new HotelManagementSystemContext())
@@ -61,6 +61,12 @@ namespace Data
                     list = rooms.ToList();
                 }
             }
+            return list;
+        }
+
+        public List<RoomDTO> GetRoomsByString(string s)
+        {
+            var list = GetAllRooms().Where(x => x.Display().IndexOf(s) >= 0).ToList();
             return list;
         }
 
@@ -104,11 +110,7 @@ namespace Data
             return list;
         }
 
-        public List<RoomDTO> FilterByString(string s)
-        {
-            var list = GetAllRooms().Where(x => x.Display().IndexOf(s) >= 0).ToList();
-            return list;
-        }
+       
 
         public void demo()
         {

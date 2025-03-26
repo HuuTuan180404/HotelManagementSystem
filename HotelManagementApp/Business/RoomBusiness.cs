@@ -19,7 +19,12 @@ namespace Business
 
         public List<RoomDTO> GetAllRooms(string status)
         {
-            return RoomData.GetAllRooms(status);
+            return RoomData.GetRoomsByStatus(status);
+        }
+
+        public List<RoomDTO> GetRoomsFilterByString(string s)
+        {
+            return RoomData.GetRoomsByString(s);
         }
 
         public List<RoomDTO> GetAllRoomTypes()

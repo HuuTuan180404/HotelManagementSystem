@@ -11,42 +11,61 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentation.User_Controls
 {
     public partial class UC_ViewFloorMode : UserControl
     {
         RoomBusiness RoomBusiness = new RoomBusiness();
+
+        private List<RoomDTO> currentList = null;
         public UC_ViewFloorMode()
         {
             InitializeComponent();
+            FilterByString("");
         }
 
         private void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
-            LoadAllRooms("");
+            LoadRooms();
         }
 
-        private void LoadAllRooms(string str)
+        public void FIlterByStatus(string status)
         {
-            List<RoomDTO> list = null;
-            if (str.Trim() == "")
+            if (status.Trim() == "")
             {
-                list = RoomBusiness.GetAllRooms();
+                this.currentList = RoomBusiness.GetAllRooms();
             }
             else
             {
-                list = RoomBusiness.GetAllRooms(str);
+                this.currentList = RoomBusiness.GetAllRooms(status);
             }
-            flowLayoutPanel.Controls.Clear();
-            if (list.Count > 0)
+            LoadRooms();
+        }
+
+        public void FilterByString(string s)
+        {
+            if (this.currentList != null && this.currentList.Count > 0)
             {
-                list.Sort((a, b) => a.RId.CompareTo(b.RId));
+                this.currentList = this.currentList.Where(x => x.Display().IndexOf(s) >= 0).ToList();
+                LoadRooms();
+            }
+        }
+
+        private void LoadRooms()
+        {
+            if (this.currentList == null || this.currentList.Count == 0) return;
+
+            flowLayoutPanel.Controls.Clear();
+            if (this.currentList.Count > 0)
+            {
+                this.currentList.Sort((a, b) => a.RId.CompareTo(b.RId));
                 itemFloor itemFloor = null;
                 List<RoomDTO> listFloor = null;
-                if (list != null)
+                if (this.currentList != null)
                 {
-                    foreach (RoomDTO room in list)
+                    foreach (RoomDTO room in this.currentList)
                     {
                         if (listFloor == null)
                         {
@@ -76,11 +95,6 @@ namespace Presentation.User_Controls
                 itemFloor = new itemFloor(listFloor);
                 flowLayoutPanel.Controls.Add(itemFloor);
             }
-        }
-
-        public void FIlterByStatus(string status)
-        {
-            LoadAllRooms(status);
         }
 
     }

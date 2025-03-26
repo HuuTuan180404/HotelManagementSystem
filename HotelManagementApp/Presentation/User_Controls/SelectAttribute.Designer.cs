@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tableLayout = new System.Windows.Forms.TableLayoutPanel();
+            this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.SuspendLayout();
             // 
             // tableLayout
@@ -50,10 +52,16 @@
             this.tableLayout.Size = new System.Drawing.Size(230, 78);
             this.tableLayout.TabIndex = 0;
             // 
+            // guna2Elipse1
+            // 
+            this.guna2Elipse1.BorderRadius = 16;
+            this.guna2Elipse1.TargetControl = this;
+            // 
             // SelectAttribute
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.PeachPuff;
             this.Controls.Add(this.tableLayout);
             this.Name = "SelectAttribute";
             this.Padding = new System.Windows.Forms.Padding(6);
@@ -69,5 +77,6 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayout;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
     }
 }

@@ -18,29 +18,43 @@ namespace Presentation.User_Controls
         RoomBusiness RoomBusiness = new RoomBusiness();
         SelectAttribute SelectAttribute = new SelectAttribute(RoomDTO.Properties());
 
+        private List<RoomDTO> currentList = null;
+
         public UC_ViewTableMode()
         {
             InitializeComponent();
             this.Controls.Add(SelectAttribute);
             SelectAttribute.BringToFront();
             SelectAttribute.Visible = false;
+
+            FIlterByStatus("");
         }
 
         private void UC_ViewTableMode_Load(object sender, EventArgs e)
         {
-            LoadAllRooms("");
-        }
-
-        private void LoadAllRooms(string str)
-        {
-            if (str.Trim() == "") dataGridView.DataSource = RoomBusiness.GetAllRooms();
-            else dataGridView.DataSource = RoomBusiness.GetAllRooms(str);
-            RenameColumns();
+            LoadRooms();
         }
 
         public void FIlterByStatus(string status)
         {
-            LoadAllRooms(status);
+            if (status.Trim() == "") currentList = RoomBusiness.GetAllRooms();
+            else currentList = RoomBusiness.GetAllRooms(status);
+            LoadRooms();
+        }
+
+        public void FilterByString(string s)
+        {
+            this.currentList = this.currentList.Where(x => x.Display().IndexOf(s) >= 0).ToList();
+            LoadRooms();
+        }
+
+        private void LoadRooms()
+        {
+            if (this.currentList != null)
+            {
+                dataGridView.DataSource = currentList;
+                RenameColumns();
+            }
         }
 
         private void RenameColumns()
@@ -94,13 +108,9 @@ namespace Presentation.User_Controls
 
         private void btnSelectAttribute_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnSelectAttribute_MouseClick(object sender, MouseEventArgs e)
-        {
-            SelectAttribute.Location = e.Location;
+            SelectAttribute.Location = btnSelectAttribute.Location;
             SelectAttribute.Visible = true;
         }
+
     }
 }

@@ -119,7 +119,6 @@
             this.btnSelectAttribute.TabIndex = 1;
             this.btnSelectAttribute.TabStop = false;
             this.btnSelectAttribute.Click += new System.EventHandler(this.btnSelectAttribute_Click);
-            this.btnSelectAttribute.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnSelectAttribute_MouseClick);
             // 
             // UC_ViewTableMode
             // 
