@@ -86,17 +86,17 @@ namespace Presentation.User_Controls
 
         private void btnAllRoom_Click(object sender, EventArgs e)
         {
-            comboboxStatus.SelectedIndex = 0;
+            comboboxStatus.SelectedIndex = Convert.ToInt32(btnAllRoom.Tag);
         }
 
         private void btnAvailabelRoom_Click(object sender, EventArgs e)
         {
-            comboboxStatus.SelectedItem = "Available";
+            comboboxStatus.SelectedItem = btnAvailableRoom.Tag;
         }
 
         private void btnOccupiedRoom_Click(object sender, EventArgs e)
         {
-            comboboxStatus.SelectedItem = "Occupied";
+            comboboxStatus.SelectedItem = btnOccupiedRoom.Tag;
         }
 
         private void btnAddRoom_Click(object sender, EventArgs e)
@@ -153,7 +153,8 @@ namespace Presentation.User_Controls
             {
                 UC_ViewFloorMode.FilterByString(s);
                 UC_ViewTableMode.FilterByString(s);
-            } else filterByStatus();
+            }
+            else filterByStatus();
         }
     }
 }

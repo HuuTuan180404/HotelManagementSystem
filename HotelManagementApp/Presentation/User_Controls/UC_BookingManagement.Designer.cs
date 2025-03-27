@@ -111,7 +111,7 @@
             this.btnAdd.Location = new System.Drawing.Point(569, 479);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PressedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.btnAdd.Size = new System.Drawing.Size(53, 50);
+            this.btnAdd.Size = new System.Drawing.Size(50, 50);
             this.btnAdd.TabIndex = 15;
             this.btnAdd.UseTransparentBackground = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -216,7 +216,7 @@
             this.quantityBeds.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.quantityBeds.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.quantityBeds.Location = new System.Drawing.Point(101, 130);
-            this.quantityBeds.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.quantityBeds.Margin = new System.Windows.Forms.Padding(4);
             this.quantityBeds.Name = "quantityBeds";
             this.quantityBeds.PlaceholderText = "";
             this.quantityBeds.ReadOnly = true;
@@ -241,7 +241,7 @@
             this.quantityGuests.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.quantityGuests.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.quantityGuests.Location = new System.Drawing.Point(101, 177);
-            this.quantityGuests.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.quantityGuests.Margin = new System.Windows.Forms.Padding(4);
             this.quantityGuests.Name = "quantityGuests";
             this.quantityGuests.PlaceholderText = "";
             this.quantityGuests.ReadOnly = true;
@@ -276,7 +276,7 @@
             this.roomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.roomType.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.roomType.Location = new System.Drawing.Point(65, 96);
-            this.roomType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.roomType.Margin = new System.Windows.Forms.Padding(4);
             this.roomType.Name = "roomType";
             this.roomType.PlaceholderText = "";
             this.roomType.ReadOnly = true;
@@ -311,7 +311,7 @@
             this.pricePerNight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.pricePerNight.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.pricePerNight.Location = new System.Drawing.Point(102, 46);
-            this.pricePerNight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pricePerNight.Margin = new System.Windows.Forms.Padding(4);
             this.pricePerNight.Name = "pricePerNight";
             this.pricePerNight.PlaceholderText = "";
             this.pricePerNight.ReadOnly = true;
@@ -346,7 +346,7 @@
             this.rooNo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.rooNo.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.rooNo.Location = new System.Drawing.Point(12, 46);
-            this.rooNo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rooNo.Margin = new System.Windows.Forms.Padding(4);
             this.rooNo.Name = "rooNo";
             this.rooNo.PlaceholderText = "";
             this.rooNo.ReadOnly = true;
@@ -387,7 +387,7 @@
             this.timeCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.timeCheckOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.timeCheckOut.Location = new System.Drawing.Point(177, 48);
-            this.timeCheckOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeCheckOut.Margin = new System.Windows.Forms.Padding(4);
             this.timeCheckOut.Name = "timeCheckOut";
             this.timeCheckOut.PlaceholderText = "";
             this.timeCheckOut.ReadOnly = true;
@@ -412,7 +412,7 @@
             this.timeCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.timeCheckIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.timeCheckIn.Location = new System.Drawing.Point(11, 48);
-            this.timeCheckIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.timeCheckIn.Margin = new System.Windows.Forms.Padding(4);
             this.timeCheckIn.Name = "timeCheckIn";
             this.timeCheckIn.PlaceholderText = "";
             this.timeCheckIn.ReadOnly = true;
@@ -467,7 +467,7 @@
             this.bookingStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.bookingStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.bookingStatus.Location = new System.Drawing.Point(341, 48);
-            this.bookingStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bookingStatus.Margin = new System.Windows.Forms.Padding(4);
             this.bookingStatus.Name = "bookingStatus";
             this.bookingStatus.PlaceholderText = "";
             this.bookingStatus.ReadOnly = true;
@@ -551,7 +551,7 @@
             this.phoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.phoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.phoneNumber.Location = new System.Drawing.Point(6, 113);
-            this.phoneNumber.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.phoneNumber.Margin = new System.Windows.Forms.Padding(4);
             this.phoneNumber.Name = "phoneNumber";
             this.phoneNumber.PlaceholderText = "";
             this.phoneNumber.ReadOnly = true;
@@ -576,7 +576,7 @@
             this.gender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.gender.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.gender.Location = new System.Drawing.Point(172, 113);
-            this.gender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gender.Margin = new System.Windows.Forms.Padding(4);
             this.gender.Name = "gender";
             this.gender.PlaceholderText = "";
             this.gender.ReadOnly = true;
@@ -626,7 +626,7 @@
             this.fullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.fullName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.fullName.Location = new System.Drawing.Point(6, 48);
-            this.fullName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.fullName.Margin = new System.Windows.Forms.Padding(4);
             this.fullName.Name = "fullName";
             this.fullName.PlaceholderText = "";
             this.fullName.ReadOnly = true;

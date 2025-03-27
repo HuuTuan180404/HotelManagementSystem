@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -101,14 +102,15 @@ namespace Presentation.User_Controls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                RoomDetail roomDetail = new RoomDetail(row.Cells["RId"].ToString());
+                Debug.WriteLine(row.Cells["RId"].Value.ToString());
+                RoomDetail roomDetail = new RoomDetail(RoomBusiness.GetRoom(row.Cells["RId"].Value.ToString()));
                 roomDetail.ShowDialog();
             }
         }
 
         private void btnSelectAttribute_Click(object sender, EventArgs e)
         {
-            SelectAttribute.Location = btnSelectAttribute.Location;
+            SelectAttribute.Location = new Point(btnSelectAttribute.Location.X-10, btnSelectAttribute.Location.Y-10);
             SelectAttribute.Visible = true;
         }
 

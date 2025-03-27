@@ -30,24 +30,24 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtIconSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnChangeViewMode = new System.Windows.Forms.PictureBox();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.comboboxStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnAvailableRoom = new Guna.UI2.WinForms.Guna2Button();
+            this.btnOccupiedRoom = new Guna.UI2.WinForms.Guna2Button();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
             this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.txtIconSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnChangeViewMode = new System.Windows.Forms.PictureBox();
-            this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
-            this.btnAvailableRoom = new Guna.UI2.WinForms.Guna2Button();
-            this.btnOccupiedRoom = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -66,6 +66,67 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(878, 679);
             this.panel1.TabIndex = 7;
+            // 
+            // txtIconSearch
+            // 
+            this.txtIconSearch.AutoRoundedCorners = true;
+            this.txtIconSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIconSearch.CustomizableEdges.BottomLeft = false;
+            this.txtIconSearch.CustomizableEdges.TopLeft = false;
+            this.txtIconSearch.DefaultText = "";
+            this.txtIconSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIconSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIconSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIconSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIconSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIconSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIconSearch.IconRight = global::Presentation.Properties.Resources.find1;
+            this.txtIconSearch.Location = new System.Drawing.Point(329, 96);
+            this.txtIconSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIconSearch.Name = "txtIconSearch";
+            this.txtIconSearch.PlaceholderText = "";
+            this.txtIconSearch.ReadOnly = true;
+            this.txtIconSearch.SelectedText = "";
+            this.txtIconSearch.Size = new System.Drawing.Size(32, 32);
+            this.txtIconSearch.TabIndex = 20;
+            this.txtIconSearch.Click += new System.EventHandler(this.txtIconSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.CustomizableEdges.BottomRight = false;
+            this.txtSearch.CustomizableEdges.TopRight = false;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Location = new System.Drawing.Point(51, 96);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Search";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(280, 32);
+            this.txtSearch.TabIndex = 19;
+            this.txtSearch.IconRightClick += new System.EventHandler(this.txtSearch_IconRightClick);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // btnChangeViewMode
+            // 
+            this.btnChangeViewMode.Image = global::Presentation.Properties.Resources.mode_table1;
+            this.btnChangeViewMode.Location = new System.Drawing.Point(841, 100);
+            this.btnChangeViewMode.Name = "btnChangeViewMode";
+            this.btnChangeViewMode.Size = new System.Drawing.Size(24, 24);
+            this.btnChangeViewMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnChangeViewMode.TabIndex = 15;
+            this.btnChangeViewMode.TabStop = false;
+            this.btnChangeViewMode.Click += new System.EventHandler(this.btnChangeViewMode_Click);
             // 
             // btnAddRoom
             // 
@@ -133,6 +194,72 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 80);
             this.tableLayoutPanel1.TabIndex = 13;
             // 
+            // btnAllRoom
+            // 
+            this.btnAllRoom.AutoRoundedCorners = true;
+            this.btnAllRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAllRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAllRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAllRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAllRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAllRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAllRoom.ForeColor = System.Drawing.Color.White;
+            this.btnAllRoom.Image = global::Presentation.Properties.Resources.home;
+            this.btnAllRoom.ImageSize = new System.Drawing.Size(26, 26);
+            this.btnAllRoom.Location = new System.Drawing.Point(3, 3);
+            this.btnAllRoom.Name = "btnAllRoom";
+            this.btnAllRoom.Size = new System.Drawing.Size(107, 74);
+            this.btnAllRoom.TabIndex = 3;
+            this.btnAllRoom.Tag = "0";
+            this.btnAllRoom.Text = "Tất cả";
+            this.btnAllRoom.TextFormatNoPrefix = true;
+            this.btnAllRoom.Tile = true;
+            this.btnAllRoom.Click += new System.EventHandler(this.btnAllRoom_Click);
+            // 
+            // btnAvailableRoom
+            // 
+            this.btnAvailableRoom.AutoRoundedCorners = true;
+            this.btnAvailableRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnAvailableRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnAvailableRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnAvailableRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnAvailableRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAvailableRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAvailableRoom.ForeColor = System.Drawing.Color.White;
+            this.btnAvailableRoom.Image = global::Presentation.Properties.Resources.flag;
+            this.btnAvailableRoom.ImageSize = new System.Drawing.Size(26, 26);
+            this.btnAvailableRoom.Location = new System.Drawing.Point(116, 3);
+            this.btnAvailableRoom.Name = "btnAvailableRoom";
+            this.btnAvailableRoom.Size = new System.Drawing.Size(107, 74);
+            this.btnAvailableRoom.TabIndex = 2;
+            this.btnAvailableRoom.Tag = "Available";
+            this.btnAvailableRoom.Text = "Phòng trống";
+            this.btnAvailableRoom.TextFormatNoPrefix = true;
+            this.btnAvailableRoom.Tile = true;
+            this.btnAvailableRoom.Click += new System.EventHandler(this.btnAvailabelRoom_Click);
+            // 
+            // btnOccupiedRoom
+            // 
+            this.btnOccupiedRoom.AutoRoundedCorners = true;
+            this.btnOccupiedRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnOccupiedRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnOccupiedRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnOccupiedRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnOccupiedRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnOccupiedRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOccupiedRoom.ForeColor = System.Drawing.Color.White;
+            this.btnOccupiedRoom.Image = global::Presentation.Properties.Resources.heart;
+            this.btnOccupiedRoom.ImageSize = new System.Drawing.Size(26, 26);
+            this.btnOccupiedRoom.Location = new System.Drawing.Point(229, 3);
+            this.btnOccupiedRoom.Name = "btnOccupiedRoom";
+            this.btnOccupiedRoom.Size = new System.Drawing.Size(108, 74);
+            this.btnOccupiedRoom.TabIndex = 1;
+            this.btnOccupiedRoom.Tag = "Occupied";
+            this.btnOccupiedRoom.Text = "Có khách";
+            this.btnOccupiedRoom.TextFormatNoPrefix = true;
+            this.btnOccupiedRoom.Tile = true;
+            this.btnOccupiedRoom.Click += new System.EventHandler(this.btnOccupiedRoom_Click);
+            // 
             // guna2HtmlLabel1
             // 
             this.guna2HtmlLabel1.AutoSize = false;
@@ -176,130 +303,6 @@
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
-            // txtIconSearch
-            // 
-            this.txtIconSearch.AutoRoundedCorners = true;
-            this.txtIconSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIconSearch.CustomizableEdges.BottomLeft = false;
-            this.txtIconSearch.CustomizableEdges.TopLeft = false;
-            this.txtIconSearch.DefaultText = "";
-            this.txtIconSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtIconSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtIconSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIconSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIconSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIconSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIconSearch.IconRight = global::Presentation.Properties.Resources.find1;
-            this.txtIconSearch.Location = new System.Drawing.Point(329, 96);
-            this.txtIconSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtIconSearch.Name = "txtIconSearch";
-            this.txtIconSearch.PlaceholderText = "";
-            this.txtIconSearch.ReadOnly = true;
-            this.txtIconSearch.SelectedText = "";
-            this.txtIconSearch.Size = new System.Drawing.Size(32, 32);
-            this.txtIconSearch.TabIndex = 20;
-            this.txtIconSearch.Click += new System.EventHandler(this.txtIconSearch_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.AutoRoundedCorners = true;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.CustomizableEdges.BottomRight = false;
-            this.txtSearch.CustomizableEdges.TopRight = false;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(51, 96);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "Search";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(280, 32);
-            this.txtSearch.TabIndex = 19;
-            this.txtSearch.IconRightClick += new System.EventHandler(this.txtSearch_IconRightClick);
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
-            // 
-            // btnChangeViewMode
-            // 
-            this.btnChangeViewMode.Image = global::Presentation.Properties.Resources.mode_table1;
-            this.btnChangeViewMode.Location = new System.Drawing.Point(841, 100);
-            this.btnChangeViewMode.Name = "btnChangeViewMode";
-            this.btnChangeViewMode.Size = new System.Drawing.Size(24, 24);
-            this.btnChangeViewMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnChangeViewMode.TabIndex = 15;
-            this.btnChangeViewMode.TabStop = false;
-            this.btnChangeViewMode.Click += new System.EventHandler(this.btnChangeViewMode_Click);
-            // 
-            // btnAllRoom
-            // 
-            this.btnAllRoom.AutoRoundedCorners = true;
-            this.btnAllRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAllRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAllRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAllRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAllRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAllRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAllRoom.ForeColor = System.Drawing.Color.White;
-            this.btnAllRoom.Image = global::Presentation.Properties.Resources.home;
-            this.btnAllRoom.ImageSize = new System.Drawing.Size(26, 26);
-            this.btnAllRoom.Location = new System.Drawing.Point(3, 3);
-            this.btnAllRoom.Name = "btnAllRoom";
-            this.btnAllRoom.Size = new System.Drawing.Size(107, 74);
-            this.btnAllRoom.TabIndex = 3;
-            this.btnAllRoom.Text = "Tất cả";
-            this.btnAllRoom.TextFormatNoPrefix = true;
-            this.btnAllRoom.Tile = true;
-            this.btnAllRoom.Click += new System.EventHandler(this.btnAllRoom_Click);
-            // 
-            // btnAvailableRoom
-            // 
-            this.btnAvailableRoom.AutoRoundedCorners = true;
-            this.btnAvailableRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnAvailableRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnAvailableRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnAvailableRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnAvailableRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnAvailableRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAvailableRoom.ForeColor = System.Drawing.Color.White;
-            this.btnAvailableRoom.Image = global::Presentation.Properties.Resources.flag;
-            this.btnAvailableRoom.ImageSize = new System.Drawing.Size(26, 26);
-            this.btnAvailableRoom.Location = new System.Drawing.Point(116, 3);
-            this.btnAvailableRoom.Name = "btnAvailableRoom";
-            this.btnAvailableRoom.Size = new System.Drawing.Size(107, 74);
-            this.btnAvailableRoom.TabIndex = 2;
-            this.btnAvailableRoom.Text = "Phòng trống";
-            this.btnAvailableRoom.TextFormatNoPrefix = true;
-            this.btnAvailableRoom.Tile = true;
-            this.btnAvailableRoom.Click += new System.EventHandler(this.btnAvailabelRoom_Click);
-            // 
-            // btnOccupiedRoom
-            // 
-            this.btnOccupiedRoom.AutoRoundedCorners = true;
-            this.btnOccupiedRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.btnOccupiedRoom.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.btnOccupiedRoom.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.btnOccupiedRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.btnOccupiedRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnOccupiedRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOccupiedRoom.ForeColor = System.Drawing.Color.White;
-            this.btnOccupiedRoom.Image = global::Presentation.Properties.Resources.heart;
-            this.btnOccupiedRoom.ImageSize = new System.Drawing.Size(26, 26);
-            this.btnOccupiedRoom.Location = new System.Drawing.Point(229, 3);
-            this.btnOccupiedRoom.Name = "btnOccupiedRoom";
-            this.btnOccupiedRoom.Size = new System.Drawing.Size(108, 74);
-            this.btnOccupiedRoom.TabIndex = 1;
-            this.btnOccupiedRoom.Text = "Có khách";
-            this.btnOccupiedRoom.TextFormatNoPrefix = true;
-            this.btnOccupiedRoom.Tile = true;
-            this.btnOccupiedRoom.Click += new System.EventHandler(this.btnOccupiedRoom_Click);
-            // 
             // UC_RoomManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -312,9 +315,9 @@
             this.Size = new System.Drawing.Size(890, 691);
             this.Load += new System.EventHandler(this.Room_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
             this.ResumeLayout(false);
 
         }
