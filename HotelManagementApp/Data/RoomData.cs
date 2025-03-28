@@ -179,6 +179,40 @@ namespace Data
             }
         }
 
+        public bool DeleteRoom(RoomDTO roomDTO)
+        {
+            using (var DB = new HotelManagementSystemContext())
+            {
+                var room = DB.Rooms.SingleOrDefault(r => r.RId == roomDTO.RId);
+                if (room == null)
+                {
+                    return false;
+                }
+                DB.Rooms.Remove(room);
+                DB.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool UpdateRoom(RoomDTO roomDTO)
+        {
+            using (var DB = new HotelManagementSystemContext())
+            {
+                var room = DB.Rooms.SingleOrDefault(r => r.RId == roomDTO.RId);
+                if (room == null)
+                {
+                    return false;
+                }
+                else
+                {
+
+                }
+                DB.Rooms.Remove(room);
+                DB.SaveChanges();
+                return true;
+            }
+        }
+
         public void demo()
         {
 

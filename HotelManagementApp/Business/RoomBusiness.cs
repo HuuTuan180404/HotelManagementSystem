@@ -60,6 +60,15 @@ namespace Business
             return RoomData.GetStatus(status);
         }
 
+        public bool DeleteRoom(string RId)
+        {
+            RoomDTO roomDTO = new RoomDTO();
+            roomDTO.RId = RId;
+            return RoomData.DeleteRoom(roomDTO);
+        }
+
+        
+
 
         public void demo()
         {

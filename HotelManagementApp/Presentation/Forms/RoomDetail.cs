@@ -157,21 +157,30 @@ namespace Presentation.Forms
             }
             else
             {
-                Debug.WriteLine("không cập nhật");
+                //Debug.WriteLine("không cập nhật");
+                this.Close();
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+            if (alert("Bạn chắc chắn muốn xóa phòng này ?"))
+                if (RoomBusiness.DeleteRoom(lbRoomId.Text))
+                {
+                    MessageBox.Show("Xóa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy phòng để xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
         }
 
-        //private bool alert(string message)
-        //{
-        //    DialogResult result = MessageBox.Show(message, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //    if (result == DialogResult.Yes)
-        //        return true;
-        //    return false;
-        //}     
+        private bool alert(string message)
+        {
+            DialogResult result = MessageBox.Show(message, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result == DialogResult.Yes)
+                return true;
+            return false;
+        }
     }
 }

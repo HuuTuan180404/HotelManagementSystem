@@ -44,6 +44,7 @@
             this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
             this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
             this.panel2.SuspendLayout();
@@ -303,6 +304,12 @@
             this.contextMenuStrip.Name = "contextMenuStrip";
             this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
             // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
             // UC_RoomManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -338,5 +345,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2TextBox txtIconSearch;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }

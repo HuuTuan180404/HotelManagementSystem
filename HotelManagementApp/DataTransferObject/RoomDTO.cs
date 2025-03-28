@@ -49,6 +49,11 @@ namespace DataTransferObject
             return true;
         }
 
+        public void updateRoom(RoomDTO other)
+        {
+
+        }
+
         public bool compareType(RoomDTO other)
         {
             if (this.RType != other.RType) return false;
