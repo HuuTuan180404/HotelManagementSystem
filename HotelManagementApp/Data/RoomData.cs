@@ -199,15 +199,8 @@ namespace Data
             using (var DB = new HotelManagementSystemContext())
             {
                 var room = DB.Rooms.SingleOrDefault(r => r.RId == roomDTO.RId);
-                if (room == null)
-                {
-                    return false;
-                }
-                else
-                {
-
-                }
-                DB.Rooms.Remove(room);
+                if (room == null) return false;
+                room.UpdateRoom(roomDTO);
                 DB.SaveChanges();
                 return true;
             }

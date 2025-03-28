@@ -153,33 +153,39 @@ namespace Presentation.Forms
             bool isUpdate = RoomDTO.compareRoom(roomDTOVirtual);
             if (!isUpdate)
             {
-                Debug.WriteLine("đã cập nhật");
+                if (alert("Bạn chắc chắn muốn cập nhật phòng này ?"))
+                    if (RoomBusiness.UpdateRoom(roomDTOVirtual))
+                        MessageBox.Show("Cập nhật phòng thành công!",
+                            "Thông báo", MessageBoxButtons.OK,
+                            MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show("Không tìm thấy phòng này!",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
             }
-            else
-            {
-                //Debug.WriteLine("không cập nhật");
-                this.Close();
-            }
+            else this.Close();
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             if (alert("Bạn chắc chắn muốn xóa phòng này ?"))
                 if (RoomBusiness.DeleteRoom(lbRoomId.Text))
-                {
-                    MessageBox.Show("Xóa phòng thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+                    MessageBox.Show("Xóa phòng thành công!",
+                        "Thông báo",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
                 else
-                {
-                    MessageBox.Show("Không tìm thấy phòng để xóa!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                    MessageBox.Show("Không tìm thấy phòng để xóa!",
+                        "Lỗi",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
         }
 
         private bool alert(string message)
         {
             DialogResult result = MessageBox.Show(message, "Xác nhận", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (result == DialogResult.Yes)
-                return true;
+            if (result == DialogResult.Yes) return true;
             return false;
         }
     }

@@ -21,8 +21,6 @@ namespace Data
             this.Bookings = new HashSet<Bookings>();
         }
 
-
-
         public string RId { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
@@ -34,7 +32,7 @@ namespace Data
         public virtual RStatus RStatus { get; set; }
         public virtual RType RType { get; set; }
 
-        public void UpdataRoom(RoomDTO roomDTO)
+        public void UpdateRoom(RoomDTO roomDTO)
         {
             this.RId = roomDTO.RId;
             this.Type = roomDTO.RType;

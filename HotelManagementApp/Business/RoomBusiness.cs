@@ -67,13 +67,14 @@ namespace Business
             return RoomData.DeleteRoom(roomDTO);
         }
 
-        
-
+        public bool UpdateRoom(RoomDTO roomDTO)
+        {
+            return RoomData.UpdateRoom(roomDTO);
+        }
 
         public void demo()
         {
             RoomData.demo();
         }
-
     }
 }
