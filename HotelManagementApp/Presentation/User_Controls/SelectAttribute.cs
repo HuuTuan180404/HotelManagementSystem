@@ -49,7 +49,7 @@ namespace Presentation.User_Controls
 
             foreach (var i in attributes)
             {
-                itemAttribute itemAttribute = new itemAttribute();
+                itemAttribute itemAttribute = new itemAttribute(i);
                 itemAttribute.nameCol = i;
                 addAttribute(itemAttribute);
             }
@@ -61,14 +61,14 @@ namespace Presentation.User_Controls
             itemAttribute.Dock = DockStyle.Fill;
         }
 
+        private void SelectAttribute_MouseEnter(object sender, EventArgs e)
+        {
+            this.Visible = true;
+        }
+
         private void SelectAttribute_MouseLeave(object sender, EventArgs e)
         {
             this.Visible = false;
-        }
-
-        private void SelectAttribute_MouseEnter(object sender, EventArgs e)
-        {
-            this.Visible=true;
-        }
+        }        
     }
 }

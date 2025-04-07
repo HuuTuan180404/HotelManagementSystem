@@ -9,9 +9,10 @@
 
 namespace Data
 {
+    using DataTransferObject;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Rooms
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,16 +20,25 @@ namespace Data
         {
             this.Bookings = new HashSet<Bookings>();
         }
-    
+
         public string RId { get; set; }
         public string Type { get; set; }
         public string Status { get; set; }
         public decimal PricePerNight { get; set; }
         public string Description { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Bookings> Bookings { get; set; }
         public virtual RStatus RStatus { get; set; }
         public virtual RType RType { get; set; }
+
+        public void UpdateRoom(RoomDTO roomDTO)
+        {
+            this.RId = roomDTO.RId;
+            this.Type = roomDTO.RType;
+            this.Status = roomDTO.RStatus;
+            this.PricePerNight = roomDTO.RPricePerNight;
+            this.Description = roomDTO.RDescription;
+        }
     }
 }
