@@ -6,18 +6,33 @@ using System.Diagnostics;
 using DataTransferObject;
 using System.Configuration;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Collections.Generic;
+using System.Data.Entity;
+//using Microsoft.EntityFrameworkCore;
+//using System.Data.Microsoft.EntityFrameworkCore;
+
 
 namespace Data
 {
-    public class RoomData
+    public class RoomD
     {
         // lấy chi tiết tất cả các phòng
         // (lấy cả các trường của các bảng có liên kết)
+        HotelManagementSystemContext DB;
+        public RoomD()
+        {
+            try
+            {
+                DB = new HotelManagementSystemContext();
+            }
+            catch (SqlException ex) { throw ex; }
+        }
+
         public List<RoomDTO> GetAllRooms()
         {
             List<RoomDTO> list = new List<RoomDTO>();
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var rooms = DB.Rooms.Include("RType_").Include("RStatus_").Select(r => new RoomDTO
                 {
@@ -37,7 +52,37 @@ namespace Data
                     list = rooms.ToList();
                 }
             }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
             return list;
+        }
+
+        // lấy thông tin của phòng thông qua mã phòng
+        // (lấy cả các trường của các bảng có liên kết)
+        public RoomDTO GetRoom(string RId)
+        {
+            try
+            {
+                var room = DB.Rooms.Include("RType_").Include("RStatus_")
+                    .Where(r => r.RId == RId)
+                    .Select(r => new RoomDTO
+                    {
+                        RId = r.RId,
+                        RType = r.RType.RType_,
+                        RTBedCount = r.RType.BedCount,
+                        RTMaxGuests = r.RType.MaxGuests,
+                        RTypeDescription = r.RType.Description,
+                        RStatus = r.RStatus.RStatus_,
+                        RStatusDescription = r.RStatus.Description,
+                        RPricePerNight = r.PricePerNight,
+                        RDescription = r.Description
+                    })
+                    .FirstOrDefault();
+                return room;
+            }
+            catch (SqlException ex) { throw ex; }
         }
 
         // lấy chi tiết tất cả các phòng - lọc theo trạng thái
@@ -45,7 +90,7 @@ namespace Data
         public List<RoomDTO> GetRoomsByStatus(string status)
         {
             List<RoomDTO> list = new List<RoomDTO>();
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var rooms = DB.Rooms.Include("RType_").Include("RStatus_").Where(r => r.RStatus.RStatus_ == (status)).Select(r => new RoomDTO
                 {
@@ -65,6 +110,7 @@ namespace Data
                     list = rooms.ToList();
                 }
             }
+            catch (SqlException ex) { throw ex; }
             return list;
         }
 
@@ -80,7 +126,7 @@ namespace Data
         public List<RoomDTO> GetAllRoomsTypes()
         {
             List<RoomDTO> list = new List<RoomDTO>();
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var types = DB.RType.Select(type => new RoomDTO
                 {
@@ -95,6 +141,7 @@ namespace Data
                     list = types.ToList();
                 }
             }
+            catch (SqlException ex) { throw ex; }
             return list;
         }
 
@@ -102,7 +149,7 @@ namespace Data
         public List<RoomDTO> GetAllRoomsStates()
         {
             List<RoomDTO> list = new List<RoomDTO>();
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var rooms = DB.RStatus.Select(status => new RoomDTO
                 {
@@ -115,38 +162,15 @@ namespace Data
                     list = rooms.ToList();
                 }
             }
+            catch (SqlException ex) { throw ex; }
             return list;
         }
 
-        // lấy thông tin của phòng thông qua mã phòng
-        // (lấy cả các trường của các bảng có liên kết)
-        public RoomDTO GetRoom(string RId)
-        {
-            using (var DB = new HotelManagementSystemContext())
-            {
-                var room = DB.Rooms.Include("RType_").Include("RStatus_")
-                    .Where(r => r.RId == RId)
-                    .Select(r => new RoomDTO
-                    {
-                        RId = r.RId,
-                        RType = r.RType.RType_,
-                        RTBedCount = r.RType.BedCount,
-                        RTMaxGuests = r.RType.MaxGuests,
-                        RTypeDescription = r.RType.Description,
-                        RStatus = r.RStatus.RStatus_,
-                        RStatusDescription = r.RStatus.Description,
-                        RPricePerNight = r.PricePerNight,
-                        RDescription = r.Description
-                    })
-                    .FirstOrDefault();
-                return room;
-            }
-        }
 
         // lấy 1 record loại phòng thông qua khóa chính
         public RoomDTO GetType(string typeId)
         {
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var type = DB.RType
                     .Where(r => r.RType_ == typeId)
@@ -160,12 +184,13 @@ namespace Data
                     .FirstOrDefault();
                 return type;
             }
+            catch (SqlException ex) { throw ex; }
         }
 
         // lấy 1 record thông qua khóa chính
         public RoomDTO GetStatus(string statusId)
         {
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var status = DB.RStatus
                     .Where(r => r.RStatus_ == statusId)
@@ -177,33 +202,52 @@ namespace Data
                     .FirstOrDefault();
                 return status;
             }
+            catch (SqlException ex) { throw ex; }
+        }
+
+        public bool AddRoom(RoomDTO roomDTO)
+        {
+            try
+            {
+                if (GetRoom(roomDTO.RId) == null)
+                {
+                    var room = new Rooms();
+                    room.ConvertTo_From(roomDTO);
+                    DB.Rooms.Add(room);
+                    DB.SaveChanges();
+                    return true;
+                }
+                else throw new Exception("Mã phòng đã tồn tại");
+            }
+            catch (SqlException ex) { throw ex; }
         }
 
         public bool DeleteRoom(RoomDTO roomDTO)
         {
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var room = DB.Rooms.SingleOrDefault(r => r.RId == roomDTO.RId);
                 if (room == null)
-                {
                     return false;
-                }
                 DB.Rooms.Remove(room);
                 DB.SaveChanges();
                 return true;
             }
+            catch (SqlException ex) { throw ex; }
         }
 
         public bool UpdateRoom(RoomDTO roomDTO)
         {
-            using (var DB = new HotelManagementSystemContext())
+            try
             {
                 var room = DB.Rooms.SingleOrDefault(r => r.RId == roomDTO.RId);
                 if (room == null) return false;
-                room.UpdateRoom(roomDTO);
+                //room.Clone
+                room.ConvertTo_From(roomDTO);
                 DB.SaveChanges();
                 return true;
             }
+            catch (SqlException ex) { throw ex; }
         }
 
         public void demo()

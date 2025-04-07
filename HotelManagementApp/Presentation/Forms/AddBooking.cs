@@ -15,15 +15,20 @@ using ZXing;
 using System.Threading;
 using System.Runtime.InteropServices;
 using Presentation.User_Controls;
+using Business;
+using DataTransferObject;
+using System.Timers;
+using ZXing.Common;
+
+
 
 namespace Presentation.Forms
 {
     public partial class AddBooking : Form
     {
 
-        private FilterInfoCollection CaptureDevices;
-        private VideoCaptureDevice VideoSource;
-
+        private FilterInfoCollection captureDevices;
+        private VideoCaptureDevice videoSource;
 
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
@@ -34,17 +39,83 @@ namespace Presentation.Forms
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
+        RoomB RoomBusiness;
+
+        //private Timer Timer;
 
         public AddBooking()
         {
             InitializeComponent();
+            RoomBusiness = new RoomB();
+            LoadAllRoomTypes();
+            LoadRooms(RoomBusiness.GetAllRooms());
         }
 
-        bool itemIsShow = false;
+        private void LoadAllRoomTypes()
+        {
+            comboboxRoomType.Items.Clear();
+            comboboxRoomType.Items.Add("All");
+            var types = RoomBusiness.GetAllRoomTypes()
+                .Select(type => type.RType);
+            foreach (var type in types)
+                comboboxRoomType.Items.Add(type.ToString());
+            comboboxRoomType.SelectedIndex = 0;
+        }
+
+        private void LoadRooms(List<RoomDTO> listRooms)
+        {
+            flowLayoutPanel.Controls.Clear();
+            foreach (var i in listRooms)
+            {
+                itemRoom item = new itemRoom(i);
+                flowLayoutPanel.Controls.Add(item);
+            }
+        }
+
+        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            moveForm(sender, e);
+        }
+
+        private void moveForm(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+            }
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void timer_for_select_room_Tick(object sender, EventArgs e)
+        {
+            if (itemIsShow == false)
+            {
+                flowLayoutPanel.Height += 10;
+                if (flowLayoutPanel.Height >= flowLayoutPanel.MaximumSize.Height)
+                {
+                    itemIsShow = true;
+                    timer_for_select_room.Stop();
+                }
+            }
+            else
+            {
+                flowLayoutPanel.Height -= 10;
+                if (flowLayoutPanel.Height <= flowLayoutPanel.MinimumSize.Height)
+                {
+                    itemIsShow = false;
+                    timer_for_select_room.Stop();
+                }
+            }
+        }
 
         private void btnShowItem_Click(object sender, EventArgs e)
         {
-            timer1.Start();
+            timer_for_select_room.Start();
             if (itemIsShow)
             {
                 btnShowItem.Image = Presentation.Properties.Resources.left;
@@ -59,42 +130,9 @@ namespace Presentation.Forms
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void btnClearFilter_MouseHover(object sender, EventArgs e)
         {
-            if (itemIsShow == false)
-            {
-                flowLayoutPanel.Height += 10;
-                if (flowLayoutPanel.Height >= flowLayoutPanel.MaximumSize.Height)
-                {
-                    itemIsShow = true;
-                    timer1.Stop();
-                }
-            }
-            else
-            {
-                flowLayoutPanel.Height -= 10;
-                if (flowLayoutPanel.Height <= flowLayoutPanel.MinimumSize.Height)
-                {
-                    itemIsShow = false;
-                    timer1.Stop();
-                }
-            }
-        }
-
-        private void btnShowItem_Leave(object sender, EventArgs e)
-        {
-            if (itemIsShow) { btnShowItem.PerformClick(); }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if (itemRoom.IS_SELECTED)
-            {
-                btnShowItem.Text = itemRoom.ID;
-                timer2.Start();
-                itemRoom.IS_SELECTED = false;
-                btnShowItem.PerformClick();
-            }
+            toolTip.SetToolTip(btnClearFilter, "Clear fields");
         }
 
         private void timeCheckin_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
@@ -149,113 +187,165 @@ namespace Presentation.Forms
             dateCheckout.SelectionStart = 0;
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private void comboboxRoomType_SelectedValueChanged(object sender, EventArgs e)
         {
-
+            FilterRoom();
         }
 
-        private void timeCheckin_TextChanged(object sender, EventArgs e)
+        private void floor_ValueChanged(object sender, EventArgs e)
         {
-
+            FilterRoom();
         }
 
-        private void btnClearFilter_MouseHover(object sender, EventArgs e)
+        private void FilterRoom()
         {
-            toolTip1.SetToolTip(btnClearFilter, "Clear fields");
-        }
+            if (comboboxRoomType.SelectedIndex == 0 && floor.Value < 0)
+            {
+                LoadRooms(RoomBusiness.GetAllRooms());
+                btnClearFilter.Visible = false;
+                return;
+            }
 
-        private void Control_ValueChanged(object sender, EventArgs e)
-        {
+            List<RoomDTO> rooms = RoomBusiness.GetAllRooms();
+            if (floor.Value >= 0)
+            {
+                rooms = rooms.Where(r => r.getNumberOfFloor() == (int)floor.Value).ToList();
+            }
 
+            if (comboboxRoomType.SelectedIndex != 0)
+            {
+                string type = comboboxRoomType.SelectedItem.ToString();
+                rooms = rooms.Where(r => r.RType == type).ToList();
+            }
+            btnClearFilter.Visible = true;
+            LoadRooms(rooms);
         }
 
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
-            floor.Value = -1;
+            floor.Value = floor.Minimum;
             comboboxRoomType.SelectedIndex = 0;
-            AddBooking_Load(this, null);
+            btnClearFilter.Visible = false;
         }
 
-        private void btnClearFilter_VisibleChanged(object sender, EventArgs e)
+        bool itemIsShow = false;
+        private void btnShowItem_Leave(object sender, EventArgs e)
         {
-
+            if (itemIsShow) { btnShowItem.PerformClick(); }
         }
 
-        private void AddBooking_Load(object sender, EventArgs e)
+        private void timer2_Tick(object sender, EventArgs e)
         {
-        }
-
-        private void AddBooking_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            stopCamera();
-        }
-
-        private void StartCamera()
-        {
-            CaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            VideoSource = new VideoCaptureDevice(CaptureDevices[0].MonikerString);
-            VideoSource.NewFrame += new NewFrameEventHandler(VideoSource_NewFrame);
-            VideoSource.Start();
-        }
-
-        private async void btnQR_Click(object sender, EventArgs e)
-        {
-            StartCamera();
-        }
-
-        private bool isQRCodeScanned = false;
-        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            Bitmap bitmap1 = (Bitmap)eventArgs.Frame.Clone();
-            //btnQR.Image = (Bitmap)eventArgs.Frame.Clone();
-            if (btnQR.Image == null)
+            if (itemRoom.IS_SELECTED)
             {
-                MessageBox.Show("Không có ảnh để quét!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnShowItem.Text = itemRoom.ID;
+                timer2.Start();
+                itemRoom.IS_SELECTED = false;
+                btnShowItem.Tag = itemRoom.RoomId;
+                btnShowItem.PerformClick();
+            }
+        }
+
+        private void btnQR_Click(object sender, EventArgs e)
+        {
+            captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (captureDevices.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy camera!");
                 return;
             }
-            Bitmap bitmap = new Bitmap(btnQR.Image);
-            BarcodeReader reader = new BarcodeReader();
-            Result result = reader.Decode(bitmap);
-            if (result != null)
-            {
-                MessageBox.Show("Mã QR: " + result.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else
-            {
-                MessageBox.Show("Không tìm thấy mã QR!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            stopCamera();
-            bitmap.Dispose();
+
+            videoSource = new VideoCaptureDevice(captureDevices[0].MonikerString);
+            videoSource.NewFrame += VideoSource_NewFrame;
+            videoSource.Start();
+
+            timeoutTimer.Start();
         }
 
-        private void stopCamera()
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
-            if (VideoSource != null)
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            //pictureBoxCamera.Image = bitmap;
+            try
             {
-                if (VideoSource.IsRunning)
+                BarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(bitmap);
+                if (result != null)
                 {
-                    VideoSource.SignalToStop();
-                    VideoSource.WaitForStop();
-                    VideoSource.Stop();
+                    timeoutTimer.Stop();
+                    StopCamera();
+                    SetupCustomer(result.Text);
                 }
-                VideoSource.NewFrame -= VideoSource_NewFrame;
-                VideoSource = null;
             }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-
-        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        private void SetupCustomer(string text)
         {
-            moveForm(sender, e);
+            string cccd = null;
+            string name = null;
+            string gioiTinh = null;
+            string[] str = text.Split('|');
+            cccd = str[0];
+            name= str[2];
+            gioiTinh = str[4];
+            //Debug.WriteLine(cccd);
+            //Debug.WriteLine(name);
+            //Debug.WriteLine(gioiTinh);
+            txtId.Text = cccd;
+            txtName.Text = name;
+            if (gioiTinh == "Nam") selectGender.SelectedItem = "Male";
+            else selectGender.SelectedItem = "Female";
         }
 
-        private void moveForm(object sender, MouseEventArgs e)
+        private void TimeoutTimer_Tick(object sender, EventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            timeoutTimer.Stop();
+            StopCamera();
+            MessageBox.Show("Không phát hiện mã QR");
+        }
+
+        private void StopCamera()
+        {
+            if (videoSource != null && videoSource.IsRunning)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HTCAPTION, 0);
+                videoSource.SignalToStop();
+                videoSource = null;
             }
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            //if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtName.Text)
+            //    || string.IsNullOrWhiteSpace(txtPhone.Text))
+            //{
+            //    return;
+            //}
+
+            //if (timeCheckin.Text.ElementAt(0) == ' ' || dateCheckin.Text.ElementAt(0) == ' '
+            //    || timeCheckout.Text.ElementAt(0) == ' ' || dateCheckout.Text.ElementAt(0) == ' ')
+            //{
+            //    return;
+            //}
+            //else
+            //{
+            //    //Debug.WriteLine("Bạn đã nhập: " + timeCheckin.Text);
+            //}
+
+            if (btnShowItem.Tag == null)
+            {
+                return;
+            }
+        }
+
+        private void txtId_TextChanged(object sender, EventArgs e)
+        {
+            //txtId.IconRight
+        }
+
+        private void txtId_IconRightClick(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -16,7 +16,7 @@ namespace Presentation.User_Controls
 {
     public partial class UC_ViewTableMode : UserControl
     {
-        RoomBusiness RoomBusiness = new RoomBusiness();
+        RoomB RoomBusiness = new RoomB();
         SelectAttribute SelectAttribute = new SelectAttribute(RoomDTO.Properties());
 
         private List<RoomDTO> currentList = null;
@@ -27,25 +27,11 @@ namespace Presentation.User_Controls
             this.Controls.Add(SelectAttribute);
             SelectAttribute.BringToFront();
             SelectAttribute.Visible = false;
-
-            FIlterByStatus("");
+            currentList = RoomBusiness.GetAllRooms();
         }
 
         private void UC_ViewTableMode_Load(object sender, EventArgs e)
         {
-            LoadRooms();
-        }
-
-        public void FIlterByStatus(string status)
-        {
-            if (status.Trim() == "") currentList = RoomBusiness.GetAllRooms();
-            else currentList = RoomBusiness.GetAllRooms(status);
-            LoadRooms();
-        }
-
-        public void FilterByString(string s)
-        {
-            this.currentList = this.currentList.Where(x => x.Display().IndexOf(s) >= 0).ToList();
             LoadRooms();
         }
 
@@ -102,17 +88,35 @@ namespace Presentation.User_Controls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                Debug.WriteLine(row.Cells["RId"].Value.ToString());
-                RoomDetail roomDetail = new RoomDetail(RoomBusiness.GetRoom(row.Cells["RId"].Value.ToString()));
+                RoomDTO r = RoomBusiness.GetRoom(row.Cells["RId"].Value.ToString());
+                RoomDetail roomDetail = new RoomDetail(r);
                 roomDetail.ShowDialog();
             }
         }
 
         private void btnSelectAttribute_Click(object sender, EventArgs e)
         {
-            SelectAttribute.Location = new Point(btnSelectAttribute.Location.X-10, btnSelectAttribute.Location.Y-10);
+            SelectAttribute.Location = new Point(btnSelectAttribute.Location.X - 10, btnSelectAttribute.Location.Y - 10);
             SelectAttribute.Visible = true;
+            timerListener.Start();
         }
 
+        public void SetCurrentList(List<RoomDTO> list)
+        {
+            this.currentList = list;
+            LoadRooms();
+        }
+
+        private void timerListener_Tick(object sender, EventArgs e)
+        {
+            if (SelectAttribute.Visible == false) timerListener.Stop();
+            else
+                SelectAttribute.ACTION += (Dictionary<string, object> data) =>
+                {
+                    if ((bool)data["value"])
+                        dataGridView.Columns[(string)data["key"]].Visible = true;
+                    else dataGridView.Columns[(string)data["key"]].Visible = false;
+                };
+        }
     }
 }

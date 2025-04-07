@@ -90,5 +90,10 @@ namespace DataTransferObject
         {
             return new RoomDTO(this);
         }
+
+        public void UpdateRoom()
+        {
+
+        }
     }
 }

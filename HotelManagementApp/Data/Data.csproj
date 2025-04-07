@@ -130,6 +130,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingD.cs" />
     <Compile Include="BookingPayments.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -143,6 +144,7 @@
     <Compile Include="Customers.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataProvider.cs" />
     <Compile Include="EmployeeRole.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -171,7 +173,7 @@
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomData.cs" />
+    <Compile Include="RoomD.cs" />
     <Compile Include="Rooms.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>

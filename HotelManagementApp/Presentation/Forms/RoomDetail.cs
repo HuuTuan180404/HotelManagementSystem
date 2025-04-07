@@ -30,9 +30,9 @@ namespace Presentation.Forms
 
         private RoomDTO RoomDTO;
         private RoomDTO roomDTOVirtual;
-        RoomBusiness RoomBusiness = new RoomBusiness();
+        RoomB RoomBusiness = new RoomB();
 
-        public RoomDetail()
+        private RoomDetail()
         {
             InitializeComponent();
             LoadComboboxRoomType();
@@ -171,10 +171,13 @@ namespace Presentation.Forms
         {
             if (alert("Bạn chắc chắn muốn xóa phòng này ?"))
                 if (RoomBusiness.DeleteRoom(lbRoomId.Text))
+                {
                     MessageBox.Show("Xóa phòng thành công!",
-                        "Thông báo",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                       "Thông báo",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Information);
+                    this.Close();
+                }
                 else
                     MessageBox.Show("Không tìm thấy phòng để xóa!",
                         "Lỗi",

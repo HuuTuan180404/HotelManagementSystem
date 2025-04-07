@@ -37,6 +37,20 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.btnAdd = new Guna.UI2.WinForms.Guna2ImageButton();
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.timeCheckOut = new Guna.UI2.WinForms.Guna2TextBox();
+            this.timeCheckIn = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.bookingStatus = new Guna.UI2.WinForms.Guna2TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.phoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
+            this.fullName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.customerID = new Guna.UI2.WinForms.Guna2TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.titleID = new Guna.UI2.WinForms.Guna2TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -49,30 +63,14 @@
             this.pricePerNight = new Guna.UI2.WinForms.Guna2TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.rooNo = new Guna.UI2.WinForms.Guna2TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.timeCheckOut = new Guna.UI2.WinForms.Guna2TextBox();
-            this.timeCheckIn = new Guna.UI2.WinForms.Guna2TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.bookingStatus = new Guna.UI2.WinForms.Guna2TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.phoneNumber = new Guna.UI2.WinForms.Guna2TextBox();
-            this.gender = new Guna.UI2.WinForms.Guna2TextBox();
-            this.customerID = new Guna.UI2.WinForms.Guna2TextBox();
-            this.fullName = new Guna.UI2.WinForms.Guna2TextBox();
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.panel1.SuspendLayout();
             this.guna2GroupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -85,7 +83,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1224, 558);
+            this.panel1.Size = new System.Drawing.Size(1224, 615);
             this.panel1.TabIndex = 8;
             // 
             // guna2HtmlLabel1
@@ -108,31 +106,273 @@
             this.btnAdd.Image = global::Presentation.Properties.Resources.add;
             this.btnAdd.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnAdd.ImageRotate = 0F;
-            this.btnAdd.Location = new System.Drawing.Point(569, 479);
+            this.btnAdd.Location = new System.Drawing.Point(747, 542);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.PressedState.ImageSize = new System.Drawing.Size(64, 64);
             this.btnAdd.Size = new System.Drawing.Size(50, 50);
             this.btnAdd.TabIndex = 15;
             this.btnAdd.UseTransparentBackground = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // guna2GroupBox1
             // 
             this.guna2GroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.guna2GroupBox1.BorderRadius = 20;
-            this.guna2GroupBox1.Controls.Add(this.titleID);
-            this.guna2GroupBox1.Controls.Add(this.groupBox3);
             this.guna2GroupBox1.Controls.Add(this.groupBox2);
             this.guna2GroupBox1.Controls.Add(this.groupBox1);
+            this.guna2GroupBox1.Controls.Add(this.titleID);
+            this.guna2GroupBox1.Controls.Add(this.groupBox3);
             this.guna2GroupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(646, 83);
+            this.guna2GroupBox1.Location = new System.Drawing.Point(803, 70);
             this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(559, 446);
+            this.guna2GroupBox1.Size = new System.Drawing.Size(416, 510);
             this.guna2GroupBox1.TabIndex = 14;
             this.guna2GroupBox1.Text = "Booking Detail";
             this.guna2GroupBox1.TextTransform = Guna.UI2.WinForms.Enums.TextTransform.UpperCase;
             this.guna2GroupBox1.UseTransparentBackground = true;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.timeCheckOut);
+            this.groupBox2.Controls.Add(this.timeCheckIn);
+            this.groupBox2.Controls.Add(this.label12);
+            this.groupBox2.Controls.Add(this.label11);
+            this.groupBox2.Controls.Add(this.label10);
+            this.groupBox2.Controls.Add(this.bookingStatus);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox2.Location = new System.Drawing.Point(19, 311);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(369, 178);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Booking Information";
+            // 
+            // timeCheckOut
+            // 
+            this.timeCheckOut.AutoRoundedCorners = true;
+            this.timeCheckOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckOut.BorderRadius = 12;
+            this.timeCheckOut.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.timeCheckOut.DefaultText = "time2";
+            this.timeCheckOut.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.timeCheckOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.timeCheckOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckOut.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckOut.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.timeCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckOut.Location = new System.Drawing.Point(196, 57);
+            this.timeCheckOut.Margin = new System.Windows.Forms.Padding(4);
+            this.timeCheckOut.Name = "timeCheckOut";
+            this.timeCheckOut.PlaceholderText = "";
+            this.timeCheckOut.ReadOnly = true;
+            this.timeCheckOut.SelectedText = "";
+            this.timeCheckOut.Size = new System.Drawing.Size(138, 27);
+            this.timeCheckOut.TabIndex = 23;
+            this.timeCheckOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // timeCheckIn
+            // 
+            this.timeCheckIn.AutoRoundedCorners = true;
+            this.timeCheckIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckIn.BorderRadius = 12;
+            this.timeCheckIn.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.timeCheckIn.DefaultText = "time1";
+            this.timeCheckIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.timeCheckIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.timeCheckIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.timeCheckIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.timeCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.timeCheckIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.timeCheckIn.Location = new System.Drawing.Point(22, 57);
+            this.timeCheckIn.Margin = new System.Windows.Forms.Padding(4);
+            this.timeCheckIn.Name = "timeCheckIn";
+            this.timeCheckIn.PlaceholderText = "";
+            this.timeCheckIn.ReadOnly = true;
+            this.timeCheckIn.SelectedText = "";
+            this.timeCheckIn.Size = new System.Drawing.Size(138, 27);
+            this.timeCheckIn.TabIndex = 22;
+            this.timeCheckIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label12.Location = new System.Drawing.Point(196, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(103, 19);
+            this.label12.TabIndex = 18;
+            this.label12.Text = "Time CheckOut";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label11.Location = new System.Drawing.Point(22, 26);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(91, 19);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Time CheckIn";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label10.Location = new System.Drawing.Point(22, 92);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(47, 19);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Status";
+            // 
+            // bookingStatus
+            // 
+            this.bookingStatus.AutoRoundedCorners = true;
+            this.bookingStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.bookingStatus.BorderRadius = 12;
+            this.bookingStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.bookingStatus.DefaultText = "status";
+            this.bookingStatus.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.bookingStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.bookingStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.bookingStatus.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.bookingStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.bookingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.bookingStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.bookingStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.bookingStatus.Location = new System.Drawing.Point(22, 123);
+            this.bookingStatus.Margin = new System.Windows.Forms.Padding(4);
+            this.bookingStatus.Name = "bookingStatus";
+            this.bookingStatus.PlaceholderText = "";
+            this.bookingStatus.ReadOnly = true;
+            this.bookingStatus.SelectedText = "";
+            this.bookingStatus.Size = new System.Drawing.Size(138, 27);
+            this.bookingStatus.TabIndex = 13;
+            this.bookingStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.phoneNumber);
+            this.groupBox1.Controls.Add(this.fullName);
+            this.groupBox1.Controls.Add(this.customerID);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupBox1.Location = new System.Drawing.Point(19, 87);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(176, 219);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Customer Information";
+            // 
+            // phoneNumber
+            // 
+            this.phoneNumber.AutoRoundedCorners = true;
+            this.phoneNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.phoneNumber.BorderRadius = 12;
+            this.phoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.phoneNumber.DefaultText = "0364626275";
+            this.phoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.phoneNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.phoneNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.phoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.phoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.phoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.phoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.phoneNumber.Location = new System.Drawing.Point(7, 181);
+            this.phoneNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.phoneNumber.Name = "phoneNumber";
+            this.phoneNumber.PlaceholderText = "";
+            this.phoneNumber.ReadOnly = true;
+            this.phoneNumber.SelectedText = "";
+            this.phoneNumber.Size = new System.Drawing.Size(125, 27);
+            this.phoneNumber.TabIndex = 3;
+            this.phoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // fullName
+            // 
+            this.fullName.AutoRoundedCorners = true;
+            this.fullName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.fullName.BorderRadius = 12;
+            this.fullName.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.fullName.DefaultText = "nguyễn hữu tuấn";
+            this.fullName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.fullName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.fullName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.fullName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.fullName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.fullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.fullName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.fullName.Location = new System.Drawing.Point(7, 114);
+            this.fullName.Margin = new System.Windows.Forms.Padding(4);
+            this.fullName.Name = "fullName";
+            this.fullName.PlaceholderText = "";
+            this.fullName.ReadOnly = true;
+            this.fullName.SelectedText = "";
+            this.fullName.Size = new System.Drawing.Size(151, 27);
+            this.fullName.TabIndex = 0;
+            this.fullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // customerID
+            // 
+            this.customerID.AutoRoundedCorners = true;
+            this.customerID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.customerID.BorderRadius = 12;
+            this.customerID.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.customerID.DefaultText = "052204013042";
+            this.customerID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.customerID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.customerID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.customerID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.customerID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.customerID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
+            this.customerID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.customerID.Location = new System.Drawing.Point(7, 47);
+            this.customerID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.customerID.Name = "customerID";
+            this.customerID.PlaceholderText = "";
+            this.customerID.ReadOnly = true;
+            this.customerID.SelectedText = "";
+            this.customerID.Size = new System.Drawing.Size(151, 27);
+            this.customerID.TabIndex = 1;
+            this.customerID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label3.Location = new System.Drawing.Point(7, 164);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Phone";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label2.Location = new System.Drawing.Point(7, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(23, 19);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.label1.Location = new System.Drawing.Point(7, 98);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(45, 19);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Name";
             // 
             // titleID
             // 
@@ -150,7 +390,7 @@
             this.titleID.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleID.ForeColor = System.Drawing.Color.White;
             this.titleID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.titleID.Location = new System.Drawing.Point(23, 68);
+            this.titleID.Location = new System.Drawing.Point(23, 49);
             this.titleID.Margin = new System.Windows.Forms.Padding(6);
             this.titleID.Name = "titleID";
             this.titleID.PlaceholderText = "";
@@ -173,7 +413,7 @@
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.rooNo);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.groupBox3.Location = new System.Drawing.Point(355, 72);
+            this.groupBox3.Location = new System.Drawing.Point(194, 87);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(194, 219);
             this.groupBox3.TabIndex = 1;
@@ -355,286 +595,6 @@
             this.rooNo.TabIndex = 7;
             this.rooNo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.timeCheckOut);
-            this.groupBox2.Controls.Add(this.timeCheckIn);
-            this.groupBox2.Controls.Add(this.label12);
-            this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.bookingStatus);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.groupBox2.Location = new System.Drawing.Point(25, 283);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(508, 111);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Booking Information";
-            // 
-            // timeCheckOut
-            // 
-            this.timeCheckOut.AutoRoundedCorners = true;
-            this.timeCheckOut.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckOut.BorderRadius = 12;
-            this.timeCheckOut.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.timeCheckOut.DefaultText = "time2";
-            this.timeCheckOut.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.timeCheckOut.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.timeCheckOut.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.timeCheckOut.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.timeCheckOut.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.timeCheckOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.timeCheckOut.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckOut.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.timeCheckOut.Location = new System.Drawing.Point(177, 48);
-            this.timeCheckOut.Margin = new System.Windows.Forms.Padding(4);
-            this.timeCheckOut.Name = "timeCheckOut";
-            this.timeCheckOut.PlaceholderText = "";
-            this.timeCheckOut.ReadOnly = true;
-            this.timeCheckOut.SelectedText = "";
-            this.timeCheckOut.Size = new System.Drawing.Size(151, 27);
-            this.timeCheckOut.TabIndex = 23;
-            this.timeCheckOut.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // timeCheckIn
-            // 
-            this.timeCheckIn.AutoRoundedCorners = true;
-            this.timeCheckIn.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckIn.BorderRadius = 12;
-            this.timeCheckIn.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.timeCheckIn.DefaultText = "time1";
-            this.timeCheckIn.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.timeCheckIn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.timeCheckIn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.timeCheckIn.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.timeCheckIn.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.timeCheckIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.timeCheckIn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.timeCheckIn.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.timeCheckIn.Location = new System.Drawing.Point(11, 48);
-            this.timeCheckIn.Margin = new System.Windows.Forms.Padding(4);
-            this.timeCheckIn.Name = "timeCheckIn";
-            this.timeCheckIn.PlaceholderText = "";
-            this.timeCheckIn.ReadOnly = true;
-            this.timeCheckIn.SelectedText = "";
-            this.timeCheckIn.Size = new System.Drawing.Size(151, 27);
-            this.timeCheckIn.TabIndex = 22;
-            this.timeCheckIn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label12.Location = new System.Drawing.Point(177, 24);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 19);
-            this.label12.TabIndex = 18;
-            this.label12.Text = "Time CheckOut";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label11.Location = new System.Drawing.Point(11, 24);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 19);
-            this.label11.TabIndex = 16;
-            this.label11.Text = "Time CheckIn";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label10.Location = new System.Drawing.Point(341, 24);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 19);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Status";
-            // 
-            // bookingStatus
-            // 
-            this.bookingStatus.AutoRoundedCorners = true;
-            this.bookingStatus.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.bookingStatus.BorderRadius = 12;
-            this.bookingStatus.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.bookingStatus.DefaultText = "status";
-            this.bookingStatus.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.bookingStatus.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.bookingStatus.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bookingStatus.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.bookingStatus.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bookingStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.bookingStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.bookingStatus.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.bookingStatus.Location = new System.Drawing.Point(341, 48);
-            this.bookingStatus.Margin = new System.Windows.Forms.Padding(4);
-            this.bookingStatus.Name = "bookingStatus";
-            this.bookingStatus.PlaceholderText = "";
-            this.bookingStatus.ReadOnly = true;
-            this.bookingStatus.SelectedText = "";
-            this.bookingStatus.Size = new System.Drawing.Size(151, 27);
-            this.bookingStatus.TabIndex = 13;
-            this.bookingStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.White;
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.phoneNumber);
-            this.groupBox1.Controls.Add(this.gender);
-            this.groupBox1.Controls.Add(this.customerID);
-            this.groupBox1.Controls.Add(this.fullName);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.groupBox1.Location = new System.Drawing.Point(15, 110);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(341, 154);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Customer Information";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label4.Location = new System.Drawing.Point(172, 90);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 19);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Gender";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label3.Location = new System.Drawing.Point(6, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Phone";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label2.Location = new System.Drawing.Point(172, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(23, 19);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "ID";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.label1.Location = new System.Drawing.Point(6, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 19);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Name";
-            // 
-            // phoneNumber
-            // 
-            this.phoneNumber.AutoRoundedCorners = true;
-            this.phoneNumber.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.phoneNumber.BorderRadius = 12;
-            this.phoneNumber.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.phoneNumber.DefaultText = "0364626275";
-            this.phoneNumber.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.phoneNumber.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.phoneNumber.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.phoneNumber.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.phoneNumber.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.phoneNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.phoneNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.phoneNumber.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.phoneNumber.Location = new System.Drawing.Point(6, 113);
-            this.phoneNumber.Margin = new System.Windows.Forms.Padding(4);
-            this.phoneNumber.Name = "phoneNumber";
-            this.phoneNumber.PlaceholderText = "";
-            this.phoneNumber.ReadOnly = true;
-            this.phoneNumber.SelectedText = "";
-            this.phoneNumber.Size = new System.Drawing.Size(125, 27);
-            this.phoneNumber.TabIndex = 3;
-            this.phoneNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // gender
-            // 
-            this.gender.AutoRoundedCorners = true;
-            this.gender.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.gender.BorderRadius = 12;
-            this.gender.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.gender.DefaultText = "Nam";
-            this.gender.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.gender.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.gender.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.gender.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.gender.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.gender.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.gender.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.gender.Location = new System.Drawing.Point(172, 113);
-            this.gender.Margin = new System.Windows.Forms.Padding(4);
-            this.gender.Name = "gender";
-            this.gender.PlaceholderText = "";
-            this.gender.ReadOnly = true;
-            this.gender.SelectedText = "";
-            this.gender.Size = new System.Drawing.Size(76, 27);
-            this.gender.TabIndex = 2;
-            this.gender.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // customerID
-            // 
-            this.customerID.AutoRoundedCorners = true;
-            this.customerID.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.customerID.BorderRadius = 12;
-            this.customerID.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.customerID.DefaultText = "052204013042";
-            this.customerID.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.customerID.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.customerID.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.customerID.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.customerID.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.customerID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.customerID.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.customerID.Location = new System.Drawing.Point(172, 48);
-            this.customerID.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.customerID.Name = "customerID";
-            this.customerID.PlaceholderText = "";
-            this.customerID.ReadOnly = true;
-            this.customerID.SelectedText = "";
-            this.customerID.Size = new System.Drawing.Size(151, 27);
-            this.customerID.TabIndex = 1;
-            this.customerID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // fullName
-            // 
-            this.fullName.AutoRoundedCorners = true;
-            this.fullName.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.fullName.BorderRadius = 12;
-            this.fullName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.fullName.DefaultText = "nguyễn hữu tuấn";
-            this.fullName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.fullName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.fullName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fullName.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.fullName.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fullName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fullName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.fullName.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.fullName.Location = new System.Drawing.Point(6, 48);
-            this.fullName.Margin = new System.Windows.Forms.Padding(4);
-            this.fullName.Name = "fullName";
-            this.fullName.PlaceholderText = "";
-            this.fullName.ReadOnly = true;
-            this.fullName.SelectedText = "";
-            this.fullName.Size = new System.Drawing.Size(151, 27);
-            this.fullName.TabIndex = 0;
-            this.fullName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // dataGridView
             // 
             this.dataGridView.AllowUserToAddRows = false;
@@ -662,7 +622,7 @@
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(233)))), ((int)(((byte)(170)))));
-            this.dataGridView.Location = new System.Drawing.Point(19, 83);
+            this.dataGridView.Location = new System.Drawing.Point(6, 69);
             this.dataGridView.MultiSelect = false;
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
@@ -676,7 +636,7 @@
             this.dataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.RowHeadersWidth = 40;
-            this.dataGridView.Size = new System.Drawing.Size(621, 446);
+            this.dataGridView.Size = new System.Drawing.Size(791, 525);
             this.dataGridView.TabIndex = 9;
             this.dataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.SunFlower;
             this.dataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(237)))), ((int)(((byte)(183)))));
@@ -701,7 +661,7 @@
             this.dataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(215)))), ((int)(((byte)(95)))));
             this.dataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellClick);
-            this.dataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellDoubleClick);
+            this.dataGridView.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dataGridView_MouseDown);
             // 
             // guna2Elipse1
             // 
@@ -719,16 +679,15 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.panel1);
             this.Name = "UC_BookingManagement";
-            this.Size = new System.Drawing.Size(1224, 558);
-            this.Load += new System.EventHandler(this.UC_BookingManagement_Load);
+            this.Size = new System.Drawing.Size(1224, 615);
             this.panel1.ResumeLayout(false);
             this.guna2GroupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
 
@@ -747,8 +706,6 @@
         private Guna.UI2.WinForms.Guna2TextBox fullName;
         private Guna.UI2.WinForms.Guna2TextBox customerID;
         private Guna.UI2.WinForms.Guna2TextBox phoneNumber;
-        private Guna.UI2.WinForms.Guna2TextBox gender;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

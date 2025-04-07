@@ -18,10 +18,9 @@ namespace Data
         public Employees()
         {
             this.BookingPayments = new HashSet<BookingPayments>();
-            this.Bookings = new HashSet<Bookings>();
             this.ServiceUsageDetail = new HashSet<ServiceUsageDetail>();
         }
-    
+        
         public string EId { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
@@ -33,8 +32,6 @@ namespace Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingPayments> BookingPayments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Bookings> Bookings { get; set; }
         public virtual EmployeeRole EmployeeRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceUsageDetail> ServiceUsageDetail { get; set; }

@@ -17,6 +17,11 @@ namespace Presentation.User_Controls
         int ROW = 1;
         int COUNT_ATTRIBUTE = 2;
         List<string> attributes;
+
+        public event Action<Dictionary<string, object>> ACTION;
+
+        public List<string> attributesChecked;
+
         private SelectAttribute()
         {
             InitializeComponent();
@@ -24,6 +29,7 @@ namespace Presentation.User_Controls
 
         public SelectAttribute(List<string> list) : this()
         {
+            this.attributesChecked = list;
             this.attributes = list;
             this.COUNT_ATTRIBUTE = list.Count;
             this.ROW = (COUNT_ATTRIBUTE + 1) / 2;
@@ -32,8 +38,6 @@ namespace Presentation.User_Controls
         private void SelectAttribute_Load(object sender, EventArgs e)
         {
             this.Height = H * ROW;
-            Debug.WriteLine(ROW + " " + tableLayout.RowCount);
-            Debug.WriteLine(this.Height + " " + COUNT_ATTRIBUTE);
             LoadProperties();
         }
 
@@ -49,7 +53,7 @@ namespace Presentation.User_Controls
 
             foreach (var i in attributes)
             {
-                itemAttribute itemAttribute = new itemAttribute(i);
+                itemAttribute itemAttribute = new itemAttribute(i, true);
                 itemAttribute.nameCol = i;
                 addAttribute(itemAttribute);
             }
@@ -57,6 +61,11 @@ namespace Presentation.User_Controls
 
         public void addAttribute(itemAttribute itemAttribute)
         {
+            itemAttribute.ACTION += (Dictionary<string, object> data) =>
+            {
+                ACTION?.Invoke(data);
+                this.Visible = false;
+            };
             tableLayout.Controls.Add(itemAttribute);
             itemAttribute.Dock = DockStyle.Fill;
         }
@@ -69,6 +78,6 @@ namespace Presentation.User_Controls
         private void SelectAttribute_MouseLeave(object sender, EventArgs e)
         {
             this.Visible = false;
-        }        
+        }
     }
 }
