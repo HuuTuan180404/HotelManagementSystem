@@ -34,7 +34,7 @@ namespace Data
 
                 if (rooms != null)
                 {
-                    list = rooms.ToList();
+                    //list = rooms.ToList();
                 }
             }
             return list;
@@ -62,7 +62,7 @@ namespace Data
 
                 if (rooms != null)
                 {
-                    list = rooms.ToList();
+                    //list = rooms.ToList();
                 }
             }
             return list;
@@ -112,7 +112,7 @@ namespace Data
 
                 if (rooms != null)
                 {
-                    list = rooms.ToList();
+                    //list = rooms.ToList();
                 }
             }
             return list;

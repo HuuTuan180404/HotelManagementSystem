@@ -127,6 +127,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EmployeeDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomDTO.cs" />
   </ItemGroup>
