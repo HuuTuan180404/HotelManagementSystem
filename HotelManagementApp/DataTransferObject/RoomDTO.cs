@@ -69,8 +69,15 @@ namespace DataTransferObject
 
         public int getNumberOfFloor()
         {
-            string[] s = this.RId.Substring(3).Split('-');
-            return Convert.ToInt32(s[0]);
+            try
+            {
+                string[] s = this.RId.Substring(3).Split('-');
+                return Convert.ToInt32(s[0]);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public static List<string> Properties()

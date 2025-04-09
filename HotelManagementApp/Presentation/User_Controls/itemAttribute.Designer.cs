@@ -61,6 +61,7 @@
             this.checkbox.UncheckedState.BorderRadius = 0;
             this.checkbox.UncheckedState.BorderThickness = 0;
             this.checkbox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.checkbox.CheckedChanged += new System.EventHandler(this.checkbox_CheckedChanged);
             // 
             // itemAttribute
             // 

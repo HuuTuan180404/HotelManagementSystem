@@ -32,8 +32,8 @@
             this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.lbFloor = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lbFloor = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,20 +68,6 @@
             this.guna2Elipse1.BorderRadius = 12;
             this.guna2Elipse1.TargetControl = this;
             // 
-            // lbFloor
-            // 
-            this.lbFloor.BackColor = System.Drawing.Color.Transparent;
-            this.lbFloor.Depth = 0;
-            this.lbFloor.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbFloor.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbFloor.Location = new System.Drawing.Point(0, 0);
-            this.lbFloor.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbFloor.Name = "lbFloor";
-            this.lbFloor.Size = new System.Drawing.Size(119, 23);
-            this.lbFloor.TabIndex = 3;
-            this.lbFloor.Text = "2";
-            this.lbFloor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lbFloor);
@@ -91,6 +77,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(119, 155);
             this.panel1.TabIndex = 4;
+            // 
+            // lbFloor
+            // 
+            this.lbFloor.AutoEllipsis = true;
+            this.lbFloor.BackColor = System.Drawing.Color.PowderBlue;
+            this.lbFloor.Depth = 0;
+            this.lbFloor.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lbFloor.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.lbFloor.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.lbFloor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lbFloor.HighEmphasis = true;
+            this.lbFloor.Location = new System.Drawing.Point(0, 0);
+            this.lbFloor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbFloor.Name = "lbFloor";
+            this.lbFloor.Size = new System.Drawing.Size(119, 26);
+            this.lbFloor.TabIndex = 3;
+            this.lbFloor.Text = "2";
+            this.lbFloor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // itemFloor
             // 
@@ -115,7 +119,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayout;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private MaterialSkin.Controls.MaterialLabel lbFloor;
         private System.Windows.Forms.Panel panel1;
+        private MaterialSkin.Controls.MaterialLabel lbFloor;
     }
 }
