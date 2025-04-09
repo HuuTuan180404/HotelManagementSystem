@@ -28,3 +28,15 @@ INSERT INTO Rooms (RId, PricePerNight, Description, Status, Type) VALUES
 ('Roo3-1', 300.00, N'Phòng VIP tầng 3', 'Cleaning', 'VIP'),
 ('Roo3-2', 250.00, N'Phòng Deluxe tầng 3', 'Maintenance', 'Deluxe');
 GO
+
+INSERT INTO BookingStatus (BStatus, BKDescription) VALUES
+('Pending',        N'Đang chờ xác nhận'),
+('Confirmed',      N'Đã được xác nhận'),
+('CheckedIn',      N'Khách đã nhận phòng'),
+('CheckedOut',     N'Khách đã trả phòng'),
+('Cancelled',      N'Đã huỷ'),
+('NoShow',         N'Khách không đến'),
+('Refunded',       N'Đã hoàn tiền'),
+('InProgress',     N'Đang lưu trú'),
+('Rejected',       N'Bị từ chối');
+GO

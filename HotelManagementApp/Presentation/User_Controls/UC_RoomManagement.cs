@@ -22,11 +22,13 @@ namespace Presentation.User_Controls
     public partial class UC_RoomManagement : UserControl
     {
 
-        RoomBusiness RoomBusiness = new RoomBusiness();
+        RoomB RoomBusiness = new RoomB();
+        private List<RoomDTO> currentList = null;
 
         public UC_RoomManagement()
         {
             InitializeComponent();
+            currentList = RoomBusiness.GetAllRooms();
         }
 
         private void Room_Load(object sender, EventArgs e)
@@ -38,6 +40,7 @@ namespace Presentation.User_Controls
         }
 
         bool isFloor = true;
+
         private void btnChangeViewMode_Click(object sender, EventArgs e)
         {
             if (isFloor)
@@ -64,24 +67,17 @@ namespace Presentation.User_Controls
                 comboboxStatus.Items.Add(item);
         }
 
-        private void filterByStatus()
+        private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboboxStatus.SelectedIndex != 0)
+            if (comboboxStatus.SelectedIndex == 0)
             {
-                string status = comboboxStatus.SelectedItem.ToString();
-                UC_ViewFloorMode.FIlterByStatus(status);
-                UC_ViewTableMode.FIlterByStatus(status);
+                FIlterByStatus("");
             }
             else
             {
-                UC_ViewFloorMode.FIlterByStatus("");
-                UC_ViewTableMode.FIlterByStatus("");
+                string status = comboboxStatus.SelectedItem.ToString();
+                FIlterByStatus(status);
             }
-        }
-
-        private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            filterByStatus();
         }
 
         private void btnAllRoom_Click(object sender, EventArgs e)
@@ -102,7 +98,7 @@ namespace Presentation.User_Controls
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
             AddRoom addRoom = new AddRoom();
-            addRoom.DataChanged += LoadDataRoom;
+            //addRoom.DataChanged += LoadDataRoom;
             addRoom.ShowDialog();
         }
 
@@ -147,14 +143,36 @@ namespace Presentation.User_Controls
 
         private void txtIconSearch_Click(object sender, EventArgs e)
         {
-            //filterByStatus();
             string s = txtSearch.Text.Trim();
             if (!string.IsNullOrEmpty(s))
             {
-                UC_ViewFloorMode.FilterByString(s);
-                UC_ViewTableMode.FilterByString(s);
+                FilterByString(s);
             }
-            else filterByStatus();
+            else FIlterByStatus("");
+        }
+
+        private void FIlterByStatus(string status)
+        {
+            if (status.Trim() == "")
+            {
+                this.currentList = RoomBusiness.GetAllRooms();
+            }
+            else
+            {
+                this.currentList = RoomBusiness.GetAllRooms(status);
+            }
+            UC_ViewTableMode.SetCurrentList(this.currentList);
+            UC_ViewFloorMode.SetCurrentList(this.currentList);
+        }
+
+        private void FilterByString(string s)
+        {
+            if (this.currentList != null && this.currentList.Count > 0)
+            {
+                this.currentList = this.currentList.Where(x => x.Display().IndexOf(s) >= 0).ToList();
+            }
+            UC_ViewTableMode.SetCurrentList(this.currentList);
+            UC_ViewFloorMode.SetCurrentList(this.currentList);
         }
     }
 }

@@ -17,40 +17,18 @@ namespace Presentation.User_Controls
 {
     public partial class UC_ViewFloorMode : UserControl
     {
-        RoomBusiness RoomBusiness = new RoomBusiness();
+        RoomB RoomBusiness = new RoomB();
 
         private List<RoomDTO> currentList = null;
+
         public UC_ViewFloorMode()
         {
             InitializeComponent();
-            FilterByString("");
+            currentList = RoomBusiness.GetAllRooms();
         }
-
         private void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
             LoadRooms();
-        }
-
-        public void FIlterByStatus(string status)
-        {
-            if (status.Trim() == "")
-            {
-                this.currentList = RoomBusiness.GetAllRooms();
-            }
-            else
-            {
-                this.currentList = RoomBusiness.GetAllRooms(status);
-            }
-            LoadRooms();
-        }
-
-        public void FilterByString(string s)
-        {
-            if (this.currentList != null && this.currentList.Count > 0)
-            {
-                this.currentList = this.currentList.Where(x => x.Display().IndexOf(s) >= 0).ToList();
-                LoadRooms();
-            }
         }
 
         private void LoadRooms()
@@ -97,5 +75,10 @@ namespace Presentation.User_Controls
             }
         }
 
+        public void SetCurrentList(List<RoomDTO> list)
+        {
+            this.currentList = list;
+            LoadRooms();
+        }
     }
 }

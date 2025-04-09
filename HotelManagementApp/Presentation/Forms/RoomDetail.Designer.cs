@@ -39,6 +39,10 @@
             this.groupboxPreview = new System.Windows.Forms.GroupBox();
             this.lbRoomId = new Guna.UI2.WinForms.Guna2GroupBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lbTypeDescription = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.lbPrice = new MaterialSkin.Controls.MaterialLabel();
             this.lbRoomDescription = new MaterialSkin.Controls.MaterialLabel();
             this.lbMaxGuests = new MaterialSkin.Controls.MaterialLabel();
             this.lbBedCount = new MaterialSkin.Controls.MaterialLabel();
@@ -57,10 +61,6 @@
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.btnUpdate = new Guna.UI2.WinForms.Guna2ImageButton();
             this.btnDelete = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.lbPrice = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.lbTypeDescription = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.groupboxPreview.SuspendLayout();
@@ -117,7 +117,7 @@
             this.price.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.price.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.price.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.price.Location = new System.Drawing.Point(168, 458);
+            this.price.Location = new System.Drawing.Point(117, 439);
             this.price.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.price.Name = "price";
             this.price.PlaceholderText = "";
@@ -132,7 +132,7 @@
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel4.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel4.Location = new System.Drawing.Point(422, 462);
+            this.materialLabel4.Location = new System.Drawing.Point(371, 443);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(44, 24);
@@ -145,7 +145,7 @@
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel3.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel3.Location = new System.Drawing.Point(104, 462);
+            this.materialLabel3.Location = new System.Drawing.Point(53, 443);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(47, 24);
@@ -218,6 +218,65 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 43.78698F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(719, 169);
             this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
+            this.materialLabel1.Location = new System.Drawing.Point(295, 1);
+            this.materialLabel1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.tableLayoutPanel4.SetRowSpan(this.materialLabel1, 2);
+            this.materialLabel1.Size = new System.Drawing.Size(71, 93);
+            this.materialLabel1.TabIndex = 81;
+            this.materialLabel1.Text = "Giá";
+            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbTypeDescription
+            // 
+            this.lbTypeDescription.Depth = 0;
+            this.lbTypeDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTypeDescription.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTypeDescription.Location = new System.Drawing.Point(132, 99);
+            this.lbTypeDescription.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.lbTypeDescription.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbTypeDescription.Name = "lbTypeDescription";
+            this.lbTypeDescription.Size = new System.Drawing.Size(157, 65);
+            this.lbTypeDescription.TabIndex = 80;
+            this.lbTypeDescription.Text = "3";
+            this.lbTypeDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // materialLabel6
+            // 
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Location = new System.Drawing.Point(132, 47);
+            this.materialLabel6.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(157, 43);
+            this.materialLabel6.TabIndex = 78;
+            this.materialLabel6.Text = "Chú thích";
+            this.materialLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbPrice
+            // 
+            this.lbPrice.Depth = 0;
+            this.lbPrice.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbPrice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbPrice.Location = new System.Drawing.Point(301, 101);
+            this.lbPrice.Margin = new System.Windows.Forms.Padding(6);
+            this.lbPrice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(59, 61);
+            this.lbPrice.TabIndex = 75;
+            this.lbPrice.Text = "100";
+            this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lbRoomDescription
             // 
@@ -366,7 +425,7 @@
             this.materialLabel5.Depth = 0;
             this.materialLabel5.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel5.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel5.Location = new System.Drawing.Point(106, 383);
+            this.materialLabel5.Location = new System.Drawing.Point(55, 364);
             this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel5.Name = "materialLabel5";
             this.materialLabel5.Size = new System.Drawing.Size(45, 24);
@@ -384,7 +443,7 @@
             this.note.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.note.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.note.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.note.Location = new System.Drawing.Point(484, 458);
+            this.note.Location = new System.Drawing.Point(433, 439);
             this.note.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.note.Name = "note";
             this.note.PlaceholderText = "";
@@ -408,7 +467,7 @@
             this.comboboxRoomType.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboboxRoomType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboboxRoomType.ItemHeight = 30;
-            this.comboboxRoomType.Location = new System.Drawing.Point(170, 378);
+            this.comboboxRoomType.Location = new System.Drawing.Point(119, 359);
             this.comboboxRoomType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboboxRoomType.Name = "comboboxRoomType";
             this.comboboxRoomType.Size = new System.Drawing.Size(186, 36);
@@ -425,7 +484,7 @@
             this.comboboxStatus.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.comboboxStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.comboboxStatus.ItemHeight = 30;
-            this.comboboxStatus.Location = new System.Drawing.Point(484, 378);
+            this.comboboxStatus.Location = new System.Drawing.Point(433, 359);
             this.comboboxStatus.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.comboboxStatus.Name = "comboboxStatus";
             this.comboboxStatus.Size = new System.Drawing.Size(186, 36);
@@ -438,7 +497,7 @@
             this.materialLabel16.Depth = 0;
             this.materialLabel16.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel16.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel16.Location = new System.Drawing.Point(405, 383);
+            this.materialLabel16.Location = new System.Drawing.Point(354, 364);
             this.materialLabel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel16.Name = "materialLabel16";
             this.materialLabel16.Size = new System.Drawing.Size(59, 24);
@@ -458,7 +517,7 @@
             this.btnUpdate.Image = global::Presentation.Properties.Resources.done;
             this.btnUpdate.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnUpdate.ImageRotate = 0F;
-            this.btnUpdate.Location = new System.Drawing.Point(566, 525);
+            this.btnUpdate.Location = new System.Drawing.Point(716, 467);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.PressedState.ImageSize = new System.Drawing.Size(76, 76);
@@ -475,7 +534,7 @@
             this.btnDelete.Image = global::Presentation.Properties.Resources.delete;
             this.btnDelete.ImageOffset = new System.Drawing.Point(0, 0);
             this.btnDelete.ImageRotate = 0F;
-            this.btnDelete.Location = new System.Drawing.Point(639, 525);
+            this.btnDelete.Location = new System.Drawing.Point(716, 364);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.PressedState.ImageSize = new System.Drawing.Size(76, 76);
@@ -484,70 +543,11 @@
             this.btnDelete.UseTransparentBackground = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // lbPrice
-            // 
-            this.lbPrice.Depth = 0;
-            this.lbPrice.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbPrice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbPrice.Location = new System.Drawing.Point(301, 101);
-            this.lbPrice.Margin = new System.Windows.Forms.Padding(6);
-            this.lbPrice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbPrice.Name = "lbPrice";
-            this.lbPrice.Size = new System.Drawing.Size(59, 61);
-            this.lbPrice.TabIndex = 75;
-            this.lbPrice.Text = "100";
-            this.lbPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(132, 47);
-            this.materialLabel6.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(157, 43);
-            this.materialLabel6.TabIndex = 78;
-            this.materialLabel6.Text = "Chú thích";
-            this.materialLabel6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbTypeDescription
-            // 
-            this.lbTypeDescription.Depth = 0;
-            this.lbTypeDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTypeDescription.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbTypeDescription.Location = new System.Drawing.Point(132, 99);
-            this.lbTypeDescription.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.lbTypeDescription.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbTypeDescription.Name = "lbTypeDescription";
-            this.lbTypeDescription.Size = new System.Drawing.Size(157, 65);
-            this.lbTypeDescription.TabIndex = 80;
-            this.lbTypeDescription.Text = "3";
-            this.lbTypeDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialLabel1
-            // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto Medium", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
-            this.materialLabel1.Location = new System.Drawing.Point(295, 1);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(0);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.tableLayoutPanel4.SetRowSpan(this.materialLabel1, 2);
-            this.materialLabel1.Size = new System.Drawing.Size(71, 93);
-            this.materialLabel1.TabIndex = 81;
-            this.materialLabel1.Text = "Giá";
-            this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // RoomDetail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(780, 631);
+            this.ClientSize = new System.Drawing.Size(780, 532);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.comboboxStatus);

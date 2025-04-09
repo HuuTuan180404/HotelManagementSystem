@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelStats = new System.Windows.Forms.Panel();
             this.lblTotalEmployees = new System.Windows.Forms.Label();
@@ -55,10 +56,9 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold);
-            this.lblTitle.Location = new System.Drawing.Point(27, 25);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(521, 54);
+            this.lblTitle.Size = new System.Drawing.Size(422, 45);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "EMPLOYEE MANAGEMENT";
             // 
@@ -70,20 +70,18 @@
             this.panelStats.Controls.Add(this.lblTotalTitle);
             this.panelStats.Controls.Add(this.lblActiveTitle);
             this.panelStats.Controls.Add(this.lblInactiveTitle);
-            this.panelStats.Location = new System.Drawing.Point(37, 98);
-            this.panelStats.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelStats.Location = new System.Drawing.Point(28, 80);
             this.panelStats.Name = "panelStats";
-            this.panelStats.Size = new System.Drawing.Size(1600, 140);
+            this.panelStats.Size = new System.Drawing.Size(1200, 114);
             this.panelStats.TabIndex = 1;
             // 
             // lblTotalEmployees
             // 
             this.lblTotalEmployees.AutoSize = true;
             this.lblTotalEmployees.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
-            this.lblTotalEmployees.Location = new System.Drawing.Point(133, 25);
-            this.lblTotalEmployees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalEmployees.Location = new System.Drawing.Point(100, 20);
             this.lblTotalEmployees.Name = "lblTotalEmployees";
-            this.lblTotalEmployees.Size = new System.Drawing.Size(140, 81);
+            this.lblTotalEmployees.Size = new System.Drawing.Size(112, 65);
             this.lblTotalEmployees.TabIndex = 2;
             this.lblTotalEmployees.Text = "100";
             // 
@@ -91,10 +89,9 @@
             // 
             this.lblActiveEmployees.AutoSize = true;
             this.lblActiveEmployees.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
-            this.lblActiveEmployees.Location = new System.Drawing.Point(667, 25);
-            this.lblActiveEmployees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActiveEmployees.Location = new System.Drawing.Point(500, 20);
             this.lblActiveEmployees.Name = "lblActiveEmployees";
-            this.lblActiveEmployees.Size = new System.Drawing.Size(105, 81);
+            this.lblActiveEmployees.Size = new System.Drawing.Size(84, 65);
             this.lblActiveEmployees.TabIndex = 3;
             this.lblActiveEmployees.Text = "80";
             // 
@@ -102,10 +99,9 @@
             // 
             this.lblInactiveEmployees.AutoSize = true;
             this.lblInactiveEmployees.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold);
-            this.lblInactiveEmployees.Location = new System.Drawing.Point(1200, 25);
-            this.lblInactiveEmployees.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInactiveEmployees.Location = new System.Drawing.Point(900, 20);
             this.lblInactiveEmployees.Name = "lblInactiveEmployees";
-            this.lblInactiveEmployees.Size = new System.Drawing.Size(105, 81);
+            this.lblInactiveEmployees.Size = new System.Drawing.Size(84, 65);
             this.lblInactiveEmployees.TabIndex = 4;
             this.lblInactiveEmployees.Text = "20";
             // 
@@ -113,10 +109,9 @@
             // 
             this.lblTotalTitle.AutoSize = true;
             this.lblTotalTitle.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblTotalTitle.Location = new System.Drawing.Point(140, 105);
-            this.lblTotalTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTotalTitle.Location = new System.Drawing.Point(105, 85);
             this.lblTotalTitle.Name = "lblTotalTitle";
-            this.lblTotalTitle.Size = new System.Drawing.Size(153, 28);
+            this.lblTotalTitle.Size = new System.Drawing.Size(121, 21);
             this.lblTotalTitle.TabIndex = 5;
             this.lblTotalTitle.Text = "Total Employees";
             // 
@@ -124,10 +119,9 @@
             // 
             this.lblActiveTitle.AutoSize = true;
             this.lblActiveTitle.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblActiveTitle.Location = new System.Drawing.Point(673, 105);
-            this.lblActiveTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblActiveTitle.Location = new System.Drawing.Point(505, 85);
             this.lblActiveTitle.Name = "lblActiveTitle";
-            this.lblActiveTitle.Size = new System.Drawing.Size(165, 28);
+            this.lblActiveTitle.Size = new System.Drawing.Size(131, 21);
             this.lblActiveTitle.TabIndex = 6;
             this.lblActiveTitle.Text = "Active Employees";
             // 
@@ -135,10 +129,9 @@
             // 
             this.lblInactiveTitle.AutoSize = true;
             this.lblInactiveTitle.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.lblInactiveTitle.Location = new System.Drawing.Point(1207, 105);
-            this.lblInactiveTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblInactiveTitle.Location = new System.Drawing.Point(905, 85);
             this.lblInactiveTitle.Name = "lblInactiveTitle";
-            this.lblInactiveTitle.Size = new System.Drawing.Size(178, 28);
+            this.lblInactiveTitle.Size = new System.Drawing.Size(142, 21);
             this.lblInactiveTitle.TabIndex = 7;
             this.lblInactiveTitle.Text = "Inactive Employees";
             // 
@@ -149,10 +142,9 @@
             this.panelControls.Controls.Add(this.btnAdd);
             this.panelControls.Controls.Add(this.btnDelete);
             this.panelControls.Controls.Add(this.btnExport);
-            this.panelControls.Location = new System.Drawing.Point(37, 246);
-            this.panelControls.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelControls.Location = new System.Drawing.Point(28, 200);
             this.panelControls.Name = "panelControls";
-            this.panelControls.Size = new System.Drawing.Size(1600, 62);
+            this.panelControls.Size = new System.Drawing.Size(1200, 50);
             this.panelControls.TabIndex = 8;
             this.panelControls.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControls_Paint);
             // 
@@ -167,12 +159,12 @@
             this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txtSearch.Location = new System.Drawing.Point(13, 12);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearch.Location = new System.Drawing.Point(10, 10);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Search Employee...";
             this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(400, 37);
+            this.txtSearch.Size = new System.Drawing.Size(300, 30);
             this.txtSearch.TabIndex = 9;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
@@ -187,10 +179,9 @@
             this.cboFilter.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cboFilter.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.cboFilter.ItemHeight = 30;
-            this.cboFilter.Location = new System.Drawing.Point(427, 12);
-            this.cboFilter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboFilter.Location = new System.Drawing.Point(320, 7);
             this.cboFilter.Name = "cboFilter";
-            this.cboFilter.Size = new System.Drawing.Size(265, 36);
+            this.cboFilter.Size = new System.Drawing.Size(200, 36);
             this.cboFilter.TabIndex = 10;
             this.cboFilter.SelectedIndexChanged += new System.EventHandler(this.cboFilter_SelectedIndexChanged);
             // 
@@ -203,10 +194,9 @@
             this.btnAdd.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(1067, 12);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(800, 10);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(160, 37);
+            this.btnAdd.Size = new System.Drawing.Size(120, 30);
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -220,10 +210,9 @@
             this.btnDelete.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnDelete.ForeColor = System.Drawing.Color.White;
-            this.btnDelete.Location = new System.Drawing.Point(1240, 12);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Location = new System.Drawing.Point(930, 10);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(160, 37);
+            this.btnDelete.Size = new System.Drawing.Size(120, 30);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             // 
@@ -236,10 +225,9 @@
             this.btnExport.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnExport.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnExport.ForeColor = System.Drawing.Color.White;
-            this.btnExport.Location = new System.Drawing.Point(1413, 12);
-            this.btnExport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExport.Location = new System.Drawing.Point(1060, 10);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(160, 37);
+            this.btnExport.Size = new System.Drawing.Size(120, 30);
             this.btnExport.TabIndex = 13;
             this.btnExport.Text = "Export";
             // 
@@ -248,50 +236,44 @@
             this.dtgEmployee.AllowUserToAddRows = false;
             this.dtgEmployee.AllowUserToDeleteRows = false;
             this.dtgEmployee.AllowUserToResizeRows = false;
-            this.dtgEmployee.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dtgEmployee.BackgroundColor = System.Drawing.Color.White;
-            this.dtgEmployee.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dtgEmployee.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dtgEmployee.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.dtgEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(66)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgEmployee.ColumnHeadersHeight = 40;
-            this.dtgEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgEmployee.DefaultCellStyle = dataGridViewCellStyle8;
-            this.dtgEmployee.EnableHeadersVisualStyles = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgEmployee.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.dtgEmployee.Location = new System.Drawing.Point(37, 315);
-            this.dtgEmployee.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtgEmployee.Location = new System.Drawing.Point(28, 256);
+            this.dtgEmployee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dtgEmployee.MultiSelect = false;
             this.dtgEmployee.Name = "dtgEmployee";
             this.dtgEmployee.ReadOnly = true;
             this.dtgEmployee.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgEmployee.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgEmployee.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dtgEmployee.RowHeadersVisible = false;
             this.dtgEmployee.RowHeadersWidth = 51;
             this.dtgEmployee.RowTemplate.Height = 35;
-            this.dtgEmployee.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgEmployee.Size = new System.Drawing.Size(1600, 500);
+            this.dtgEmployee.Size = new System.Drawing.Size(1200, 406);
             this.dtgEmployee.TabIndex = 14;
             this.dtgEmployee.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.dtgEmployee.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -306,20 +288,27 @@
             this.dtgEmployee.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
             this.dtgEmployee.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dtgEmployee.ThemeStyle.HeaderStyle.Height = 40;
+            this.dtgEmployee.ThemeStyle.ReadOnly = true;
+            this.dtgEmployee.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
+            this.dtgEmployee.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dtgEmployee.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtgEmployee.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            this.dtgEmployee.ThemeStyle.RowsStyle.Height = 35;
+            this.dtgEmployee.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            this.dtgEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
             this.dtgEmployee.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployee_CellDoubleClick);
             // 
             // UC_EmployeeManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.panelStats);
             this.Controls.Add(this.panelControls);
             this.Controls.Add(this.dtgEmployee);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "UC_EmployeeManagement";
-            this.Size = new System.Drawing.Size(1675, 862);
+            this.Size = new System.Drawing.Size(1256, 700);
             this.panelStats.ResumeLayout(false);
             this.panelStats.PerformLayout();
             this.panelControls.ResumeLayout(false);
