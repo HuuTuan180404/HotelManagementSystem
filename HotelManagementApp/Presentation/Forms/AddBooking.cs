@@ -1,32 +1,30 @@
-﻿using AForge.Video;
-using AForge.Video.DirectShow;
-using System;
+﻿using System.Runtime.InteropServices;
+using Presentation.User_Controls;
 using System.Collections.Generic;
+using AForge.Video.DirectShow;
 using System.ComponentModel;
-using System.Data;
+using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 using System.Diagnostics;
 using System.Drawing;
+using AForge.Video;
+using System.Data;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using System;
 using ZXing;
-using System.Threading;
-using System.Runtime.InteropServices;
-using Presentation.User_Controls;
-using Business;
 using DataTransferObject;
+using System.Threading;
 using System.Timers;
+using Business;
 using ZXing.Common;
-
-
+using System.Configuration;
 
 namespace Presentation.Forms
 {
     public partial class AddBooking : Form
     {
-
         private FilterInfoCollection captureDevices;
         private VideoCaptureDevice videoSource;
 
@@ -41,14 +39,23 @@ namespace Presentation.Forms
 
         RoomB RoomBusiness;
 
-        //private Timer Timer;
-
         public AddBooking()
         {
             InitializeComponent();
             RoomBusiness = new RoomB();
             LoadAllRoomTypes();
             LoadRooms(RoomBusiness.GetAllRooms());
+            FirstLoad();
+        }
+
+        private void FirstLoad()
+        {
+            //Debug.WriteLine(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
+            timeCheckin.Text = DateTime.Now.ToString("HH:mm");
+            dateCheckin.Text = DateTime.Now.ToString("dd/MM/yyyy");
+
+            timeCheckout.Text = ConfigurationManager.AppSettings["CheckOutTime"];
+            dateCheckout.Text = DateTime.Now.AddDays(1).ToString("dd/MM/yyyy");
         }
 
         private void LoadAllRoomTypes()
@@ -287,11 +294,8 @@ namespace Presentation.Forms
             string gioiTinh = null;
             string[] str = text.Split('|');
             cccd = str[0];
-            name= str[2];
+            name = str[2];
             gioiTinh = str[4];
-            //Debug.WriteLine(cccd);
-            //Debug.WriteLine(name);
-            //Debug.WriteLine(gioiTinh);
             txtId.Text = cccd;
             txtName.Text = name;
             if (gioiTinh == "Nam") selectGender.SelectedItem = "Male";
@@ -332,15 +336,19 @@ namespace Presentation.Forms
             //    //Debug.WriteLine("Bạn đã nhập: " + timeCheckin.Text);
             //}
 
-            if (btnShowItem.Tag == null)
-            {
-                return;
-            }
+            //if (btnShowItem.Tag == null)
+            //{
+            //    return;
+            //}
+
+            //Debug.WriteLine(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
         {
-            //txtId.IconRight
+            if (string.IsNullOrWhiteSpace(txtId.Text))
+                txtId.IconRight = null;
+            else txtId.IconRight = Properties.Resources.find1;
         }
 
         private void txtId_IconRightClick(object sender, EventArgs e)

@@ -374,7 +374,7 @@
             this.lbRoomId.Name = "lbRoomId";
             this.lbRoomId.Size = new System.Drawing.Size(719, 209);
             this.lbRoomId.TabIndex = 51;
-            this.lbRoomId.Text = "mã phòng";
+            this.lbRoomId.Text = "Roo0-1";
             this.lbRoomId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tableLayoutPanel4

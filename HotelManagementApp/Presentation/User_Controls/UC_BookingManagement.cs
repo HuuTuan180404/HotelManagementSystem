@@ -25,6 +25,12 @@ namespace Presentation.User_Controls
             BookingB = new BookingB();
             RoomB = new RoomB();
             LoadData(BookingB.GetAllBookings());
+            FirstLoad();
+        }
+
+        private void FirstLoad()
+        {
+            View(dataGridView.Rows[0]);
         }
 
         private void LoadData(List<BookingDTO> list)
@@ -33,11 +39,11 @@ namespace Presentation.User_Controls
             RenameColumns();
         }
 
-
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
+                Debug.WriteLine(e.RowIndex);
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
                 View(row);
             }
@@ -144,6 +150,5 @@ namespace Presentation.User_Controls
                 }
             }
         }
-
     }
 }

@@ -166,7 +166,6 @@ namespace Data
             return list;
         }
 
-
         // lấy 1 record loại phòng thông qua khóa chính
         public RoomDTO GetType(string typeId)
         {

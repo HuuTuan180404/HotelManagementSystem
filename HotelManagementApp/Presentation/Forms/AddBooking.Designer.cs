@@ -260,7 +260,7 @@
             // txtAddress
             // 
             this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtAddress.DefaultText = "Binh Dinh";
+            this.txtAddress.DefaultText = "";
             this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtAddress.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -271,7 +271,7 @@
             this.txtAddress.Location = new System.Drawing.Point(427, 339);
             this.txtAddress.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtAddress.Name = "txtAddress";
-            this.txtAddress.PlaceholderText = "Your ID";
+            this.txtAddress.PlaceholderText = "Your Address";
             this.txtAddress.SelectedText = "";
             this.txtAddress.Size = new System.Drawing.Size(250, 63);
             this.txtAddress.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -281,7 +281,7 @@
             // txtEmail
             // 
             this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtEmail.DefaultText = "nguyenhuutuan1704@gmail.com";
+            this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtEmail.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -292,7 +292,7 @@
             this.txtEmail.Location = new System.Drawing.Point(73, 339);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.PlaceholderText = "Your ID";
+            this.txtEmail.PlaceholderText = "xxx@gmail.com";
             this.txtEmail.SelectedText = "";
             this.txtEmail.Size = new System.Drawing.Size(250, 63);
             this.txtEmail.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -302,7 +302,7 @@
             // txtName
             // 
             this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtName.DefaultText = "Nguyen Le Huynh YTronjg Nghia";
+            this.txtName.DefaultText = "";
             this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtName.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -313,7 +313,7 @@
             this.txtName.Location = new System.Drawing.Point(427, 43);
             this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtName.Name = "txtName";
-            this.txtName.PlaceholderText = "Your ID";
+            this.txtName.PlaceholderText = "Full Name";
             this.txtName.SelectedText = "";
             this.txtName.Size = new System.Drawing.Size(250, 63);
             this.txtName.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -323,7 +323,7 @@
             // txtId
             // 
             this.txtId.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtId.DefaultText = "052204013042";
+            this.txtId.DefaultText = "";
             this.txtId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtId.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -331,7 +331,6 @@
             this.txtId.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtId.IconRight = global::Presentation.Properties.Resources.find1;
             this.txtId.Location = new System.Drawing.Point(73, 43);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtId.Name = "txtId";
@@ -347,7 +346,7 @@
             // txtPhone
             // 
             this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtPhone.DefaultText = "0364626275";
+            this.txtPhone.DefaultText = "";
             this.txtPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPhone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtPhone.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -358,7 +357,7 @@
             this.txtPhone.Location = new System.Drawing.Point(73, 191);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtPhone.Name = "txtPhone";
-            this.txtPhone.PlaceholderText = "Your ID";
+            this.txtPhone.PlaceholderText = "Phone Number";
             this.txtPhone.SelectedText = "";
             this.txtPhone.Size = new System.Drawing.Size(250, 63);
             this.txtPhone.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -438,6 +437,7 @@
             this.timeCheckout.Name = "timeCheckout";
             this.timeCheckout.Size = new System.Drawing.Size(63, 24);
             this.timeCheckout.TabIndex = 57;
+            this.timeCheckout.Text = "1200";
             this.timeCheckout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.timeCheckout.ValidatingType = typeof(System.DateTime);
             this.timeCheckout.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.timeCheckout_TypeValidationCompleted);
@@ -494,6 +494,7 @@
             this.timeCheckin.Name = "timeCheckin";
             this.timeCheckin.Size = new System.Drawing.Size(63, 24);
             this.timeCheckin.TabIndex = 53;
+            this.timeCheckin.Text = "1200";
             this.timeCheckin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.timeCheckin.ValidatingType = typeof(System.DateTime);
             this.timeCheckin.TypeValidationCompleted += new System.Windows.Forms.TypeValidationEventHandler(this.timeCheckin_TypeValidationCompleted);

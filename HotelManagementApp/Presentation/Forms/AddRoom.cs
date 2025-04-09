@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using Business;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Configuration;
 
 namespace Presentation.Forms
 {
@@ -30,6 +31,12 @@ namespace Presentation.Forms
 
             LoadData_Types(RoomB.GetAllRoomTypes().Select(t => t.RType).ToList());
             LoadData_States(RoomB.GetAllRoomStates().Select(t => t.RStatus).ToList());
+            FirstLoad();
+        }
+
+        private void FirstLoad()
+        {
+            price.Text = ConfigurationManager.AppSettings["DefaultRoomPrice"];
         }
 
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
