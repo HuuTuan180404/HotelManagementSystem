@@ -30,7 +30,7 @@ namespace Presentation.User_Controls
 
         private void FirstLoad()
         {
-            View(dataGridView.Rows[0]);
+            //View(dataGridView.Rows[0]);
         }
 
         private void LoadData(List<BookingDTO> list)

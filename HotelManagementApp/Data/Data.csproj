@@ -145,6 +145,7 @@
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="DataProvider.cs" />
+    <Compile Include="EmployeeData.cs" />
     <Compile Include="EmployeeRole.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>

@@ -148,6 +148,7 @@
   <ItemGroup>
     <Compile Include="BookingB.cs" />
     <Compile Include="CustomerB.cs" />
+    <Compile Include="EmployeeBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomB.cs" />
   </ItemGroup>

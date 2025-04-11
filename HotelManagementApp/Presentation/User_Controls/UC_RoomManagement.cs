@@ -97,9 +97,9 @@ namespace Presentation.User_Controls
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
-            AddRoom addRoom = new AddRoom();
+            //AddRoom addRoom = new AddRoom();
             //addRoom.DataChanged += LoadDataRoom;
-            addRoom.ShowDialog();
+            //addRoom.ShowDialog();
         }
 
         private void LoadDataRoom()
