@@ -21,6 +21,7 @@ namespace Presentation
             Application.Run(new Main());
             //Application.Run(new Form1());
             //Application.Run(new AddBooking());
+            //Application.Run(new AddRoom());
             //Application.Run(new Test());
         }
     }

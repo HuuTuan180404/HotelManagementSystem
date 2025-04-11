@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,8 +16,10 @@ namespace Presentation.User_Controls
 {
     public partial class UC_ViewTableMode : UserControl
     {
-        RoomBusiness RoomBusiness = new RoomBusiness();
+        RoomB RoomBusiness = new RoomB();
         SelectAttribute SelectAttribute = new SelectAttribute(RoomDTO.Properties());
+
+        private List<RoomDTO> currentList = null;
 
         public UC_ViewTableMode()
         {
@@ -24,23 +27,21 @@ namespace Presentation.User_Controls
             this.Controls.Add(SelectAttribute);
             SelectAttribute.BringToFront();
             SelectAttribute.Visible = false;
+            currentList = RoomBusiness.GetAllRooms();
         }
 
         private void UC_ViewTableMode_Load(object sender, EventArgs e)
         {
-            LoadAllRooms("");
+            LoadRooms();
         }
 
-        private void LoadAllRooms(string str)
+        private void LoadRooms()
         {
-            if (str.Trim() == "") dataGridView.DataSource = RoomBusiness.GetAllRooms();
-            else dataGridView.DataSource = RoomBusiness.GetAllRooms(str);
-            RenameColumns();
-        }
-
-        public void FIlterByStatus(string status)
-        {
-            LoadAllRooms(status);
+            if (this.currentList != null)
+            {
+                dataGridView.DataSource = currentList;
+                RenameColumns();
+            }
         }
 
         private void RenameColumns()
@@ -87,20 +88,35 @@ namespace Presentation.User_Controls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                RoomDetail roomDetail = new RoomDetail(row.Cells["RId"].ToString());
+                RoomDTO r = RoomBusiness.GetRoom(row.Cells["RId"].Value.ToString());
+                RoomDetail roomDetail = new RoomDetail(r);
                 roomDetail.ShowDialog();
             }
         }
 
         private void btnSelectAttribute_Click(object sender, EventArgs e)
         {
-
+            SelectAttribute.Location = new Point(btnSelectAttribute.Location.X - 10, btnSelectAttribute.Location.Y - 10);
+            SelectAttribute.Visible = true;
+            timerListener.Start();
         }
 
-        private void btnSelectAttribute_MouseClick(object sender, MouseEventArgs e)
+        public void SetCurrentList(List<RoomDTO> list)
         {
-            SelectAttribute.Location = e.Location;
-            SelectAttribute.Visible = true;
+            this.currentList = list;
+            LoadRooms();
+        }
+
+        private void timerListener_Tick(object sender, EventArgs e)
+        {
+            if (SelectAttribute.Visible == false) timerListener.Stop();
+            else
+                SelectAttribute.ACTION += (Dictionary<string, object> data) =>
+                {
+                    if ((bool)data["value"])
+                        dataGridView.Columns[(string)data["key"]].Visible = true;
+                    else dataGridView.Columns[(string)data["key"]].Visible = false;
+                };
         }
     }
 }

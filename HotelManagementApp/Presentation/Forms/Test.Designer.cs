@@ -83,7 +83,6 @@
             this.btnStop.Size = new System.Drawing.Size(180, 45);
             this.btnStop.TabIndex = 4;
             this.btnStop.Text = "stop";
-            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // Test
             // 
@@ -96,7 +95,7 @@
             this.Controls.Add(this.picturebox);
             this.Name = "Test";
             this.Text = "BookingManagement";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookingManagement_FormClosing);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Test_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.picturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -1,13 +1,16 @@
-﻿using DataTransferObject;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
+using DataTransferObject;
 using System.Windows.Forms;
+using System.ComponentModel;
+using System.Threading.Tasks;
+using System.Collections.Generic;
+using System.Diagnostics;
+using Presentation.Forms;
+
 
 namespace Presentation.User_Controls
 {
@@ -23,10 +26,6 @@ namespace Presentation.User_Controls
         public itemRoom2(RoomDTO roomDTO) : this()
         {
             this.RoomDTO = roomDTO;
-        }
-
-        private void itemRoom2_Load(object sender, EventArgs e)
-        {
             if (RoomDTO != null)
             {
                 lbRoom.Text = RoomDTO.RId.ToString();
@@ -36,17 +35,27 @@ namespace Presentation.User_Controls
             foreach (Control ctrl in this.Controls)
             {
                 gunaToolTip_Room.SetToolTip(ctrl, "dads");
+                ctrl.Click += Ctrl_Click;
             }
+            btnMenu.Click-= Ctrl_Click;
+        }
+
+        private void Ctrl_Click(object sender, EventArgs e)
+        {
+            RoomDetail roomDetail = new RoomDetail(RoomDTO);
+            roomDetail.ShowDialog();
+        }
+
+       
+
+        private void itemRoom2_MouseHover(object sender, EventArgs e)
+        {
+            gunaToolTip_Room.SetToolTip((Control)sender, "dads");
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void itemRoom2_MouseHover(object sender, EventArgs e)
-        {
-            gunaToolTip_Room.SetToolTip((Control)sender, "dads");
         }
     }
 }

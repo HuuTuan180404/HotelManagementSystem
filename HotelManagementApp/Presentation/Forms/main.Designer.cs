@@ -47,11 +47,11 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelUC = new Guna.UI2.WinForms.Guna2Panel();
+            this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
             this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
             this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
             this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
             this.uC_RoomManagement1 = new Presentation.User_Controls.UC_RoomManagement();
-            this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
             this.sideBar.SuspendLayout();
             this.panelLogout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picLogout)).BeginInit();
@@ -101,7 +101,7 @@
             this.lbLogout.Location = new System.Drawing.Point(154, 33);
             this.lbLogout.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lbLogout.Name = "lbLogout";
-            this.lbLogout.Size = new System.Drawing.Size(102, 37);
+            this.lbLogout.Size = new System.Drawing.Size(82, 30);
             this.lbLogout.TabIndex = 1;
             this.lbLogout.Text = "LOGOUT";
             this.lbLogout.Click += new System.EventHandler(this.lbLogout_Click);
@@ -356,11 +356,20 @@
             this.panelUC.Size = new System.Drawing.Size(1804, 952);
             this.panelUC.TabIndex = 19;
             // 
+            // UC_CustomerManagement
+            // 
+            this.UC_CustomerManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_CustomerManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_CustomerManagement.Margin = new System.Windows.Forms.Padding(4);
+            this.UC_CustomerManagement.Name = "UC_CustomerManagement";
+            this.UC_CustomerManagement.Size = new System.Drawing.Size(1804, 952);
+            this.UC_CustomerManagement.TabIndex = 3;
+            // 
             // UC_EmployeeManagement
             // 
             this.UC_EmployeeManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_EmployeeManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UC_EmployeeManagement.Name = "UC_EmployeeManagement";
             this.UC_EmployeeManagement.Size = new System.Drawing.Size(1804, 952);
             this.UC_EmployeeManagement.TabIndex = 1;
@@ -399,15 +408,6 @@
             this.uC_RoomManagement1.Padding = new System.Windows.Forms.Padding(6);
             this.uC_RoomManagement1.Size = new System.Drawing.Size(1820, 997);
             this.uC_RoomManagement1.TabIndex = 1;
-            // 
-            // UC_CustomerManagement
-            // 
-            this.UC_CustomerManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_CustomerManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_CustomerManagement.Margin = new System.Windows.Forms.Padding(4);
-            this.UC_CustomerManagement.Name = "UC_CustomerManagement";
-            this.UC_CustomerManagement.Size = new System.Drawing.Size(1804, 952);
-            this.UC_CustomerManagement.TabIndex = 3;
             // 
             // Main
             // 

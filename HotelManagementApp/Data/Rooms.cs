@@ -9,6 +9,7 @@
 
 namespace Data
 {
+    using DataTransferObject;
     using System;
     using System.Collections.Generic;
     
@@ -30,5 +31,14 @@ namespace Data
         public virtual ICollection<Bookings> Bookings { get; set; }
         public virtual RStatus RStatus { get; set; }
         public virtual RType RType { get; set; }
+
+        public void ConvertTo_From(RoomDTO roomDTO)
+        {
+            this.RId = roomDTO.RId;
+            this.Type = roomDTO.RType;
+            this.Status = roomDTO.RStatus;
+            this.PricePerNight = roomDTO.RPricePerNight;
+            this.Description = roomDTO.RDescription;
+        }
     }
 }
