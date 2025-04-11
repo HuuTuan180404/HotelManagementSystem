@@ -39,7 +39,9 @@ namespace Business
 
         public List<CustomerDTO> SearchCustomers(string searchString)
         {
-            return customerData.FilterByString(searchString);
+            return customerData.GetAllCustomers()
+                .Where(c => c.Name.IndexOf(searchString, StringComparison.OrdinalIgnoreCase) >= 0)
+                .ToList();
         }
 
         public List<string> GetCustomerTypes()

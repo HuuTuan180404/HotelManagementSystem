@@ -243,18 +243,24 @@ namespace Presentation.User_Controls
      
         private void cboCustomerType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cboCustomerType.SelectedIndex > 0)
+            string searchName = txtSearchCustomer.Text.Trim();
+            string selectedType = cboCustomerType.SelectedItem?.ToString();
+            var customers = customerBusiness.GetAllCustomers();
+
+            // Nếu có nhập tên tìm kiếm, lọc theo tên trước
+            if (!string.IsNullOrEmpty(searchName))
             {
-                string selectedType = cboCustomerType.SelectedItem.ToString();
-                var filteredCustomers = customerBusiness.GetAllCustomers()
-                    .Where(c => c.Type == selectedType).ToList();
-                dgvCustomers.DataSource = filteredCustomers;
-                UpdateCustomerCounts(filteredCustomers);
+                customers = customers.Where(c => c.Name.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
             }
-            else
+
+            // Sau đó lọc theo loại khách hàng nếu không phải "Tất cả"
+            if (selectedType != "Tất cả" && !string.IsNullOrEmpty(selectedType))
             {
-                LoadCustomers();
+                customers = customers.Where(c => c.Type == selectedType).ToList();
             }
+
+            dgvCustomers.DataSource = customers;
+            UpdateCustomerCounts(customers);
         }
 
 
@@ -324,17 +330,31 @@ namespace Presentation.User_Controls
 
         private void txtSearchCustomer_IconRightClick(object sender, EventArgs e)
         {
-            string searchText = txtSearchCustomer.Text.Trim();
-            if (!string.IsNullOrEmpty(searchText))
+            string searchName = txtSearchCustomer.Text.Trim();
+            string selectedType = cboCustomerType.SelectedItem?.ToString();
+            var customers = customerBusiness.GetAllCustomers();
+
+            // Nếu combobox là "Tất cả" thì chỉ tìm theo tên
+            if (selectedType == "Tất cả" || string.IsNullOrEmpty(selectedType))
             {
-                var searchResults = customerBusiness.SearchCustomers(searchText);
-                dgvCustomers.DataSource = searchResults;
-                UpdateCustomerCounts(searchResults);
+                if (!string.IsNullOrEmpty(searchName))
+                {
+                    customers = customers.Where(c => c.Name.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
             }
+            // Nếu có chọn loại khách hàng cụ thể thì tìm theo cả tên và loại
             else
             {
-                LoadCustomers();
+                customers = customers.Where(c => c.Type == selectedType).ToList();
+                if (!string.IsNullOrEmpty(searchName))
+                {
+                    customers = customers.Where(c => c.Name.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                }
             }
+
+            // Hiển thị kết quả
+            dgvCustomers.DataSource = customers;
+            UpdateCustomerCounts(customers);
         }
 
         private void pnlCustomerVIP_Click(object sender, EventArgs e)
@@ -372,7 +392,7 @@ namespace Presentation.User_Controls
 
         private void pnlTotalCustomer_Click(object sender, EventArgs e)
         {
-            cboCustomerType.SelectedIndex = 0; // Reset về "All"
+            cboCustomerType.SelectedItem = "Tất cả"; // Reset về "Tất cả"
             LoadCustomers(); // Load lại tất cả khách hàng
         }
     }

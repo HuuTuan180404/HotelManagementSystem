@@ -306,7 +306,7 @@
             this.cboCustomerType.IntegralHeight = false;
             this.cboCustomerType.ItemHeight = 30;
             this.cboCustomerType.Items.AddRange(new object[] {
-            "Loại khách hàng",
+            "Tất cả",
             "VIP",
             "Regular",
             "New"});
