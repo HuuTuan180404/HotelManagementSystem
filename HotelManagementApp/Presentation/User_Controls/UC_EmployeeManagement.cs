@@ -108,27 +108,11 @@ namespace Presentation.User_Controls
         
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            if (dtgEmployee.SelectedRows.Count > 0)
-            {
-                string employeeId = dtgEmployee.SelectedRows[0].Cells["EId"].Value.ToString();
-                EmployeeDTO employee = employeeBusiness.GetEmployee(employeeId);
-                if (employee != null)
-                {
-                    AddEmployees editForm = new AddEmployees(employee);
-                    if (editForm.ShowDialog() == DialogResult.OK)
-                    {
-                        RefreshData();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("Vui lòng chọn nhân viên cần sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+
         }
 
 
-     
+
 
         private void ApplyFilters()
         {
@@ -158,18 +142,32 @@ namespace Presentation.User_Controls
             ApplyFilters();
         }
 
-        
-
-        private void btnAdd_Click_1(object sender, EventArgs e)
+       
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AddEmployees addForm = new AddEmployees();
-            if (addForm.ShowDialog() == DialogResult.OK)
-            {
-                RefreshData();
-            }
+            ApplyFilters();
         }
 
-        private void btnDelete_Click_1(object sender, EventArgs e)
+        private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ApplyFilters();
+        }
+
+        private void txtSearchEmployee_TextChanged(object sender, EventArgs e)
+        {
+            string searchText = txtSearchEmployee.Text.ToLower();
+            if (!string.IsNullOrWhiteSpace(searchText))
+            {
+                currentList = employeeBusiness.GetEmployeesByString(searchText);
+            }
+            else
+            {
+                currentList = employeeBusiness.GetAllEmployees();
+            }
+            ApplyFilters();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
         {
             if (dtgEmployee.SelectedRows.Count > 0)
             {
@@ -193,34 +191,19 @@ namespace Presentation.User_Controls
             }
         }
 
-        private void btnExport_Click_1(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            AddEmployees addForm = new AddEmployees();
+            if (addForm.ShowDialog() == DialogResult.OK)
+            {
+                RefreshData();
+            }
+        }
+
+        private void btnExport_Click(object sender, EventArgs e)
         {
             // TODO: Implement export functionality
             MessageBox.Show("Chức năng xuất dữ liệu sẽ được triển khai sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ApplyFilters();
-        }
-
-        private void cbDepartment_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ApplyFilters();
-        }
-
-        private void txtSearchEmployee_TextChanged(object sender, EventArgs e)
-        {
-            string searchText = txtSearchEmployee.Text.ToLower();
-            if (!string.IsNullOrWhiteSpace(searchText))
-            {
-                currentList = employeeBusiness.GetEmployeesByString(searchText);
-            }
-            else
-            {
-                currentList = employeeBusiness.GetAllEmployees();
-            }
-            ApplyFilters();
         }
     }
 }

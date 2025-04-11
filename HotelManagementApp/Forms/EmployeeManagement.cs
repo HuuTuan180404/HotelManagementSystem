@@ -72,5 +72,63 @@ namespace HotelManagementApp.Forms
                 }
             }
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Validate required fields
+                if (string.IsNullOrWhiteSpace(txtEId.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập mã nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEId.Focus();
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtEName.Text))
+                {
+                    MessageBox.Show("Vui lòng nhập tên nhân viên!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtEName.Focus();
+                    return;
+                }
+
+                // Create new employee DTO
+                EmployeeDTO employee = new EmployeeDTO
+                {
+                    EId = txtEId.Text.Trim(),
+                    EName = txtEName.Text.Trim(),
+                    EPhone = txtEPhone.Text.Trim(),
+                    EAddress = txtEAddress.Text.Trim(),
+                    EPosition = cboEPosition.SelectedItem?.ToString(),
+                    ESalary = decimal.TryParse(txtESalary.Text, out decimal salary) ? salary : 0
+                };
+
+                // Save to database
+                if (employeeData.SaveEmployee(employee))
+                {
+                    MessageBox.Show("Lưu thông tin nhân viên thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LoadData(); // Refresh the grid
+                    ClearForm(); // Clear the form after successful save
+                }
+                else
+                {
+                    MessageBox.Show("Lưu thông tin nhân viên thất bại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ClearForm()
+        {
+            txtEId.Clear();
+            txtEName.Clear();
+            txtEPhone.Clear();
+            txtEAddress.Clear();
+            txtESalary.Clear();
+            cboEPosition.SelectedIndex = -1;
+        }
     }
 } 

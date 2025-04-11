@@ -12,6 +12,7 @@ using MaterialSkin;
 using MaterialSkin.Controls;
 using Business;
 using DataTransferObject;
+using System.Xml.Linq;
 
 
 namespace Presentation.Forms
@@ -180,6 +181,17 @@ namespace Presentation.Forms
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
+
+        }
+
+        private void btnCancel_Click_1(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
             try
             {
                 if (ValidateInput())
@@ -223,12 +235,6 @@ namespace Presentation.Forms
             {
                 MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void btnCancel_Click_1(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
         }
     }
 }

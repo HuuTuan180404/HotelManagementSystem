@@ -398,7 +398,7 @@
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 0;
             this.btnSave.Text = "Lưu";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // AddEmployees
             // 
