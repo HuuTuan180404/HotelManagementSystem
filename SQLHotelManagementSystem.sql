@@ -43,7 +43,7 @@ CREATE TABLE Customers
 (
     CId VARCHAR(100) PRIMARY KEY,   
     Name NVARCHAR(100) NOT NULL,        
-    Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')) NOT NULL,  
+    Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')),  
     Phone VARCHAR(15) UNIQUE NOT NULL,
     Email VARCHAR(100) UNIQUE,
     Address NVARCHAR(255),         
@@ -112,14 +112,12 @@ CREATE TABLE Bookings
     BId VARCHAR(100) PRIMARY KEY,
     RId VARCHAR(50) NOT NULL,
     CId VARCHAR(100) NOT NULL,
-    EId VARCHAR(100) NOT NULL,
-    BTimeCheckIn DATETIME NOT NULL,  
-    BTimeCheckOut DATETIME NOT NULL, 
+    BTimeCheckIn DATETIME NOT NULL,
+    BTimeCheckOut DATETIME NOT NULL,
     BStatus VARCHAR(100) NOT NULL,
     BCreateAt DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (RId) REFERENCES Rooms(RId),
     FOREIGN KEY (CId) REFERENCES Customers(CId),
-    FOREIGN KEY (EId) REFERENCES Employees(EId),
     FOREIGN KEY (BStatus) REFERENCES BookingStatus(BStatus)
 )
 GO

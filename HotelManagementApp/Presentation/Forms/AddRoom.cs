@@ -5,6 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using Business;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Configuration;
 
 namespace Presentation.Forms
 {
@@ -19,46 +22,21 @@ namespace Presentation.Forms
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
-        public event Action DataChanged;
-        //private RoomB RoomB = new RoomB();
+        RoomB RoomB;
 
         public AddRoom()
         {
             InitializeComponent();
-            loadDataFor_comboboxStatus();
-            loadDataFor_comboboxRoomType();
+            RoomB = new RoomB();
+
+            LoadData_Types(RoomB.GetAllRoomTypes().Select(t => t.RType).ToList());
+            LoadData_States(RoomB.GetAllRoomStates().Select(t => t.RStatus).ToList());
+            FirstLoad();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void FirstLoad()
         {
-            this.Close();
-        }
-
-        private void loadDataFor_comboboxRoomType()
-        {
-            //comboboxRoomType.Items.Clear();
-            //var types = RoomB.getListRoomType().Select(type => type.RType);
-            //foreach (var type in types)
-            //    comboboxRoomType.Items.Add(type.ToString());
-            //comboboxRoomType.SelectedIndex = 0;
-        }
-
-        private void loadDataFor_comboboxStatus()
-        {
-            //comboboxStatus.Items.Clear();
-            //var status = RoomB.getListRoomStatus().Select(room_status => room_status.RStatus);
-            //foreach (var item in status)
-            //    comboboxStatus.Items.Add(item.ToString());
-            //comboboxStatus.SelectedIndex = 0;
-        }
-
-        private void comboboxRoomType_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //groupboxType.Text = comboboxRoomType.SelectedItem.ToString();
-            //var types = RoomB.getListRoomType();
-            //RoomTypeDTO type = types.FirstOrDefault(item => item.RType == groupboxType.Text);
-            //lbBedCount.Text = type.RTBedCount.ToString();
-            //lbMaxGuests.Text = type.RTMaxGuests.ToString();
+            price.Text = ConfigurationManager.AppSettings["DefaultRoomPrice"];
         }
 
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
@@ -75,59 +53,87 @@ namespace Presentation.Forms
             }
         }
 
-        private void btnAdd_MouseHover(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            toolTip.SetToolTip(btnAdd, "Add");
+            this.Close();
+        }
+
+        private void LoadData_Types(List<string> list)
+        {
+            comboboxRoomType.Items.Clear();
+            comboboxRoomType.DataSource = list;
+            comboboxRoomType.SelectedIndex = 0;
+        }
+
+        private void LoadData_States(List<string> list)
+        {
+            comboboxStatus.Items.Clear();
+            comboboxStatus.DataSource = list;
+            comboboxStatus.SelectedIndex = 0;
         }
 
         private void floor_ValueChanged(object sender, EventArgs e)
         {
-            lbFloor.Text = floor.Value.ToString();
+            lbRoomId.Text = $"Roo{floor.Value}-{numRoom.Value}";
         }
 
         private void numRoom_ValueChanged(object sender, EventArgs e)
         {
-            lbNo.Text = numRoom.Value.ToString();
+            lbRoomId.Text = $"Roo{floor.Value}-{numRoom.Value}";
         }
 
-        private void comboboxStatus_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboboxRoomType_SelectedValueChanged(object sender, EventArgs e)
         {
-            lbStatus.Text = comboboxStatus.SelectedItem.ToString();
+            lbType.Text = comboboxRoomType.SelectedItem.ToString();
+            RoomDTO ro = RoomB.GetType(comboboxRoomType.SelectedItem.ToString());
+            lbBedCount.Text = ro.RTBedCount.ToString();
+            lbMaxGuests.Text = ro.RTMaxGuests.ToString();
+            lbTypeDescription.Text = ro.RTypeDescription.ToString();
         }
 
         private void price_TextChanged(object sender, EventArgs e)
         {
-            lbPrice.Text = price.Text;
+            try
+            {
+                decimal a = Convert.ToDecimal(price.Text);
+                lbPrice.Text = a.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comboboxStatus_SelectedValueChanged(object sender, EventArgs e)
+        {
+            lbStatus.Text = comboboxStatus.SelectedItem.ToString();
+            RoomDTO ro = RoomB.GetStatus(comboboxStatus.SelectedItem.ToString());
+            lbStatusDescription.Text = ro.RStatusDescription.ToString();
         }
 
         private void note_TextChanged(object sender, EventArgs e)
         {
-            lbDescription.Text = note.Text;
-        }
-
-        private void editType_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("editType_Click", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void editStatus_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("editType_Click", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        }
-
-        private void numRoom_KeyUp(object sender, KeyEventArgs e)
-        {
-            numRoom_ValueChanged(this, null);
-        }
-
-        private void floor_KeyUp(object sender, KeyEventArgs e)
-        {
-            floor_ValueChanged(this, null);
+            lbRoomDescription.Text = note.Text;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                RoomDTO roomDTO = new RoomDTO
+                {
+                    RId = lbRoomId.Text,
+                    RType = lbType.Text,
+                    RStatus = lbStatus.Text,
+                    RPricePerNight = Convert.ToDecimal(lbPrice.Text),
+                    RDescription = lbRoomDescription.Text
+                };
+                RoomB.AddRoom(roomDTO);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

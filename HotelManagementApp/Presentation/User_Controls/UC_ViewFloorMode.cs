@@ -11,42 +11,39 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Presentation.User_Controls
 {
     public partial class UC_ViewFloorMode : UserControl
     {
-        RoomBusiness RoomBusiness = new RoomBusiness();
+        RoomB RoomBusiness = new RoomB();
+
+        private List<RoomDTO> currentList = null;
+
         public UC_ViewFloorMode()
         {
             InitializeComponent();
+            currentList = RoomBusiness.GetAllRooms();
         }
-
         private void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
-            LoadAllRooms("");
+            LoadRooms();
         }
 
-        private void LoadAllRooms(string str)
+        private void LoadRooms()
         {
-            List<RoomDTO> list = null;
-            if (str.Trim() == "")
-            {
-                list = RoomBusiness.GetAllRooms();
-            }
-            else
-            {
-                list = RoomBusiness.GetAllRooms(str);
-            }
+            if (this.currentList == null || this.currentList.Count == 0) return;
+
             flowLayoutPanel.Controls.Clear();
-            if (list.Count > 0)
+            if (this.currentList.Count > 0)
             {
-                list.Sort((a, b) => a.RId.CompareTo(b.RId));
+                this.currentList.Sort((a, b) => a.RId.CompareTo(b.RId));
                 itemFloor itemFloor = null;
                 List<RoomDTO> listFloor = null;
-                if (list != null)
+                if (this.currentList != null)
                 {
-                    foreach (RoomDTO room in list)
+                    foreach (RoomDTO room in this.currentList)
                     {
                         if (listFloor == null)
                         {
@@ -78,10 +75,10 @@ namespace Presentation.User_Controls
             }
         }
 
-        public void FIlterByStatus(string status)
+        public void SetCurrentList(List<RoomDTO> list)
         {
-            LoadAllRooms(status);
+            this.currentList = list;
+            LoadRooms();
         }
-
     }
 }

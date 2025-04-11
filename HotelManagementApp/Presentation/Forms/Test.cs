@@ -16,88 +16,75 @@ namespace Presentation.Forms
 {
     public partial class Test : Form
     {
-        private FilterInfoCollection CaptureDevices;
-        private VideoCaptureDevice VideoSource;
+        private FilterInfoCollection captureDevices;
+        private VideoCaptureDevice videoSource;
+
+        private Timer timeoutTimer;
 
         public Test()
         {
             InitializeComponent();
-            StartCamera();
-        }
-
-        private void StartCamera()
-        {
-            CaptureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            VideoSource = new VideoCaptureDevice(CaptureDevices[0].MonikerString);
-            VideoSource.NewFrame += new NewFrameEventHandler(VideoSource_NewFrame);
-            VideoSource.Start();
-        }
-
-        private bool isQRCodeScanned = false; // Tránh đọc QR nhiều lần
-        private bool isScanning = false;
-
-        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            if (!isScanning) return; // Chỉ quét khi nhấn btnStart
-
-            try
-            {
-                using (Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone()) // Clone ảnh từ camera
-                {
-                    BarcodeReader reader = new BarcodeReader();
-                    Result result = reader.Decode(bitmap);
-
-                    if (result != null)
-                    {
-                        isScanning = false;
-                        this.Invoke((MethodInvoker)delegate
-                        {
-                            show.Text = result.Text;
-                            MessageBox.Show("Mã QR: " + result.Text, "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        });
-                        stopCamera(); // Tắt camera
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Lỗi xử lý QR: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void BookingManagement_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            btnStop_Click(sender, e);
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            stopCamera();
-        }
-
-        private void stopCamera()
-        {
-            isScanning = false;
-            if (VideoSource != null)
-            {
-                if (VideoSource.IsRunning)
-                {
-                    //VideoSource.SignalToStop();
-                    //VideoSource.WaitForStop();
-                    VideoSource.Stop();
-                }
-                VideoSource.NewFrame -= VideoSource_NewFrame;
-                VideoSource = null;
-            }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if (VideoSource == null || !VideoSource.IsRunning)
+            captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (captureDevices.Count == 0)
             {
-                StartCamera();
+                MessageBox.Show("Không tìm thấy camera!");
+                return;
             }
-            isScanning = true;
+
+            videoSource = new VideoCaptureDevice(captureDevices[0].MonikerString);
+            videoSource.NewFrame += VideoSource_NewFrame;
+            videoSource.Start();
+
+            timeoutTimer = new Timer();
+            timeoutTimer.Interval = 3000;
+            timeoutTimer.Tick += TimeoutTimer_Tick;
+            timeoutTimer.Start();
+        }
+
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            //pictureBoxCamera.Image = bitmap;
+            try
+            {
+                BarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(bitmap);
+                if (result != null)
+                {
+                    show.Invoke(new MethodInvoker(delegate
+                    {
+                        show.Text = result.Text;
+                        timeoutTimer.Stop();
+                        StopCamera();
+                    }));
+                }
+            }
+            catch { }
+        }
+
+        private void TimeoutTimer_Tick(object sender, EventArgs e)
+        {
+            timeoutTimer.Stop();
+            StopCamera();
+            MessageBox.Show("Không phát hiện mã QR");
+        }
+
+        private void Test_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            StopCamera();
+        }
+
+        private void StopCamera()
+        {
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+                videoSource = null;
+            }
         }
     }
 }

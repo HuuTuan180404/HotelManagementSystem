@@ -130,6 +130,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingD.cs" />
     <Compile Include="BookingPayments.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -144,6 +145,7 @@
     <Compile Include="Customers.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="DataProvider.cs" />
     <Compile Include="EmployeeRole.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -172,7 +174,7 @@
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomData.cs" />
+    <Compile Include="RoomD.cs" />
     <Compile Include="Rooms.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -191,12 +193,6 @@
     <Compile Include="ServiceUsageDetail.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
-      <Project>{c19c91c5-7aef-4fa4-9011-aae030055884}</Project>
-      <Name>DataTransferObject</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="MyDatabase.edmx">
@@ -223,6 +219,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{c19c91c5-7aef-4fa4-9011-aae030055884}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

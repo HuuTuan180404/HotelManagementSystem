@@ -147,8 +147,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerBusiness.cs" />
+	  <Compile Include="BookingB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RoomBusiness.cs" />
+    <Compile Include="RoomB.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
