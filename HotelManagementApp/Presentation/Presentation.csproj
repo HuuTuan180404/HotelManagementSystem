@@ -61,7 +61,7 @@
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="AMRConnector">
-      <HintPath>..\..\..\..\..\..\OneDrive\Pictures\Máy tính\AMRConnector.dll</HintPath>
+      <HintPath>C:\Users\diep\Downloads\AMRConnector.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.8\lib\net472\Bunifu.Licensing.dll</HintPath>
@@ -232,6 +232,12 @@
     <Compile Include="Forms\AddBooking.Designer.cs">
       <DependentUpon>AddBooking.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AddCus.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddCus.Designer.cs">
+      <DependentUpon>AddCus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddRoom.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -349,6 +355,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\AddBooking.resx">
       <DependentUpon>AddBooking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddCus.resx">
+      <DependentUpon>AddCus.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>

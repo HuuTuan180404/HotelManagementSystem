@@ -140,6 +140,7 @@
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="ConfigData.cs" />
+    <Compile Include="CustomerData.cs" />
     <Compile Include="Customers.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
