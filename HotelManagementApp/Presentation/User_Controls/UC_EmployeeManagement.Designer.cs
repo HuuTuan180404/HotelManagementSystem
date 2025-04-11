@@ -35,33 +35,33 @@
             this.pnlAction = new System.Windows.Forms.Panel();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
-            this.tbLayoutCard = new System.Windows.Forms.TableLayoutPanel();
-            this.cardInactive = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.lblInactiveNumber = new System.Windows.Forms.Label();
-            this.label2lblInactiveTitle = new System.Windows.Forms.Label();
-            this.cardActive = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.lblActiveNumber = new System.Windows.Forms.Label();
-            this.lblActiveTitle = new System.Windows.Forms.Label();
-            this.cardTotal = new Guna.UI2.WinForms.Guna2ShadowPanel();
-            this.lblTotalNumber = new System.Windows.Forms.Label();
-            this.lblTotalTitle = new System.Windows.Forms.Label();
-            this.pnlHeader = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.cbDepartment = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlFilter = new System.Windows.Forms.Panel();
             this.txtSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtgEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.tbLayoutCard = new System.Windows.Forms.TableLayoutPanel();
+            this.cardTotal = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblTotalTitle = new System.Windows.Forms.Label();
+            this.lblTotalNumber = new System.Windows.Forms.Label();
+            this.cardActive = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblActiveTitle = new System.Windows.Forms.Label();
+            this.lblActiveNumber = new System.Windows.Forms.Label();
+            this.cardInactive = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.label2lblInactiveTitle = new System.Windows.Forms.Label();
+            this.lblInactiveNumber = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlAction.SuspendLayout();
-            this.tbLayoutCard.SuspendLayout();
-            this.cardInactive.SuspendLayout();
-            this.cardActive.SuspendLayout();
-            this.cardTotal.SuspendLayout();
-            this.pnlHeader.SuspendLayout();
             this.pnlFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmployee)).BeginInit();
             this.pnlContent.SuspendLayout();
+            this.tbLayoutCard.SuspendLayout();
+            this.cardTotal.SuspendLayout();
+            this.cardActive.SuspendLayout();
+            this.cardInactive.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnExport
@@ -123,156 +123,6 @@
             this.btnAdd.Size = new System.Drawing.Size(120, 40);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
-            // 
-            // tbLayoutCard
-            // 
-            this.tbLayoutCard.ColumnCount = 3;
-            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbLayoutCard.Controls.Add(this.cardInactive, 2, 0);
-            this.tbLayoutCard.Controls.Add(this.cardActive, 1, 0);
-            this.tbLayoutCard.Controls.Add(this.cardTotal, 0, 0);
-            this.tbLayoutCard.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tbLayoutCard.Location = new System.Drawing.Point(20, 94);
-            this.tbLayoutCard.Name = "tbLayoutCard";
-            this.tbLayoutCard.Padding = new System.Windows.Forms.Padding(10);
-            this.tbLayoutCard.RowCount = 1;
-            this.tbLayoutCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tbLayoutCard.Size = new System.Drawing.Size(1160, 100);
-            this.tbLayoutCard.TabIndex = 1;
-            // 
-            // cardInactive
-            // 
-            this.cardInactive.BackColor = System.Drawing.Color.Transparent;
-            this.cardInactive.Controls.Add(this.lblInactiveNumber);
-            this.cardInactive.Controls.Add(this.label2lblInactiveTitle);
-            this.cardInactive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardInactive.FillColor = System.Drawing.Color.White;
-            this.cardInactive.Location = new System.Drawing.Point(773, 13);
-            this.cardInactive.Name = "cardInactive";
-            this.cardInactive.Radius = 10;
-            this.cardInactive.ShadowColor = System.Drawing.Color.Black;
-            this.cardInactive.ShadowDepth = 5;
-            this.cardInactive.Size = new System.Drawing.Size(374, 74);
-            this.cardInactive.TabIndex = 2;
-            // 
-            // lblInactiveNumber
-            // 
-            this.lblInactiveNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblInactiveNumber.AutoSize = true;
-            this.lblInactiveNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInactiveNumber.Location = new System.Drawing.Point(288, 15);
-            this.lblInactiveNumber.Name = "lblInactiveNumber";
-            this.lblInactiveNumber.Size = new System.Drawing.Size(69, 54);
-            this.lblInactiveNumber.TabIndex = 3;
-            this.lblInactiveNumber.Text = "20";
-            // 
-            // label2lblInactiveTitle
-            // 
-            this.label2lblInactiveTitle.AutoSize = true;
-            this.label2lblInactiveTitle.BackColor = System.Drawing.Color.Transparent;
-            this.label2lblInactiveTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2lblInactiveTitle.Location = new System.Drawing.Point(15, 15);
-            this.label2lblInactiveTitle.Name = "label2lblInactiveTitle";
-            this.label2lblInactiveTitle.Size = new System.Drawing.Size(178, 28);
-            this.label2lblInactiveTitle.TabIndex = 1;
-            this.label2lblInactiveTitle.Text = "Inactive Employees";
-            // 
-            // cardActive
-            // 
-            this.cardActive.BackColor = System.Drawing.Color.Transparent;
-            this.cardActive.Controls.Add(this.lblActiveNumber);
-            this.cardActive.Controls.Add(this.lblActiveTitle);
-            this.cardActive.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardActive.FillColor = System.Drawing.Color.White;
-            this.cardActive.Location = new System.Drawing.Point(393, 13);
-            this.cardActive.Name = "cardActive";
-            this.cardActive.Radius = 10;
-            this.cardActive.ShadowColor = System.Drawing.Color.Black;
-            this.cardActive.ShadowDepth = 5;
-            this.cardActive.Size = new System.Drawing.Size(374, 74);
-            this.cardActive.TabIndex = 1;
-            // 
-            // lblActiveNumber
-            // 
-            this.lblActiveNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblActiveNumber.AutoSize = true;
-            this.lblActiveNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveNumber.Location = new System.Drawing.Point(286, 15);
-            this.lblActiveNumber.Name = "lblActiveNumber";
-            this.lblActiveNumber.Size = new System.Drawing.Size(69, 54);
-            this.lblActiveNumber.TabIndex = 2;
-            this.lblActiveNumber.Text = "80";
-            // 
-            // lblActiveTitle
-            // 
-            this.lblActiveTitle.AutoSize = true;
-            this.lblActiveTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblActiveTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveTitle.Location = new System.Drawing.Point(15, 15);
-            this.lblActiveTitle.Name = "lblActiveTitle";
-            this.lblActiveTitle.Size = new System.Drawing.Size(165, 28);
-            this.lblActiveTitle.TabIndex = 2;
-            this.lblActiveTitle.Text = "Active Employees";
-            // 
-            // cardTotal
-            // 
-            this.cardTotal.BackColor = System.Drawing.Color.Transparent;
-            this.cardTotal.Controls.Add(this.lblTotalNumber);
-            this.cardTotal.Controls.Add(this.lblTotalTitle);
-            this.cardTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cardTotal.FillColor = System.Drawing.Color.White;
-            this.cardTotal.Location = new System.Drawing.Point(13, 13);
-            this.cardTotal.Name = "cardTotal";
-            this.cardTotal.Radius = 10;
-            this.cardTotal.ShadowColor = System.Drawing.Color.Black;
-            this.cardTotal.ShadowDepth = 5;
-            this.cardTotal.Size = new System.Drawing.Size(374, 74);
-            this.cardTotal.TabIndex = 0;
-            // 
-            // lblTotalNumber
-            // 
-            this.lblTotalNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.lblTotalNumber.AutoSize = true;
-            this.lblTotalNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalNumber.Location = new System.Drawing.Point(261, 15);
-            this.lblTotalNumber.Name = "lblTotalNumber";
-            this.lblTotalNumber.Size = new System.Drawing.Size(92, 54);
-            this.lblTotalNumber.TabIndex = 1;
-            this.lblTotalNumber.Text = "100";
-            // 
-            // lblTotalTitle
-            // 
-            this.lblTotalTitle.AutoSize = true;
-            this.lblTotalTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalTitle.Location = new System.Drawing.Point(15, 15);
-            this.lblTotalTitle.Name = "lblTotalTitle";
-            this.lblTotalTitle.Size = new System.Drawing.Size(153, 28);
-            this.lblTotalTitle.TabIndex = 0;
-            this.lblTotalTitle.Text = "Total Employees";
-            // 
-            // pnlHeader
-            // 
-            this.pnlHeader.Controls.Add(this.label1);
-            this.pnlHeader.Controls.Add(this.tbLayoutCard);
-            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
-            this.pnlHeader.Name = "pnlHeader";
-            this.pnlHeader.Padding = new System.Windows.Forms.Padding(20);
-            this.pnlHeader.Size = new System.Drawing.Size(1200, 214);
-            this.pnlHeader.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(20, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(521, 54);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "EMPLOYEE MANAGEMENT";
             // 
             // cbDepartment
             // 
@@ -416,6 +266,156 @@
             this.pnlContent.Size = new System.Drawing.Size(1200, 456);
             this.pnlContent.TabIndex = 7;
             // 
+            // tbLayoutCard
+            // 
+            this.tbLayoutCard.ColumnCount = 3;
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbLayoutCard.Controls.Add(this.cardInactive, 2, 0);
+            this.tbLayoutCard.Controls.Add(this.cardActive, 1, 0);
+            this.tbLayoutCard.Controls.Add(this.cardTotal, 0, 0);
+            this.tbLayoutCard.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.tbLayoutCard.Location = new System.Drawing.Point(20, 94);
+            this.tbLayoutCard.Name = "tbLayoutCard";
+            this.tbLayoutCard.Padding = new System.Windows.Forms.Padding(10);
+            this.tbLayoutCard.RowCount = 1;
+            this.tbLayoutCard.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tbLayoutCard.Size = new System.Drawing.Size(1160, 100);
+            this.tbLayoutCard.TabIndex = 1;
+            // 
+            // cardTotal
+            // 
+            this.cardTotal.BackColor = System.Drawing.Color.Transparent;
+            this.cardTotal.Controls.Add(this.lblTotalNumber);
+            this.cardTotal.Controls.Add(this.lblTotalTitle);
+            this.cardTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cardTotal.FillColor = System.Drawing.Color.White;
+            this.cardTotal.Location = new System.Drawing.Point(13, 13);
+            this.cardTotal.Name = "cardTotal";
+            this.cardTotal.Radius = 10;
+            this.cardTotal.ShadowColor = System.Drawing.Color.Black;
+            this.cardTotal.ShadowDepth = 5;
+            this.cardTotal.Size = new System.Drawing.Size(374, 74);
+            this.cardTotal.TabIndex = 0;
+            // 
+            // lblTotalTitle
+            // 
+            this.lblTotalTitle.AutoSize = true;
+            this.lblTotalTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblTotalTitle.Name = "lblTotalTitle";
+            this.lblTotalTitle.Size = new System.Drawing.Size(153, 28);
+            this.lblTotalTitle.TabIndex = 0;
+            this.lblTotalTitle.Text = "Total Employees";
+            // 
+            // lblTotalNumber
+            // 
+            this.lblTotalNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblTotalNumber.AutoSize = true;
+            this.lblTotalNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalNumber.Location = new System.Drawing.Point(261, 15);
+            this.lblTotalNumber.Name = "lblTotalNumber";
+            this.lblTotalNumber.Size = new System.Drawing.Size(92, 54);
+            this.lblTotalNumber.TabIndex = 1;
+            this.lblTotalNumber.Text = "100";
+            // 
+            // cardActive
+            // 
+            this.cardActive.BackColor = System.Drawing.Color.Transparent;
+            this.cardActive.Controls.Add(this.lblActiveNumber);
+            this.cardActive.Controls.Add(this.lblActiveTitle);
+            this.cardActive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cardActive.FillColor = System.Drawing.Color.White;
+            this.cardActive.Location = new System.Drawing.Point(393, 13);
+            this.cardActive.Name = "cardActive";
+            this.cardActive.Radius = 10;
+            this.cardActive.ShadowColor = System.Drawing.Color.Black;
+            this.cardActive.ShadowDepth = 5;
+            this.cardActive.Size = new System.Drawing.Size(374, 74);
+            this.cardActive.TabIndex = 1;
+            // 
+            // lblActiveTitle
+            // 
+            this.lblActiveTitle.AutoSize = true;
+            this.lblActiveTitle.BackColor = System.Drawing.Color.Transparent;
+            this.lblActiveTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveTitle.Location = new System.Drawing.Point(15, 15);
+            this.lblActiveTitle.Name = "lblActiveTitle";
+            this.lblActiveTitle.Size = new System.Drawing.Size(165, 28);
+            this.lblActiveTitle.TabIndex = 2;
+            this.lblActiveTitle.Text = "Active Employees";
+            // 
+            // lblActiveNumber
+            // 
+            this.lblActiveNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblActiveNumber.AutoSize = true;
+            this.lblActiveNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveNumber.Location = new System.Drawing.Point(286, 15);
+            this.lblActiveNumber.Name = "lblActiveNumber";
+            this.lblActiveNumber.Size = new System.Drawing.Size(69, 54);
+            this.lblActiveNumber.TabIndex = 2;
+            this.lblActiveNumber.Text = "80";
+            // 
+            // cardInactive
+            // 
+            this.cardInactive.BackColor = System.Drawing.Color.Transparent;
+            this.cardInactive.Controls.Add(this.lblInactiveNumber);
+            this.cardInactive.Controls.Add(this.label2lblInactiveTitle);
+            this.cardInactive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cardInactive.FillColor = System.Drawing.Color.White;
+            this.cardInactive.Location = new System.Drawing.Point(773, 13);
+            this.cardInactive.Name = "cardInactive";
+            this.cardInactive.Radius = 10;
+            this.cardInactive.ShadowColor = System.Drawing.Color.Black;
+            this.cardInactive.ShadowDepth = 5;
+            this.cardInactive.Size = new System.Drawing.Size(374, 74);
+            this.cardInactive.TabIndex = 2;
+            // 
+            // label2lblInactiveTitle
+            // 
+            this.label2lblInactiveTitle.AutoSize = true;
+            this.label2lblInactiveTitle.BackColor = System.Drawing.Color.Transparent;
+            this.label2lblInactiveTitle.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2lblInactiveTitle.Location = new System.Drawing.Point(15, 15);
+            this.label2lblInactiveTitle.Name = "label2lblInactiveTitle";
+            this.label2lblInactiveTitle.Size = new System.Drawing.Size(178, 28);
+            this.label2lblInactiveTitle.TabIndex = 1;
+            this.label2lblInactiveTitle.Text = "Inactive Employees";
+            // 
+            // lblInactiveNumber
+            // 
+            this.lblInactiveNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblInactiveNumber.AutoSize = true;
+            this.lblInactiveNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactiveNumber.Location = new System.Drawing.Point(288, 15);
+            this.lblInactiveNumber.Name = "lblInactiveNumber";
+            this.lblInactiveNumber.Size = new System.Drawing.Size(69, 54);
+            this.lblInactiveNumber.TabIndex = 3;
+            this.lblInactiveNumber.Text = "20";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(20, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(521, 54);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "EMPLOYEE MANAGEMENT";
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.Controls.Add(this.label1);
+            this.pnlHeader.Controls.Add(this.tbLayoutCard);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(0, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Padding = new System.Windows.Forms.Padding(20);
+            this.pnlHeader.Size = new System.Drawing.Size(1200, 214);
+            this.pnlHeader.TabIndex = 4;
+            // 
             // UC_EmployeeManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -427,18 +427,18 @@
             this.Name = "UC_EmployeeManagement";
             this.Size = new System.Drawing.Size(1200, 800);
             this.pnlAction.ResumeLayout(false);
-            this.tbLayoutCard.ResumeLayout(false);
-            this.cardInactive.ResumeLayout(false);
-            this.cardInactive.PerformLayout();
-            this.cardActive.ResumeLayout(false);
-            this.cardActive.PerformLayout();
-            this.cardTotal.ResumeLayout(false);
-            this.cardTotal.PerformLayout();
-            this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
             this.pnlFilter.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmployee)).EndInit();
             this.pnlContent.ResumeLayout(false);
+            this.tbLayoutCard.ResumeLayout(false);
+            this.cardTotal.ResumeLayout(false);
+            this.cardTotal.PerformLayout();
+            this.cardActive.ResumeLayout(false);
+            this.cardActive.PerformLayout();
+            this.cardInactive.ResumeLayout(false);
+            this.cardInactive.PerformLayout();
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -449,6 +449,12 @@
         private System.Windows.Forms.Panel pnlAction;
         private Guna.UI2.WinForms.Guna2Button btnDelete;
         private Guna.UI2.WinForms.Guna2Button btnAdd;
+        private Guna.UI2.WinForms.Guna2ComboBox cbDepartment;
+        private Guna.UI2.WinForms.Guna2ComboBox cbStatus;
+        private System.Windows.Forms.Panel pnlFilter;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearchEmployee;
+        private Guna.UI2.WinForms.Guna2DataGridView dtgEmployee;
+        private System.Windows.Forms.Panel pnlContent;
         private System.Windows.Forms.TableLayoutPanel tbLayoutCard;
         private Guna.UI2.WinForms.Guna2ShadowPanel cardInactive;
         private System.Windows.Forms.Label lblInactiveNumber;
@@ -459,13 +465,7 @@
         private Guna.UI2.WinForms.Guna2ShadowPanel cardTotal;
         private System.Windows.Forms.Label lblTotalNumber;
         private System.Windows.Forms.Label lblTotalTitle;
-        private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2ComboBox cbDepartment;
-        private Guna.UI2.WinForms.Guna2ComboBox cbStatus;
-        private System.Windows.Forms.Panel pnlFilter;
-        private Guna.UI2.WinForms.Guna2TextBox txtSearchEmployee;
-        private Guna.UI2.WinForms.Guna2DataGridView dtgEmployee;
-        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Panel pnlHeader;
     }
 }

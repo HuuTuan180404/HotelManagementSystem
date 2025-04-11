@@ -25,22 +25,39 @@ namespace Presentation.Forms
         {
             if (!isEditMode)
             {
-                // Format: CUS-YYYYMMDD-XXX
-                string date = DateTime.Now.ToString("yyyyMMdd");
-                string lastId = customerBusiness.GetAllCustomers()
-                    .Where(c => c.CId.StartsWith($"CUS-{date}"))
-                    .OrderByDescending(c => c.CId)
+                var customers = customerBusiness.GetAllCustomers();
+                
+                // Lấy danh sách các số đã được sử dụng
+                var usedNumbers = customers
                     .Select(c => c.CId)
-                    .FirstOrDefault();
+                    .Where(id => id.StartsWith("C") && id.Length == 4)
+                    .Select(id => 
+                    {
+                        if (int.TryParse(id.Substring(1), out int number))
+                            return number;
+                        return -1;
+                    })
+                    .Where(n => n > 0)
+                    .OrderBy(n => n)
+                    .ToList();
 
-                int nextNumber = 1;
-                if (!string.IsNullOrEmpty(lastId))
+                // Nếu chưa có số nào được sử dụng, bắt đầu từ 1
+                if (!usedNumbers.Any())
                 {
-                    string numberPart = lastId.Split('-').Last();
-                    nextNumber = int.Parse(numberPart) + 1;
+                    txtCId.Text = "C001";
+                    return;
                 }
 
-                txtCId.Text = $"CUS-{date}-{nextNumber:D3}";
+                // Tìm số nhỏ nhất chưa được sử dụng
+                int nextNumber = 1;
+                foreach (int number in usedNumbers)
+                {
+                    if (number != nextNumber)
+                        break;
+                    nextNumber++;
+                }
+
+                txtCId.Text = $"C{nextNumber:D3}";
             }
         }
 

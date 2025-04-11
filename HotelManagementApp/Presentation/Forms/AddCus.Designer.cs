@@ -46,13 +46,13 @@
             this.lblName = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.txtCId = new Guna.UI2.WinForms.Guna2TextBox();
             this.lblCId = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.btnClose = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.lblTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.btnClose = new Guna.UI2.WinForms.Guna2PictureBox();
             this.pnlMain.SuspendLayout();
             this.grpCustomerInfo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlMain
@@ -137,12 +137,13 @@
             // 
             // lblCustomerType
             // 
+            this.lblCustomerType.AutoSize = false;
             this.lblCustomerType.BackColor = System.Drawing.Color.Transparent;
             this.lblCustomerType.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblCustomerType.ForeColor = System.Drawing.Color.Black;
             this.lblCustomerType.Location = new System.Drawing.Point(20, 290);
             this.lblCustomerType.Name = "lblCustomerType";
-            this.lblCustomerType.Size = new System.Drawing.Size(132, 25);
+            this.lblCustomerType.Size = new System.Drawing.Size(262, 61);
             this.lblCustomerType.TabIndex = 1;
             this.lblCustomerType.Text = "Loại khách hàng:";
             // 
@@ -161,12 +162,13 @@
             // 
             // lblAddress
             // 
+            this.lblAddress.AutoSize = false;
             this.lblAddress.BackColor = System.Drawing.Color.Transparent;
             this.lblAddress.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblAddress.ForeColor = System.Drawing.Color.Black;
             this.lblAddress.Location = new System.Drawing.Point(20, 210);
             this.lblAddress.Name = "lblAddress";
-            this.lblAddress.Size = new System.Drawing.Size(59, 25);
+            this.lblAddress.Size = new System.Drawing.Size(454, 61);
             this.lblAddress.TabIndex = 3;
             this.lblAddress.Text = "Địa chỉ:";
             // 
@@ -185,12 +187,13 @@
             // 
             // lblEmail
             // 
+            this.lblEmail.AutoSize = false;
             this.lblEmail.BackColor = System.Drawing.Color.Transparent;
             this.lblEmail.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblEmail.ForeColor = System.Drawing.Color.Black;
             this.lblEmail.Location = new System.Drawing.Point(300, 130);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(48, 25);
+            this.lblEmail.Size = new System.Drawing.Size(320, 61);
             this.lblEmail.TabIndex = 5;
             this.lblEmail.Text = "Email:";
             // 
@@ -209,12 +212,13 @@
             // 
             // lblPhone
             // 
+            this.lblPhone.AutoSize = false;
             this.lblPhone.BackColor = System.Drawing.Color.Transparent;
             this.lblPhone.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblPhone.ForeColor = System.Drawing.Color.Black;
             this.lblPhone.Location = new System.Drawing.Point(20, 130);
             this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(108, 25);
+            this.lblPhone.Size = new System.Drawing.Size(250, 61);
             this.lblPhone.TabIndex = 7;
             this.lblPhone.Text = "Số điện thoại:";
             // 
@@ -238,12 +242,13 @@
             // 
             // lblGender
             // 
+            this.lblGender.AutoSize = false;
             this.lblGender.BackColor = System.Drawing.Color.Transparent;
             this.lblGender.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblGender.ForeColor = System.Drawing.Color.Black;
             this.lblGender.Location = new System.Drawing.Point(530, 50);
             this.lblGender.Name = "lblGender";
-            this.lblGender.Size = new System.Drawing.Size(72, 25);
+            this.lblGender.Size = new System.Drawing.Size(200, 61);
             this.lblGender.TabIndex = 9;
             this.lblGender.Text = "Giới tính:";
             // 
@@ -262,12 +267,13 @@
             // 
             // lblName
             // 
+            this.lblName.AutoSize = false;
             this.lblName.BackColor = System.Drawing.Color.Transparent;
             this.lblName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblName.ForeColor = System.Drawing.Color.Black;
             this.lblName.Location = new System.Drawing.Point(200, 50);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(129, 25);
+            this.lblName.Size = new System.Drawing.Size(300, 61);
             this.lblName.TabIndex = 11;
             this.lblName.Text = "Tên khách hàng:";
             // 
@@ -286,25 +292,15 @@
             // 
             // lblCId
             // 
+            this.lblCId.AutoSize = false;
             this.lblCId.BackColor = System.Drawing.Color.Transparent;
             this.lblCId.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lblCId.ForeColor = System.Drawing.Color.Black;
             this.lblCId.Location = new System.Drawing.Point(20, 50);
             this.lblCId.Name = "lblCId";
-            this.lblCId.Size = new System.Drawing.Size(125, 25);
+            this.lblCId.Size = new System.Drawing.Size(300, 61);
             this.lblCId.TabIndex = 13;
             this.lblCId.Text = "Mã khách hàng:";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.ImageRotate = 0F;
-            this.btnClose.Location = new System.Drawing.Point(750, 13);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(24, 24);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.TabStop = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // pnlHeader
             // 
@@ -318,14 +314,26 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.AutoSize = false;
             this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 15);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(282, 33);
+            this.lblTitle.Size = new System.Drawing.Size(724, 49);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "THÊM KHÁCH HÀNG MỚI";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.ImageRotate = 0F;
+            this.btnClose.Location = new System.Drawing.Point(750, 13);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(24, 24);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.TabStop = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // AddCus
             // 
@@ -339,10 +347,8 @@
             this.Text = "Thêm khách hàng";
             this.pnlMain.ResumeLayout(false);
             this.grpCustomerInfo.ResumeLayout(false);
-            this.grpCustomerInfo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClose)).EndInit();
             this.ResumeLayout(false);
 
         }
