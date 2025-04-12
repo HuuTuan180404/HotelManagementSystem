@@ -15,5 +15,17 @@ namespace DataTransferObject
         public string Email { get; set; }
         public string Address { get; set; }
         public string Type { get; set; }
+
+        public static List<string> Properties()
+        {
+            Type type = typeof(CustomerDTO);
+            var properties = type.GetProperties();
+            return properties.Select(p => p.Name).ToList();
+        }
+
+        public string Display()
+        {
+            return $"{CId}-{Name}-{Gender}-{Phone}-{Email}-{Address}-{Type}";
+        }
     }
 }

@@ -7,19 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
-using DataTransferObject;
 
 namespace Presentation.User_Controls
 {
-    public partial class UC_EmployeeManagement : UserControl
+    public partial class UC_Setting : UserControl
     {
-
-        public UC_EmployeeManagement()
+        public UC_Setting()
         {
             InitializeComponent();
-           
         }
-
     }
 }

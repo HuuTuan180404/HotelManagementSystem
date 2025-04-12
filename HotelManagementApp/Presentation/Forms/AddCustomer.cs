@@ -7,19 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Business;
-using DataTransferObject;
 
-namespace Presentation.User_Controls
+namespace Presentation.Forms
 {
-    public partial class UC_EmployeeManagement : UserControl
+    public partial class AddCustomer : Form
     {
-
-        public UC_EmployeeManagement()
+        public AddCustomer()
         {
             InitializeComponent();
-           
         }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        
     }
 }

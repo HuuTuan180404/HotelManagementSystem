@@ -146,7 +146,6 @@
             this.panelControls.Name = "panelControls";
             this.panelControls.Size = new System.Drawing.Size(1200, 50);
             this.panelControls.TabIndex = 8;
-            this.panelControls.Paint += new System.Windows.Forms.PaintEventHandler(this.panelControls_Paint);
             // 
             // txtSearch
             // 
@@ -166,7 +165,6 @@
             this.txtSearch.SelectedText = "";
             this.txtSearch.Size = new System.Drawing.Size(300, 30);
             this.txtSearch.TabIndex = 9;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             // 
             // cboFilter
             // 
@@ -183,7 +181,6 @@
             this.cboFilter.Name = "cboFilter";
             this.cboFilter.Size = new System.Drawing.Size(200, 36);
             this.cboFilter.TabIndex = 10;
-            this.cboFilter.SelectedIndexChanged += new System.EventHandler(this.cboFilter_SelectedIndexChanged);
             // 
             // btnAdd
             // 
@@ -199,7 +196,6 @@
             this.btnAdd.Size = new System.Drawing.Size(120, 30);
             this.btnAdd.TabIndex = 11;
             this.btnAdd.Text = "Add";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnDelete
             // 
@@ -296,7 +292,6 @@
             this.dtgEmployee.ThemeStyle.RowsStyle.Height = 35;
             this.dtgEmployee.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dtgEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            this.dtgEmployee.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployee_CellDoubleClick);
             // 
             // UC_EmployeeManagement
             // 

@@ -144,6 +144,7 @@
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="ConfigData.cs" />
+    <Compile Include="CustomerData.cs" />
     <Compile Include="Customers.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -198,12 +199,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
-      <Project>{c19c91c5-7aef-4fa4-9011-aae030055884}</Project>
-      <Name>DataTransferObject</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EntityDeploy Include="MyDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>MyDatabase.Designer.cs</LastGenOutput>
@@ -228,6 +223,12 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataTransferObject\DataTransferObject.csproj">
+      <Project>{c19c91c5-7aef-4fa4-9011-aae030055884}</Project>
+      <Name>DataTransferObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
