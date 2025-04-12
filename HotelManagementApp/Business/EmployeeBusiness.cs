@@ -7,12 +7,6 @@ namespace Business
 {
     public class EmployeeBusiness
     {
-        private readonly EmployeeData employeeData;
-
-        public EmployeeBusiness()
-        {
-            employeeData = new EmployeeData();
-        }
-
+       
     }
 }
