@@ -55,7 +55,7 @@ namespace Presentation.Forms
 
         private void btnEmployee_Click(object sender, EventArgs e)
         {
-            UC_EmployeeManagement.BringToFront();
+            uC_EmployeeManagement1.BringToFront();
         }
 
         private void pic_close_Click(object sender, EventArgs e)

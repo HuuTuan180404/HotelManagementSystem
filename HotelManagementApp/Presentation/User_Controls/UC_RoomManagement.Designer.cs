@@ -275,9 +275,6 @@
             // 
             // UC_ViewFloorMode
             // 
-            this.UC_ViewFloorMode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.UC_ViewFloorMode.BackColor = System.Drawing.Color.White;
             this.UC_ViewFloorMode.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.UC_ViewFloorMode.Location = new System.Drawing.Point(19, 144);
@@ -288,9 +285,6 @@
             // 
             // UC_ViewTableMode
             // 
-            this.UC_ViewTableMode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
             this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.UC_ViewTableMode.Location = new System.Drawing.Point(19, 144);

@@ -49,7 +49,7 @@ namespace Data
 
                 if (rooms != null)
                 {
-                    list = rooms.ToList();
+                    //list = rooms.ToList();
                 }
             }
             catch (SqlException ex)
@@ -107,7 +107,7 @@ namespace Data
 
                 if (rooms != null)
                 {
-                    list = rooms.ToList();
+                    //list = rooms.ToList();
                 }
             }
             catch (SqlException ex) { throw ex; }
@@ -159,7 +159,7 @@ namespace Data
 
                 if (rooms != null)
                 {
-                    list = rooms.ToList();
+                    //list = rooms.ToList();
                 }
             }
             catch (SqlException ex) { throw ex; }

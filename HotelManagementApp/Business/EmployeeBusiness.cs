@@ -1,4 +1,6 @@
-﻿using Data;
+﻿using System;
+using System.Collections.Generic;
+using Data;
 using DataTransferObject;
 using System;
 using System.Collections.Generic;
@@ -27,7 +29,7 @@ namespace Business
         {
             return EmployeeData.GetEmployeesByRole(role);
         }
-
+       
         public List<EmployeeDTO> GetEmployeesByStatus(string status)
         {
             return EmployeeData.GetEmployeesByStatus(status);

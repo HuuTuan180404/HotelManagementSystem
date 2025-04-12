@@ -303,7 +303,7 @@ namespace Data
                         break;
                     }
                     nextId++;
-                }
+        }
 
                 // Format the ID with leading zeros (e.g., E001)
                 return $"E{nextId:D3}";
