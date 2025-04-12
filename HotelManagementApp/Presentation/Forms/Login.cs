@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AMRConnector;
+//using AMRConnector;
 
 namespace Presentation.Forms
 {
     public partial class Login : Form
     {
-        DbConnector database;
+        //DbConnector database;
         public Login()
         {
             InitializeComponent();
-            database = new DbConnector();
+            //database = new DbConnector();
         }
 
         private void img_hide_Click(object sender, EventArgs e)
