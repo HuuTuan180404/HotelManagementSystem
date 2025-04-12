@@ -350,6 +350,7 @@
             this.panelUC.Controls.Add(this.UC_CustomerManagement);
             this.panelUC.Controls.Add(this.UC_EmployeeManagement);
             this.panelUC.Controls.Add(this.UC_BookingManagement);
+            this.panelUC.Controls.Add(this.UC_CustomerManagement);
             this.panelUC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUC.Location = new System.Drawing.Point(120, 103);
             this.panelUC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);

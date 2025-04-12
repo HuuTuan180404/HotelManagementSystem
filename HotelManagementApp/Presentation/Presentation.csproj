@@ -61,7 +61,7 @@
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
     <Reference Include="AMRConnector">
-      <HintPath>..\..\..\..\..\..\OneDrive\Pictures\Máy tính\AMRConnector.dll</HintPath>
+      <HintPath>C:\Users\diep\Downloads\AMRConnector.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.8\lib\net472\Bunifu.Licensing.dll</HintPath>
