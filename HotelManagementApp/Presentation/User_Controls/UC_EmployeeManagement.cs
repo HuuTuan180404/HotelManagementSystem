@@ -205,6 +205,5 @@ namespace Presentation.User_Controls
             // TODO: Implement export functionality
             MessageBox.Show("Chức năng xuất dữ liệu sẽ được triển khai sau!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
     }
 }
