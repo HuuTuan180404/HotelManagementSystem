@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerDTO.cs" />
+    <Compile Include="EmployeeDTO.cs" />
 	  <Compile Include="BookingDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomDTO.cs" />

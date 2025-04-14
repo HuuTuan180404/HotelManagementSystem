@@ -79,6 +79,7 @@
             this.btnExport.Size = new System.Drawing.Size(120, 40);
             this.btnExport.TabIndex = 4;
             this.btnExport.Text = "Export";
+            this.btnExport.Click += new System.EventHandler(this.btnExport_Click);
             // 
             // pnlAction
             // 
@@ -107,6 +108,7 @@
             this.btnDelete.Size = new System.Drawing.Size(120, 40);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Text = "Delete";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnAdd
             // 
@@ -123,6 +125,7 @@
             this.btnAdd.Size = new System.Drawing.Size(120, 40);
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Text = "Add";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // cbDepartment
             // 
@@ -144,6 +147,7 @@
             this.cbDepartment.Name = "cbDepartment";
             this.cbDepartment.Size = new System.Drawing.Size(200, 36);
             this.cbDepartment.TabIndex = 1;
+            this.cbDepartment.SelectedIndexChanged += new System.EventHandler(this.cbDepartment_SelectedIndexChanged);
             // 
             // cbStatus
             // 
@@ -165,6 +169,7 @@
             this.cbStatus.Name = "cbStatus";
             this.cbStatus.Size = new System.Drawing.Size(560, 36);
             this.cbStatus.TabIndex = 2;
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // pnlFilter
             // 
@@ -190,6 +195,7 @@
             this.txtSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchEmployee.IconRight = global::Presentation.Properties.Resources.find1;
             this.txtSearchEmployee.Location = new System.Drawing.Point(20, 10);
             this.txtSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtSearchEmployee.Name = "txtSearchEmployee";
@@ -197,6 +203,8 @@
             this.txtSearchEmployee.SelectedText = "";
             this.txtSearchEmployee.Size = new System.Drawing.Size(300, 40);
             this.txtSearchEmployee.TabIndex = 0;
+            this.txtSearchEmployee.IconRightClick += new System.EventHandler(this.txtSearchEmployee_IconRightClick_1);
+            this.txtSearchEmployee.TextChanged += new System.EventHandler(this.txtSearchEmployee_TextChanged);
             // 
             // dtgEmployee
             // 
@@ -256,6 +264,7 @@
             this.dtgEmployee.ThemeStyle.RowsStyle.Height = 40;
             this.dtgEmployee.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dtgEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dtgEmployee.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployee_CellDoubleClick);
             // 
             // pnlContent
             // 
