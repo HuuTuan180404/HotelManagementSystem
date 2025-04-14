@@ -94,7 +94,7 @@
             this.cboRole.ItemHeight = 30;
             this.cboRole.Location = new System.Drawing.Point(225, 505);
             this.cboRole.Name = "cboRole";
-            this.cboRole.Size = new System.Drawing.Size(243, 36);
+            this.cboRole.Size = new System.Drawing.Size(290, 36);
             this.cboRole.TabIndex = 16;
             // 
             // cboStatus
@@ -110,7 +110,7 @@
             this.cboStatus.ItemHeight = 30;
             this.cboStatus.Location = new System.Drawing.Point(225, 445);
             this.cboStatus.Name = "cboStatus";
-            this.cboStatus.Size = new System.Drawing.Size(243, 36);
+            this.cboStatus.Size = new System.Drawing.Size(290, 36);
             this.cboStatus.TabIndex = 15;
             // 
             // cboGender
@@ -126,7 +126,7 @@
             this.cboGender.ItemHeight = 30;
             this.cboGender.Location = new System.Drawing.Point(225, 205);
             this.cboGender.Name = "cboGender";
-            this.cboGender.Size = new System.Drawing.Size(243, 36);
+            this.cboGender.Size = new System.Drawing.Size(290, 36);
             this.cboGender.TabIndex = 14;
             // 
             // txtTenNV
@@ -148,7 +148,7 @@
             this.txtTenNV.Name = "txtTenNV";
             this.txtTenNV.PlaceholderText = "Nhập tên nhân viên";
             this.txtTenNV.SelectedText = "";
-            this.txtTenNV.Size = new System.Drawing.Size(243, 41);
+            this.txtTenNV.Size = new System.Drawing.Size(290, 41);
             this.txtTenNV.TabIndex = 13;
             // 
             // txtSDT
@@ -170,7 +170,7 @@
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.PlaceholderText = "Nhập số điện thoại";
             this.txtSDT.SelectedText = "";
-            this.txtSDT.Size = new System.Drawing.Size(243, 41);
+            this.txtSDT.Size = new System.Drawing.Size(290, 41);
             this.txtSDT.TabIndex = 12;
             // 
             // txtEmail
@@ -192,7 +192,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.PlaceholderText = "Nhập email";
             this.txtEmail.SelectedText = "";
-            this.txtEmail.Size = new System.Drawing.Size(243, 41);
+            this.txtEmail.Size = new System.Drawing.Size(290, 41);
             this.txtEmail.TabIndex = 11;
             // 
             // txtDiaChi
@@ -214,7 +214,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.PlaceholderText = "Nhập địa chỉ";
             this.txtDiaChi.SelectedText = "";
-            this.txtDiaChi.Size = new System.Drawing.Size(243, 41);
+            this.txtDiaChi.Size = new System.Drawing.Size(290, 41);
             this.txtDiaChi.TabIndex = 10;
             // 
             // txtMaNV
@@ -236,7 +236,7 @@
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.PlaceholderText = "Nhập mã nhân viên";
             this.txtMaNV.SelectedText = "";
-            this.txtMaNV.Size = new System.Drawing.Size(243, 41);
+            this.txtMaNV.Size = new System.Drawing.Size(290, 41);
             this.txtMaNV.TabIndex = 9;
             // 
             // lblChucVu
