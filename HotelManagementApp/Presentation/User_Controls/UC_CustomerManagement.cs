@@ -395,6 +395,11 @@ namespace Presentation.User_Controls
             cboCustomerType.SelectedItem = "Tất cả"; // Reset về "Tất cả"
             LoadCustomers(); // Load lại tất cả khách hàng
         }
+
+        private void lbNewCustomer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     // Thêm class DataGridViewCheckBoxHeaderCell
