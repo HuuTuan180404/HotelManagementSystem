@@ -28,14 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnExport = new Guna.UI2.WinForms.Guna2Button();
             this.pnlAction = new System.Windows.Forms.Panel();
             this.btnDelete = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.tbLayoutCard = new System.Windows.Forms.TableLayoutPanel();
+            this.cardOnLeave = new Guna.UI2.WinForms.Guna2ShadowPanel();
+            this.lblOLNumber = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.cardInactive = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.lblInactiveNumber = new System.Windows.Forms.Label();
             this.label2lblInactiveTitle = new System.Windows.Forms.Label();
@@ -55,6 +58,7 @@
             this.pnlContent = new System.Windows.Forms.Panel();
             this.pnlAction.SuspendLayout();
             this.tbLayoutCard.SuspendLayout();
+            this.cardOnLeave.SuspendLayout();
             this.cardInactive.SuspendLayout();
             this.cardActive.SuspendLayout();
             this.cardTotal.SuspendLayout();
@@ -129,10 +133,12 @@
             // 
             // tbLayoutCard
             // 
-            this.tbLayoutCard.ColumnCount = 3;
-            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tbLayoutCard.ColumnCount = 4;
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbLayoutCard.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tbLayoutCard.Controls.Add(this.cardOnLeave, 0, 0);
             this.tbLayoutCard.Controls.Add(this.cardInactive, 2, 0);
             this.tbLayoutCard.Controls.Add(this.cardActive, 1, 0);
             this.tbLayoutCard.Controls.Add(this.cardTotal, 0, 0);
@@ -145,6 +151,44 @@
             this.tbLayoutCard.Size = new System.Drawing.Size(1160, 100);
             this.tbLayoutCard.TabIndex = 1;
             // 
+            // cardOnLeave
+            // 
+            this.cardOnLeave.BackColor = System.Drawing.Color.Transparent;
+            this.cardOnLeave.Controls.Add(this.lblOLNumber);
+            this.cardOnLeave.Controls.Add(this.label3);
+            this.cardOnLeave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cardOnLeave.FillColor = System.Drawing.Color.White;
+            this.cardOnLeave.Location = new System.Drawing.Point(298, 13);
+            this.cardOnLeave.Name = "cardOnLeave";
+            this.cardOnLeave.Radius = 10;
+            this.cardOnLeave.ShadowColor = System.Drawing.Color.Black;
+            this.cardOnLeave.ShadowDepth = 5;
+            this.cardOnLeave.Size = new System.Drawing.Size(279, 74);
+            this.cardOnLeave.TabIndex = 3;
+            this.cardOnLeave.Click += new System.EventHandler(this.cardOnLeave_Click);
+            // 
+            // lblOLNumber
+            // 
+            this.lblOLNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblOLNumber.AutoSize = true;
+            this.lblOLNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOLNumber.Location = new System.Drawing.Point(193, 15);
+            this.lblOLNumber.Name = "lblOLNumber";
+            this.lblOLNumber.Size = new System.Drawing.Size(46, 54);
+            this.lblOLNumber.TabIndex = 3;
+            this.lblOLNumber.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(15, 15);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(191, 28);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "On Leave Employees";
+            // 
             // cardInactive
             // 
             this.cardInactive.BackColor = System.Drawing.Color.Transparent;
@@ -152,24 +196,25 @@
             this.cardInactive.Controls.Add(this.label2lblInactiveTitle);
             this.cardInactive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cardInactive.FillColor = System.Drawing.Color.White;
-            this.cardInactive.Location = new System.Drawing.Point(773, 13);
+            this.cardInactive.Location = new System.Drawing.Point(868, 13);
             this.cardInactive.Name = "cardInactive";
             this.cardInactive.Radius = 10;
             this.cardInactive.ShadowColor = System.Drawing.Color.Black;
             this.cardInactive.ShadowDepth = 5;
-            this.cardInactive.Size = new System.Drawing.Size(374, 74);
+            this.cardInactive.Size = new System.Drawing.Size(279, 74);
             this.cardInactive.TabIndex = 2;
+            this.cardInactive.Click += new System.EventHandler(this.cardInactive_Click);
             // 
             // lblInactiveNumber
             // 
             this.lblInactiveNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblInactiveNumber.AutoSize = true;
             this.lblInactiveNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInactiveNumber.Location = new System.Drawing.Point(288, 15);
+            this.lblInactiveNumber.Location = new System.Drawing.Point(193, 15);
             this.lblInactiveNumber.Name = "lblInactiveNumber";
-            this.lblInactiveNumber.Size = new System.Drawing.Size(69, 54);
+            this.lblInactiveNumber.Size = new System.Drawing.Size(46, 54);
             this.lblInactiveNumber.TabIndex = 3;
-            this.lblInactiveNumber.Text = "20";
+            this.lblInactiveNumber.Text = "0";
             // 
             // label2lblInactiveTitle
             // 
@@ -189,24 +234,25 @@
             this.cardActive.Controls.Add(this.lblActiveTitle);
             this.cardActive.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cardActive.FillColor = System.Drawing.Color.White;
-            this.cardActive.Location = new System.Drawing.Point(393, 13);
+            this.cardActive.Location = new System.Drawing.Point(583, 13);
             this.cardActive.Name = "cardActive";
             this.cardActive.Radius = 10;
             this.cardActive.ShadowColor = System.Drawing.Color.Black;
             this.cardActive.ShadowDepth = 5;
-            this.cardActive.Size = new System.Drawing.Size(374, 74);
+            this.cardActive.Size = new System.Drawing.Size(279, 74);
             this.cardActive.TabIndex = 1;
+            this.cardActive.Click += new System.EventHandler(this.cardActive_Click);
             // 
             // lblActiveNumber
             // 
             this.lblActiveNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblActiveNumber.AutoSize = true;
             this.lblActiveNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActiveNumber.Location = new System.Drawing.Point(286, 15);
+            this.lblActiveNumber.Location = new System.Drawing.Point(191, 15);
             this.lblActiveNumber.Name = "lblActiveNumber";
-            this.lblActiveNumber.Size = new System.Drawing.Size(69, 54);
+            this.lblActiveNumber.Size = new System.Drawing.Size(46, 54);
             this.lblActiveNumber.TabIndex = 2;
-            this.lblActiveNumber.Text = "80";
+            this.lblActiveNumber.Text = "0";
             // 
             // lblActiveTitle
             // 
@@ -231,19 +277,20 @@
             this.cardTotal.Radius = 10;
             this.cardTotal.ShadowColor = System.Drawing.Color.Black;
             this.cardTotal.ShadowDepth = 5;
-            this.cardTotal.Size = new System.Drawing.Size(374, 74);
+            this.cardTotal.Size = new System.Drawing.Size(279, 74);
             this.cardTotal.TabIndex = 0;
+            this.cardTotal.Click += new System.EventHandler(this.cardTotal_Click);
             // 
             // lblTotalNumber
             // 
             this.lblTotalNumber.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblTotalNumber.AutoSize = true;
             this.lblTotalNumber.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalNumber.Location = new System.Drawing.Point(261, 15);
+            this.lblTotalNumber.Location = new System.Drawing.Point(166, 15);
             this.lblTotalNumber.Name = "lblTotalNumber";
-            this.lblTotalNumber.Size = new System.Drawing.Size(92, 54);
+            this.lblTotalNumber.Size = new System.Drawing.Size(46, 54);
             this.lblTotalNumber.TabIndex = 1;
-            this.lblTotalNumber.Text = "100";
+            this.lblTotalNumber.Text = "0";
             // 
             // lblTotalTitle
             // 
@@ -345,6 +392,7 @@
             this.txtSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchEmployee.IconRight = global::Presentation.Properties.Resources.find1;
             this.txtSearchEmployee.Location = new System.Drawing.Point(20, 10);
             this.txtSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.txtSearchEmployee.Name = "txtSearchEmployee";
@@ -352,6 +400,7 @@
             this.txtSearchEmployee.SelectedText = "";
             this.txtSearchEmployee.Size = new System.Drawing.Size(300, 40);
             this.txtSearchEmployee.TabIndex = 0;
+            this.txtSearchEmployee.IconRightClick += new System.EventHandler(this.txtSearchEmployee_IconRightClick_1);
             this.txtSearchEmployee.TextChanged += new System.EventHandler(this.txtSearchEmployee_TextChanged);
             // 
             // dtgEmployee
@@ -360,27 +409,27 @@
             this.dtgEmployee.AllowUserToDeleteRows = false;
             this.dtgEmployee.AllowUserToResizeColumns = false;
             this.dtgEmployee.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
-            this.dtgEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dtgEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(248)))), ((int)(((byte)(249)))));
+            this.dtgEmployee.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(234)))), ((int)(((byte)(237)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(15, 0, 15, 0);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dtgEmployee.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dtgEmployee.ColumnHeadersHeight = 45;
             this.dtgEmployee.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dtgEmployee.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dtgEmployee.DefaultCellStyle = dataGridViewCellStyle3;
             this.dtgEmployee.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtgEmployee.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.dtgEmployee.Location = new System.Drawing.Point(0, 0);
@@ -412,6 +461,7 @@
             this.dtgEmployee.ThemeStyle.RowsStyle.Height = 40;
             this.dtgEmployee.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(241)))), ((int)(((byte)(243)))));
             this.dtgEmployee.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dtgEmployee.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmployee_CellDoubleClick);
             // 
             // pnlContent
             // 
@@ -434,6 +484,8 @@
             this.Size = new System.Drawing.Size(1200, 800);
             this.pnlAction.ResumeLayout(false);
             this.tbLayoutCard.ResumeLayout(false);
+            this.cardOnLeave.ResumeLayout(false);
+            this.cardOnLeave.PerformLayout();
             this.cardInactive.ResumeLayout(false);
             this.cardInactive.PerformLayout();
             this.cardActive.ResumeLayout(false);
@@ -473,5 +525,8 @@
         private Guna.UI2.WinForms.Guna2TextBox txtSearchEmployee;
         private Guna.UI2.WinForms.Guna2DataGridView dtgEmployee;
         private System.Windows.Forms.Panel pnlContent;
+        private Guna.UI2.WinForms.Guna2ShadowPanel cardOnLeave;
+        private System.Windows.Forms.Label lblOLNumber;
+        private System.Windows.Forms.Label label3;
     }
 }

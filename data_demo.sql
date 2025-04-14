@@ -40,3 +40,22 @@ INSERT INTO BookingStatus (BStatus, BKDescription) VALUES
 ('InProgress',     N'Đang lưu trú'),
 ('Rejected',       N'Bị từ chối');
 GO
+
+INSERT INTO Employees (EId, Name, Gender, Phone, Email, Address, Status, ERole)
+VALUES 
+('E001', N'Nguyễn Văn A', 'Male', '0911111111', 'nguyenvana@example.com', N'123 Lê Lợi, Q1, TP.HCM', 'Active', 'Manager'),
+('E002', N'Trần Thị B', 'Female', '0922222222', 'tranthib@example.com', N'456 Nguyễn Trãi, Q5, TP.HCM', 'On Leave', 'Receptionist'),
+('E003', N'Lê Văn C', 'Male', '0933333333', 'levanc@example.com', N'789 Hai Bà Trưng, Q3, TP.HCM', 'Active', 'Housekeeping'),
+('E004', N'Phạm Thị D', 'Female', '0944444444', 'phamthid@example.com', N'321 Cách Mạng Tháng 8, Q10', 'Inactive', 'Housekeeping'),
+('E005', N'Hoàng Văn E', 'Male', '0955555555', 'hoangvane@example.com', N'12 Nguyễn Huệ, Q1', 'Active', 'Receptionist'),
+('E006', N'Đỗ Thị F', 'Female', '0966666666', 'dothif@example.com', N'34 Trần Hưng Đạo, Q1', 'Active', 'Manager'),
+('E007', N'Ngô Văn G', 'Male', '0977777777', 'ngovang@example.com', N'56 Lý Thường Kiệt, Q5', 'On Leave', 'Housekeeping'),
+('E008', N'Võ Thị H', 'Female', '0988888888', 'vothih@example.com', N'78 Phạm Ngũ Lão, Q1', 'Active', 'Receptionist'),
+('E009', N'Trịnh Văn I', 'Male', '0999999999', 'trinhvani@example.com', N'90 Trường Chinh, Tân Bình', 'Inactive', 'Manager'),
+('E010', N'Bùi Thị J', 'Other', '0900000000', 'buithij@example.com', N'11 Hùng Vương, Q6', 'Active', 'Receptionist');
+
+INSERT INTO EmployeeRole (ERole, Description)
+VALUES 
+('Manager', N'Quản lý chung của cửa hàng'),
+('Receptionist', N'Lễ tân, tiếp nhận khách'),
+('Housekeeping', N'Nhân viên dọn phòng');
