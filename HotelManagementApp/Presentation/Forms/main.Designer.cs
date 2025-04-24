@@ -47,8 +47,8 @@
             this.pic_close = new System.Windows.Forms.PictureBox();
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.panelUC = new Guna.UI2.WinForms.Guna2Panel();
-            this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
             this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
+            this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
             this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
             this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
             this.sideBar.SuspendLayout();
@@ -344,16 +344,25 @@
             // panelUC
             // 
             this.panelUC.BackColor = System.Drawing.Color.Transparent;
-            this.panelUC.Controls.Add(this.UC_CustomerManagement);
             this.panelUC.Controls.Add(this.UC_RoomManagement);
             this.panelUC.Controls.Add(this.UC_EmployeeManagement);
             this.panelUC.Controls.Add(this.UC_BookingManagement);
+            this.panelUC.Controls.Add(this.UC_CustomerManagement);
             this.panelUC.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelUC.Location = new System.Drawing.Point(120, 103);
             this.panelUC.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panelUC.Name = "panelUC";
             this.panelUC.Size = new System.Drawing.Size(1804, 952);
             this.panelUC.TabIndex = 19;
+            // 
+            // UC_CustomerManagement
+            // 
+            this.UC_CustomerManagement.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_CustomerManagement.Location = new System.Drawing.Point(0, 0);
+            this.UC_CustomerManagement.Margin = new System.Windows.Forms.Padding(4);
+            this.UC_CustomerManagement.Name = "UC_CustomerManagement";
+            this.UC_CustomerManagement.Size = new System.Drawing.Size(1804, 952);
+            this.UC_CustomerManagement.TabIndex = 3;
             // 
             // UC_RoomManagement
             // 
@@ -365,15 +374,6 @@
             this.UC_RoomManagement.Padding = new System.Windows.Forms.Padding(6);
             this.UC_RoomManagement.Size = new System.Drawing.Size(1804, 952);
             this.UC_RoomManagement.TabIndex = 2;
-            // 
-            // UC_CustomerManagement
-            // 
-            this.UC_CustomerManagement.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_CustomerManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_CustomerManagement.Margin = new System.Windows.Forms.Padding(4);
-            this.UC_CustomerManagement.Name = "UC_CustomerManagement";
-            this.UC_CustomerManagement.Size = new System.Drawing.Size(1804, 952);
-            this.UC_CustomerManagement.TabIndex = 3;
             // 
             // UC_EmployeeManagement
             // 
@@ -397,7 +397,6 @@
             this.UC_BookingManagement.Size = new System.Drawing.Size(1804, 952);
             this.UC_BookingManagement.TabIndex = 0;
             this.UC_BookingManagement.Load += new System.EventHandler(this.UC_BookingManagement_Load);
-                
             // 
             // Main
             // 
