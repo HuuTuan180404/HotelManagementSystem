@@ -23,6 +23,7 @@ namespace Presentation.Forms
         private const int HTCAPTION = 0x2;
 
         RoomB RoomB;
+        public event EventHandler DataChanged;
 
         public AddRoom()
         {
@@ -128,7 +129,12 @@ namespace Presentation.Forms
                     RPricePerNight = Convert.ToDecimal(lbPrice.Text),
                     RDescription = lbRoomDescription.Text
                 };
-                RoomB.AddRoom(roomDTO);
+                if (RoomB.AddRoom(roomDTO))
+                {
+                    MessageBox.Show("Thêm phòng thành công");
+                    DataChanged?.Invoke(this, EventArgs.Empty);
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

@@ -25,6 +25,9 @@ namespace Presentation.User_Controls
         RoomB RoomBusiness = new RoomB();
         private List<RoomDTO> currentList = null;
 
+        
+
+
         public UC_RoomManagement()
         {
             InitializeComponent();
