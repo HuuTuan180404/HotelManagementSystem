@@ -45,22 +45,21 @@
             this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtIconSearch);
-            this.panel1.Controls.Add(this.txtSearch);
-            this.panel1.Controls.Add(this.btnChangeViewMode);
-            this.panel1.Controls.Add(this.btnAddRoom);
-            this.panel1.Controls.Add(this.comboboxStatus);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.UC_ViewFloorMode);
-            this.panel1.Controls.Add(this.UC_ViewTableMode);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.panel1.Location = new System.Drawing.Point(6, 6);
@@ -83,7 +82,7 @@
             this.txtIconSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtIconSearch.IconRight = global::Presentation.Properties.Resources.find1;
-            this.txtIconSearch.Location = new System.Drawing.Point(329, 96);
+            this.txtIconSearch.Location = new System.Drawing.Point(312, 26);
             this.txtIconSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtIconSearch.Name = "txtIconSearch";
             this.txtIconSearch.PlaceholderText = "";
@@ -107,7 +106,7 @@
             this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(51, 96);
+            this.txtSearch.Location = new System.Drawing.Point(34, 26);
             this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.PlaceholderText = "Search";
@@ -121,7 +120,7 @@
             // btnChangeViewMode
             // 
             this.btnChangeViewMode.Image = global::Presentation.Properties.Resources.mode_table1;
-            this.btnChangeViewMode.Location = new System.Drawing.Point(841, 100);
+            this.btnChangeViewMode.Location = new System.Drawing.Point(824, 30);
             this.btnChangeViewMode.Name = "btnChangeViewMode";
             this.btnChangeViewMode.Size = new System.Drawing.Size(24, 24);
             this.btnChangeViewMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -139,7 +138,7 @@
             this.btnAddRoom.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnAddRoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddRoom.ForeColor = System.Drawing.Color.White;
-            this.btnAddRoom.Location = new System.Drawing.Point(753, 90);
+            this.btnAddRoom.Location = new System.Drawing.Point(736, 20);
             this.btnAddRoom.Name = "btnAddRoom";
             this.btnAddRoom.Size = new System.Drawing.Size(69, 45);
             this.btnAddRoom.TabIndex = 13;
@@ -159,7 +158,7 @@
             this.comboboxStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
             this.comboboxStatus.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(185)))), ((int)(((byte)(189)))), ((int)(((byte)(199)))));
             this.comboboxStatus.ItemHeight = 30;
-            this.comboboxStatus.Location = new System.Drawing.Point(442, 94);
+            this.comboboxStatus.Location = new System.Drawing.Point(425, 24);
             this.comboboxStatus.Name = "comboboxStatus";
             this.comboboxStatus.Size = new System.Drawing.Size(194, 36);
             this.comboboxStatus.TabIndex = 12;
@@ -276,21 +275,23 @@
             // UC_ViewFloorMode
             // 
             this.UC_ViewFloorMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewFloorMode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_ViewFloorMode.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UC_ViewFloorMode.Location = new System.Drawing.Point(19, 144);
+            this.UC_ViewFloorMode.Location = new System.Drawing.Point(0, 0);
             this.UC_ViewFloorMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UC_ViewFloorMode.Name = "UC_ViewFloorMode";
-            this.UC_ViewFloorMode.Size = new System.Drawing.Size(835, 507);
+            this.UC_ViewFloorMode.Size = new System.Drawing.Size(878, 519);
             this.UC_ViewFloorMode.TabIndex = 16;
             // 
             // UC_ViewTableMode
             // 
             this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewTableMode.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UC_ViewTableMode.Location = new System.Drawing.Point(19, 144);
+            this.UC_ViewTableMode.Location = new System.Drawing.Point(0, 0);
             this.UC_ViewTableMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.UC_ViewTableMode.Name = "UC_ViewTableMode";
-            this.UC_ViewTableMode.Size = new System.Drawing.Size(835, 507);
+            this.UC_ViewTableMode.Size = new System.Drawing.Size(878, 519);
             this.UC_ViewTableMode.TabIndex = 17;
             // 
             // contextMenuStrip
@@ -303,6 +304,29 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btnAddRoom);
+            this.panel3.Controls.Add(this.txtIconSearch);
+            this.panel3.Controls.Add(this.comboboxStatus);
+            this.panel3.Controls.Add(this.txtSearch);
+            this.panel3.Controls.Add(this.btnChangeViewMode);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 80);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(878, 80);
+            this.panel3.TabIndex = 21;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.UC_ViewFloorMode);
+            this.panel4.Controls.Add(this.UC_ViewTableMode);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 160);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(878, 519);
+            this.panel4.TabIndex = 22;
             // 
             // UC_RoomManagement
             // 
@@ -319,6 +343,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -340,5 +366,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2TextBox txtIconSearch;
         private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel4;
     }
 }

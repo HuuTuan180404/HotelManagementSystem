@@ -35,6 +35,8 @@
             this.btnMenu = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gunaToolTip_Room = new Guna.UI2.WinForms.Guna2HtmlToolTip();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,8 +80,10 @@
             // 
             // btnMenu
             // 
+            this.btnMenu.BackColor = System.Drawing.Color.White;
             this.btnMenu.Image = global::Presentation.Properties.Resources.door_handle;
             this.btnMenu.Location = new System.Drawing.Point(144, 15);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(30, 30);
             this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -96,7 +100,17 @@
             // 
             this.gunaToolTip_Room.AllowLinksHandling = true;
             this.gunaToolTip_Room.MaximumSize = new System.Drawing.Size(0, 0);
-            this.gunaToolTip_Room.ToolTipTitle = "Thông báo";
+            this.gunaToolTip_Room.ToolTipTitle = "Chi tiết";
+            // 
+            // guna2Elipse2
+            // 
+            this.guna2Elipse2.BorderRadius = 15;
+            this.guna2Elipse2.TargetControl = this.btnMenu;
+            // 
+            // menuStrip
+            // 
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.Size = new System.Drawing.Size(61, 4);
             // 
             // itemRoom2
             // 
@@ -125,5 +139,7 @@
         private System.Windows.Forms.PictureBox btnMenu;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2HtmlToolTip gunaToolTip_Room;
+        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
+        private System.Windows.Forms.ContextMenuStrip menuStrip;
     }
 }

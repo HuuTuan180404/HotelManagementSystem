@@ -97,19 +97,25 @@ namespace Presentation.User_Controls
 
         private void btnAddRoom_Click(object sender, EventArgs e)
         {
-            //AddRoom addRoom = new AddRoom();
-            //addRoom.DataChanged += LoadDataRoom;
-            //addRoom.ShowDialog();
+            AddRoom addRoom = new AddRoom();
+            addRoom.DataChanged += LoadDataRoom;
+            addRoom.ShowDialog();
         }
 
-        private void LoadDataRoom()
+        private void LoadDataRoom(object sender, EventArgs e)
         {
-            string currentStatus = comboboxStatus.SelectedItem.ToString();
-            Room_Load(null, null);
-            comboboxStatus.SelectedItem = currentStatus;
+            currentList = RoomBusiness.GetAllRooms();
+            string currentStatus = comboboxStatus.SelectedItem.ToString();            
+            btnAllRoom.Text = $"Tất cả ({RoomBusiness.GetAllRooms().Count})";
+            btnAvailableRoom.Text = $"Phòng trống ({RoomBusiness.GetAllRooms("Available").Count})";
+            btnOccupiedRoom.Text = $"Có khách ({RoomBusiness.GetAllRooms("Occupied").Count})";
+
             if (comboboxStatus.Items.Contains(currentStatus))
                 comboboxStatus.SelectedItem = currentStatus;
             else comboboxStatus.SelectedIndex = 0;
+
+            UC_ViewTableMode.SetCurrentList(this.currentList);
+            UC_ViewFloorMode.SetCurrentList(this.currentList);
         }
 
         private void txtSearch_IconRightClick(object sender, EventArgs e)

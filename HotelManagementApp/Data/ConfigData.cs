@@ -5,12 +5,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace Data
 {
     internal class ConfigData
     {
         private static readonly string CONNECTION_STRING = "data source=.;database=HotelManagementSystem;integrated security = True";
+        //private static readonly string CONNECTION_STRING = "data source=.;database=HotelManagementSystem;integrated security = True";
       
         public static string EntityConnectionString
         {

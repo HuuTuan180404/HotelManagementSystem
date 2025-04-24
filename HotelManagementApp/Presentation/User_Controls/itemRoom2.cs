@@ -21,11 +21,13 @@ namespace Presentation.User_Controls
         private itemRoom2()
         {
             InitializeComponent();
+            CreateContentMenuStrip();
         }
 
         public itemRoom2(RoomDTO roomDTO) : this()
         {
             this.RoomDTO = roomDTO;
+            Debug.WriteLine(roomDTO.Display());
             if (RoomDTO != null)
             {
                 lbRoom.Text = RoomDTO.RId.ToString();
@@ -34,28 +36,38 @@ namespace Presentation.User_Controls
             }
             foreach (Control ctrl in this.Controls)
             {
-                gunaToolTip_Room.SetToolTip(ctrl, "dads");
+                //gunaToolTip_Room.SetToolTip(ctrl, "dads");
                 ctrl.Click += Ctrl_Click;
+                gunaToolTip_Room.SetToolTip(ctrl, $"Số giường: {RoomDTO.RTBedCount} | Tối đa: {RoomDTO.RTMaxGuests} | Giá: {RoomDTO.RPricePerNight}");
             }
             btnMenu.Click-= Ctrl_Click;
+        }
+
+        private void CreateContentMenuStrip()
+        {
+            menuStrip.Items.Clear();
+            menuStrip.Items.Add("Xem chi tiết", null, null);
+            menuStrip.Items.Add("Đặt phòng", null, null);
+            menuStrip.Items.Add("Nhận phòng", null, null);
+            menuStrip.Items.Add("Yêu cầu vệ sinh", null, null);
+            //menuStrip.Items.Add("Xem chi tiết", null, null);
+            //menuStrip.Items.Add("Xem chi tiết", null, null);
         }
 
         private void Ctrl_Click(object sender, EventArgs e)
         {
             RoomDetail roomDetail = new RoomDetail(RoomDTO);
             roomDetail.ShowDialog();
-        }
-
-       
+        }       
 
         private void itemRoom2_MouseHover(object sender, EventArgs e)
         {
-            gunaToolTip_Room.SetToolTip((Control)sender, "dads");
+            gunaToolTip_Room.SetToolTip((Control)sender, $"Số giường: {RoomDTO.RTBedCount} | Tối đa: {RoomDTO.RTMaxGuests} | Giá: {RoomDTO.RPricePerNight}");
         }
 
         private void btnMenu_Click(object sender, EventArgs e)
         {
-
+            menuStrip.Show(Cursor.Position);
         }
     }
 }
