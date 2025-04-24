@@ -33,17 +33,6 @@ namespace Presentation.User_Controls
             DataRoomsChanged(null, null);
         }
 
-        //private void itemFloor_Load(object sender, EventArgs e)
-        //{
-        //    lbFloor.Text = listRooms[0].getNumberOfFloor().ToString();
-        //    foreach (var item in listRooms)
-        //    {
-        //        itemRoom2 itemRoom2 = new itemRoom2(item);
-        //        itemRoom2.DataChanged += DataRoomsChanged;
-        //        flowLayout.Controls.Add(itemRoom2);
-        //    }
-        //}
-
         private void DataRoomsChanged(object sender, EventArgs e)
         {
             flowLayout.Controls.Clear();

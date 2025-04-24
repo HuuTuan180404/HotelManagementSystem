@@ -37,6 +37,7 @@
             this.gunaToolTip_Room = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.nextTime = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.lbRoom.Location = new System.Drawing.Point(0, 0);
             this.lbRoom.Margin = new System.Windows.Forms.Padding(0);
             this.lbRoom.Name = "lbRoom";
-            this.lbRoom.Size = new System.Drawing.Size(174, 60);
+            this.lbRoom.Size = new System.Drawing.Size(174, 39);
             this.lbRoom.TabIndex = 0;
             this.lbRoom.Text = "Roo2-1";
             this.lbRoom.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -58,7 +59,7 @@
             // 
             this.lbType.BackColor = System.Drawing.Color.Transparent;
             this.lbType.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbType.Location = new System.Drawing.Point(0, 65);
+            this.lbType.Location = new System.Drawing.Point(0, 45);
             this.lbType.Margin = new System.Windows.Forms.Padding(0);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(174, 33);
@@ -70,7 +71,7 @@
             // 
             this.lbStatus.BackColor = System.Drawing.Color.Transparent;
             this.lbStatus.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbStatus.Location = new System.Drawing.Point(0, 100);
+            this.lbStatus.Location = new System.Drawing.Point(0, 77);
             this.lbStatus.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(174, 33);
@@ -82,7 +83,7 @@
             // 
             this.btnMenu.BackColor = System.Drawing.Color.White;
             this.btnMenu.Image = global::Presentation.Properties.Resources.door_handle;
-            this.btnMenu.Location = new System.Drawing.Point(144, 15);
+            this.btnMenu.Location = new System.Drawing.Point(144, 0);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(0);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(30, 30);
@@ -112,11 +113,25 @@
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(61, 4);
             // 
+            // nextTime
+            // 
+            this.nextTime.BackColor = System.Drawing.Color.Transparent;
+            this.nextTime.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nextTime.Location = new System.Drawing.Point(0, 110);
+            this.nextTime.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.nextTime.Name = "nextTime";
+            this.nextTime.Size = new System.Drawing.Size(174, 33);
+            this.nextTime.TabIndex = 6;
+            this.nextTime.Text = "Status: ";
+            this.nextTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.nextTime.MouseDown += new System.Windows.Forms.MouseEventHandler(this.nextTime_MouseDown);
+            // 
             // itemRoom2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.Controls.Add(this.nextTime);
             this.Controls.Add(this.btnMenu);
             this.Controls.Add(this.lbStatus);
             this.Controls.Add(this.lbType);
@@ -125,7 +140,6 @@
             this.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.Name = "itemRoom2";
             this.Size = new System.Drawing.Size(174, 152);
-            this.Click += new System.EventHandler(this.itemRoom2_Click);
             this.MouseHover += new System.EventHandler(this.itemRoom2_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.ResumeLayout(false);
@@ -142,5 +156,6 @@
         private Guna.UI2.WinForms.Guna2HtmlToolTip gunaToolTip_Room;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse2;
         private System.Windows.Forms.ContextMenuStrip menuStrip;
+        private System.Windows.Forms.Label nextTime;
     }
 }

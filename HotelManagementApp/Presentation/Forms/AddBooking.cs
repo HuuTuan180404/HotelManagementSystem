@@ -48,9 +48,15 @@ namespace Presentation.Forms
             FirstLoad();
         }
 
+        public AddBooking(string roomId) : this()
+        {
+            btnShowItem.Tag = roomId;
+            RoomDTO RoomDTO = RoomBusiness.GetRoom(roomId);
+            btnShowItem.Text = $"{RoomDTO.RId} - {RoomDTO.RType}";
+        }
+
         private void FirstLoad()
         {
-            //Debug.WriteLine(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
             timeCheckin.Text = DateTime.Now.ToString("HH:mm");
             dateCheckin.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
@@ -246,7 +252,7 @@ namespace Presentation.Forms
             if (itemRoom.IS_SELECTED)
             {
                 btnShowItem.Text = itemRoom.ID;
-                timer2.Start();
+                timer2.Start(); // đóng cái flow layout panel
                 itemRoom.IS_SELECTED = false;
                 btnShowItem.Tag = itemRoom.RoomId;
                 btnShowItem.PerformClick();

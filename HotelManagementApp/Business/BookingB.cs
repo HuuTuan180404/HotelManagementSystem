@@ -21,5 +21,17 @@ namespace Business
         {
             return BookingD.GetAllBookings();
         }
+
+        public BookingDTO GetBooking(string booingId)
+        {
+            try
+            {                
+                return BookingD.GetBooking(booingId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

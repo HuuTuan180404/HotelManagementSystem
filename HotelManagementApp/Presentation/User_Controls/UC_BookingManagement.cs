@@ -108,9 +108,20 @@ namespace Presentation.User_Controls
         private void CreateContextMenuRightClick(DataGridViewRow row)
         {
             contextMenuStrip.Items.Clear();
+            
             contextMenuStrip.Items.Add("View ", null, (sender, e) => { View(row); });
-            contextMenuStrip.Items.Add("Edit ", null, demo);
-            contextMenuStrip.Items.Add("Làm mới", null, demo);
+            
+            contextMenuStrip.Items.Add("CheckIn ", null, (sender, e) =>
+            {
+                CheckIn checkIn = new CheckIn(row.Cells[0].Value.ToString());
+                checkIn.ShowDialog();
+            });
+            
+            contextMenuStrip.Items.Add("Làm mới", null, (sender, e) =>
+            {
+                //CheckIn checkIn = new CheckIn(row.Cells[0].Value.ToString());
+                //checkIn.ShowDialog();
+            });
         }
 
         private void demo(object sender, EventArgs e)

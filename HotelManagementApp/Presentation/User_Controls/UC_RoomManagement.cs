@@ -21,12 +21,8 @@ namespace Presentation.User_Controls
 {
     public partial class UC_RoomManagement : UserControl
     {
-
         RoomB RoomBusiness = new RoomB();
         private List<RoomDTO> currentList = null;
-
-        
-
 
         public UC_RoomManagement()
         {
