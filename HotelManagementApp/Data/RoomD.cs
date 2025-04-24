@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 //using Microsoft.EntityFrameworkCore;
 //using System.Data.Microsoft.EntityFrameworkCore;
 
@@ -232,7 +233,7 @@ namespace Data
                 DB.SaveChanges();
                 return true;
             }
-            catch (SqlException ex) { throw ex; }
+            catch (Exception ex) { throw ex; }
         }
 
         public bool UpdateRoom(RoomDTO roomDTO)

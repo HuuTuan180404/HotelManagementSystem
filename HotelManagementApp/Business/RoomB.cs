@@ -36,10 +36,6 @@ namespace Business
         // (lấy cả các trường của các bảng có liên kết)
         public List<RoomDTO> GetRoomsFilterByString(string s)
         {
-            //List<RoomDTO> result = RoomData.GetAllRooms()
-            //    .Where(room => room.RType == type).ToList();
-            //return result;
-
             return RoomD.GetRoomsByString(s);
         }
 
@@ -100,9 +96,16 @@ namespace Business
 
         public bool DeleteRoom(string RId)
         {
-            RoomDTO roomDTO = new RoomDTO();
-            roomDTO.RId = RId;
-            return RoomD.DeleteRoom(roomDTO);
+            try
+            {
+                RoomDTO roomDTO = new RoomDTO();
+                roomDTO.RId = RId;
+                return RoomD.DeleteRoom(roomDTO);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void demo()
