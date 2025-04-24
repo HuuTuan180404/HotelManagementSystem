@@ -61,7 +61,6 @@
             this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.guna2PictureBox1.TabIndex = 0;
             this.guna2PictureBox1.TabStop = false;
-            this.guna2PictureBox1.Click += new System.EventHandler(this.guna2PictureBox1_Click);
             // 
             // guna2Elipse1
             // 
@@ -107,7 +106,6 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "itemFloor";
             this.Size = new System.Drawing.Size(1218, 155);
-            this.Load += new System.EventHandler(this.itemFloor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

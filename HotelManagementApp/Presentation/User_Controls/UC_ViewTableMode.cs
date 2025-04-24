@@ -27,6 +27,11 @@ namespace Presentation.User_Controls
             this.Controls.Add(SelectAttribute);
             SelectAttribute.BringToFront();
             SelectAttribute.Visible = false;
+            FirstLoad();
+        }
+
+        private void FirstLoad()
+        {
             currentList = RoomBusiness.GetAllRooms();
         }
 

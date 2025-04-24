@@ -125,6 +125,7 @@
             this.Margin = new System.Windows.Forms.Padding(0, 0, 5, 0);
             this.Name = "itemRoom2";
             this.Size = new System.Drawing.Size(174, 152);
+            this.Click += new System.EventHandler(this.itemRoom2_Click);
             this.MouseHover += new System.EventHandler(this.itemRoom2_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).EndInit();
             this.ResumeLayout(false);

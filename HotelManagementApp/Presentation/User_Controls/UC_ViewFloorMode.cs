@@ -21,6 +21,8 @@ namespace Presentation.User_Controls
 
         private List<RoomDTO> currentList = null;
 
+        public event EventHandler DataChanged;
+
         public UC_ViewFloorMode()
         {
             InitializeComponent();
@@ -80,5 +82,11 @@ namespace Presentation.User_Controls
             this.currentList = list;
             LoadRooms();
         }
+
+        private void DataRoomsChanged(object sender, EventArgs e)
+        {
+            SetCurrentList(RoomBusiness.GetAllRooms());
+        }
+
     }
 }

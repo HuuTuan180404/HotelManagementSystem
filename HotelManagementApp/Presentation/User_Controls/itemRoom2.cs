@@ -18,6 +18,8 @@ namespace Presentation.User_Controls
     {
         RoomDTO RoomDTO;
 
+        public event EventHandler DataChanged;
+
         private itemRoom2()
         {
             InitializeComponent();
@@ -36,7 +38,6 @@ namespace Presentation.User_Controls
             }
             foreach (Control ctrl in this.Controls)
             {
-                //gunaToolTip_Room.SetToolTip(ctrl, "dads");
                 ctrl.Click += Ctrl_Click;
                 gunaToolTip_Room.SetToolTip(ctrl, $"Số giường: {RoomDTO.RTBedCount} | Tối đa: {RoomDTO.RTMaxGuests} | Giá: {RoomDTO.RPricePerNight}");
             }
@@ -50,15 +51,19 @@ namespace Presentation.User_Controls
             menuStrip.Items.Add("Đặt phòng", null, null);
             menuStrip.Items.Add("Nhận phòng", null, null);
             menuStrip.Items.Add("Yêu cầu vệ sinh", null, null);
-            //menuStrip.Items.Add("Xem chi tiết", null, null);
-            //menuStrip.Items.Add("Xem chi tiết", null, null);
         }
 
         private void Ctrl_Click(object sender, EventArgs e)
         {
             RoomDetail roomDetail = new RoomDetail(RoomDTO);
+            roomDetail.DataChanged += DataRoomsChanged;
             roomDetail.ShowDialog();
-        }       
+        }
+
+        private void DataRoomsChanged(object sender, EventArgs e)
+        {
+            DataChanged?.Invoke(this, EventArgs.Empty);
+        }
 
         private void itemRoom2_MouseHover(object sender, EventArgs e)
         {
@@ -68,6 +73,11 @@ namespace Presentation.User_Controls
         private void btnMenu_Click(object sender, EventArgs e)
         {
             menuStrip.Show(Cursor.Position);
+        }
+
+        private void itemRoom2_Click(object sender, EventArgs e)
+        {
+            Ctrl_Click(sender, e);
         }
     }
 }

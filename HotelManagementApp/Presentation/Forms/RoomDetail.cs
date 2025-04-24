@@ -31,7 +31,7 @@ namespace Presentation.Forms
         private RoomDTO RoomDTO;
         private RoomDTO roomDTOVirtual;
         RoomB RoomBusiness = new RoomB();
-
+        public event EventHandler DataChanged;
         private RoomDetail()
         {
             InitializeComponent();
@@ -155,9 +155,12 @@ namespace Presentation.Forms
             {
                 if (alert("Bạn chắc chắn muốn cập nhật phòng này ?"))
                     if (RoomBusiness.UpdateRoom(roomDTOVirtual))
+                    {
                         MessageBox.Show("Cập nhật phòng thành công!",
                             "Thông báo", MessageBoxButtons.OK,
                             MessageBoxIcon.Information);
+                        DataChanged?.Invoke(this, EventArgs.Empty);
+                    }
                     else
                         MessageBox.Show("Không tìm thấy phòng này!",
                         "Lỗi",
@@ -169,20 +172,28 @@ namespace Presentation.Forms
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (alert("Bạn chắc chắn muốn xóa phòng này ?"))
-                if (RoomBusiness.DeleteRoom(lbRoomId.Text))
-                {
-                    MessageBox.Show("Xóa phòng thành công!",
-                       "Thông báo",
-                       MessageBoxButtons.OK,
-                       MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                    MessageBox.Show("Không tìm thấy phòng để xóa!",
-                        "Lỗi",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error);
+            try
+            {
+                if (alert("Bạn chắc chắn muốn xóa phòng này ?"))
+                    if (RoomBusiness.DeleteRoom(lbRoomId.Text))
+                    {
+                        MessageBox.Show("Xóa phòng thành công!",
+                           "Thông báo",
+                           MessageBoxButtons.OK,
+                           MessageBoxIcon.Information);
+                        DataChanged?.Invoke(this, EventArgs.Empty);
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Không tìm thấy phòng để xóa!",
+                            "Lỗi",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private bool alert(string message)
