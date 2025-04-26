@@ -108,6 +108,30 @@ namespace Business
             }
         }
 
+        public bool ChangeStatus(string roomId, string status)
+        {
+            try
+            {
+                return RoomD.ChangeStatus(roomId, status);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool RoomIsAvailable(string roomId)
+        {
+            try
+            {
+                return RoomD.RoomIsAvailable(roomId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void demo()
         {
             RoomD.demo();

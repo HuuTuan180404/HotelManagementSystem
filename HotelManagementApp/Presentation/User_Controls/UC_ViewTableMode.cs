@@ -16,7 +16,7 @@ namespace Presentation.User_Controls
 {
     public partial class UC_ViewTableMode : UserControl
     {
-        RoomB RoomBusiness = new RoomB();
+        RoomB RoomB = null;
         SelectAttribute SelectAttribute = new SelectAttribute(RoomDTO.Properties());
 
         private List<RoomDTO> currentList = null;
@@ -25,6 +25,7 @@ namespace Presentation.User_Controls
         {
             InitializeComponent();
             this.Controls.Add(SelectAttribute);
+            RoomB = new RoomB();
             SelectAttribute.BringToFront();
             SelectAttribute.Visible = false;
             FirstLoad();
@@ -32,11 +33,15 @@ namespace Presentation.User_Controls
 
         private void FirstLoad()
         {
-            currentList = RoomBusiness.GetAllRooms();
+            currentList = RoomB.GetAllRooms();
+            CreateContentMenuStrip();
+
+
         }
 
-        private void UC_ViewTableMode_Load(object sender, EventArgs e)
+        public void UC_ViewTableMode_Load(object sender, EventArgs e)
         {
+            currentList = RoomB.GetAllRooms();
             LoadRooms();
         }
 
@@ -88,13 +93,16 @@ namespace Presentation.User_Controls
             }
         }
 
+        DataGridViewRow lastRow = null;
+
         private void dataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                RoomDTO r = RoomBusiness.GetRoom(row.Cells["RId"].Value.ToString());
+                RoomDTO r = RoomB.GetRoom(row.Cells["RId"].Value.ToString());
                 RoomDetail roomDetail = new RoomDetail(r);
+                roomDetail.DataChanged += UC_ViewTableMode_Load;
                 roomDetail.ShowDialog();
             }
         }
@@ -122,6 +130,127 @@ namespace Presentation.User_Controls
                         dataGridView.Columns[(string)data["key"]].Visible = true;
                     else dataGridView.Columns[(string)data["key"]].Visible = false;
                 };
+        }
+
+        private void dataGridView_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                menuStrip.Show(Cursor.Position);
+            }
+        }
+
+        private void CreateContentMenuStrip()
+        {
+            menuStrip.Items.Clear();
+            menuStrip.Items.Add("Xem chi tiết", Properties.Resources.show_password, (sender, e) =>
+            {
+                if (lastRow == null && dataGridView.Rows[0] != null)
+                {
+                    lastRow = dataGridView.Rows[0];
+                }
+                if (lastRow != null)
+                {
+                    RoomDetail roomDetail = new RoomDetail(RoomB.GetRoom(lastRow.Cells["RId"].Value.ToString()));
+                    roomDetail.DataChanged += UC_ViewTableMode_Load;
+                    roomDetail.ShowDialog();
+                }
+
+            });
+
+            menuStrip.Items.Add("Đặt phòng", Properties.Resources.icon_booking, (sender, e) =>
+            {
+                if (lastRow == null && dataGridView.Rows[0] != null)
+                {
+                    lastRow = dataGridView.Rows[0];
+                }
+                if (lastRow != null)
+                {
+                    AddBooking AddBooking = new AddBooking(lastRow.Cells["RId"].Value.ToString());
+                    AddBooking.ShowDialog();
+                }
+            });
+
+            menuStrip.Items.Add("Nhận phòng", Properties.Resources.checkedIn, (sender, e) =>
+            {
+                try
+                {
+                    if (lastRow == null && dataGridView.Rows[0] != null)
+                    {
+                        lastRow = dataGridView.Rows[0];
+                    }
+                    if (lastRow != null)
+                    {
+                        var room = RoomB.GetRoom(lastRow.Cells["RId"].Value.ToString());
+                        if (RoomB.RoomIsAvailable(room.RId))
+                        {
+                            CheckIn checkIn = new CheckIn(lastRow.Cells["RId"].Value.ToString(), true);
+                            checkIn.DataChanged += UC_ViewTableMode_Load;
+                            checkIn.ShowDialog();
+                        }
+                        else
+                        {
+                            MessageBox.Show(room.RStatusDescription, "Không thể nhận phòng",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không có lịch đặt nào");
+                }
+            });
+
+            menuStrip.Items.Add("Yêu cầu vệ sinh", Properties.Resources.clean, (sender, e) =>
+            {
+                try
+                {
+
+                    if (lastRow == null && dataGridView.Rows[0] != null)
+                    {
+                        lastRow = dataGridView.Rows[0];
+                    }
+                    if (lastRow != null)
+                    {
+                        RoomDTO roomDTO = RoomB.GetRoom(lastRow.Cells["RId"].Value.ToString());
+                        if (roomDTO.RStatus != "Cleaning")
+                        {
+                            roomDTO.RStatus = "Cleaning";
+                            RoomB.UpdateRoom(roomDTO);
+                            UC_ViewTableMode_Load(null, null);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Phòng đang được dọn vệ sinh");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            });
+
+            menuStrip.Items.Add("Trả phòng", null, (sender, e) =>
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            });
+        }
+
+        private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                lastRow = dataGridView.Rows[e.RowIndex];
+            }
         }
     }
 }

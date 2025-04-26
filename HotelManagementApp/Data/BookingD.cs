@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,8 +32,31 @@ namespace Data
 
         public BookingDTO GetBooking(string BId)
         {
-            var booking = DB.Bookings.Where(b => b.BId == BId).SingleOrDefault();
-            return booking.GetBookingDTO();
+            try
+            {
+                var booking = DB.Bookings.Where(b => b.BId == BId).SingleOrDefault();
+                return booking.GetBookingDTO();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public bool CheckIn(string bookingId)
+        {
+            try
+            {
+                var booking = DB.Bookings.Where(b => b.BId == bookingId).SingleOrDefault();
+                booking.BStatus = "CheckedIn";
+                DB.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

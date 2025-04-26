@@ -28,8 +28,10 @@ namespace Presentation.User_Controls
             InitializeComponent();
             currentList = RoomBusiness.GetAllRooms();
         }
-        private void UC_ViewFloorMode_Load(object sender, EventArgs e)
+
+        public void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
+            currentList = RoomBusiness.GetAllRooms();
             LoadRooms();
         }
 
@@ -81,11 +83,6 @@ namespace Presentation.User_Controls
         {
             this.currentList = list;
             LoadRooms();
-        }
-
-        private void DataRoomsChanged(object sender, EventArgs e)
-        {
-            SetCurrentList(RoomBusiness.GetAllRooms());
         }
 
     }

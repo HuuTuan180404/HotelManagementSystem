@@ -33,6 +33,7 @@
             // 
             // flowLayoutPanel
             // 
+            this.flowLayoutPanel.AutoScroll = true;
             this.flowLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel.Location = new System.Drawing.Point(0, 0);
@@ -40,6 +41,7 @@
             this.flowLayoutPanel.Name = "flowLayoutPanel";
             this.flowLayoutPanel.Size = new System.Drawing.Size(1294, 745);
             this.flowLayoutPanel.TabIndex = 2;
+            this.flowLayoutPanel.WrapContents = false;
             // 
             // UC_ViewFloorMode
             // 

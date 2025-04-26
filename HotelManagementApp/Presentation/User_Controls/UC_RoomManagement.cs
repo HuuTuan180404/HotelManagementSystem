@@ -44,12 +44,15 @@ namespace Presentation.User_Controls
         {
             if (isFloor)
             {
+                UC_ViewTableMode.UC_ViewTableMode_Load(null, null);
                 UC_ViewTableMode.BringToFront();
+
                 isFloor = false;
                 btnChangeViewMode.Image = Properties.Resources.mode_floor;
             }
             else
             {
+                UC_ViewFloorMode.UC_ViewFloorMode_Load(null, null);
                 UC_ViewFloorMode.BringToFront();
                 isFloor = true;
                 btnChangeViewMode.Image = Properties.Resources.mode_table;
@@ -104,7 +107,7 @@ namespace Presentation.User_Controls
         private void LoadDataRoom(object sender, EventArgs e)
         {
             currentList = RoomBusiness.GetAllRooms();
-            string currentStatus = comboboxStatus.SelectedItem.ToString();            
+            string currentStatus = comboboxStatus.SelectedItem.ToString();
             btnAllRoom.Text = $"Tất cả ({RoomBusiness.GetAllRooms().Count})";
             btnAvailableRoom.Text = $"Phòng trống ({RoomBusiness.GetAllRooms("Available").Count})";
             btnOccupiedRoom.Text = $"Có khách ({RoomBusiness.GetAllRooms("Occupied").Count})";

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Presentation.Forms;
+using Business;
+using DocumentFormat.OpenXml.Drawing;
 
 
 namespace Presentation.User_Controls
@@ -17,12 +19,14 @@ namespace Presentation.User_Controls
     public partial class itemRoom2 : UserControl
     {
         RoomDTO RoomDTO;
+        RoomB RoomB;
 
         public event EventHandler DataChanged;
 
         private itemRoom2()
         {
             InitializeComponent();
+            RoomB = new RoomB();
             CreateContentMenuStrip();
         }
 
@@ -39,42 +43,97 @@ namespace Presentation.User_Controls
             foreach (Control ctrl in this.Controls)
             {
                 ctrl.MouseDown += Ctrl_Click;
+                ctrl.DoubleClick += Ctrl_DoubleClick;
                 gunaToolTip_Room.SetToolTip(ctrl, $"Số giường: {RoomDTO.RTBedCount} | Tối đa: {RoomDTO.RTMaxGuests} | Giá: {RoomDTO.RPricePerNight}");
             }
             btnMenu.MouseDown -= Ctrl_Click;
+            btnMenu.DoubleClick -= Ctrl_DoubleClick;
         }
 
         private void CreateContentMenuStrip()
         {
             menuStrip.Items.Clear();
-            menuStrip.Items.Add("Xem chi tiết", Properties.Resources.show_password, (sender, e) =>
+            menuStrip.Items.Add("Xem chi tiết", Properties.Resources.show_password, (EventHandler)((sender, e) =>
             {
                 RoomDetail roomDetail = new RoomDetail(RoomDTO);
-                roomDetail.DataChanged += DataRoomsChanged;
+                roomDetail.DataChanged += this.DataRoomsChanged;
                 roomDetail.ShowDialog();
-            });
+            }));
 
-            menuStrip.Items.Add("Đặt phòng", null, (sender, e) =>
+            menuStrip.Items.Add("Đặt phòng", Properties.Resources.icon_booking, (sender, e) =>
             {
                 AddBooking AddBooking = new AddBooking(RoomDTO.RId);
                 AddBooking.ShowDialog();
             });
 
-            menuStrip.Items.Add("Nhận phòng", null, null);
-            menuStrip.Items.Add("Yêu cầu vệ sinh", null, null);
+            menuStrip.Items.Add("Nhận phòng", Properties.Resources.checkedIn, (EventHandler)((sender, e) =>
+            {
+                try
+                {
+                    if (RoomB.RoomIsAvailable(RoomDTO.RId))
+                    {
+                        CheckIn checkIn = new CheckIn(RoomDTO.RId, true);
+                        checkIn.DataChanged += this.DataRoomsChanged;
+                        checkIn.ShowDialog();
+                    }
+                    else
+                    {
+                        var room = RoomB.GetRoom(RoomDTO.RId);
+                        MessageBox.Show(room.RStatusDescription, "Không thể nhận phòng",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Không có lịch đặt nào");
+                }
+            }));
+
+            menuStrip.Items.Add("Yêu cầu vệ sinh", Properties.Resources.clean, (sender, e) =>
+            {
+                try
+                {
+                    RoomDTO roomDTO = RoomB.GetRoom(RoomDTO.RId);
+                    if (roomDTO.RStatus != "Cleaning")
+                    {
+                        roomDTO.RStatus = "Cleaning";
+                        RoomB.UpdateRoom(roomDTO);
+                        DataChanged?.Invoke(this, EventArgs.Empty);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Phòng đang được dọn vệ sinh");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            });
+
+            menuStrip.Items.Add("Trả phòng", null, (sender, e) =>
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            });
         }
 
         private void Ctrl_Click(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Right)
             {
-                RoomDetail roomDetail = new RoomDetail(RoomDTO);
-                roomDetail.DataChanged += DataRoomsChanged;
-                roomDetail.ShowDialog();
+                menuStrip.Show(Cursor.Position);
             }
             else
             {
-                menuStrip.Show(Cursor.Position);
+                gunaToolTip_Room.SetToolTip((Control)sender, $"Số giường: {RoomDTO.RTBedCount} | Tối đa: {RoomDTO.RTMaxGuests} | Giá: {RoomDTO.RPricePerNight}");
             }
         }
 
@@ -96,6 +155,13 @@ namespace Presentation.User_Controls
         private void nextTime_MouseDown(object sender, MouseEventArgs e)
         {
             Ctrl_Click(sender, e);
+        }
+
+        private void Ctrl_DoubleClick(object sender, EventArgs e)
+        {
+            RoomDetail roomDetail = new RoomDetail(RoomDTO);
+            roomDetail.DataChanged += DataRoomsChanged;
+            roomDetail.ShowDialog();
         }
     }
 }

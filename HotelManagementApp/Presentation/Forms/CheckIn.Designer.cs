@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckIn));
             this.panelTitle = new Guna.UI2.WinForms.Guna2Panel();
-            this.btnExit = new System.Windows.Forms.PictureBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnExit = new System.Windows.Forms.PictureBox();
             this.txtCCCD = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtSDT = new Guna.UI2.WinForms.Guna2TextBox();
             this.txtHoTen = new Guna.UI2.WinForms.Guna2TextBox();
@@ -39,12 +39,12 @@
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.bookingId = new MaterialSkin.Controls.MaterialLabel();
-            this.roomId = new MaterialSkin.Controls.MaterialLabel();
-            this.timeCheckIn = new MaterialSkin.Controls.MaterialLabel();
-            this.timeCheckOut = new MaterialSkin.Controls.MaterialLabel();
-            this.TypeOfRoom = new MaterialSkin.Controls.MaterialLabel();
             this.price = new MaterialSkin.Controls.MaterialLabel();
+            this.TypeOfRoom = new MaterialSkin.Controls.MaterialLabel();
+            this.timeCheckOut = new MaterialSkin.Controls.MaterialLabel();
+            this.timeCheckIn = new MaterialSkin.Controls.MaterialLabel();
+            this.roomId = new MaterialSkin.Controls.MaterialLabel();
+            this.bookingId = new MaterialSkin.Controls.MaterialLabel();
             this.btnCheck = new Guna.UI2.WinForms.Guna2Button();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
@@ -62,19 +62,6 @@
             this.panelTitle.Size = new System.Drawing.Size(676, 67);
             this.panelTitle.TabIndex = 49;
             // 
-            // btnExit
-            // 
-            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(616, 9);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(50, 50);
-            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnExit.TabIndex = 11;
-            this.btnExit.TabStop = false;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
@@ -88,10 +75,23 @@
             this.materialLabel1.TabIndex = 13;
             this.materialLabel1.Text = "CheckIn";
             // 
+            // btnExit
+            // 
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(616, 9);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(50, 50);
+            this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnExit.TabIndex = 11;
+            this.btnExit.TabStop = false;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // txtCCCD
             // 
             this.txtCCCD.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtCCCD.DefaultText = "";
+            this.txtCCCD.DefaultText = "052204013042";
             this.txtCCCD.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtCCCD.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtCCCD.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -109,7 +109,7 @@
             // txtSDT
             // 
             this.txtSDT.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSDT.DefaultText = "";
+            this.txtSDT.DefaultText = "0364626275";
             this.txtSDT.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtSDT.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtSDT.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -127,7 +127,7 @@
             // txtHoTen
             // 
             this.txtHoTen.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtHoTen.DefaultText = "";
+            this.txtHoTen.DefaultText = "Nguyễn Hữu Tuấn";
             this.txtHoTen.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtHoTen.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.txtHoTen.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
@@ -195,53 +195,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
-            // bookingId
+            // price
             // 
-            this.bookingId.AutoSize = true;
-            this.bookingId.Depth = 0;
-            this.bookingId.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.bookingId.Location = new System.Drawing.Point(53, 55);
-            this.bookingId.MouseState = MaterialSkin.MouseState.HOVER;
-            this.bookingId.Name = "bookingId";
-            this.bookingId.Size = new System.Drawing.Size(71, 19);
-            this.bookingId.TabIndex = 56;
-            this.bookingId.Text = "bookingId";
-            // 
-            // roomId
-            // 
-            this.roomId.AutoSize = true;
-            this.roomId.Depth = 0;
-            this.roomId.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.roomId.Location = new System.Drawing.Point(53, 94);
-            this.roomId.MouseState = MaterialSkin.MouseState.HOVER;
-            this.roomId.Name = "roomId";
-            this.roomId.Size = new System.Drawing.Size(51, 19);
-            this.roomId.TabIndex = 57;
-            this.roomId.Text = "roomId";
-            // 
-            // timeCheckIn
-            // 
-            this.timeCheckIn.AutoSize = true;
-            this.timeCheckIn.Depth = 0;
-            this.timeCheckIn.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.timeCheckIn.Location = new System.Drawing.Point(343, 94);
-            this.timeCheckIn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.timeCheckIn.Name = "timeCheckIn";
-            this.timeCheckIn.Size = new System.Drawing.Size(55, 19);
-            this.timeCheckIn.TabIndex = 58;
-            this.timeCheckIn.Text = "checkin";
-            // 
-            // timeCheckOut
-            // 
-            this.timeCheckOut.AutoSize = true;
-            this.timeCheckOut.Depth = 0;
-            this.timeCheckOut.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.timeCheckOut.Location = new System.Drawing.Point(343, 133);
-            this.timeCheckOut.MouseState = MaterialSkin.MouseState.HOVER;
-            this.timeCheckOut.Name = "timeCheckOut";
-            this.timeCheckOut.Size = new System.Drawing.Size(69, 19);
-            this.timeCheckOut.TabIndex = 59;
-            this.timeCheckOut.Text = "check out";
+            this.price.AutoSize = true;
+            this.price.Depth = 0;
+            this.price.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.price.Location = new System.Drawing.Point(343, 55);
+            this.price.MouseState = MaterialSkin.MouseState.HOVER;
+            this.price.Name = "price";
+            this.price.Size = new System.Drawing.Size(23, 19);
+            this.price.TabIndex = 61;
+            this.price.Text = "giá";
             // 
             // TypeOfRoom
             // 
@@ -255,17 +219,53 @@
             this.TypeOfRoom.TabIndex = 60;
             this.TypeOfRoom.Text = "Loại phònh";
             // 
-            // price
+            // timeCheckOut
             // 
-            this.price.AutoSize = true;
-            this.price.Depth = 0;
-            this.price.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.price.Location = new System.Drawing.Point(343, 55);
-            this.price.MouseState = MaterialSkin.MouseState.HOVER;
-            this.price.Name = "price";
-            this.price.Size = new System.Drawing.Size(23, 19);
-            this.price.TabIndex = 61;
-            this.price.Text = "giá";
+            this.timeCheckOut.AutoSize = true;
+            this.timeCheckOut.Depth = 0;
+            this.timeCheckOut.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.timeCheckOut.Location = new System.Drawing.Point(343, 133);
+            this.timeCheckOut.MouseState = MaterialSkin.MouseState.HOVER;
+            this.timeCheckOut.Name = "timeCheckOut";
+            this.timeCheckOut.Size = new System.Drawing.Size(69, 19);
+            this.timeCheckOut.TabIndex = 59;
+            this.timeCheckOut.Text = "check out";
+            // 
+            // timeCheckIn
+            // 
+            this.timeCheckIn.AutoSize = true;
+            this.timeCheckIn.Depth = 0;
+            this.timeCheckIn.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.timeCheckIn.Location = new System.Drawing.Point(343, 94);
+            this.timeCheckIn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.timeCheckIn.Name = "timeCheckIn";
+            this.timeCheckIn.Size = new System.Drawing.Size(55, 19);
+            this.timeCheckIn.TabIndex = 58;
+            this.timeCheckIn.Text = "checkin";
+            // 
+            // roomId
+            // 
+            this.roomId.AutoSize = true;
+            this.roomId.Depth = 0;
+            this.roomId.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.roomId.Location = new System.Drawing.Point(53, 94);
+            this.roomId.MouseState = MaterialSkin.MouseState.HOVER;
+            this.roomId.Name = "roomId";
+            this.roomId.Size = new System.Drawing.Size(51, 19);
+            this.roomId.TabIndex = 57;
+            this.roomId.Text = "roomId";
+            // 
+            // bookingId
+            // 
+            this.bookingId.AutoSize = true;
+            this.bookingId.Depth = 0;
+            this.bookingId.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.bookingId.Location = new System.Drawing.Point(53, 55);
+            this.bookingId.MouseState = MaterialSkin.MouseState.HOVER;
+            this.bookingId.Name = "bookingId";
+            this.bookingId.Size = new System.Drawing.Size(71, 19);
+            this.bookingId.TabIndex = 56;
+            this.bookingId.Text = "bookingId";
             // 
             // btnCheck
             // 

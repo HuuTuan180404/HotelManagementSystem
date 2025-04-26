@@ -15,5 +15,10 @@ namespace DataTransferObject
         public DateTime BTimeCheckOut { get; set; }
         public string BStatus { get; set; }
         public DateTime BCreateAt { get; set; }
+
+        public string Display()
+        {
+            return $"{BTimeCheckIn} - {BTimeCheckOut}";
+        }
     }
 }

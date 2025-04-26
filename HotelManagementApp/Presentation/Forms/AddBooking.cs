@@ -37,21 +37,21 @@ namespace Presentation.Forms
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
-        RoomB RoomBusiness;
+        RoomB RoomB;
 
         public AddBooking()
         {
             InitializeComponent();
-            RoomBusiness = new RoomB();
+            RoomB = new RoomB();
             LoadAllRoomTypes();
-            LoadRooms(RoomBusiness.GetAllRooms());
+            LoadRooms(RoomB.GetAllRooms());
             FirstLoad();
         }
 
         public AddBooking(string roomId) : this()
         {
             btnShowItem.Tag = roomId;
-            RoomDTO RoomDTO = RoomBusiness.GetRoom(roomId);
+            RoomDTO RoomDTO = RoomB.GetRoom(roomId);
             btnShowItem.Text = $"{RoomDTO.RId} - {RoomDTO.RType}";
         }
 
@@ -68,7 +68,7 @@ namespace Presentation.Forms
         {
             comboboxRoomType.Items.Clear();
             comboboxRoomType.Items.Add("All");
-            var types = RoomBusiness.GetAllRoomTypes()
+            var types = RoomB.GetAllRoomTypes()
                 .Select(type => type.RType);
             foreach (var type in types)
                 comboboxRoomType.Items.Add(type.ToString());
@@ -214,12 +214,12 @@ namespace Presentation.Forms
         {
             if (comboboxRoomType.SelectedIndex == 0 && floor.Value < 0)
             {
-                LoadRooms(RoomBusiness.GetAllRooms());
+                LoadRooms(RoomB.GetAllRooms());
                 btnClearFilter.Visible = false;
                 return;
             }
 
-            List<RoomDTO> rooms = RoomBusiness.GetAllRooms();
+            List<RoomDTO> rooms = RoomB.GetAllRooms();
             if (floor.Value >= 0)
             {
                 rooms = rooms.Where(r => r.getNumberOfFloor() == (int)floor.Value).ToList();

@@ -28,25 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.picturebox = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btnStart = new Guna.UI2.WinForms.Guna2Button();
             this.show = new System.Windows.Forms.TextBox();
             this.btnStop = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picturebox = new Guna.UI2.WinForms.Guna2PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox)).BeginInit();
             this.SuspendLayout();
-            // 
-            // picturebox
-            // 
-            this.picturebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.picturebox.ImageRotate = 0F;
-            this.picturebox.Location = new System.Drawing.Point(349, 26);
-            this.picturebox.Name = "picturebox";
-            this.picturebox.Size = new System.Drawing.Size(386, 397);
-            this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picturebox.TabIndex = 0;
-            this.picturebox.TabStop = false;
             // 
             // btnStart
             // 
@@ -78,17 +67,41 @@
             this.btnStop.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.btnStop.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btnStop.ForeColor = System.Drawing.Color.White;
-            this.btnStop.Location = new System.Drawing.Point(108, 240);
+            this.btnStop.Location = new System.Drawing.Point(96, 240);
             this.btnStop.Name = "btnStop";
             this.btnStop.Size = new System.Drawing.Size(180, 45);
             this.btnStop.TabIndex = 4;
             this.btnStop.Text = "stop";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentation.Properties.Resources.checkedIn;
+            this.pictureBox1.Location = new System.Drawing.Point(43, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 5;
+            this.pictureBox1.TabStop = false;
+            // 
+            // picturebox
+            // 
+            this.picturebox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.picturebox.ImageRotate = 0F;
+            this.picturebox.Location = new System.Drawing.Point(349, 26);
+            this.picturebox.Name = "picturebox";
+            this.picturebox.Size = new System.Drawing.Size(386, 397);
+            this.picturebox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picturebox.TabIndex = 0;
+            this.picturebox.TabStop = false;
             // 
             // Test
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 447);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnStop);
             this.Controls.Add(this.show);
             this.Controls.Add(this.btnStart);
@@ -96,6 +109,7 @@
             this.Name = "Test";
             this.Text = "BookingManagement";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Test_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picturebox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,5 +122,6 @@
         private Guna.UI2.WinForms.Guna2Button btnStart;
         private System.Windows.Forms.TextBox show;
         private Guna.UI2.WinForms.Guna2Button btnStop;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

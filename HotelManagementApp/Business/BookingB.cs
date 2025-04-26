@@ -25,8 +25,34 @@ namespace Business
         public BookingDTO GetBooking(string booingId)
         {
             try
-            {                
+            {
                 return BookingD.GetBooking(booingId);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<BookingDTO> GetBookingsByRoomId(string roomId)
+        {
+            try
+            {
+                return BookingD.GetAllBookings().Where(b => b.RId == roomId).ToList();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public bool CheckIn(string bookingId)
+        {
+            try
+            {
+                //return BookingD.GetAllBookings().Where(b => b.RId == roomId).ToList();
+                //return null;
+                return BookingD.CheckIn(bookingId);
             }
             catch (Exception ex)
             {

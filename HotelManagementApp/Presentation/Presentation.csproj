@@ -60,9 +60,6 @@
     <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
       <HintPath>..\packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
     </Reference>
-    <Reference Include="AMRConnector">
-      <HintPath>AMRConnector.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu.Licensing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=f89b4760ba7dcb6b, processorArchitecture=MSIL">
       <HintPath>..\packages\Bunifu.Licensing.6.0.8\lib\net472\Bunifu.Licensing.dll</HintPath>
     </Reference>
@@ -325,6 +322,12 @@
     <Compile Include="Forms\RoomDetail.Designer.cs">
       <DependentUpon>RoomDetail.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\UseServide.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UseServide.Designer.cs">
+      <DependentUpon>UseServide.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -355,6 +358,12 @@
     </Compile>
     <Compile Include="User_Controls\itemRoom2.Designer.cs">
       <DependentUpon>itemRoom2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\itemService.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\itemService.Designer.cs">
+      <DependentUpon>itemService.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\SelectAttribute.cs">
       <SubType>UserControl</SubType>
@@ -433,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UseServide.resx">
+      <DependentUpon>UseServide.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -602,6 +614,15 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\icon_booking.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\clean.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\checkedIn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

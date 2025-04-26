@@ -242,7 +242,6 @@ namespace Data
             {
                 var room = DB.Rooms.SingleOrDefault(r => r.RId == roomDTO.RId);
                 if (room == null) return false;
-                //room.Clone
                 room.ConvertTo_From(roomDTO);
                 DB.SaveChanges();
                 return true;
@@ -250,11 +249,38 @@ namespace Data
             catch (SqlException ex) { throw ex; }
         }
 
+        public bool ChangeStatus(string roomId, string status)
+        {
+            try
+            {
+                var room = DB.Rooms.Where(r => r.RId == roomId).SingleOrDefault();
+                if (room == null) return false;
+
+                room.Status = status;
+
+                DB.SaveChanges();
+                return true;
+            }
+            catch (SqlException ex) { throw ex; }
+        }
+
+        public bool RoomIsAvailable(string roomId)
+        {
+            try
+            {
+                var room = DB.Rooms.SingleOrDefault(r => r.RId == roomId);
+                return room.Status == "Available";
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void demo()
         {
 
         }
-
     }
 }
 

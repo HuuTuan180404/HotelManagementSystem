@@ -43,7 +43,7 @@ namespace Presentation.User_Controls
         {
             if (e.RowIndex >= 0)
             {
-                Debug.WriteLine(e.RowIndex);
+                //Debug.WriteLine(e.RowIndex);
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
                 View(row);
             }
