@@ -148,6 +148,9 @@
   <data name="male" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\male.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_minus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>image\icon_minus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="extra-bed" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\extra-bed.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,6 +181,9 @@
   <data name="mode_table1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\mode_table.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="checkedIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>image\checkedIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="clean1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\clean.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -205,7 +211,7 @@
   <data name="hide_password" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>image\hide_password.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="checkedIn" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>image\checkedIn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="icon_plus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>image\icon_plus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

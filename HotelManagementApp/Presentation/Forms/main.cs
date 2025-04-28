@@ -128,5 +128,6 @@ namespace Presentation.Forms
             UC_BookingManagement.Left = (panelUC.ClientSize.Width - UC_BookingManagement.Width) / 2;
             UC_BookingManagement.Top = (panelUC.ClientSize.Height - UC_BookingManagement.Height) / 2;
         }
+
     }
 }

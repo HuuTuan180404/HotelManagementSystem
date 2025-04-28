@@ -43,7 +43,6 @@ namespace Presentation.User_Controls
         {
             if (e.RowIndex >= 0)
             {
-                //Debug.WriteLine(e.RowIndex);
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
                 View(row);
             }
@@ -108,25 +107,30 @@ namespace Presentation.User_Controls
         private void CreateContextMenuRightClick(DataGridViewRow row)
         {
             contextMenuStrip.Items.Clear();
-            
+
             contextMenuStrip.Items.Add("View ", null, (sender, e) => { View(row); });
-            
+
             contextMenuStrip.Items.Add("CheckIn ", null, (sender, e) =>
             {
                 CheckIn checkIn = new CheckIn(row.Cells[0].Value.ToString());
                 checkIn.ShowDialog();
             });
-            
-            contextMenuStrip.Items.Add("Làm mới", null, (sender, e) =>
+
+            contextMenuStrip.Items.Add("Thêm dịch vụ", null, (sender, e) =>
             {
-                //CheckIn checkIn = new CheckIn(row.Cells[0].Value.ToString());
-                //checkIn.ShowDialog();
+                if (row.Cells["BStatus"].Value.ToString() == "CheckedIn")
+                {
+                    UseServide useServide = new UseServide(row.Cells[0].Value.ToString());
+                    useServide.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thực hiện",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                }
             });
-        }
-
-        private void demo(object sender, EventArgs e)
-        {
-
         }
 
         private void RenameColumns()
