@@ -18,7 +18,6 @@ namespace Data
         public PaymentStatus()
         {
             this.BookingPayments = new HashSet<BookingPayments>();
-            this.ServiceUsage = new HashSet<ServiceUsage>();
         }
     
         public string PStatus { get; set; }
@@ -26,7 +25,5 @@ namespace Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingPayments> BookingPayments { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsage> ServiceUsage { get; set; }
     }
 }

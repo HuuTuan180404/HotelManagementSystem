@@ -21,14 +21,9 @@ namespace Data
         }
     
         public string SUId { get; set; }
-        public string BId { get; set; }
         public System.DateTime SUDate { get; set; }
-        public string PMethod { get; set; }
-        public string PStatus { get; set; }
     
         public virtual Bookings Bookings { get; set; }
-        public virtual PaymentMethod PaymentMethod { get; set; }
-        public virtual PaymentStatus PaymentStatus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceUsageDetail> ServiceUsageDetail { get; set; }
     }

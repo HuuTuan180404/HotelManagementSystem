@@ -15,15 +15,11 @@ namespace Data
     
     public partial class HotelManagementSystemContext : DbContext
     {
-        //public HotelManagementSystemContext()
-        //    : base("name=HotelManagementSystemContext")
-        //{
-        //}
-
-        public HotelManagementSystemContext() : base(ConfigData.EntityConnectionString)
+        public HotelManagementSystemContext()
+            : base("name=HotelManagementSystemContext")
         {
         }
-
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();

@@ -12,16 +12,15 @@ namespace Data
     using DataTransferObject;
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Bookings
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Bookings()
         {
             this.BookingPayments = new HashSet<BookingPayments>();
-            this.ServiceUsage = new HashSet<ServiceUsage>();
         }
-
+    
         public string BId { get; set; }
         public string RId { get; set; }
         public string CId { get; set; }
@@ -29,15 +28,13 @@ namespace Data
         public System.DateTime BTimeCheckOut { get; set; }
         public string BStatus { get; set; }
         public Nullable<System.DateTime> BCreateAt { get; set; }
-
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<BookingPayments> BookingPayments { get; set; }
         public virtual BookingStatus BookingStatus { get; set; }
         public virtual Customers Customers { get; set; }
         public virtual Rooms Rooms { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ServiceUsage> ServiceUsage { get; set; }
-
+        public virtual ServiceUsage ServiceUsage { get; set; }
         public BookingDTO GetBookingDTO()
         {
             return new BookingDTO
@@ -53,6 +50,3 @@ namespace Data
         }
     }
 }
-
-
-
