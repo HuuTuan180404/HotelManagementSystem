@@ -126,13 +126,8 @@ GO
 CREATE TABLE ServiceUsage 
 (
     SUId VARCHAR(100) PRIMARY KEY,
-    BId VARCHAR(100) NOT NULL,
     SUDate DATETIME NOT NULL DEFAULT GETDATE(),
-    PMethod VARCHAR(100) NOT NULL,
-    PStatus VARCHAR(100) NOT NULL,
-    FOREIGN KEY (BId) REFERENCES Bookings(BId),
-    FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod),
-    FOREIGN KEY (PStatus) REFERENCES PaymentStatus(PStatus)
+    FOREIGN KEY (SUId) REFERENCES Bookings(BId),
 )
 GO
 
@@ -142,10 +137,9 @@ CREATE TABLE ServiceUsageDetail
     SUId VARCHAR(100) NOT NULL,
     SName VARCHAR(100) NOT NULL,
     EId VARCHAR(100) NOT NULL,
-    UnitPrice DECIMAL(10,2) NOT NULL CHECK (UnitPrice >= 0),
     Quantity INT NOT NULL CHECK (Quantity > 0),
-    Discount DECIMAL(5,2) DEFAULT 0 CHECK (Discount BETWEEN 0 AND 100),
-    PRIMARY KEY (SUId, SName),
+	CreateAt DATETIME NOT NULL,
+    PRIMARY KEY (SUId, SName,CreateAt),
     FOREIGN KEY (SUId) REFERENCES ServiceUsage(SUId),
     FOREIGN KEY (SName) REFERENCES Services(SName),
     FOREIGN KEY (EId) REFERENCES Employees(EId)
