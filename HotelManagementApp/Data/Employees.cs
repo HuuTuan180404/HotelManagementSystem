@@ -20,7 +20,7 @@ namespace Data
             this.BookingPayments = new HashSet<BookingPayments>();
             this.ServiceUsageDetail = new HashSet<ServiceUsageDetail>();
         }
-        
+    
         public string EId { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }

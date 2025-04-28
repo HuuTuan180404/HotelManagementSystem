@@ -84,6 +84,7 @@ namespace Presentation.Forms
                 }
                 CustomerDTO customer = CustomerBusiness.GetCustomerById(BookingDTO.CId);
                 if (customer.Name != txtHoTen.Text ||
+
                     customer.CId != txtCCCD.Text ||
                     customer.Phone != txtSDT.Text)
                 {

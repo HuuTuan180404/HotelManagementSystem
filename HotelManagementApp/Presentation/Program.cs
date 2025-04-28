@@ -23,6 +23,7 @@ namespace Presentation
             //Application.Run(new AddBooking());
             //Application.Run(new AddRoom());
             //Application.Run(new Test());
+            //Application.Run(new UseServide("005"));
         }
     }
 }

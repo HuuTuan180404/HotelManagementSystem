@@ -262,6 +262,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfigPresentation.cs" />
     <Compile Include="Forms\AddCus.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +336,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="User_Controls\itemHearderAdded.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\itemHearderAdded.Designer.cs">
+      <DependentUpon>itemHearderAdded.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\itemAttribute.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -346,6 +353,12 @@
     </Compile>
     <Compile Include="User_Controls\itemFloor.Designer.cs">
       <DependentUpon>itemFloor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\itemHearder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\itemHearder.Designer.cs">
+      <DependentUpon>itemHearder.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\itemRoom.cs">
       <SubType>UserControl</SubType>
@@ -364,6 +377,12 @@
     </Compile>
     <Compile Include="User_Controls\itemService.Designer.cs">
       <DependentUpon>itemService.cs</DependentUpon>
+    </Compile>
+    <Compile Include="User_Controls\itemServiceAdded.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\itemServiceAdded.Designer.cs">
+      <DependentUpon>itemServiceAdded.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Controls\SelectAttribute.cs">
       <SubType>UserControl</SubType>
@@ -451,17 +470,29 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\itemHearderAdded.resx">
+      <DependentUpon>itemHearderAdded.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemAttribute.resx">
       <DependentUpon>itemAttribute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemFloor.resx">
       <DependentUpon>itemFloor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\itemHearder.resx">
+      <DependentUpon>itemHearder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemRoom.resx">
       <DependentUpon>itemRoom.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\itemRoom2.resx">
       <DependentUpon>itemRoom2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\itemService.resx">
+      <DependentUpon>itemService.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\itemServiceAdded.resx">
+      <DependentUpon>itemServiceAdded.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\SelectAttribute.resx">
       <DependentUpon>SelectAttribute.cs</DependentUpon>
@@ -623,6 +654,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\checkedIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\icon_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\icon_plus.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

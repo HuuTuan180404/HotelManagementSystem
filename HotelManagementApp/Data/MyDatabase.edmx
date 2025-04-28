@@ -121,22 +121,19 @@
             <PropertyRef Name="SUId" />
           </Key>
           <Property Name="SUId" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="BId" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="SUDate" Type="datetime" Nullable="false" />
-          <Property Name="PMethod" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="PStatus" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="ServiceUsageDetail">
           <Key>
             <PropertyRef Name="SUId" />
             <PropertyRef Name="SName" />
+            <PropertyRef Name="CreateAt" />
           </Key>
           <Property Name="SUId" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="SName" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="EId" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="UnitPrice" Type="decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="Quantity" Type="int" Nullable="false" />
-          <Property Name="Discount" Type="decimal" Precision="5" Scale="2" />
+          <Property Name="CreateAt" Type="datetime" Nullable="false" />
         </EntityType>
         <Association Name="FK__BookingPa__PMeth__797309D9">
           <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
@@ -258,31 +255,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUs__PMeth__693CA210">
-          <End Role="PaymentMethod" Type="Self.PaymentMethod" Multiplicity="1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentMethod">
-              <PropertyRef Name="PMethod" />
-            </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="PMethod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServiceUs__PStat__6A30C649">
-          <End Role="PaymentStatus" Type="Self.PaymentStatus" Multiplicity="1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="PStatus" />
-            </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="PStatus" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServiceUs__SName__71D1E811">
+        <Association Name="FK__ServiceUs__SName__690797E6">
           <End Role="Services" Type="Self.Services" Multiplicity="1" />
           <End Role="ServiceUsageDetail" Type="Self.ServiceUsageDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -294,7 +267,19 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUsa__SUId__70DDC3D8">
+        <Association Name="FK__ServiceUsa__SUId__40058253">
+          <End Role="Bookings" Type="Self.Bookings" Multiplicity="1" />
+          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="Bookings">
+              <PropertyRef Name="BId" />
+            </Principal>
+            <Dependent Role="ServiceUsage">
+              <PropertyRef Name="SUId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ServiceUsa__SUId__681373AD">
           <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="1" />
           <End Role="ServiceUsageDetail" Type="Self.ServiceUsageDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -306,19 +291,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUsag__BId__68487DD7">
-          <End Role="Bookings" Type="Self.Bookings" Multiplicity="1" />
-          <End Role="ServiceUsage" Type="Self.ServiceUsage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Bookings">
-              <PropertyRef Name="BId" />
-            </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="BId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServiceUsag__EId__72C60C4A">
+        <Association Name="FK__ServiceUsag__EId__69FBBC1F">
           <End Role="Employees" Type="Self.Employees" Multiplicity="1" />
           <End Role="ServiceUsageDetail" Type="Self.ServiceUsageDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -385,27 +358,19 @@
             <End Role="RType" EntitySet="RType" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUs__PMeth__693CA210" Association="Self.FK__ServiceUs__PMeth__693CA210">
-            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServiceUs__PStat__6A30C649" Association="Self.FK__ServiceUs__PStat__6A30C649">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServiceUs__SName__71D1E811" Association="Self.FK__ServiceUs__SName__71D1E811">
+          <AssociationSet Name="FK__ServiceUs__SName__690797E6" Association="Self.FK__ServiceUs__SName__690797E6">
             <End Role="Services" EntitySet="Services" />
             <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUsa__SUId__70DDC3D8" Association="Self.FK__ServiceUsa__SUId__70DDC3D8">
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
-            <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServiceUsag__BId__68487DD7" Association="Self.FK__ServiceUsag__BId__68487DD7">
+          <AssociationSet Name="FK__ServiceUsa__SUId__40058253" Association="Self.FK__ServiceUsa__SUId__40058253">
             <End Role="Bookings" EntitySet="Bookings" />
             <End Role="ServiceUsage" EntitySet="ServiceUsage" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUsag__EId__72C60C4A" Association="Self.FK__ServiceUsag__EId__72C60C4A">
+          <AssociationSet Name="FK__ServiceUsa__SUId__681373AD" Association="Self.FK__ServiceUsa__SUId__681373AD">
+            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
+            <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ServiceUsag__EId__69FBBC1F" Association="Self.FK__ServiceUsag__EId__69FBBC1F">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
           </AssociationSet>
@@ -457,7 +422,7 @@
             <End Role="Rooms" EntitySet="Rooms" />
             <End Role="Bookings" EntitySet="Bookings" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUsag__BId__68487DD7" Association="HotelManagementSystemModel.FK__ServiceUsag__BId__68487DD7">
+          <AssociationSet Name="FK__ServiceUsa__SUId__40058253" Association="HotelManagementSystemModel.FK__ServiceUsa__SUId__40058253">
             <End Role="Bookings" EntitySet="Bookings" />
             <End Role="ServiceUsage" EntitySet="ServiceUsage" />
           </AssociationSet>
@@ -465,17 +430,9 @@
             <End Role="EmployeeRole" EntitySet="EmployeeRole" />
             <End Role="Employees" EntitySet="Employees" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUsag__EId__72C60C4A" Association="HotelManagementSystemModel.FK__ServiceUsag__EId__72C60C4A">
+          <AssociationSet Name="FK__ServiceUsag__EId__69FBBC1F" Association="HotelManagementSystemModel.FK__ServiceUsag__EId__69FBBC1F">
             <End Role="Employees" EntitySet="Employees" />
             <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServiceUs__PMeth__693CA210" Association="HotelManagementSystemModel.FK__ServiceUs__PMeth__693CA210">
-            <End Role="PaymentMethod" EntitySet="PaymentMethod" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
-          </AssociationSet>
-          <AssociationSet Name="FK__ServiceUs__PStat__6A30C649" Association="HotelManagementSystemModel.FK__ServiceUs__PStat__6A30C649">
-            <End Role="PaymentStatus" EntitySet="PaymentStatus" />
-            <End Role="ServiceUsage" EntitySet="ServiceUsage" />
           </AssociationSet>
           <AssociationSet Name="FK__Rooms__Status__403A8C7D" Association="HotelManagementSystemModel.FK__Rooms__Status__403A8C7D">
             <End Role="RStatus" EntitySet="RStatus" />
@@ -485,11 +442,11 @@
             <End Role="RType" EntitySet="RType" />
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUs__SName__71D1E811" Association="HotelManagementSystemModel.FK__ServiceUs__SName__71D1E811">
+          <AssociationSet Name="FK__ServiceUs__SName__690797E6" Association="HotelManagementSystemModel.FK__ServiceUs__SName__690797E6">
             <End Role="Services" EntitySet="Services" />
             <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
           </AssociationSet>
-          <AssociationSet Name="FK__ServiceUsa__SUId__70DDC3D8" Association="HotelManagementSystemModel.FK__ServiceUsa__SUId__70DDC3D8">
+          <AssociationSet Name="FK__ServiceUsa__SUId__681373AD" Association="HotelManagementSystemModel.FK__ServiceUsa__SUId__681373AD">
             <End Role="ServiceUsage" EntitySet="ServiceUsage" />
             <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
           </AssociationSet>
@@ -525,7 +482,7 @@
           <NavigationProperty Name="BookingStatus" Relationship="HotelManagementSystemModel.FK__Bookings__BStatu__6477ECF3" FromRole="Bookings" ToRole="BookingStatus" />
           <NavigationProperty Name="Customers" Relationship="HotelManagementSystemModel.FK__Bookings__CId__6383C8BA" FromRole="Bookings" ToRole="Customers" />
           <NavigationProperty Name="Rooms" Relationship="HotelManagementSystemModel.FK__Bookings__RId__628FA481" FromRole="Bookings" ToRole="Rooms" />
-          <NavigationProperty Name="ServiceUsage" Relationship="HotelManagementSystemModel.FK__ServiceUsag__BId__68487DD7" FromRole="Bookings" ToRole="ServiceUsage" />
+          <NavigationProperty Name="ServiceUsage" Relationship="HotelManagementSystemModel.FK__ServiceUsa__SUId__40058253" FromRole="Bookings" ToRole="ServiceUsage" />
         </EntityType>
         <EntityType Name="BookingStatus">
           <Key>
@@ -570,7 +527,7 @@
           <Property Name="ERole" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="BookingPayments" Relationship="HotelManagementSystemModel.FK__BookingPaym__EId__787EE5A0" FromRole="Employees" ToRole="BookingPayments" />
           <NavigationProperty Name="EmployeeRole" Relationship="HotelManagementSystemModel.FK__Employees__ERole__5629CD9C" FromRole="Employees" ToRole="EmployeeRole" />
-          <NavigationProperty Name="ServiceUsageDetail" Relationship="HotelManagementSystemModel.FK__ServiceUsag__EId__72C60C4A" FromRole="Employees" ToRole="ServiceUsageDetail" />
+          <NavigationProperty Name="ServiceUsageDetail" Relationship="HotelManagementSystemModel.FK__ServiceUsag__EId__69FBBC1F" FromRole="Employees" ToRole="ServiceUsageDetail" />
         </EntityType>
         <EntityType Name="PaymentMethod">
           <Key>
@@ -579,7 +536,6 @@
           <Property Name="PMethod" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BookingPayments" Relationship="HotelManagementSystemModel.FK__BookingPa__PMeth__797309D9" FromRole="PaymentMethod" ToRole="BookingPayments" />
-          <NavigationProperty Name="ServiceUsage" Relationship="HotelManagementSystemModel.FK__ServiceUs__PMeth__693CA210" FromRole="PaymentMethod" ToRole="ServiceUsage" />
         </EntityType>
         <EntityType Name="PaymentStatus">
           <Key>
@@ -588,7 +544,6 @@
           <Property Name="PStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="BookingPayments" Relationship="HotelManagementSystemModel.FK__BookingPa__PStat__7A672E12" FromRole="PaymentStatus" ToRole="BookingPayments" />
-          <NavigationProperty Name="ServiceUsage" Relationship="HotelManagementSystemModel.FK__ServiceUs__PStat__6A30C649" FromRole="PaymentStatus" ToRole="ServiceUsage" />
         </EntityType>
         <EntityType Name="Rooms">
           <Key>
@@ -628,36 +583,31 @@
           <Property Name="SName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="SDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="ServiceUsageDetail" Relationship="HotelManagementSystemModel.FK__ServiceUs__SName__71D1E811" FromRole="Services" ToRole="ServiceUsageDetail" />
+          <NavigationProperty Name="ServiceUsageDetail" Relationship="HotelManagementSystemModel.FK__ServiceUs__SName__690797E6" FromRole="Services" ToRole="ServiceUsageDetail" />
         </EntityType>
         <EntityType Name="ServiceUsage">
           <Key>
             <PropertyRef Name="SUId" />
           </Key>
           <Property Name="SUId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="BId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SUDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="PMethod" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="PStatus" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK__ServiceUsag__BId__68487DD7" FromRole="ServiceUsage" ToRole="Bookings" />
-          <NavigationProperty Name="PaymentMethod" Relationship="HotelManagementSystemModel.FK__ServiceUs__PMeth__693CA210" FromRole="ServiceUsage" ToRole="PaymentMethod" />
-          <NavigationProperty Name="PaymentStatus" Relationship="HotelManagementSystemModel.FK__ServiceUs__PStat__6A30C649" FromRole="ServiceUsage" ToRole="PaymentStatus" />
-          <NavigationProperty Name="ServiceUsageDetail" Relationship="HotelManagementSystemModel.FK__ServiceUsa__SUId__70DDC3D8" FromRole="ServiceUsage" ToRole="ServiceUsageDetail" />
+          <NavigationProperty Name="Bookings" Relationship="HotelManagementSystemModel.FK__ServiceUsa__SUId__40058253" FromRole="ServiceUsage" ToRole="Bookings" />
+          <NavigationProperty Name="ServiceUsageDetail" Relationship="HotelManagementSystemModel.FK__ServiceUsa__SUId__681373AD" FromRole="ServiceUsage" ToRole="ServiceUsageDetail" />
         </EntityType>
         <EntityType Name="ServiceUsageDetail">
           <Key>
             <PropertyRef Name="SUId" />
             <PropertyRef Name="SName" />
+            <PropertyRef Name="CreateAt" />
           </Key>
           <Property Name="SUId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="SName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="EId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="UnitPrice" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
           <Property Name="Quantity" Type="Int32" Nullable="false" />
-          <Property Name="Discount" Type="Decimal" Precision="5" Scale="2" />
-          <NavigationProperty Name="Employees" Relationship="HotelManagementSystemModel.FK__ServiceUsag__EId__72C60C4A" FromRole="ServiceUsageDetail" ToRole="Employees" />
-          <NavigationProperty Name="Services" Relationship="HotelManagementSystemModel.FK__ServiceUs__SName__71D1E811" FromRole="ServiceUsageDetail" ToRole="Services" />
-          <NavigationProperty Name="ServiceUsage" Relationship="HotelManagementSystemModel.FK__ServiceUsa__SUId__70DDC3D8" FromRole="ServiceUsageDetail" ToRole="ServiceUsage" />
+          <Property Name="CreateAt" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Employees" Relationship="HotelManagementSystemModel.FK__ServiceUsag__EId__69FBBC1F" FromRole="ServiceUsageDetail" ToRole="Employees" />
+          <NavigationProperty Name="Services" Relationship="HotelManagementSystemModel.FK__ServiceUs__SName__690797E6" FromRole="ServiceUsageDetail" ToRole="Services" />
+          <NavigationProperty Name="ServiceUsage" Relationship="HotelManagementSystemModel.FK__ServiceUsa__SUId__681373AD" FromRole="ServiceUsageDetail" ToRole="ServiceUsage" />
         </EntityType>
         <Association Name="FK__BookingPa__PMeth__797309D9">
           <End Type="HotelManagementSystemModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
@@ -743,15 +693,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUsag__BId__68487DD7">
+        <Association Name="FK__ServiceUsa__SUId__40058253">
           <End Type="HotelManagementSystemModel.Bookings" Role="Bookings" Multiplicity="1" />
-          <End Type="HotelManagementSystemModel.ServiceUsage" Role="ServiceUsage" Multiplicity="*" />
+          <End Type="HotelManagementSystemModel.ServiceUsage" Role="ServiceUsage" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Bookings">
               <PropertyRef Name="BId" />
             </Principal>
             <Dependent Role="ServiceUsage">
-              <PropertyRef Name="BId" />
+              <PropertyRef Name="SUId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -767,7 +717,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUsag__EId__72C60C4A">
+        <Association Name="FK__ServiceUsag__EId__69FBBC1F">
           <End Type="HotelManagementSystemModel.Employees" Role="Employees" Multiplicity="1" />
           <End Type="HotelManagementSystemModel.ServiceUsageDetail" Role="ServiceUsageDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -776,30 +726,6 @@
             </Principal>
             <Dependent Role="ServiceUsageDetail">
               <PropertyRef Name="EId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServiceUs__PMeth__693CA210">
-          <End Type="HotelManagementSystemModel.PaymentMethod" Role="PaymentMethod" Multiplicity="1" />
-          <End Type="HotelManagementSystemModel.ServiceUsage" Role="ServiceUsage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentMethod">
-              <PropertyRef Name="PMethod" />
-            </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="PMethod" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK__ServiceUs__PStat__6A30C649">
-          <End Type="HotelManagementSystemModel.PaymentStatus" Role="PaymentStatus" Multiplicity="1" />
-          <End Type="HotelManagementSystemModel.ServiceUsage" Role="ServiceUsage" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="PaymentStatus">
-              <PropertyRef Name="PStatus" />
-            </Principal>
-            <Dependent Role="ServiceUsage">
-              <PropertyRef Name="PStatus" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -827,7 +753,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUs__SName__71D1E811">
+        <Association Name="FK__ServiceUs__SName__690797E6">
           <End Type="HotelManagementSystemModel.Services" Role="Services" Multiplicity="1" />
           <End Type="HotelManagementSystemModel.ServiceUsageDetail" Role="ServiceUsageDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -839,7 +765,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__ServiceUsa__SUId__70DDC3D8">
+        <Association Name="FK__ServiceUsa__SUId__681373AD">
           <End Type="HotelManagementSystemModel.ServiceUsage" Role="ServiceUsage" Multiplicity="1" />
           <End Type="HotelManagementSystemModel.ServiceUsageDetail" Role="ServiceUsageDetail" Multiplicity="*" />
           <ReferentialConstraint>
@@ -983,10 +909,7 @@
           <EntitySetMapping Name="ServiceUsage">
             <EntityTypeMapping TypeName="HotelManagementSystemModel.ServiceUsage">
               <MappingFragment StoreEntitySet="ServiceUsage">
-                <ScalarProperty Name="PStatus" ColumnName="PStatus" />
-                <ScalarProperty Name="PMethod" ColumnName="PMethod" />
                 <ScalarProperty Name="SUDate" ColumnName="SUDate" />
-                <ScalarProperty Name="BId" ColumnName="BId" />
                 <ScalarProperty Name="SUId" ColumnName="SUId" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -994,9 +917,8 @@
           <EntitySetMapping Name="ServiceUsageDetail">
             <EntityTypeMapping TypeName="HotelManagementSystemModel.ServiceUsageDetail">
               <MappingFragment StoreEntitySet="ServiceUsageDetail">
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
                 <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
                 <ScalarProperty Name="EId" ColumnName="EId" />
                 <ScalarProperty Name="SName" ColumnName="SName" />
                 <ScalarProperty Name="SUId" ColumnName="SUId" />

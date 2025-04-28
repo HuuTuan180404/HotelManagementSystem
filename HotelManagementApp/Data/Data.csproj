@@ -185,6 +185,7 @@
     <Compile Include="RType.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceD.cs" />
     <Compile Include="Services.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>

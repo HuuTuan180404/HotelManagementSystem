@@ -139,7 +139,7 @@ CREATE TABLE ServiceUsageDetail
     EId VARCHAR(100) NOT NULL,
     Quantity INT NOT NULL CHECK (Quantity > 0),
 	CreateAt DATETIME NOT NULL,
-    PRIMARY KEY (SUId, SName,CreateAt),
+    PRIMARY KEY (SUId, SName, CreateAt),
     FOREIGN KEY (SUId) REFERENCES ServiceUsage(SUId),
     FOREIGN KEY (SName) REFERENCES Services(SName),
     FOREIGN KEY (EId) REFERENCES Employees(EId)
