@@ -53,9 +53,25 @@ VALUES
 ('E008', N'Võ Thị H', 'Female', '0988888888', 'vothih@example.com', N'78 Phạm Ngũ Lão, Q1', 'Active', 'Receptionist'),
 ('E009', N'Trịnh Văn I', 'Male', '0999999999', 'trinhvani@example.com', N'90 Trường Chinh, Tân Bình', 'Inactive', 'Manager'),
 ('E010', N'Bùi Thị J', 'Other', '0900000000', 'buithij@example.com', N'11 Hùng Vương, Q6', 'Active', 'Receptionist');
+GO
 
 INSERT INTO EmployeeRole (ERole, Description)
 VALUES 
 ('Manager', N'Quản lý chung của cửa hàng'),
 ('Receptionist', N'Lễ tân, tiếp nhận khách'),
 ('Housekeeping', N'Nhân viên dọn phòng');
+GO
+
+
+INSERT INTO Services (SName, SPrice, SDescription) VALUES
+('Laundry', 50000, N'Dịch vụ giặt ủi, giao trong ngày'),
+('Airport Transfer', 250000, N'Dịch vụ đưa đón sân bay'),
+('Buffet Breakfast', 150000, N'Bữa sáng buffet tại nhà hàng tầng trệt, từ 6h sáng đến 10h sáng'),
+('Spa Relaxation', 300000, N'Liệu trình massage toàn thân 60 phút với tinh dầu cao cấp'),
+('Motorbike Rental', 120000, N'Cho thuê xe máy theo ngày, bao gồm 1 lít xăng'),
+('Room Service', 0, N'Dịch vụ ăn uống phục vụ tận phòng'),
+('Extra Cleaning', 30000, N'Dịch vụ dọn phòng ngoài lịch trình thường lệ'),
+('Sauna', 100000, N'Phòng xông hơi nam/nữ riêng biệt'),
+('Mini Bar', 0, N'Tính phí theo từng món sử dụng từ minibar trong phòng'),
+('Document Printing', 5000, N'Dịch vụ in ấn tài liệu đen trắng, tính phí theo trang');
+GO
