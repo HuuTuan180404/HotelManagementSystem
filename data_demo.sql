@@ -75,3 +75,15 @@ INSERT INTO Services (SName, SPrice, SDescription) VALUES
 ('Mini Bar', 0, N'Tính phí theo từng món sử dụng từ minibar trong phòng'),
 ('Document Printing', 5000, N'Dịch vụ in ấn tài liệu đen trắng, tính phí theo trang');
 GO
+
+INSERT INTO PaymentMethod (PMethod, Description)
+VALUES 
+('Cash', N'Thanh toán bằng tiền mặt'),
+('CreditCard', N'Thanh toán bằng thẻ tín dụng'),
+('DebitCard', N'Thanh toán bằng thẻ ghi nợ'),
+('BankTransfer', N'Chuyển khoản ngân hàng'),
+('EWallet', N'Thanh toán bằng ví điện tử'),
+('QRCode', N'Thanh toán bằng mã QR'),
+('Voucher', N'Thanh toán bằng phiếu giảm giá'),
+('PayLater', N'Thanh toán sau');
+GO
