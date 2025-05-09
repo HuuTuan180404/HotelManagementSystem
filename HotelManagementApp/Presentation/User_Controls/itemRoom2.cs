@@ -55,15 +55,25 @@ namespace Presentation.User_Controls
             menuStrip.Items.Clear();
             menuStrip.Items.Add("Xem chi tiết", Properties.Resources.show_password, (EventHandler)((sender, e) =>
             {
-                RoomDetail roomDetail = new RoomDetail(RoomDTO);
+                RoomDetail roomDetail = new RoomDetail(RoomDTO.RId);
                 roomDetail.DataChanged += this.DataRoomsChanged;
                 roomDetail.ShowDialog();
             }));
 
             menuStrip.Items.Add("Đặt phòng", Properties.Resources.icon_booking, (sender, e) =>
             {
-                AddBooking AddBooking = new AddBooking(RoomDTO.RId);
-                AddBooking.ShowDialog();
+                if (RoomB.RoomIsAvailable(RoomDTO.RId))
+                {
+                    AddBooking AddBooking = new AddBooking(RoomDTO.RId);
+                    AddBooking.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Phòng chưa sẵn sàng để nhận khách",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                }
             });
 
             menuStrip.Items.Add("Nhận phòng", Properties.Resources.checkedIn, (EventHandler)((sender, e) =>
@@ -84,7 +94,7 @@ namespace Presentation.User_Controls
                         return;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Không có lịch đặt nào");
                 }
@@ -112,7 +122,7 @@ namespace Presentation.User_Controls
                 }
             });
 
-            menuStrip.Items.Add("Trả phòng", null, (sender, e) =>
+            menuStrip.Items.Add("Trả phòng & Thanh toán", null, (sender, e) =>
             {
                 try
                 {
@@ -159,7 +169,7 @@ namespace Presentation.User_Controls
 
         private void Ctrl_DoubleClick(object sender, EventArgs e)
         {
-            RoomDetail roomDetail = new RoomDetail(RoomDTO);
+            RoomDetail roomDetail = new RoomDetail(RoomDTO.RId);
             roomDetail.DataChanged += DataRoomsChanged;
             roomDetail.ShowDialog();
         }

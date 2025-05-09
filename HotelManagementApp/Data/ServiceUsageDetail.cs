@@ -12,7 +12,7 @@ namespace Data
     using DataTransferObject;
     using System;
     using System.Collections.Generic;
-
+    
     public partial class ServiceUsageDetail
     {
         public string SUId { get; set; }
@@ -20,11 +20,10 @@ namespace Data
         public string EId { get; set; }
         public int Quantity { get; set; }
         public System.DateTime CreateAt { get; set; }
-
+    
         public virtual Employees Employees { get; set; }
         public virtual Services Services { get; set; }
         public virtual ServiceUsage ServiceUsage { get; set; }
-
         public static ServiceUsageDetail Convert(ServiceUsageDetailDTO serviceUsageDetailDTO)
         {
             return new ServiceUsageDetail

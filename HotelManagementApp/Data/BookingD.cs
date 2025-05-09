@@ -58,5 +58,25 @@ namespace Data
                 throw ex;
             }
         }
+
+        public bool DatPhong(BookingDTO bookingDTO)
+        {
+            try
+            {
+                int count = DB.Bookings.ToList().Count;
+
+                bookingDTO.BCreateAt = DateTime.Now;
+                bookingDTO.BId = count.ToString();
+
+                DB.Bookings.Add(Bookings.GetBookings(bookingDTO));
+                DB.SaveChanges();
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

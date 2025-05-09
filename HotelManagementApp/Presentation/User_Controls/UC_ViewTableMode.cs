@@ -100,8 +100,7 @@ namespace Presentation.User_Controls
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dataGridView.Rows[e.RowIndex];
-                RoomDTO r = RoomB.GetRoom(row.Cells["RId"].Value.ToString());
-                RoomDetail roomDetail = new RoomDetail(r);
+                RoomDetail roomDetail = new RoomDetail(row.Cells["RId"].Value.ToString());
                 roomDetail.DataChanged += UC_ViewTableMode_Load;
                 roomDetail.ShowDialog();
             }
@@ -151,7 +150,7 @@ namespace Presentation.User_Controls
                 }
                 if (lastRow != null)
                 {
-                    RoomDetail roomDetail = new RoomDetail(RoomB.GetRoom(lastRow.Cells["RId"].Value.ToString()));
+                    RoomDetail roomDetail = new RoomDetail(lastRow.Cells["RId"].Value.ToString());
                     roomDetail.DataChanged += UC_ViewTableMode_Load;
                     roomDetail.ShowDialog();
                 }
@@ -166,8 +165,18 @@ namespace Presentation.User_Controls
                 }
                 if (lastRow != null)
                 {
-                    AddBooking AddBooking = new AddBooking(lastRow.Cells["RId"].Value.ToString());
-                    AddBooking.ShowDialog();
+                    if (RoomB.RoomIsAvailable(lastRow.Cells["RId"].Value.ToString()))
+                    {
+                        AddBooking AddBooking = new AddBooking(lastRow.Cells["RId"].Value.ToString());
+                        AddBooking.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Phòng chưa sẵn sàng để nhận khách",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    }
                 }
             });
 

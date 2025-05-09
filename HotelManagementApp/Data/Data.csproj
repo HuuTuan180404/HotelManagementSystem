@@ -131,9 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookingD.cs" />
-    <Compile Include="BookingPayments.cs">
-      <DependentUpon>MyDatabase.tt</DependentUpon>
-    </Compile>
     <Compile Include="Bookings.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
@@ -168,10 +165,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MyDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="PaymentD.cs" />
     <Compile Include="PaymentMethod.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
-    <Compile Include="PaymentStatus.cs">
+    <Compile Include="Payments.cs">
       <DependentUpon>MyDatabase.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -149,6 +149,7 @@
     <Compile Include="CustomerBusiness.cs" />
     <Compile Include="BookingB.cs" />
     <Compile Include="EmployeeBusiness.cs" />
+    <Compile Include="PaymentB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomB.cs" />
     <Compile Include="ServiceB.cs" />

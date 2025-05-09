@@ -12,32 +12,32 @@ namespace Data
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    
+
     public partial class HotelManagementSystemContext : DbContext
     {
-        public HotelManagementSystemContext()
-            : base("name=HotelManagementSystemContext")
+        public HotelManagementSystemContext() : base("name=HotelManagementSystemContext")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
-        public virtual DbSet<BookingPayments> BookingPayments { get; set; }
+
         public virtual DbSet<Bookings> Bookings { get; set; }
         public virtual DbSet<BookingStatus> BookingStatus { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<EmployeeRole> EmployeeRole { get; set; }
         public virtual DbSet<Employees> Employees { get; set; }
         public virtual DbSet<PaymentMethod> PaymentMethod { get; set; }
-        public virtual DbSet<PaymentStatus> PaymentStatus { get; set; }
+        public virtual DbSet<Payments> Payments { get; set; }
         public virtual DbSet<Rooms> Rooms { get; set; }
         public virtual DbSet<RStatus> RStatus { get; set; }
         public virtual DbSet<RType> RType { get; set; }
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<ServiceUsage> ServiceUsage { get; set; }
         public virtual DbSet<ServiceUsageDetail> ServiceUsageDetail { get; set; }
+
+
     }
 }

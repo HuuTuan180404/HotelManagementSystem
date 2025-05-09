@@ -39,10 +39,10 @@ namespace Presentation.Forms
             LoadComboboxStatus();
         }
 
-        public RoomDetail(RoomDTO roomDTO) : this()
+        public RoomDetail(string RId) : this()
         {
-            RoomDTO = roomDTO;
-            roomDTOVirtual = roomDTO.Clone();
+            RoomDTO = RoomBusiness.GetRoom(RId);
+            roomDTOVirtual = RoomDTO.Clone();
         }
 
         private void RoomDetail_Load(object sender, EventArgs e)

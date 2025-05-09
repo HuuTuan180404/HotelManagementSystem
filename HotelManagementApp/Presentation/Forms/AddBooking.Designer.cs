@@ -571,8 +571,8 @@
             this.btnShowItem.TabIndex = 4;
             this.btnShowItem.Text = "Select";
             this.btnShowItem.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.btnShowItem.Click += new System.EventHandler(this.btnShowItem_Click);
             this.btnShowItem.Leave += new System.EventHandler(this.btnShowItem_Leave);
+            this.btnShowItem.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnShowItem_MouseDown);
             // 
             // btnConfirm
             // 

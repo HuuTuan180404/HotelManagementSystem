@@ -12,10 +12,7 @@ namespace Business
     {
         BookingD BookingD;
 
-        public BookingB()
-        {
-            BookingD = new BookingD();
-        }
+        public BookingB() { BookingD = new BookingD(); }
 
         public List<BookingDTO> GetAllBookings()
         {
@@ -50,8 +47,6 @@ namespace Business
         {
             try
             {
-                //return BookingD.GetAllBookings().Where(b => b.RId == roomId).ToList();
-                //return null;
                 return BookingD.CheckIn(bookingId);
             }
             catch (Exception ex)
@@ -59,5 +54,18 @@ namespace Business
                 throw ex;
             }
         }
+
+        public bool DatPhong(BookingDTO bookingDTO)
+        {
+            try
+            {
+                return BookingD.DatPhong(bookingDTO);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
