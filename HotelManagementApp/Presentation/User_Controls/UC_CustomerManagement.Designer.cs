@@ -17,6 +17,8 @@
             {
                 components.Dispose();
             }
+            // Hủy đăng ký sự kiện khi control bị dispose
+            //AddCus.CustomerAdded -= AddCus_CustomerAdded;
             base.Dispose(disposing);
         }
 

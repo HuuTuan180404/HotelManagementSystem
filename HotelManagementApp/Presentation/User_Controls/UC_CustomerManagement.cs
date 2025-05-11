@@ -35,6 +35,9 @@ namespace Presentation.User_Controls
             pnlNewCustomer.Click += pnlNewCustomer_Click;
             pnlRevenue.Click += pnlRevenue_Click;
             
+            // Đăng ký sự kiện CustomerAdded
+            AddCus.CustomerAdded += AddCus_CustomerAdded;
+            
             // Ẩn nút xóa khi khởi động
             btDelete.Visible = false;
             txtSearchCustomer.TextChanged += txtSearchCustomer_TextChanged;
@@ -422,7 +425,7 @@ namespace Presentation.User_Controls
         {
             try
             {
-                using (var qrForm = new QR())
+                using (var qrForm = new QR(false)) // Truyền false vì đây là form quản lý khách hàng
                 {
                     qrForm.OnCustomerScanned += (customer) =>
                     {
@@ -458,8 +461,14 @@ namespace Presentation.User_Controls
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void AddCus_CustomerAdded(object sender, EventArgs e)
+        {
+            // Refresh lại danh sách khách hàng khi có khách hàng mới được thêm
+            LoadCustomers();
         }
     }
 

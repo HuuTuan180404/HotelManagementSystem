@@ -261,7 +261,7 @@ namespace Presentation.Forms
 
         private void btnQR_Click(object sender, EventArgs e)
         {
-            var qrForm = new QR();
+            var qrForm = new QR(true);
             qrForm.OnCustomerScanned += (customer) =>
             {
                 var customerBusiness = new Business.CustomerBusiness();

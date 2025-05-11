@@ -20,9 +20,12 @@ namespace Presentation.Forms
         private VideoCaptureDevice videoSource;
         private Timer timer;
         public event Action<DataTransferObject.CustomerDTO> OnCustomerScanned;
-        public QR()
+        private bool isBookingForm;
+
+        public QR(bool isBookingForm = false)
         {
             InitializeComponent();
+            this.isBookingForm = isBookingForm;
         }
 
         private void QR_Load(object sender, EventArgs e)
@@ -75,7 +78,15 @@ namespace Presentation.Forms
                 addCusForm.FocusPhoneField();
                 if (addCusForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Sau khi thêm mới, chỉ cần đóng QR, KHÔNG gọi lại OnCustomerScanned
+                    // Nếu là form AddBooking thì mới gọi OnCustomerScanned
+                    if (isBookingForm)
+                    {
+                        var newCustomer = customerBusiness.GetCustomerById(customer.CId);
+                        if (newCustomer != null)
+                        {
+                            OnCustomerScanned?.Invoke(newCustomer);
+                        }
+                    }
                     this.Close();
                 }
             }

@@ -13,6 +13,9 @@ namespace Presentation.Forms
         private bool isEditMode = false;
         private string originalCustomerId = "";
 
+        // Thêm sự kiện static để thông báo khi có khách hàng mới
+        public static event EventHandler CustomerAdded;
+
         public AddCus()
         {
             InitializeComponent();
@@ -157,6 +160,8 @@ namespace Presentation.Forms
                     if (success)
                     {
                         MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Kích hoạt sự kiện khi thêm khách hàng mới thành công
+                        CustomerAdded?.Invoke(this, EventArgs.Empty);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }
