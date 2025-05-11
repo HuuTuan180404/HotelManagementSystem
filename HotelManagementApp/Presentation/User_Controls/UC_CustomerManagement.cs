@@ -37,6 +37,7 @@ namespace Presentation.User_Controls
             
             // Ẩn nút xóa khi khởi động
             btDelete.Visible = false;
+            txtSearchCustomer.TextChanged += txtSearchCustomer_TextChanged;
         }
 
         private void ConfigureDataGridView()
@@ -158,10 +159,12 @@ namespace Presentation.User_Controls
 
         private void UpdateCustomerCounts(List<CustomerDTO> customers)
         {
-            lbTotalCustomer.Text = customers.Count.ToString();
-            lbNewCustomer.Text = customers.Count(c => c.Type == "New").ToString();
-            lbCustomerVIP.Text = customers.Count(c => c.Type == "VIP").ToString();
-            lbRegular.Text = customers.Count(c=> c.Type =="Regular").ToString();
+            // Luôn lấy tổng số khách hàng từ database
+            var allCustomers = customerBusiness.GetAllCustomers();
+            lbTotalCustomer.Text = allCustomers.Count.ToString();
+            lbNewCustomer.Text = allCustomers.Count(c => c.Type == "New").ToString();
+            lbCustomerVIP.Text = allCustomers.Count(c => c.Type == "VIP").ToString();
+            lbRegular.Text = allCustomers.Count(c => c.Type == "Regular").ToString();
         }
 
         private void DgvCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -269,7 +272,7 @@ namespace Presentation.User_Controls
             base.OnLoad(e);
             // Thêm checkbox vào header
             DataGridViewCheckBoxCell headerCell = new DataGridViewCheckBoxCell();
-            dgvCustomers.Rows[0].Cells[0] = headerCell;
+            // dgvCustomers.Rows[0].Cells[0] = headerCell;
         }
 
 
@@ -390,15 +393,73 @@ namespace Presentation.User_Controls
             cboCustomerType.SelectedItem = "Regular";
         }
 
-        private void pnlTotalCustomer_Click(object sender, EventArgs e)
-        {
-            cboCustomerType.SelectedItem = "Tất cả"; // Reset về "Tất cả"
-            LoadCustomers(); // Load lại tất cả khách hàng
-        }
-
+      
         private void lbNewCustomer_Click(object sender, EventArgs e)
         {
 
+        }
+
+       
+        private void pnlTotalCustomer_Click_1(object sender, EventArgs e)
+        {
+            cboCustomerType.SelectedItem = "Tất cả";
+            LoadCustomers(); // Load lại toàn bộ khách hàng
+        }
+
+        private void txtSearchCustomer_TextChanged(object sender, EventArgs e)
+        {
+            string searchName = txtSearchCustomer.Text.Trim();
+            var customers = customerBusiness.GetAllCustomers();
+            if (!string.IsNullOrEmpty(searchName))
+            {
+                customers = customers.Where(c => c.Name.IndexOf(searchName, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+            }
+            dgvCustomers.DataSource = customers;
+            UpdateCustomerCounts(customers);
+        }
+
+        private void btnQR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                using (var qrForm = new QR())
+                {
+                    qrForm.OnCustomerScanned += (customer) =>
+                    {
+                        // Kiểm tra khách hàng đã tồn tại chưa
+                        var existingCustomer = customerBusiness.GetCustomerById(customer.CId);
+                        if (existingCustomer != null)
+                        {
+                            MessageBox.Show("Khách hàng đã tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            qrForm.DialogResult = DialogResult.OK;
+                            qrForm.Close();
+                            LoadCustomers();
+                            return;
+                        }
+
+                        // Nếu chưa tồn tại, mở form thêm khách hàng mới
+                        using (var addCusForm = new AddCus())
+                        {
+                            addCusForm.SetCustomerData(customer, false);
+                            addCusForm.FocusPhoneField();
+
+                            if (addCusForm.ShowDialog() == DialogResult.OK)
+                            {
+                                LoadCustomers();
+                                MessageBox.Show("Thêm khách hàng mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                qrForm.DialogResult = DialogResult.OK;
+                                qrForm.Close();
+                            }
+                        }
+                    };
+                    qrForm.ShowDialog();
+                    LoadCustomers();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Có lỗi xảy ra: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 
@@ -410,6 +471,7 @@ namespace Presentation.User_Controls
 
         public DataGridViewCheckBoxHeaderCell()
         {
+
         }
 
         protected override void Paint(Graphics graphics, Rectangle clipBounds, Rectangle cellBounds, 

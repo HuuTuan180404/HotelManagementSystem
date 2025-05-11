@@ -27,10 +27,7 @@ namespace Business
             return customerData.AddCustomer(customer);
         }
 
-        public bool UpdateCustomer(CustomerDTO customer)
-        {
-            return customerData.UpdateCustomer(customer);
-        }
+        
 
         public bool DeleteCustomer(string cId)
         {
@@ -52,6 +49,11 @@ namespace Business
         public List<string> GetGenders()
         {
             return new List<string> { "Male", "Female", "Other" };
+        }
+
+        public string UpdateCustomerWithMessage(CustomerDTO customer)
+        {
+            return customerData.UpdateCustomerWithMessage(customer);
         }
     }
 }

@@ -285,7 +285,7 @@
             this.txtCId.Location = new System.Drawing.Point(20, 75);
             this.txtCId.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtCId.Name = "txtCId";
-            this.txtCId.PlaceholderText = "Cxxx";
+            this.txtCId.PlaceholderText = "CCCD";
             this.txtCId.SelectedText = "";
             this.txtCId.Size = new System.Drawing.Size(150, 36);
             this.txtCId.TabIndex = 12;
@@ -359,7 +359,7 @@
         private Guna.UI2.WinForms.Guna2PictureBox btnClose;
         private Guna.UI2.WinForms.Guna2GroupBox grpCustomerInfo;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblCId;
-        private Guna.UI2.WinForms.Guna2TextBox txtCId;
+        public Guna.UI2.WinForms.Guna2TextBox txtCId;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblName;
         private Guna.UI2.WinForms.Guna2TextBox txtCustomerName;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblGender;

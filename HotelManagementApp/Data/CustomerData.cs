@@ -81,7 +81,7 @@ namespace Data
             }
         }
 
-        public bool UpdateCustomer(CustomerDTO customer)
+        public string UpdateCustomerWithMessage(CustomerDTO customer)
         {
             try
             {
@@ -90,22 +90,35 @@ namespace Data
                     var existingCustomer = DB.Customers.Find(customer.CId);
                     if (existingCustomer != null)
                     {
+                        // Kiểm tra trùng số điện thoại với khách hàng khác
+                        if (!string.IsNullOrWhiteSpace(customer.Phone))
+                        {
+                            var phoneExists = DB.Customers.Any(c => c.Phone == customer.Phone && c.CId != customer.CId);
+                            if (phoneExists)
+                                return "Số điện thoại đã tồn tại cho khách hàng khác!";
+                        }
+                        // Kiểm tra trùng email với khách hàng khác
+                        if (!string.IsNullOrWhiteSpace(customer.Email))
+                        {
+                            var emailExists = DB.Customers.Any(c => c.Email == customer.Email && c.CId != customer.CId);
+                            if (emailExists)
+                                return "Email đã tồn tại cho khách hàng khác!";
+                        }
                         existingCustomer.Name = customer.Name;
                         existingCustomer.Gender = customer.Gender;
                         existingCustomer.Phone = customer.Phone;
                         existingCustomer.Email = customer.Email;
                         existingCustomer.Address = customer.Address;
                         existingCustomer.Type = customer.Type;
-
                         DB.SaveChanges();
-                        return true;
+                        return "OK";
                     }
-                    return false;
+                    return "Không tìm thấy khách hàng để cập nhật!";
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                return "Lỗi khi cập nhật khách hàng: " + ex.Message;
             }
         }
 

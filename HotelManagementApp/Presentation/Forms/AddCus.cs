@@ -18,52 +18,12 @@ namespace Presentation.Forms
             InitializeComponent();
             LoadCustomerTypes();
             LoadGenders();
-            GenerateCustomerId();
+            txtCId.Enabled = true; // Cho phép nhập số CCCD
         }
 
-        private void GenerateCustomerId()
+        public void SetCustomerData(CustomerDTO customer, bool isEdit = true)
         {
-            if (!isEditMode)
-            {
-                var customers = customerBusiness.GetAllCustomers();
-                
-                // Lấy danh sách các số đã được sử dụng
-                var usedNumbers = customers
-                    .Select(c => c.CId)
-                    .Where(id => id.StartsWith("C") && id.Length == 4)
-                    .Select(id => 
-                    {
-                        if (int.TryParse(id.Substring(1), out int number))
-                            return number;
-                        return -1;
-                    })
-                    .Where(n => n > 0)
-                    .OrderBy(n => n)
-                    .ToList();
-
-                // Nếu chưa có số nào được sử dụng, bắt đầu từ 1
-                if (!usedNumbers.Any())
-                {
-                    txtCId.Text = "C001";
-                    return;
-                }
-
-                // Tìm số nhỏ nhất chưa được sử dụng
-                int nextNumber = 1;
-                foreach (int number in usedNumbers)
-                {
-                    if (number != nextNumber)
-                        break;
-                    nextNumber++;
-                }
-
-                txtCId.Text = $"C{nextNumber:D3}";
-            }
-        }
-
-        public void SetCustomerData(CustomerDTO customer)
-        {
-            isEditMode = true;
+            isEditMode = isEdit;
             originalCustomerId = customer.CId;
 
             txtCId.Text = customer.CId;
@@ -74,8 +34,8 @@ namespace Presentation.Forms
             txtAddress.Text = customer.Address;
             cboCustomerType.SelectedItem = customer.Type;
 
-            txtCId.Enabled = false; // Disable ID field in edit mode
-            this.Text = "Edit Customer";
+            txtCId.Enabled = !isEdit; // Nếu là thêm mới thì cho nhập, còn sửa thì không
+            this.Text = isEdit ? "Edit Customer" : "Add Customer";
         }
 
         private void LoadCustomerTypes()
@@ -177,26 +137,33 @@ namespace Presentation.Forms
                     Type = cboCustomerType.SelectedItem.ToString()
                 };
 
-                bool success;
                 if (isEditMode)
                 {
-                    success = customerBusiness.UpdateCustomer(customer);
+                    string result = customerBusiness.UpdateCustomerWithMessage(customer);
+                    if (result == "OK")
+                    {
+                        MessageBox.Show("Customer updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show(result, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    success = customerBusiness.AddCustomer(customer);
-                }
-
-                if (success)
-                {
-                    MessageBox.Show($"Customer {(isEditMode ? "updated" : "added")} successfully!",
-                        "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show($"Failed to {(isEditMode ? "update" : "add")} customer!",
-                        "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    bool success = customerBusiness.AddCustomer(customer);
+                    if (success)
+                    {
+                        MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Failed to add customer!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
@@ -204,6 +171,11 @@ namespace Presentation.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        public void FocusPhoneField()
+        {
+            txtPhone.Focus();
         }
     }
 }

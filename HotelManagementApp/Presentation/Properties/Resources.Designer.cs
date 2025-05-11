@@ -63,6 +63,36 @@ namespace Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1286853 {
+            get {
+                object obj = ResourceManager.GetObject("1286853", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3094700 {
+            get {
+                object obj = ResourceManager.GetObject("3094700", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _360_F_525379615_AQlcYaHQqJJAYRoBkjDKGO31G1bp9CYw {
+            get {
+                object obj = ResourceManager.GetObject("360_F_525379615_AQlcYaHQqJJAYRoBkjDKGO31G1bp9CYw", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -263,6 +293,16 @@ namespace Presentation.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap images {
+            get {
+                object obj = ResourceManager.GetObject("images", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap img_bg {
             get {
                 object obj = ResourceManager.GetObject("img_bg", resourceCulture);
@@ -336,6 +376,16 @@ namespace Presentation.Properties {
         internal static System.Drawing.Bitmap other {
             get {
                 object obj = ResourceManager.GetObject("other", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap qr_scan_icon_2048x2048_aeh36n7y {
+            get {
+                object obj = ResourceManager.GetObject("qr-scan-icon-2048x2048-aeh36n7y", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

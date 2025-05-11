@@ -261,93 +261,32 @@ namespace Presentation.Forms
 
         private void btnQR_Click(object sender, EventArgs e)
         {
-            captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            if (captureDevices.Count == 0)
+            var qrForm = new QR();
+            qrForm.OnCustomerScanned += (customer) =>
             {
-                MessageBox.Show("Không tìm thấy camera!");
-                return;
-            }
+                var customerBusiness = new Business.CustomerBusiness();
+                var dbCustomer = customerBusiness.GetCustomerById(customer.CId);
 
-            videoSource = new VideoCaptureDevice(captureDevices[0].MonikerString);
-            videoSource.NewFrame += VideoSource_NewFrame;
-            videoSource.Start();
-
-            timeoutTimer.Start();
-        }
-
-        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
-        {
-            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-            //pictureBoxCamera.Image = bitmap;
-            try
-            {
-                BarcodeReader reader = new BarcodeReader();
-                var result = reader.Decode(bitmap);
-                if (result != null)
+                if (dbCustomer != null)
                 {
-                    timeoutTimer.Stop();
-                    StopCamera();
-                    SetupCustomer(result.Text);
+                    txtId.Text = dbCustomer.CId;
+                    txtName.Text = dbCustomer.Name;
+                    selectGender.SelectedItem = dbCustomer.Gender;
+                    txtAddress.Text = dbCustomer.Address;
+                    txtPhone.Text = dbCustomer.Phone;
+                    txtEmail.Text = dbCustomer.Email;
                 }
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void SetupCustomer(string text)
-        {
-            string cccd = null;
-            string name = null;
-            string gioiTinh = null;
-            string[] str = text.Split('|');
-            cccd = str[0];
-            name = str[2];
-            gioiTinh = str[4];
-            txtId.Text = cccd;
-            txtName.Text = name;
-            if (gioiTinh == "Nam") selectGender.SelectedItem = "Male";
-            else selectGender.SelectedItem = "Female";
-        }
-
-        private void TimeoutTimer_Tick(object sender, EventArgs e)
-        {
-            timeoutTimer.Stop();
-            StopCamera();
-            MessageBox.Show("Không phát hiện mã QR");
-        }
-
-        private void StopCamera()
-        {
-            if (videoSource != null && videoSource.IsRunning)
-            {
-                videoSource.SignalToStop();
-                videoSource = null;
-            }
-        }
-
-        private void btnConfirm_Click(object sender, EventArgs e)
-        {
-            //if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtName.Text)
-            //    || string.IsNullOrWhiteSpace(txtPhone.Text))
-            //{
-            //    return;
-            //}
-
-            //if (timeCheckin.Text.ElementAt(0) == ' ' || dateCheckin.Text.ElementAt(0) == ' '
-            //    || timeCheckout.Text.ElementAt(0) == ' ' || dateCheckout.Text.ElementAt(0) == ' ')
-            //{
-            //    return;
-            //}
-            //else
-            //{
-            //    //Debug.WriteLine("Bạn đã nhập: " + timeCheckin.Text);
-            //}
-
-            //if (btnShowItem.Tag == null)
-            //{
-            //    return;
-            //}
-
-            //Debug.WriteLine(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
+                else
+                {
+                    txtId.Text = customer.CId;
+                    txtName.Text = customer.Name;
+                    selectGender.SelectedItem = customer.Gender;
+                    txtAddress.Text = customer.Address;
+                    txtPhone.Text = "";
+                    txtEmail.Text = "";
+                }
+            };
+            qrForm.ShowDialog();
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
@@ -361,5 +300,7 @@ namespace Presentation.Forms
         {
 
         }
+
+        
     }
 }
