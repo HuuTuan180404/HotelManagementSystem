@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0b54a441c0f449c9a37b4cd1343afc1c" Name="Diagram1" ZoomLevel="86">
+      <Diagram DiagramId="0b54a441c0f449c9a37b4cd1343afc1c" Name="Diagram1" ZoomLevel="72">
         <EntityTypeShape EntityType="HotelManagementSystemModel.Bookings" Width="1.5" PointX="5.25" PointY="3.875" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.BookingStatus" Width="1.5" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="HotelManagementSystemModel.Customers" Width="1.5" PointX="3" PointY="8.375" />
@@ -31,6 +31,8 @@
         <AssociationConnector Association="HotelManagementSystemModel.FK__Rooms__Type__3F466844" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUs__SName__690797E6" />
         <AssociationConnector Association="HotelManagementSystemModel.FK__ServiceUsa__SUId__681373AD" />
+        <EntityTypeShape EntityType="HotelManagementSystemModel.Booking_Online" Width="1.5" PointX="3" PointY="15.25" />
+        <AssociationConnector Association="HotelManagementSystemModel.FK__Booking_O__LoaiP__1F63A897" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

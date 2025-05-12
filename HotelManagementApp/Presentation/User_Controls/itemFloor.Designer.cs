@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.flowLayout = new System.Windows.Forms.FlowLayoutPanel();
-            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbFloor = new MaterialSkin.Controls.MaterialLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
+            this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // flowLayout
@@ -49,19 +49,6 @@
             this.flowLayout.TabIndex = 2;
             this.flowLayout.WrapContents = false;
             // 
-            // guna2PictureBox1
-            // 
-            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.guna2PictureBox1.Image = global::Presentation.Properties.Resources.floor;
-            this.guna2PictureBox1.ImageRotate = 0F;
-            this.guna2PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.guna2PictureBox1.Name = "guna2PictureBox1";
-            this.guna2PictureBox1.Size = new System.Drawing.Size(119, 155);
-            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.guna2PictureBox1.TabIndex = 0;
-            this.guna2PictureBox1.TabStop = false;
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 12;
@@ -74,6 +61,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(16);
             this.panel1.Size = new System.Drawing.Size(119, 155);
             this.panel1.TabIndex = 4;
             // 
@@ -87,13 +75,27 @@
             this.lbFloor.FontType = MaterialSkin.MaterialSkinManager.fontType.H6;
             this.lbFloor.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbFloor.HighEmphasis = true;
-            this.lbFloor.Location = new System.Drawing.Point(0, 0);
+            this.lbFloor.Location = new System.Drawing.Point(16, 16);
             this.lbFloor.MouseState = MaterialSkin.MouseState.HOVER;
             this.lbFloor.Name = "lbFloor";
-            this.lbFloor.Size = new System.Drawing.Size(119, 26);
+            this.lbFloor.Size = new System.Drawing.Size(87, 26);
             this.lbFloor.TabIndex = 3;
             this.lbFloor.Text = "2";
             this.lbFloor.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // guna2PictureBox1
+            // 
+            this.guna2PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.guna2PictureBox1.Image = global::Presentation.Properties.Resources.floor;
+            this.guna2PictureBox1.ImageRotate = 0F;
+            this.guna2PictureBox1.Location = new System.Drawing.Point(16, 16);
+            this.guna2PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.guna2PictureBox1.Name = "guna2PictureBox1";
+            this.guna2PictureBox1.Padding = new System.Windows.Forms.Padding(8);
+            this.guna2PictureBox1.Size = new System.Drawing.Size(87, 123);
+            this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.guna2PictureBox1.TabIndex = 0;
+            this.guna2PictureBox1.TabStop = false;
             // 
             // itemFloor
             // 
@@ -106,18 +108,17 @@
             this.Margin = new System.Windows.Forms.Padding(0);
             this.Name = "itemFloor";
             this.Size = new System.Drawing.Size(1218, 155);
-            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayout;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialLabel lbFloor;
+        private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
     }
 }

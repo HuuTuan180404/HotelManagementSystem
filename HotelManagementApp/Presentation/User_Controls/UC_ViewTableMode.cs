@@ -35,8 +35,6 @@ namespace Presentation.User_Controls
         {
             currentList = RoomB.GetAllRooms();
             CreateContentMenuStrip();
-
-
         }
 
         public void UC_ViewTableMode_Load(object sender, EventArgs e)
@@ -260,6 +258,11 @@ namespace Presentation.User_Controls
             {
                 lastRow = dataGridView.Rows[e.RowIndex];
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            SetCurrentList(RoomB.GetAllRooms());
         }
     }
 }

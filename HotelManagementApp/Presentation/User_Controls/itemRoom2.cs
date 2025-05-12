@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Presentation.Forms;
 using Business;
 using DocumentFormat.OpenXml.Drawing;
+using System.Drawing.Drawing2D;
 
 
 namespace Presentation.User_Controls
@@ -48,6 +49,8 @@ namespace Presentation.User_Controls
             }
             btnMenu.MouseDown -= Ctrl_Click;
             btnMenu.DoubleClick -= Ctrl_DoubleClick;
+
+            mauNenChoTrangThaiPhong();
         }
 
         private void CreateContentMenuStrip()
@@ -122,17 +125,6 @@ namespace Presentation.User_Controls
                 }
             });
 
-            menuStrip.Items.Add("Trả phòng & Thanh toán", null, (sender, e) =>
-            {
-                try
-                {
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            });
         }
 
         private void Ctrl_Click(object sender, MouseEventArgs e)
@@ -173,5 +165,26 @@ namespace Presentation.User_Controls
             roomDetail.DataChanged += DataRoomsChanged;
             roomDetail.ShowDialog();
         }
+
+
+        private void mauNenChoTrangThaiPhong()
+        {
+            switch (RoomDTO.RStatus)
+            {
+                case "Available":
+                    this.BackColor = ColorTranslator.FromHtml("#D1F2EB");
+                    break;
+                case "Occupied":
+                    this.BackColor = ColorTranslator.FromHtml("#F5B7B1");
+                    break;
+                case "Cleaning":
+                    this.BackColor = ColorTranslator.FromHtml("#FCF3CF");
+                    break;
+                default:
+                    this.BackColor = ColorTranslator.FromHtml("#D6EAF8");
+                    break;
+            }
+        }
+
     }
 }

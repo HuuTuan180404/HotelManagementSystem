@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -81,7 +82,9 @@ namespace Presentation.Forms
 
             TimeSpan duration = BookingDTO.BTimeCheckOut - BookingDTO.BTimeCheckIn;
             decimal price = Convert.ToDecimal(duration.TotalDays) * RoomDTO.RPricePerNight;
+            price = Math.Round(price, 0, MidpointRounding.AwayFromZero);
             lbThanhTien.Text = $"{price}";
+            lbTotalRoom.Text = lbThanhTien.Text;
         }
 
         private void HoaDonDichVu()
@@ -107,6 +110,8 @@ namespace Presentation.Forms
                     total += service.SPrice * i.Quantity;
                 }
             }
+            total = Math.Round(total, 0, MidpointRounding.AwayFromZero);
+
             lbTotalServices.Text = $"{total}";
             dataGridView.DataSource = list;
         }
@@ -129,16 +134,34 @@ namespace Presentation.Forms
 
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Xác nhận đã thanh toán hóa đơn",
+            if (comboPaymentMethod.Text == "Cash")
+            {
+                DialogResult dialogResult = MessageBox.Show("Xác nhận đã thanh toán hóa đơn",
                       "Xác nhận",
                       MessageBoxButtons.OKCancel,
                       MessageBoxIcon.Question);
 
-            if (dialogResult == DialogResult.OK)
-            {
-                if (ChuyennPhongSangCleaning())
+                if (dialogResult == DialogResult.OK)
                 {
-                    TaoHoaDon();
+                    if (ChuyennPhongSangCleaning())
+                    {
+                        TaoHoaDon();
+                    }
+                }
+            }
+            else
+            {
+                Bank bank = new Bank(Convert.ToInt32(lbTotal.Text), lbBookingId.Text);
+                DialogResult dialogResult = bank.ShowDialog();
+                if (dialogResult == DialogResult.OK)
+                {
+                    if (dialogResult == DialogResult.OK)
+                    {
+                        if (ChuyennPhongSangCleaning())
+                        {
+                            TaoHoaDon();
+                        }
+                    }
                 }
             }
         }
@@ -155,7 +178,8 @@ namespace Presentation.Forms
             if (PaymentB.CreateBill(paymentDTO))
             {
                 MessageBox.Show("Thành công");
-                this.Close();
+                DialogResult = DialogResult.OK;
+                //this.Close();
             }
         }
 

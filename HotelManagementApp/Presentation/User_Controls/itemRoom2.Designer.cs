@@ -32,11 +32,11 @@
             this.lbRoom = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.lbType = new System.Windows.Forms.Label();
             this.lbStatus = new System.Windows.Forms.Label();
-            this.btnMenu = new System.Windows.Forms.PictureBox();
             this.guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.gunaToolTip_Room = new Guna.UI2.WinForms.Guna2HtmlToolTip();
             this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.btnMenu = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,19 +78,6 @@
             this.lbStatus.Text = "Status: ";
             this.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnMenu
-            // 
-            this.btnMenu.BackColor = System.Drawing.Color.White;
-            this.btnMenu.Image = global::Presentation.Properties.Resources.door_handle;
-            this.btnMenu.Location = new System.Drawing.Point(144, 0);
-            this.btnMenu.Margin = new System.Windows.Forms.Padding(0);
-            this.btnMenu.Name = "btnMenu";
-            this.btnMenu.Size = new System.Drawing.Size(30, 30);
-            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnMenu.TabIndex = 5;
-            this.btnMenu.TabStop = false;
-            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
-            // 
             // guna2Elipse1
             // 
             this.guna2Elipse1.BorderRadius = 12;
@@ -111,6 +98,19 @@
             // 
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(61, 4);
+            // 
+            // btnMenu
+            // 
+            this.btnMenu.BackColor = System.Drawing.Color.White;
+            this.btnMenu.Image = global::Presentation.Properties.Resources.door_handle;
+            this.btnMenu.Location = new System.Drawing.Point(144, 0);
+            this.btnMenu.Margin = new System.Windows.Forms.Padding(0);
+            this.btnMenu.Name = "btnMenu";
+            this.btnMenu.Size = new System.Drawing.Size(30, 30);
+            this.btnMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnMenu.TabIndex = 5;
+            this.btnMenu.TabStop = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // itemRoom2
             // 

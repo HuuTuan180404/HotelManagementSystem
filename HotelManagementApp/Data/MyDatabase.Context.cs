@@ -15,7 +15,8 @@ namespace Data
 
     public partial class HotelManagementSystemContext : DbContext
     {
-        public HotelManagementSystemContext() : base("name=HotelManagementSystemContext")
+        //public HotelManagementSystemContext(): base("name=HotelManagementSystemContext")
+        public HotelManagementSystemContext() : base(ConfigData.EntityConnectionString)
         {
         }
 
@@ -37,7 +38,6 @@ namespace Data
         public virtual DbSet<Services> Services { get; set; }
         public virtual DbSet<ServiceUsage> ServiceUsage { get; set; }
         public virtual DbSet<ServiceUsageDetail> ServiceUsageDetail { get; set; }
-
-
+        public virtual DbSet<Booking_Online> Booking_Online { get; set; }
     }
 }

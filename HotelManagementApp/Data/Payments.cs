@@ -12,7 +12,7 @@ namespace Data
     using DataTransferObject;
     using System;
     using System.Collections.Generic;
-
+    
     public partial class Payments
     {
         public string BPId { get; set; }
@@ -21,11 +21,10 @@ namespace Data
         public decimal Amount { get; set; }
         public Nullable<System.DateTime> Date { get; set; }
         public string PMethod { get; set; }
-
+    
         public virtual Bookings Bookings { get; set; }
         public virtual Employees Employees { get; set; }
         public virtual PaymentMethod PaymentMethod { get; set; }
-
         public static Payments Convert(PaymentDTO paymentDTO)
         {
             return new Payments
@@ -39,5 +38,4 @@ namespace Data
             };
         }
     }
-
 }

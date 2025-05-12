@@ -5,6 +5,18 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="HotelManagementSystemModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Booking_Online">
+          <Key>
+            <PropertyRef Name="CreateAt" />
+          </Key>
+          <Property Name="CreateAt" Type="datetime" Nullable="false" />
+          <Property Name="CCCD" Type="varchar" MaxLength="100" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="100" />
+          <Property Name="SoDienThoai" Type="varchar" MaxLength="15" />
+          <Property Name="TGianNhanPhong" Type="datetime" />
+          <Property Name="TGianTraPhong" Type="datetime" />
+          <Property Name="LoaiPhong" Type="varchar" MaxLength="100" />
+        </EntityType>
         <EntityType Name="Bookings">
           <Key>
             <PropertyRef Name="BId" />
@@ -127,6 +139,18 @@
           <Property Name="Quantity" Type="int" Nullable="false" />
           <Property Name="CreateAt" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK__Booking_O__LoaiP__1F63A897">
+          <End Role="RType" Type="Self.RType" Multiplicity="0..1" />
+          <End Role="Booking_Online" Type="Self.Booking_Online" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RType">
+              <PropertyRef Name="RType_" />
+            </Principal>
+            <Dependent Role="Booking_Online">
+              <PropertyRef Name="LoaiPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Bookings__BStatu__6477ECF3">
           <End Role="BookingStatus" Type="Self.BookingStatus" Multiplicity="1" />
           <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
@@ -284,6 +308,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="HotelManagementSystemModelStoreContainer">
+          <EntitySet Name="Booking_Online" EntityType="Self.Booking_Online" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="BookingStatus" EntityType="Self.BookingStatus" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
@@ -297,6 +322,10 @@
           <EntitySet Name="Services" EntityType="Self.Services" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceUsage" EntityType="Self.ServiceUsage" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ServiceUsageDetail" EntityType="Self.ServiceUsageDetail" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Booking_O__LoaiP__1F63A897" Association="Self.FK__Booking_O__LoaiP__1F63A897">
+            <End Role="RType" EntitySet="RType" />
+            <End Role="Booking_Online" EntitySet="Booking_Online" />
+          </AssociationSet>
           <AssociationSet Name="FK__Bookings__BStatu__6477ECF3" Association="Self.FK__Bookings__BStatu__6477ECF3">
             <End Role="BookingStatus" EntitySet="BookingStatus" />
             <End Role="Bookings" EntitySet="Bookings" />
@@ -420,6 +449,11 @@
             <End Role="ServiceUsage" EntitySet="ServiceUsage" />
             <End Role="ServiceUsageDetail" EntitySet="ServiceUsageDetail" />
           </AssociationSet>
+          <EntitySet Name="Booking_Online" EntityType="HotelManagementSystemModel.Booking_Online" />
+          <AssociationSet Name="FK__Booking_O__LoaiP__1F63A897" Association="HotelManagementSystemModel.FK__Booking_O__LoaiP__1F63A897">
+            <End Role="RType" EntitySet="RType" />
+            <End Role="Booking_Online" EntitySet="Booking_Online" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Bookings">
           <Key>
@@ -535,6 +569,7 @@
           <Property Name="MaxGuests" Type="Byte" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Rooms" Relationship="HotelManagementSystemModel.FK__Rooms__Type__3F466844" FromRole="RType" ToRole="Rooms" />
+          <NavigationProperty Name="Booking_Online" Relationship="HotelManagementSystemModel.FK__Booking_O__LoaiP__1F63A897" FromRole="RType" ToRole="Booking_Online" />
         </EntityType>
         <EntityType Name="Services">
           <Key>
@@ -725,6 +760,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Booking_Online">
+          <Key>
+            <PropertyRef Name="CreateAt" />
+          </Key>
+          <Property Name="CreateAt" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CCCD" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HoTen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SoDienThoai" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="TGianNhanPhong" Type="DateTime" Precision="3" />
+          <Property Name="TGianTraPhong" Type="DateTime" Precision="3" />
+          <Property Name="LoaiPhong" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="RType" Relationship="HotelManagementSystemModel.FK__Booking_O__LoaiP__1F63A897" FromRole="Booking_Online" ToRole="RType" />
+        </EntityType>
+        <Association Name="FK__Booking_O__LoaiP__1F63A897">
+          <End Type="HotelManagementSystemModel.RType" Role="RType" Multiplicity="0..1" />
+          <End Type="HotelManagementSystemModel.Booking_Online" Role="Booking_Online" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RType">
+              <PropertyRef Name="RType_" />
+            </Principal>
+            <Dependent Role="Booking_Online">
+              <PropertyRef Name="LoaiPhong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -861,6 +921,19 @@
                 <ScalarProperty Name="EId" ColumnName="EId" />
                 <ScalarProperty Name="SName" ColumnName="SName" />
                 <ScalarProperty Name="SUId" ColumnName="SUId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Booking_Online">
+            <EntityTypeMapping TypeName="HotelManagementSystemModel.Booking_Online">
+              <MappingFragment StoreEntitySet="Booking_Online">
+                <ScalarProperty Name="LoaiPhong" ColumnName="LoaiPhong" />
+                <ScalarProperty Name="TGianTraPhong" ColumnName="TGianTraPhong" />
+                <ScalarProperty Name="TGianNhanPhong" ColumnName="TGianNhanPhong" />
+                <ScalarProperty Name="SoDienThoai" ColumnName="SoDienThoai" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+                <ScalarProperty Name="CreateAt" ColumnName="CreateAt" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

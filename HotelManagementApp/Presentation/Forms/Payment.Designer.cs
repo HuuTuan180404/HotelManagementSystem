@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment));
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
@@ -47,7 +47,6 @@
             this.dataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.lbTotalRoom = new MaterialSkin.Controls.MaterialLabel();
             this.lbPrice = new MaterialSkin.Controls.MaterialLabel();
             this.lbThanhTien = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel13 = new MaterialSkin.Controls.MaterialLabel();
@@ -74,8 +73,9 @@
             this.lbName = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.pic_close = new System.Windows.Forms.PictureBox();
             this.btnThanhToan = new Guna.UI2.WinForms.Guna2Button();
+            this.pic_close = new System.Windows.Forms.PictureBox();
+            this.lbTotalRoom = new MaterialSkin.Controls.MaterialLabel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
@@ -205,6 +205,7 @@
             this.comboPaymentMethod.MouseState = MaterialSkin.MouseState.OUT;
             this.comboPaymentMethod.Name = "comboPaymentMethod";
             this.comboPaymentMethod.Size = new System.Drawing.Size(242, 49);
+            this.comboPaymentMethod.Sorted = true;
             this.comboPaymentMethod.StartIndex = 0;
             this.comboPaymentMethod.TabIndex = 6;
             // 
@@ -284,26 +285,26 @@
             // 
             // dataGridView
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridView.ColumnHeadersHeight = 36;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Top;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridView.Location = new System.Drawing.Point(0, 464);
@@ -354,7 +355,7 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.tableLayoutPanel2.Controls.Add(this.lbTotalRoom, 6, 3);
+            this.tableLayoutPanel2.Controls.Add(this.lbTotalRoom, 5, 3);
             this.tableLayoutPanel2.Controls.Add(this.lbPrice, 5, 2);
             this.tableLayoutPanel2.Controls.Add(this.lbThanhTien, 6, 2);
             this.tableLayoutPanel2.Controls.Add(this.materialLabel13, 6, 1);
@@ -382,19 +383,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.92513F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(746, 188);
             this.tableLayoutPanel2.TabIndex = 3;
-            // 
-            // lbTotalRoom
-            // 
-            this.lbTotalRoom.Depth = 0;
-            this.lbTotalRoom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbTotalRoom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lbTotalRoom.Location = new System.Drawing.Point(640, 146);
-            this.lbTotalRoom.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lbTotalRoom.Name = "lbTotalRoom";
-            this.lbTotalRoom.Size = new System.Drawing.Size(102, 41);
-            this.lbTotalRoom.TabIndex = 20;
-            this.lbTotalRoom.Text = "1";
-            this.lbTotalRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lbPrice
             // 
@@ -438,14 +426,14 @@
             // 
             // materialLabel19
             // 
-            this.tableLayoutPanel2.SetColumnSpan(this.materialLabel19, 6);
+            this.tableLayoutPanel2.SetColumnSpan(this.materialLabel19, 5);
             this.materialLabel19.Depth = 0;
             this.materialLabel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.materialLabel19.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel19.Location = new System.Drawing.Point(4, 146);
             this.materialLabel19.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel19.Name = "materialLabel19";
-            this.materialLabel19.Size = new System.Drawing.Size(629, 41);
+            this.materialLabel19.Size = new System.Drawing.Size(523, 41);
             this.materialLabel19.TabIndex = 14;
             this.materialLabel19.Text = "Tổng tiền phòng";
             this.materialLabel19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -755,19 +743,6 @@
             this.materialLabel1.Text = "Phiếu thanh toán";
             this.materialLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pic_close
-            // 
-            this.pic_close.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
-            this.pic_close.Location = new System.Drawing.Point(754, 6);
-            this.pic_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.pic_close.Name = "pic_close";
-            this.pic_close.Size = new System.Drawing.Size(177, 56);
-            this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pic_close.TabIndex = 12;
-            this.pic_close.TabStop = false;
-            this.pic_close.Click += new System.EventHandler(this.pic_close_Click);
-            // 
             // btnThanhToan
             // 
             this.btnThanhToan.AutoRoundedCorners = true;
@@ -783,6 +758,33 @@
             this.btnThanhToan.TabIndex = 13;
             this.btnThanhToan.Text = "Thanh toán";
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
+            // 
+            // pic_close
+            // 
+            this.pic_close.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pic_close.Image = ((System.Drawing.Image)(resources.GetObject("pic_close.Image")));
+            this.pic_close.Location = new System.Drawing.Point(754, 6);
+            this.pic_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.pic_close.Name = "pic_close";
+            this.pic_close.Size = new System.Drawing.Size(177, 56);
+            this.pic_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pic_close.TabIndex = 12;
+            this.pic_close.TabStop = false;
+            this.pic_close.Click += new System.EventHandler(this.pic_close_Click);
+            // 
+            // lbTotalRoom
+            // 
+            this.tableLayoutPanel2.SetColumnSpan(this.lbTotalRoom, 2);
+            this.lbTotalRoom.Depth = 0;
+            this.lbTotalRoom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbTotalRoom.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lbTotalRoom.Location = new System.Drawing.Point(534, 146);
+            this.lbTotalRoom.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lbTotalRoom.Name = "lbTotalRoom";
+            this.lbTotalRoom.Size = new System.Drawing.Size(208, 41);
+            this.lbTotalRoom.TabIndex = 21;
+            this.lbTotalRoom.Text = "1";
+            this.lbTotalRoom.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Payment
             // 
@@ -853,7 +855,7 @@
         private MaterialSkin.Controls.MaterialLabel lbThanhTien;
         private MaterialSkin.Controls.MaterialLabel materialLabel13;
         private MaterialSkin.Controls.MaterialLabel lbPrice;
-        private MaterialSkin.Controls.MaterialLabel lbTotalRoom;
         private Guna.UI2.WinForms.Guna2Button btnThanhToan;
+        private MaterialSkin.Controls.MaterialLabel lbTotalRoom;
     }
 }

@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UseServide));
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2ShadowPanel1 = new Guna.UI2.WinForms.Guna2ShadowPanel();
@@ -44,16 +44,17 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.itemHearder1 = new Presentation.User_Controls.itemHearder();
             this.flowPanelAdd = new System.Windows.Forms.FlowLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2ShadowPanel2 = new Guna.UI2.WinForms.Guna2ShadowPanel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.item1 = new Presentation.User_Controls.itemHearderAdded();
+            this.flowPanelAdded = new System.Windows.Forms.FlowLayoutPanel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.itemHearder1 = new Presentation.User_Controls.itemHearder();
-            this.item1 = new Presentation.User_Controls.itemHearderAdded();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -61,7 +62,6 @@
             this.dataGridViewButtonColumn1 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.dataGridViewButtonColumn2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
-            this.flowPanelAdded = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.guna2ShadowPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -107,25 +107,25 @@
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AllowUserToResizeColumns = false;
             this.dataGridView.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.dataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView.ColumnHeadersHeight = 36;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
             this.dataGridView.Location = new System.Drawing.Point(0, 0);
@@ -266,6 +266,15 @@
             this.panel3.Size = new System.Drawing.Size(474, 389);
             this.panel3.TabIndex = 1;
             // 
+            // itemHearder1
+            // 
+            this.itemHearder1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.itemHearder1.Location = new System.Drawing.Point(2, 2);
+            this.itemHearder1.Margin = new System.Windows.Forms.Padding(0);
+            this.itemHearder1.Name = "itemHearder1";
+            this.itemHearder1.Size = new System.Drawing.Size(468, 48);
+            this.itemHearder1.TabIndex = 3;
+            // 
             // flowPanelAdd
             // 
             this.flowPanelAdd.AutoScroll = true;
@@ -333,6 +342,27 @@
             this.panel11.Size = new System.Drawing.Size(449, 442);
             this.panel11.TabIndex = 1;
             // 
+            // item1
+            // 
+            this.item1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.item1.Location = new System.Drawing.Point(2, 2);
+            this.item1.Name = "item1";
+            this.item1.Size = new System.Drawing.Size(443, 48);
+            this.item1.TabIndex = 3;
+            // 
+            // flowPanelAdded
+            // 
+            this.flowPanelAdded.AutoScroll = true;
+            this.flowPanelAdded.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowPanelAdded.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowPanelAdded.Location = new System.Drawing.Point(2, 2);
+            this.flowPanelAdded.Margin = new System.Windows.Forms.Padding(0);
+            this.flowPanelAdded.Name = "flowPanelAdded";
+            this.flowPanelAdded.Padding = new System.Windows.Forms.Padding(3);
+            this.flowPanelAdded.Size = new System.Drawing.Size(443, 436);
+            this.flowPanelAdded.TabIndex = 5;
+            this.flowPanelAdded.WrapContents = false;
+            // 
             // panel8
             // 
             this.panel8.Controls.Add(this.guna2HtmlLabel2);
@@ -351,23 +381,6 @@
             this.guna2HtmlLabel2.Size = new System.Drawing.Size(159, 27);
             this.guna2HtmlLabel2.TabIndex = 2;
             this.guna2HtmlLabel2.Text = "Dịch vụ đã dùng";
-            // 
-            // itemHearder1
-            // 
-            this.itemHearder1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.itemHearder1.Location = new System.Drawing.Point(2, 2);
-            this.itemHearder1.Margin = new System.Windows.Forms.Padding(0);
-            this.itemHearder1.Name = "itemHearder1";
-            this.itemHearder1.Size = new System.Drawing.Size(468, 48);
-            this.itemHearder1.TabIndex = 3;
-            // 
-            // item1
-            // 
-            this.item1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.item1.Location = new System.Drawing.Point(2, 2);
-            this.item1.Name = "item1";
-            this.item1.Size = new System.Drawing.Size(443, 48);
-            this.item1.TabIndex = 3;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -419,19 +432,6 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Chưa có ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // flowPanelAdded
-            // 
-            this.flowPanelAdded.AutoScroll = true;
-            this.flowPanelAdded.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowPanelAdded.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowPanelAdded.Location = new System.Drawing.Point(2, 2);
-            this.flowPanelAdded.Margin = new System.Windows.Forms.Padding(0);
-            this.flowPanelAdded.Name = "flowPanelAdded";
-            this.flowPanelAdded.Padding = new System.Windows.Forms.Padding(3);
-            this.flowPanelAdded.Size = new System.Drawing.Size(443, 436);
-            this.flowPanelAdded.TabIndex = 5;
-            this.flowPanelAdded.WrapContents = false;
             // 
             // UseServide
             // 
@@ -498,7 +498,7 @@
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Panel panel11;
         private User_Controls.itemHearderAdded item1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowPanelAdded;
+        private System.Windows.Forms.Label label1;
     }
 }
