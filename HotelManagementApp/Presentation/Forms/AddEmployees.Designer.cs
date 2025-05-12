@@ -29,6 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlInfo = new Guna.UI2.WinForms.Guna2Panel();
+            this.picAvatar = new System.Windows.Forms.PictureBox();
+            this.btnRemoveAvatar = new Guna.UI2.WinForms.Guna2Button();
+            this.btnShowPassword = new System.Windows.Forms.PictureBox();
+            this.btnSelectAvatar = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.cboRole = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cboGender = new Guna.UI2.WinForms.Guna2ComboBox();
@@ -50,12 +57,21 @@
             this.btnCancel = new Guna.UI2.WinForms.Guna2Button();
             this.btnSave = new Guna.UI2.WinForms.Guna2Button();
             this.pnlInfo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowPassword)).BeginInit();
             this.pnButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlInfo
             // 
             this.pnlInfo.BorderRadius = 15;
+            this.pnlInfo.Controls.Add(this.picAvatar);
+            this.pnlInfo.Controls.Add(this.btnRemoveAvatar);
+            this.pnlInfo.Controls.Add(this.btnShowPassword);
+            this.pnlInfo.Controls.Add(this.btnSelectAvatar);
+            this.pnlInfo.Controls.Add(this.guna2HtmlLabel2);
+            this.pnlInfo.Controls.Add(this.txtPassword);
+            this.pnlInfo.Controls.Add(this.guna2HtmlLabel1);
             this.pnlInfo.Controls.Add(this.cboRole);
             this.pnlInfo.Controls.Add(this.cboStatus);
             this.pnlInfo.Controls.Add(this.cboGender);
@@ -78,8 +94,114 @@
             this.pnlInfo.Name = "pnlInfo";
             this.pnlInfo.ShadowDecoration.BorderRadius = 15;
             this.pnlInfo.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.pnlInfo.Size = new System.Drawing.Size(550, 580);
+            this.pnlInfo.Size = new System.Drawing.Size(784, 696);
             this.pnlInfo.TabIndex = 0;
+            // 
+            // picAvatar
+            // 
+            this.picAvatar.Location = new System.Drawing.Point(552, 85);
+            this.picAvatar.Name = "picAvatar";
+            this.picAvatar.Size = new System.Drawing.Size(216, 182);
+            this.picAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picAvatar.TabIndex = 22;
+            this.picAvatar.TabStop = false;
+            // 
+            // btnRemoveAvatar
+            // 
+            this.btnRemoveAvatar.BorderRadius = 8;
+            this.btnRemoveAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRemoveAvatar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveAvatar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnRemoveAvatar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnRemoveAvatar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnRemoveAvatar.FillColor = System.Drawing.Color.Red;
+            this.btnRemoveAvatar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRemoveAvatar.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveAvatar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(91)))), ((int)(((byte)(99)))));
+            this.btnRemoveAvatar.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnRemoveAvatar.Location = new System.Drawing.Point(372, 633);
+            this.btnRemoveAvatar.Name = "btnRemoveAvatar";
+            this.btnRemoveAvatar.Size = new System.Drawing.Size(143, 27);
+            this.btnRemoveAvatar.TabIndex = 21;
+            this.btnRemoveAvatar.Text = "Xóa Avatar";
+            this.btnRemoveAvatar.Click += new System.EventHandler(this.btnRemoveAvatar_Click);
+            // 
+            // btnShowPassword
+            // 
+            this.btnShowPassword.Image = global::Presentation.Properties.Resources.show_password;
+            this.btnShowPassword.Location = new System.Drawing.Point(475, 564);
+            this.btnShowPassword.Name = "btnShowPassword";
+            this.btnShowPassword.Size = new System.Drawing.Size(39, 44);
+            this.btnShowPassword.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnShowPassword.TabIndex = 20;
+            this.btnShowPassword.TabStop = false;
+            // 
+            // btnSelectAvatar
+            // 
+            this.btnSelectAvatar.BorderColor = System.Drawing.Color.White;
+            this.btnSelectAvatar.BorderRadius = 8;
+            this.btnSelectAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSelectAvatar.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnSelectAvatar.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnSelectAvatar.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnSelectAvatar.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnSelectAvatar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.btnSelectAvatar.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectAvatar.ForeColor = System.Drawing.Color.White;
+            this.btnSelectAvatar.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(91)))), ((int)(((byte)(99)))));
+            this.btnSelectAvatar.HoverState.ForeColor = System.Drawing.Color.White;
+            this.btnSelectAvatar.Location = new System.Drawing.Point(225, 633);
+            this.btnSelectAvatar.Name = "btnSelectAvatar";
+            this.btnSelectAvatar.Size = new System.Drawing.Size(143, 27);
+            this.btnSelectAvatar.TabIndex = 2;
+            this.btnSelectAvatar.Text = "Chọn Avatar";
+            this.btnSelectAvatar.Click += new System.EventHandler(this.btnSelectAvatar_Click);
+            // 
+            // guna2HtmlLabel2
+            // 
+            this.guna2HtmlLabel2.AutoSize = false;
+            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.guna2HtmlLabel2.Location = new System.Drawing.Point(24, 634);
+            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(143, 44);
+            this.guna2HtmlLabel2.TabIndex = 19;
+            this.guna2HtmlLabel2.Text = "Avatar:";
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.BackColor = System.Drawing.Color.White;
+            this.txtPassword.BorderRadius = 8;
+            this.txtPassword.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtPassword.DefaultText = "";
+            this.txtPassword.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtPassword.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtPassword.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtPassword.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPassword.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPassword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.txtPassword.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtPassword.Location = new System.Drawing.Point(225, 564);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PlaceholderText = "Nhập mật khẩu";
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.Size = new System.Drawing.Size(243, 41);
+            this.txtPassword.TabIndex = 18;
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.AutoSize = false;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(71)))), ((int)(((byte)(79)))));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(24, 561);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(143, 44);
+            this.guna2HtmlLabel1.TabIndex = 17;
+            this.guna2HtmlLabel1.Text = "Password:";
             // 
             // cboRole
             // 
@@ -354,11 +476,11 @@
             this.pnButton.BorderThickness = 2;
             this.pnButton.Controls.Add(this.btnCancel);
             this.pnButton.Controls.Add(this.btnSave);
-            this.pnButton.Location = new System.Drawing.Point(25, 625);
+            this.pnButton.Location = new System.Drawing.Point(25, 748);
             this.pnButton.Name = "pnButton";
             this.pnButton.ShadowDecoration.BorderRadius = 15;
             this.pnButton.ShadowDecoration.Color = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(5)))), ((int)(((byte)(5)))));
-            this.pnButton.Size = new System.Drawing.Size(550, 80);
+            this.pnButton.Size = new System.Drawing.Size(784, 80);
             this.pnButton.TabIndex = 1;
             // 
             // btnCancel
@@ -374,7 +496,7 @@
             this.btnCancel.ForeColor = System.Drawing.Color.White;
             this.btnCancel.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(91)))), ((int)(((byte)(99)))));
             this.btnCancel.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnCancel.Location = new System.Drawing.Point(348, 17);
+            this.btnCancel.Location = new System.Drawing.Point(648, 21);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(120, 45);
             this.btnCancel.TabIndex = 1;
@@ -393,7 +515,7 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(91)))), ((int)(((byte)(99)))));
             this.btnSave.HoverState.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(200, 17);
+            this.btnSave.Location = new System.Drawing.Point(500, 21);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(120, 45);
             this.btnSave.TabIndex = 0;
@@ -404,7 +526,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(600, 750);
+            this.ClientSize = new System.Drawing.Size(837, 870);
             this.ControlBox = false;
             this.Controls.Add(this.pnButton);
             this.Controls.Add(this.pnlInfo);
@@ -415,6 +537,8 @@
             this.Text = "THÔNG TIN NHÂN VIÊN";
             this.pnlInfo.ResumeLayout(false);
             this.pnlInfo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowPassword)).EndInit();
             this.pnButton.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -443,5 +567,12 @@
         private Guna.UI2.WinForms.Guna2Panel pnButton;
         private Guna.UI2.WinForms.Guna2Button btnSave;
         private Guna.UI2.WinForms.Guna2Button btnCancel;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
+        private Guna.UI2.WinForms.Guna2TextBox txtPassword;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
+        private Guna.UI2.WinForms.Guna2Button btnSelectAvatar;
+        private Guna.UI2.WinForms.Guna2Button btnRemoveAvatar;
+        private System.Windows.Forms.PictureBox btnShowPassword;
+        private System.Windows.Forms.PictureBox picAvatar;
     }
 }
