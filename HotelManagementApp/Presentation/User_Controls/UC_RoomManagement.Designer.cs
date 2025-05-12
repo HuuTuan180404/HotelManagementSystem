@@ -30,29 +30,31 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtIconSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
-            this.btnChangeViewMode = new System.Windows.Forms.PictureBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.comboboxStatus = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.txtIconSearch = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnChangeViewMode = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnAllRoom = new Guna.UI2.WinForms.Guna2Button();
             this.btnAvailableRoom = new Guna.UI2.WinForms.Guna2Button();
             this.btnOccupiedRoom = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
             this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
-            this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,66 +69,28 @@
             this.panel1.Size = new System.Drawing.Size(878, 679);
             this.panel1.TabIndex = 7;
             // 
-            // txtIconSearch
+            // panel4
             // 
-            this.txtIconSearch.AutoRoundedCorners = true;
-            this.txtIconSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtIconSearch.CustomizableEdges.BottomLeft = false;
-            this.txtIconSearch.CustomizableEdges.TopLeft = false;
-            this.txtIconSearch.DefaultText = "";
-            this.txtIconSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtIconSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtIconSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIconSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtIconSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIconSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtIconSearch.IconRight = global::Presentation.Properties.Resources.find1;
-            this.txtIconSearch.Location = new System.Drawing.Point(312, 26);
-            this.txtIconSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtIconSearch.Name = "txtIconSearch";
-            this.txtIconSearch.PlaceholderText = "";
-            this.txtIconSearch.ReadOnly = true;
-            this.txtIconSearch.SelectedText = "";
-            this.txtIconSearch.Size = new System.Drawing.Size(32, 32);
-            this.txtIconSearch.TabIndex = 20;
-            this.txtIconSearch.Click += new System.EventHandler(this.txtIconSearch_Click);
+            this.panel4.Controls.Add(this.UC_ViewFloorMode);
+            this.panel4.Controls.Add(this.UC_ViewTableMode);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 160);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(878, 519);
+            this.panel4.TabIndex = 22;
             // 
-            // txtSearch
+            // panel3
             // 
-            this.txtSearch.AutoRoundedCorners = true;
-            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearch.CustomizableEdges.BottomRight = false;
-            this.txtSearch.CustomizableEdges.TopRight = false;
-            this.txtSearch.DefaultText = "";
-            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearch.Location = new System.Drawing.Point(34, 26);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.PlaceholderText = "Search";
-            this.txtSearch.SelectedText = "";
-            this.txtSearch.Size = new System.Drawing.Size(280, 32);
-            this.txtSearch.TabIndex = 19;
-            this.txtSearch.IconRightClick += new System.EventHandler(this.txtSearch_IconRightClick);
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
-            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
-            // 
-            // btnChangeViewMode
-            // 
-            this.btnChangeViewMode.Image = global::Presentation.Properties.Resources.mode_table1;
-            this.btnChangeViewMode.Location = new System.Drawing.Point(824, 30);
-            this.btnChangeViewMode.Name = "btnChangeViewMode";
-            this.btnChangeViewMode.Size = new System.Drawing.Size(24, 24);
-            this.btnChangeViewMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnChangeViewMode.TabIndex = 15;
-            this.btnChangeViewMode.TabStop = false;
-            this.btnChangeViewMode.Click += new System.EventHandler(this.btnChangeViewMode_Click);
+            this.panel3.Controls.Add(this.btnAddRoom);
+            this.panel3.Controls.Add(this.txtIconSearch);
+            this.panel3.Controls.Add(this.comboboxStatus);
+            this.panel3.Controls.Add(this.txtSearch);
+            this.panel3.Controls.Add(this.btnChangeViewMode);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel3.Location = new System.Drawing.Point(0, 80);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(878, 80);
+            this.panel3.TabIndex = 21;
             // 
             // btnAddRoom
             // 
@@ -165,8 +129,34 @@
             this.comboboxStatus.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.comboboxStatus.SelectedIndexChanged += new System.EventHandler(this.comboboxStatus_SelectedIndexChanged);
             // 
+            // txtSearch
+            // 
+            this.txtSearch.AutoRoundedCorners = true;
+            this.txtSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearch.CustomizableEdges.BottomRight = false;
+            this.txtSearch.CustomizableEdges.TopRight = false;
+            this.txtSearch.DefaultText = "";
+            this.txtSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearch.Location = new System.Drawing.Point(34, 26);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.PlaceholderText = "Search";
+            this.txtSearch.SelectedText = "";
+            this.txtSearch.Size = new System.Drawing.Size(280, 32);
+            this.txtSearch.TabIndex = 19;
+            this.txtSearch.IconRightClick += new System.EventHandler(this.txtSearch_IconRightClick);
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.tableLayoutPanel1);
             this.panel2.Controls.Add(this.guna2HtmlLabel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -193,6 +183,75 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(340, 80);
             this.tableLayoutPanel1.TabIndex = 13;
+            // 
+            // contextMenuStrip
+            // 
+            this.contextMenuStrip.Name = "contextMenuStrip";
+            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // guna2HtmlLabel1
+            // 
+            this.guna2HtmlLabel1.AutoSize = false;
+            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.guna2HtmlLabel1.Location = new System.Drawing.Point(43, 11);
+            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(456, 63);
+            this.guna2HtmlLabel1.TabIndex = 12;
+            this.guna2HtmlLabel1.Text = "ROOM MANAGEMENT";
+            this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtIconSearch
+            // 
+            this.txtIconSearch.AutoRoundedCorners = true;
+            this.txtIconSearch.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtIconSearch.CustomizableEdges.BottomLeft = false;
+            this.txtIconSearch.CustomizableEdges.TopLeft = false;
+            this.txtIconSearch.DefaultText = "";
+            this.txtIconSearch.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtIconSearch.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtIconSearch.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIconSearch.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtIconSearch.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIconSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.txtIconSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtIconSearch.IconRight = global::Presentation.Properties.Resources.find1;
+            this.txtIconSearch.Location = new System.Drawing.Point(312, 26);
+            this.txtIconSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtIconSearch.Name = "txtIconSearch";
+            this.txtIconSearch.PlaceholderText = "";
+            this.txtIconSearch.ReadOnly = true;
+            this.txtIconSearch.SelectedText = "";
+            this.txtIconSearch.Size = new System.Drawing.Size(32, 32);
+            this.txtIconSearch.TabIndex = 20;
+            this.txtIconSearch.Click += new System.EventHandler(this.txtIconSearch_Click);
+            // 
+            // btnChangeViewMode
+            // 
+            this.btnChangeViewMode.Image = global::Presentation.Properties.Resources.mode_table1;
+            this.btnChangeViewMode.Location = new System.Drawing.Point(824, 30);
+            this.btnChangeViewMode.Name = "btnChangeViewMode";
+            this.btnChangeViewMode.Size = new System.Drawing.Size(24, 24);
+            this.btnChangeViewMode.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnChangeViewMode.TabIndex = 15;
+            this.btnChangeViewMode.TabStop = false;
+            this.btnChangeViewMode.Click += new System.EventHandler(this.btnChangeViewMode_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Presentation.Properties.Resources.bed2;
+            this.pictureBox1.Location = new System.Drawing.Point(12, 17);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(53, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
             // 
             // btnAllRoom
             // 
@@ -260,18 +319,6 @@
             this.btnOccupiedRoom.Tile = true;
             this.btnOccupiedRoom.Click += new System.EventHandler(this.btnOccupiedRoom_Click);
             // 
-            // guna2HtmlLabel1
-            // 
-            this.guna2HtmlLabel1.AutoSize = false;
-            this.guna2HtmlLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel1.Location = new System.Drawing.Point(19, 17);
-            this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(398, 47);
-            this.guna2HtmlLabel1.TabIndex = 12;
-            this.guna2HtmlLabel1.Text = "ROOM MANAGEMENT";
-            this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // UC_ViewFloorMode
             // 
             this.UC_ViewFloorMode.BackColor = System.Drawing.Color.White;
@@ -294,40 +341,6 @@
             this.UC_ViewTableMode.Size = new System.Drawing.Size(878, 519);
             this.UC_ViewTableMode.TabIndex = 17;
             // 
-            // contextMenuStrip
-            // 
-            this.contextMenuStrip.Name = "contextMenuStrip";
-            this.contextMenuStrip.Size = new System.Drawing.Size(61, 4);
-            // 
-            // imageList1
-            // 
-            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.btnAddRoom);
-            this.panel3.Controls.Add(this.txtIconSearch);
-            this.panel3.Controls.Add(this.comboboxStatus);
-            this.panel3.Controls.Add(this.txtSearch);
-            this.panel3.Controls.Add(this.btnChangeViewMode);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel3.Location = new System.Drawing.Point(0, 80);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(878, 80);
-            this.panel3.TabIndex = 21;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.UC_ViewFloorMode);
-            this.panel4.Controls.Add(this.UC_ViewTableMode);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(0, 160);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(878, 519);
-            this.panel4.TabIndex = 22;
-            // 
             // UC_RoomManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,11 +353,12 @@
             this.Size = new System.Drawing.Size(890, 691);
             this.Load += new System.EventHandler(this.Room_Load);
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnChangeViewMode)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -362,11 +376,12 @@
         private Guna.UI2.WinForms.Guna2Button btnAllRoom;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
         private UC_ViewFloorMode UC_ViewFloorMode;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private Guna.UI2.WinForms.Guna2TextBox txtIconSearch;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel1;
     }
 }

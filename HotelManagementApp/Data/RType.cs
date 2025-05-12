@@ -18,6 +18,7 @@ namespace Data
         public RType()
         {
             this.Rooms = new HashSet<Rooms>();
+            this.Booking_Online = new HashSet<Booking_Online>();
         }
     
         public string RType_ { get; set; }
@@ -27,5 +28,7 @@ namespace Data
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rooms> Rooms { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking_Online> Booking_Online { get; set; }
     }
 }

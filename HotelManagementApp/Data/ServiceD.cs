@@ -42,7 +42,8 @@ namespace Data
                         SName = s.SName,
                         EId = s.EId,
                         Quantity = s.Quantity
-                    }).ToList();
+                    })
+                    .ToList();
                 return services;
             }
             catch (Exception ex)

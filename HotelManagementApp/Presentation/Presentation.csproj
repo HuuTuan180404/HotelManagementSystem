@@ -287,6 +287,12 @@
     <Compile Include="Forms\AddRoom.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Forms\Bank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Bank.Designer.cs">
+      <DependentUpon>Bank.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CheckIn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,12 +304,6 @@
     </Compile>
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\QR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\QR.Designer.cs">
-      <DependentUpon>QR.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Test.cs">
       <SubType>Form</SubType>
@@ -450,6 +450,9 @@
     <EmbeddedResource Include="Forms\AddRoom.resx">
       <DependentUpon>AddRoom.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Bank.resx">
+      <DependentUpon>Bank.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\CheckIn.resx">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </EmbeddedResource>
@@ -458,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QR.resx">
       <DependentUpon>QR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -684,6 +690,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\3094700.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\image\bed2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

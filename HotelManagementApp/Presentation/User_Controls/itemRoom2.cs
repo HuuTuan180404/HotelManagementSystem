@@ -12,6 +12,7 @@ using System.Diagnostics;
 using Presentation.Forms;
 using Business;
 using DocumentFormat.OpenXml.Drawing;
+using System.Drawing.Drawing2D;
 
 
 namespace Presentation.User_Controls
@@ -48,6 +49,8 @@ namespace Presentation.User_Controls
             }
             btnMenu.MouseDown -= Ctrl_Click;
             btnMenu.DoubleClick -= Ctrl_DoubleClick;
+
+            mauNenChoTrangThaiPhong();
         }
 
         private void CreateContentMenuStrip()
@@ -55,15 +58,25 @@ namespace Presentation.User_Controls
             menuStrip.Items.Clear();
             menuStrip.Items.Add("Xem chi tiết", Properties.Resources.show_password, (EventHandler)((sender, e) =>
             {
-                RoomDetail roomDetail = new RoomDetail(RoomDTO);
+                RoomDetail roomDetail = new RoomDetail(RoomDTO.RId);
                 roomDetail.DataChanged += this.DataRoomsChanged;
                 roomDetail.ShowDialog();
             }));
 
             menuStrip.Items.Add("Đặt phòng", Properties.Resources.icon_booking, (sender, e) =>
             {
-                AddBooking AddBooking = new AddBooking(RoomDTO.RId);
-                AddBooking.ShowDialog();
+                if (RoomB.RoomIsAvailable(RoomDTO.RId))
+                {
+                    AddBooking AddBooking = new AddBooking(RoomDTO.RId);
+                    AddBooking.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Phòng chưa sẵn sàng để nhận khách",
+                                "Thông báo",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Information);
+                }
             });
 
             menuStrip.Items.Add("Nhận phòng", Properties.Resources.checkedIn, (EventHandler)((sender, e) =>
@@ -84,7 +97,7 @@ namespace Presentation.User_Controls
                         return;
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     MessageBox.Show("Không có lịch đặt nào");
                 }
@@ -112,17 +125,6 @@ namespace Presentation.User_Controls
                 }
             });
 
-            menuStrip.Items.Add("Trả phòng", null, (sender, e) =>
-            {
-                try
-                {
-
-                }
-                catch (Exception ex)
-                {
-                    throw ex;
-                }
-            });
         }
 
         private void Ctrl_Click(object sender, MouseEventArgs e)
@@ -159,9 +161,30 @@ namespace Presentation.User_Controls
 
         private void Ctrl_DoubleClick(object sender, EventArgs e)
         {
-            RoomDetail roomDetail = new RoomDetail(RoomDTO);
+            RoomDetail roomDetail = new RoomDetail(RoomDTO.RId);
             roomDetail.DataChanged += DataRoomsChanged;
             roomDetail.ShowDialog();
         }
+
+
+        private void mauNenChoTrangThaiPhong()
+        {
+            switch (RoomDTO.RStatus)
+            {
+                case "Available":
+                    this.BackColor = ColorTranslator.FromHtml("#D1F2EB");
+                    break;
+                case "Occupied":
+                    this.BackColor = ColorTranslator.FromHtml("#F5B7B1");
+                    break;
+                case "Cleaning":
+                    this.BackColor = ColorTranslator.FromHtml("#FCF3CF");
+                    break;
+                default:
+                    this.BackColor = ColorTranslator.FromHtml("#D6EAF8");
+                    break;
+            }
+        }
+
     }
 }

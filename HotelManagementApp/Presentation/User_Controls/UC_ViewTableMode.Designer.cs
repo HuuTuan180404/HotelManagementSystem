@@ -38,6 +38,7 @@
             this.btnSelectAttribute = new System.Windows.Forms.PictureBox();
             this.timerListener = new System.Windows.Forms.Timer(this.components);
             this.menuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSelectAttribute)).BeginInit();
             this.SuspendLayout();
@@ -135,11 +136,22 @@
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(61, 4);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(337, 412);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(134, 27);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // UC_ViewTableMode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSelectAttribute);
             this.Controls.Add(this.dataGridView);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
@@ -158,5 +170,6 @@
         private System.Windows.Forms.PictureBox btnSelectAttribute;
         private System.Windows.Forms.Timer timerListener;
         private System.Windows.Forms.ContextMenuStrip menuStrip;
+        private System.Windows.Forms.Button button1;
     }
 }

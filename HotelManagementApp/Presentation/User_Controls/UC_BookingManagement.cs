@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Guna.UI2.Native.WinApi;
 
 namespace Presentation.User_Controls
 {
@@ -19,23 +20,21 @@ namespace Presentation.User_Controls
     {
         BookingB BookingB;
         RoomB RoomB;
+        CustomerBusiness CustomerBusiness;
+
         public UC_BookingManagement()
         {
             InitializeComponent();
             BookingB = new BookingB();
             RoomB = new RoomB();
+            CustomerBusiness = new CustomerBusiness();
             LoadData(BookingB.GetAllBookings());
-            FirstLoad();
         }
 
-        private void FirstLoad()
+        private void LoadData(List<BookingDTO> currentList)
         {
-            //View(dataGridView.Rows[0]);
-        }
-
-        private void LoadData(List<BookingDTO> list)
-        {
-            dataGridView.DataSource = list;
+            currentList.Sort((a, b) => -a.BCreateAt.CompareTo(b.BCreateAt));
+            dataGridView.DataSource = currentList;
             RenameColumns();
         }
 
@@ -58,7 +57,23 @@ namespace Presentation.User_Controls
 
         private void ViewCustomerInfo(string id)
         {
-
+            try
+            {
+                CustomerDTO customerDTO = CustomerBusiness.GetCustomerById(id);
+                if (customerDTO != null)
+                {
+                    customerID.Text = customerDTO.CId;
+                    fullName.Text = customerDTO.Name;
+                    phoneNumber.Text = customerDTO.Phone;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message,
+                                "Lỗi",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+            }
         }
 
         private void ViewRoomInfo(string id)
@@ -84,7 +99,11 @@ namespace Presentation.User_Controls
         private void btnAdd_Click(object sender, EventArgs e)
         {
             AddBooking addBooking = new AddBooking();
-            addBooking.ShowDialog();
+            DialogResult dialogResult = addBooking.ShowDialog();
+            if (dialogResult == DialogResult.OK)
+            {
+                LoadData(BookingB.GetAllBookings());
+            }
         }
 
         private void dataGridView_MouseDown(object sender, MouseEventArgs e)
@@ -108,14 +127,42 @@ namespace Presentation.User_Controls
         {
             contextMenuStrip.Items.Clear();
 
-            contextMenuStrip.Items.Add("View ", null, (sender, e) => { View(row); });
+            //OK
+            contextMenuStrip.Items.Add("Xem", Properties.Resources.show_password, (sender, e) => { View(row); });
 
-            contextMenuStrip.Items.Add("CheckIn ", null, (sender, e) =>
+            // OK
+            contextMenuStrip.Items.Add("Nhận phòng ", Properties.Resources.checkedIn, (sender, e) =>
             {
-                CheckIn checkIn = new CheckIn(row.Cells[0].Value.ToString());
-                checkIn.ShowDialog();
+                try
+                {
+                    string status = row.Cells["BStatus"].Value.ToString();
+                    if (status != "Confirmed")
+                    {
+                        MessageBox.Show("Không thể nhận phòng");
+                        return;
+                    }
+
+                    RoomDTO roomDTO = RoomB.GetRoom(row.Cells["RId"].Value.ToString());
+                    if (RoomB.RoomIsAvailable(roomDTO.RId))
+                    {
+                        CheckIn checkIn = new CheckIn(roomDTO.RId, true);
+                        checkIn.DataChanged += this.DataRoomsChanged;
+                        checkIn.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show(roomDTO.RStatusDescription, "Không thể nhận phòng",
+                            MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Không có lịch đặt nào");
+                }
             });
 
+            // OK
             contextMenuStrip.Items.Add("Thêm dịch vụ", null, (sender, e) =>
             {
                 if (row.Cells["BStatus"].Value.ToString() == "CheckedIn")
@@ -131,6 +178,42 @@ namespace Presentation.User_Controls
                                 MessageBoxIcon.Information);
                 }
             });
+
+            //OK
+            contextMenuStrip.Items.Add("Trả phòng - Thanh toán", null, (sender, e) =>
+            {
+                try
+                {
+                    string status = row.Cells["BStatus"].Value.ToString();
+                    if (status == "CheckedIn" || status == "Expired")
+                    {
+                        string id = row.Cells[0].Value.ToString();
+                        Payment payment = new Payment(id); // mã payment là mã BId
+                        DialogResult dialogResult = payment.ShowDialog();
+                        if (dialogResult == DialogResult.OK)
+                        {
+                            BookingB.ChuyenTrangThai(id, "CheckedOut");
+                            LoadData(BookingB.GetAllBookings());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không thể thực hiện",
+                                    "Thông báo",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            });
+        }
+
+        private void DataRoomsChanged(object sender, EventArgs e)
+        {
+            LoadData(BookingB.GetAllBookings());
         }
 
         private void RenameColumns()
@@ -164,6 +247,11 @@ namespace Presentation.User_Controls
                         break;
                 }
             }
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+            LoadData(BookingB.GetAllBookings());
         }
     }
 }

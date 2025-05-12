@@ -26,8 +26,14 @@ namespace Presentation.User_Controls
 
         public UC_RoomManagement()
         {
-            InitializeComponent();
-            currentList = RoomBusiness.GetAllRooms();
+            InitializeComponent(); ThayDoiMau();
+            currentList = RoomBusiness.GetAllRooms(); 
+        }
+
+        private void ThayDoiMau()
+        {
+            panel3.BackColor = ColorTranslator.FromHtml("#F4F6F9");
+            panel2.BackColor = ColorTranslator.FromHtml("#F4F6F9");
         }
 
         private void Room_Load(object sender, EventArgs e)

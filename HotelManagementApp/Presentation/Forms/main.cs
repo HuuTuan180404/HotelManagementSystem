@@ -20,12 +20,17 @@ namespace Presentation.Forms
         private Timer timer;
         public Main()
         {
-            InitializeComponent();
+            InitializeComponent(); ThayDoiMau();
             lbTime.Text = DateTime.Now.ToString("HH:mm:ss dddd, dd/MM/yyyy");
             timer = new Timer();
             timer.Interval = 1000; // Cập nhật mỗi 1 giây
             timer.Tick += Timer_Tick;
             timer.Start();
+        }
+
+        private void ThayDoiMau()
+        {
+
         }
 
         private void Timer_Tick(object sender, EventArgs e)
