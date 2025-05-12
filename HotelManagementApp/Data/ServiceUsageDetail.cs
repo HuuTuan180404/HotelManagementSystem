@@ -24,7 +24,6 @@ namespace Data
         public virtual Employees Employees { get; set; }
         public virtual Services Services { get; set; }
         public virtual ServiceUsage ServiceUsage { get; set; }
-
         public static ServiceUsageDetail Convert(ServiceUsageDetailDTO serviceUsageDetailDTO)
         {
             return new ServiceUsageDetail

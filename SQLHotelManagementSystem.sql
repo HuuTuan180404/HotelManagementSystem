@@ -68,10 +68,14 @@ CREATE TABLE Employees
     Email VARCHAR(100) UNIQUE,  
     Address NVARCHAR(255),          
     Status VARCHAR(15) CHECK (Status IN ('Active', 'Inactive', 'On Leave')) NOT NULL,  
-    ERole VARCHAR(100) NOT NULL,
-    FOREIGN KEY (ERole) REFERENCES EmployeeRole(ERole)                 
+    ERole VARCHAR(100),
+	FOREIGN KEY (ERole) REFERENCES EmployeeRole(ERole),
+	Password VARCHAR(255) NOT NULL,  -- Added field for password
+    Avatar VARCHAR(255)           -- Added field for avatar (e.g., file path or URL)
 )
 GO
+
+
 
 
 -- 8. BookingStatus
@@ -154,3 +158,14 @@ CREATE TABLE Payments
     FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod)
 )
 GO
+
+CREATE TABLE Booking_Online
+(
+	CreateAt DATETIME PRIMARY KEY,
+	CCCD VARCHAR(100),
+	HoTen NVARCHAR(100),
+	SoDienThoai VARCHAR(15),
+	TGianNhanPhong DATETIME,
+	TGianTraPhong DATETIME,
+	LoaiPhong VARCHAR(100) FOREIGN KEY REFERENCES RType(RType_)
+)
