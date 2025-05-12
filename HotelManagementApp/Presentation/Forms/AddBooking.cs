@@ -35,7 +35,6 @@ namespace Presentation.Forms
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
-
         private FilterInfoCollection captureDevices;
         private VideoCaptureDevice videoSource;
         RoomB RoomB;
@@ -260,21 +259,24 @@ namespace Presentation.Forms
 
         private void btnQR_Click(object sender, EventArgs e)
         {
-            var qrForm = new QR(true);
-            qrForm.OnCustomerScanned += (customer) =>
+            try
             {
-                var customerBusiness = new Business.CustomerBusiness();
-                var dbCustomer = customerBusiness.GetCustomerById(customer.CId);
-
-                if (dbCustomer != null)
+                var qrForm = new QR(true);
+                qrForm.OnCustomerScanned += (customer) =>
                 {
-                    txtId.Text = dbCustomer.CId;
-                    txtName.Text = dbCustomer.Name;
-                    selectGender.SelectedItem = dbCustomer.Gender;
-                    txtAddress.Text = dbCustomer.Address;
-                    txtPhone.Text = dbCustomer.Phone;
-                    txtEmail.Text = dbCustomer.Email;
-                }
+                    var customerBusiness = new Business.CustomerBusiness();
+                    var dbCustomer = customerBusiness.GetCustomerById(customer.CId);
+
+                    if (dbCustomer != null)
+                    {
+                        txtId.Text = dbCustomer.CId;
+                        txtName.Text = dbCustomer.Name;
+                        selectGender.SelectedItem = dbCustomer.Gender;
+                        txtAddress.Text = dbCustomer.Address;
+                        txtPhone.Text = dbCustomer.Phone;
+                        txtEmail.Text = dbCustomer.Email;
+                    }
+                };
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }

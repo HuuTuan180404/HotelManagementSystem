@@ -49,20 +49,20 @@
             // 
             // txtQRResult
             // 
-            this.txtQRResult.Location = new System.Drawing.Point(165, 364);
+            this.txtQRResult.Location = new System.Drawing.Point(124, 296);
+            this.txtQRResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtQRResult.Multiline = true;
             this.txtQRResult.Name = "txtQRResult";
             this.txtQRResult.ReadOnly = true;
-            this.txtQRResult.Size = new System.Drawing.Size(442, 83);
+            this.txtQRResult.Size = new System.Drawing.Size(332, 68);
             this.txtQRResult.TabIndex = 9;
             // 
             // btnExit
             // 
             this.btnExit.Image = global::Presentation.Properties.Resources._3094700;
-            this.btnExit.Location = new System.Drawing.Point(896, 470);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
+            this.btnExit.Location = new System.Drawing.Point(672, 382);
             this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(63, 62);
+            this.btnExit.Size = new System.Drawing.Size(47, 50);
             this.btnExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnExit.TabIndex = 11;
             this.btnExit.TabStop = false;
@@ -71,10 +71,9 @@
             // btnSelectImage
             // 
             this.btnSelectImage.Image = global::Presentation.Properties.Resources._360_F_525379615_AQlcYaHQqJJAYRoBkjDKGO31G1bp9CYw;
-            this.btnSelectImage.Location = new System.Drawing.Point(13, 177);
-            this.btnSelectImage.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSelectImage.Location = new System.Drawing.Point(10, 144);
             this.btnSelectImage.Name = "btnSelectImage";
-            this.btnSelectImage.Size = new System.Drawing.Size(133, 62);
+            this.btnSelectImage.Size = new System.Drawing.Size(100, 50);
             this.btnSelectImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnSelectImage.TabIndex = 10;
             this.btnSelectImage.TabStop = false;
@@ -83,10 +82,9 @@
             // btnStop
             // 
             this.btnStop.Image = global::Presentation.Properties.Resources.images;
-            this.btnStop.Location = new System.Drawing.Point(13, 92);
-            this.btnStop.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStop.Location = new System.Drawing.Point(10, 75);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(133, 62);
+            this.btnStop.Size = new System.Drawing.Size(100, 50);
             this.btnStop.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnStop.TabIndex = 8;
             this.btnStop.TabStop = false;
@@ -98,10 +96,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxWebcam.ImageRotate = 0F;
-            this.pictureBoxWebcam.Location = new System.Drawing.Point(165, 13);
-            this.pictureBoxWebcam.Margin = new System.Windows.Forms.Padding(4);
+            this.pictureBoxWebcam.Location = new System.Drawing.Point(124, 11);
             this.pictureBoxWebcam.Name = "pictureBoxWebcam";
-            this.pictureBoxWebcam.Size = new System.Drawing.Size(444, 322);
+            this.pictureBoxWebcam.Size = new System.Drawing.Size(333, 262);
             this.pictureBoxWebcam.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxWebcam.TabIndex = 7;
             this.pictureBoxWebcam.TabStop = false;
@@ -109,10 +106,9 @@
             // btnStart
             // 
             this.btnStart.Image = global::Presentation.Properties.Resources.qr_scan_icon_2048x2048_aeh36n7y;
-            this.btnStart.Location = new System.Drawing.Point(13, 13);
-            this.btnStart.Margin = new System.Windows.Forms.Padding(4);
+            this.btnStart.Location = new System.Drawing.Point(10, 11);
             this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(133, 62);
+            this.btnStart.Size = new System.Drawing.Size(100, 50);
             this.btnStart.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnStart.TabIndex = 6;
             this.btnStart.TabStop = false;
@@ -120,9 +116,9 @@
             // 
             // QR
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 545);
+            this.ClientSize = new System.Drawing.Size(729, 443);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSelectImage);
             this.Controls.Add(this.txtQRResult);
@@ -130,6 +126,7 @@
             this.Controls.Add(this.pictureBoxWebcam);
             this.Controls.Add(this.btnStart);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "QR";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "QR";

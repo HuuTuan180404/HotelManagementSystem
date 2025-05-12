@@ -305,6 +305,18 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\QR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\QR.Designer.cs">
+      <DependentUpon>QR.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Test.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -675,21 +687,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\icon_plus.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\images.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\qr-scan-icon-2048x2048-aeh36n7y.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\360_F_525379615_AQlcYaHQqJJAYRoBkjDKGO31G1bp9CYw.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\1286853.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3094700.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\image\loading.png" />
