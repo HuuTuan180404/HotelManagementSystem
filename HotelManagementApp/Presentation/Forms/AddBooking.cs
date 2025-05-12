@@ -251,7 +251,7 @@ namespace Presentation.Forms
 
                 // đónng flowLayoutPanel lại
                 timer_for_select_room.Start();
-                btnShowItem.Image = Presentation.Properties.Resources.left;
+                btnShowItem.Image = Properties.Resources.left;
                 timer2.Stop();
                 flowLayoutPanel.AutoScroll = false;
             }
