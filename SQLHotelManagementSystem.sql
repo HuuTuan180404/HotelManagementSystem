@@ -45,7 +45,7 @@ CREATE TABLE Customers
     Name NVARCHAR(100) NOT NULL,        
     Gender VARCHAR(10) CHECK (Gender IN ('Male', 'Female', 'Other')),  
     Phone VARCHAR(15) UNIQUE NOT NULL,
-    Email VARCHAR(100) UNIQUE,
+    Email VARCHAR(100),
     Address NVARCHAR(255),         
     Type VARCHAR(20) CHECK (Type IN ('Regular', 'VIP', 'New')) DEFAULT 'New'
 )
