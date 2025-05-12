@@ -20,14 +20,12 @@ using System.Timers;
 using Business;
 using ZXing.Common;
 using System.Configuration;
+using static Guna.UI2.Native.WinApi;
 
 namespace Presentation.Forms
 {
     public partial class AddBooking : Form
     {
-        private FilterInfoCollection captureDevices;
-        private VideoCaptureDevice videoSource;
-
         [DllImport("user32.dll")]
         private static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
@@ -37,12 +35,19 @@ namespace Presentation.Forms
         private const int WM_NCLBUTTONDOWN = 0xA1;
         private const int HTCAPTION = 0x2;
 
+
+        private FilterInfoCollection captureDevices;
+        private VideoCaptureDevice videoSource;
         RoomB RoomB;
+        BookingB BookingB;
+        CustomerBusiness CustomerBusiness;
 
         public AddBooking()
         {
             InitializeComponent();
             RoomB = new RoomB();
+            BookingB = new BookingB();
+            CustomerBusiness = new CustomerBusiness();
             LoadAllRoomTypes();
             LoadRooms(RoomB.GetAllRooms());
             FirstLoad();
@@ -53,6 +58,12 @@ namespace Presentation.Forms
             btnShowItem.Tag = roomId;
             RoomDTO RoomDTO = RoomB.GetRoom(roomId);
             btnShowItem.Text = $"{RoomDTO.RId} - {RoomDTO.RType}";
+
+            timeCheckin.Text = "";
+            dateCheckin.Text = "";
+
+            timeCheckout.Text = "";
+            dateCheckout.Text = "";
         }
 
         private void FirstLoad()
@@ -123,23 +134,6 @@ namespace Presentation.Forms
                     itemIsShow = false;
                     timer_for_select_room.Stop();
                 }
-            }
-        }
-
-        private void btnShowItem_Click(object sender, EventArgs e)
-        {
-            timer_for_select_room.Start();
-            if (itemIsShow)
-            {
-                btnShowItem.Image = Presentation.Properties.Resources.left;
-                timer2.Stop();
-                flowLayoutPanel.AutoScroll = false;
-            }
-            else
-            {
-                btnShowItem.Image = Presentation.Properties.Resources.down;
-                flowLayoutPanel.AutoScroll = true;
-                timer2.Start();
             }
         }
 
@@ -255,7 +249,12 @@ namespace Presentation.Forms
                 timer2.Start(); // đóng cái flow layout panel
                 itemRoom.IS_SELECTED = false;
                 btnShowItem.Tag = itemRoom.RoomId;
-                btnShowItem.PerformClick();
+
+                // đónng flowLayoutPanel lại
+                timer_for_select_room.Start();
+                btnShowItem.Image = Presentation.Properties.Resources.left;
+                timer2.Stop();
+                flowLayoutPanel.AutoScroll = false;
             }
         }
 
@@ -326,28 +325,105 @@ namespace Presentation.Forms
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
-            //if (string.IsNullOrWhiteSpace(txtId.Text) || string.IsNullOrWhiteSpace(txtName.Text)
-            //    || string.IsNullOrWhiteSpace(txtPhone.Text))
-            //{
-            //    return;
-            //}
+            try
+            {
+                if (kTraDaNhapThongTinDayDu())
+                {
+                    try
+                    {
+                        CustomerDTO customerDTO = CustomerBusiness.GetCustomerById(txtId.Text);
+                        if (customerDTO == null)
+                        {
+                            customerDTO = new CustomerDTO
+                            {
+                                CId = txtId.Text,
+                                Name = txtName.Text,
+                                Phone = txtPhone.Text,
+                                Gender = selectGender.SelectedItem.ToString(),
+                                Email = txtEmail.Text == "" ? null : txtEmail.Text,
+                                Address = txtAddress.Text == "" ? null : txtAddress.Text,
+                                Type = "New"
+                            };
+                            CustomerBusiness.AddCustomer(customerDTO);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
 
-            //if (timeCheckin.Text.ElementAt(0) == ' ' || dateCheckin.Text.ElementAt(0) == ' '
-            //    || timeCheckout.Text.ElementAt(0) == ' ' || dateCheckout.Text.ElementAt(0) == ' ')
-            //{
-            //    return;
-            //}
-            //else
-            //{
-            //    //Debug.WriteLine("Bạn đã nhập: " + timeCheckin.Text);
-            //}
+                    if (kTraCoTheDatPhong())
+                    {
+                        BookingDTO bookingDTO = new BookingDTO
+                        {
+                            RId = btnShowItem.Tag.ToString(),
+                            CId = txtId.Text,
+                            BTimeCheckIn = Convert.ToDateTime($"{timeCheckin.Text} {dateCheckin.Text}"),
+                            BTimeCheckOut = Convert.ToDateTime($"{timeCheckout.Text} {dateCheckout.Text}"),
+                            BStatus = "Confirmed"
+                        };
 
-            //if (btnShowItem.Tag == null)
-            //{
-            //    return;
-            //}
+                        if (BookingB.DatPhong(bookingDTO))
+                        {
+                            MessageBox.Show("Thanh cong");
+                            DialogResult = DialogResult.OK;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-            //Debug.WriteLine(DateTime.Now.ToString("HH:mm dd/MM/yyyy"));
+        bool kTraDaNhapThongTinDayDu()
+        {
+            if (string.IsNullOrWhiteSpace(txtId.Text)
+                || string.IsNullOrWhiteSpace(txtName.Text)
+                || string.IsNullOrWhiteSpace(txtPhone.Text))
+            {
+                throw new Exception("Thông tin khách hàng chưa được nhập");
+            }
+
+            if (timeCheckin.Text.ElementAt(0) == ' '
+                || dateCheckin.Text.ElementAt(0) == ' '
+                || timeCheckout.Text.ElementAt(0) == ' '
+                || dateCheckout.Text.ElementAt(0) == ' ')
+            {
+                throw new Exception("Thời gian nhận/trả phòng chưa được nhập");
+            }
+
+            if (btnShowItem.Tag == null)
+            {
+                throw new Exception("Chưa chọn phòng");
+            }
+            return true;
+        }
+
+        bool kTraCoTheDatPhong()
+        {
+            DateTime dateTimeCheckIn = Convert.ToDateTime($"{timeCheckin.Text} {dateCheckin.Text}");
+            DateTime dateTimeCheckOut = Convert.ToDateTime($"{timeCheckout.Text} {dateCheckout.Text}");
+
+            List<BookingDTO> list = BookingB.GetAllBookings();
+
+            foreach (var book in list)
+            {
+                if (book.RId == btnShowItem.Tag.ToString() && book.BStatus != "Cancelled" && book.BStatus != "NoShow")
+                {
+                    if (book.BTimeCheckOut.AddMinutes(30) < dateTimeCheckIn
+                        || dateTimeCheckOut.AddMinutes(30) < book.BTimeCheckIn)
+                    {
+
+                    }
+                    else
+                    {
+                        throw new Exception("Phòng không thể đặt vào thời gian đó");
+                    }
+                }
+            }
+            return true;
         }
 
         private void txtId_TextChanged(object sender, EventArgs e)
@@ -359,7 +435,46 @@ namespace Presentation.Forms
 
         private void txtId_IconRightClick(object sender, EventArgs e)
         {
+            CustomerDTO customerDTO = CustomerBusiness.GetCustomerById(txtId.Text);
+            if (customerDTO != null)
+            {
+                txtName.Text = customerDTO.Name;
+                txtPhone.Text = customerDTO.Phone;
 
+                if (customerDTO.Gender != null && selectGender.Items.Contains(customerDTO.Gender))
+                {
+                    selectGender.SelectedItem = customerDTO.Gender;
+                }
+
+                if (customerDTO.Email != null) txtEmail.Text = customerDTO.Email;
+                if (customerDTO.Address != null) txtAddress.Text = customerDTO.Address;
+            }
         }
+
+        private void btnShowItem_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                timer_for_select_room.Start();
+                if (itemIsShow)
+                {
+                    btnShowItem.Image = Presentation.Properties.Resources.left;
+                    timer2.Stop();
+                    flowLayoutPanel.AutoScroll = false;
+                }
+                else
+                {
+                    btnShowItem.Image = Presentation.Properties.Resources.down;
+                    flowLayoutPanel.AutoScroll = true;
+                    timer2.Start();
+                }
+            }
+            else if (e.Button == MouseButtons.Right)
+            {
+                btnShowItem.Text = "Select";
+                btnShowItem.Tag = null;
+            }
+        }
+
     }
 }

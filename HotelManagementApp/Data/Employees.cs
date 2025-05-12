@@ -17,7 +17,7 @@ namespace Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Employees()
         {
-            this.BookingPayments = new HashSet<BookingPayments>();
+            this.Payments = new HashSet<Payments>();
             this.ServiceUsageDetail = new HashSet<ServiceUsageDetail>();
         }
     
@@ -30,10 +30,10 @@ namespace Data
         public string Status { get; set; }
         public string ERole { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingPayments> BookingPayments { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]      
         public virtual EmployeeRole EmployeeRole { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<ServiceUsageDetail> ServiceUsageDetail { get; set; }
+        public virtual ICollection<Payments> Payments { get; set; }
     }
 }

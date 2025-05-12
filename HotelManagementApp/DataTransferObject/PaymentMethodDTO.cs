@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DataTransferObject
 {
-    public class ServiceDTO
+    public class PaymentMethodDTO
     {
-        public string SName { get; set; }
-        public decimal SPrice { get; set; }
-        public string SDescription { get; set; }
+        public string PMethod { get; set; }
+        public string Description { get; set; }
     }
 }

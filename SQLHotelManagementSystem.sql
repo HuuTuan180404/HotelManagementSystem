@@ -73,14 +73,6 @@ CREATE TABLE Employees
 )
 GO
 
--- 7. Services
-CREATE TABLE Services
-(
-    SName VARCHAR(100) PRIMARY KEY,
-    SPrice DECIMAL(10,2) NOT NULL CHECK (SPrice >= 0),
-    SDescription NVARCHAR(MAX)
-)
-GO
 
 -- 8. BookingStatus
 CREATE TABLE BookingStatus
@@ -90,21 +82,6 @@ CREATE TABLE BookingStatus
 )
 GO
 
--- 9. PaymentMethod
-CREATE TABLE PaymentMethod
-(
-    PMethod VARCHAR(100) PRIMARY KEY,
-    Description NVARCHAR(MAX)
-)
-GO
-
--- 10. PaymentStatus
-CREATE TABLE PaymentStatus
-(
-    PStatus VARCHAR(100) PRIMARY KEY,
-    Description NVARCHAR(MAX)
-)
-GO
 
 -- 11. Bookings
 CREATE TABLE Bookings 
@@ -119,6 +96,15 @@ CREATE TABLE Bookings
     FOREIGN KEY (RId) REFERENCES Rooms(RId),
     FOREIGN KEY (CId) REFERENCES Customers(CId),
     FOREIGN KEY (BStatus) REFERENCES BookingStatus(BStatus)
+)
+GO
+
+-- 7. Services
+CREATE TABLE Services
+(
+    SName VARCHAR(100) PRIMARY KEY,
+    SPrice DECIMAL(10,2) NOT NULL CHECK (SPrice >= 0),
+    SDescription NVARCHAR(MAX)
 )
 GO
 
@@ -146,8 +132,16 @@ CREATE TABLE ServiceUsageDetail
 )
 GO
 
--- 14. BookingPayments
-CREATE TABLE BookingPayments
+
+-- 9. PaymentMethod
+CREATE TABLE PaymentMethod
+(
+    PMethod VARCHAR(100) PRIMARY KEY,
+    Description NVARCHAR(MAX)
+)
+GO
+
+CREATE TABLE Payments
 (
     BPId VARCHAR(100) PRIMARY KEY,
     BId VARCHAR(100) NOT NULL,
@@ -155,10 +149,8 @@ CREATE TABLE BookingPayments
     Amount DECIMAL(10,2) NOT NULL CHECK (Amount >= 0),
     Date DATETIME DEFAULT GETDATE(),
     PMethod VARCHAR(100) NOT NULL,
-    PStatus VARCHAR(100) NOT NULL,
     FOREIGN KEY (BId) REFERENCES Bookings(BId),
     FOREIGN KEY (EId) REFERENCES Employees(EId),
-    FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod),
-    FOREIGN KEY (PStatus) REFERENCES PaymentStatus(PStatus)
+    FOREIGN KEY (PMethod) REFERENCES PaymentMethod(PMethod)
 )
 GO

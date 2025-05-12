@@ -17,13 +17,13 @@ namespace Data
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PaymentMethod()
         {
-            this.BookingPayments = new HashSet<BookingPayments>();
+            this.Payments = new HashSet<Payments>();
         }
     
         public string PMethod { get; set; }
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingPayments> BookingPayments { get; set; }
+        public virtual ICollection<Payments> Payments { get; set; }
     }
 }

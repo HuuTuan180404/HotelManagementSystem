@@ -22,7 +22,7 @@ namespace Presentation.Forms
     {
         ServiceB ServiceB;
         string Id;
-        bool isRequested = false;
+        bool daSuDungDichVuTruocDo = false; // nếu đã sử dụng rồi thì không cần tạo thêm record trong ServiceUsage
         private UseServide()
         {
             InitializeComponent();
@@ -47,16 +47,28 @@ namespace Presentation.Forms
             btnCol.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
             dataGridView.Columns.Add(btnCol);
 
+            HienThiCacDichVuDaThem();
+        }
+
+        private void HienThiCacDichVuDaThem()
+        {
+            flowPanelAdded.Controls.Clear();
             var list = ServiceB.GetAllServicesUsage(Id);
             if (list != null && list.Count > 0)
             {
+                daSuDungDichVuTruocDo = true;
                 foreach (var service in list)
                 {
                     InitializeItemAdded(service);
                 }
-                isRequested = true;
                 flowPanelAdded.BringToFront();
             }
+        }
+
+        private void LoadAgain()
+        {
+            flowPanelAdd.Controls.Clear();
+            HienThiCacDichVuDaThem();
         }
 
         private void InitializeItemAdded(ServiceUsageDetailDTO serviceUsageDetailDTO)
@@ -108,67 +120,64 @@ namespace Presentation.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            if (flowPanelAdd.Controls.Count > 0)
+            try
             {
-                if (isRequested == false)
+                if (flowPanelAdd.Controls.Count > 0)
                 {
-                    ServiceB.CreateRequest(Id);
-                }
-                List<ServiceUsageDetailDTO> list = new List<ServiceUsageDetailDTO>();
-                foreach (itemService i in flowPanelAdd.Controls)
-                {
-                    list.Add(new ServiceUsageDetailDTO
+                    if (daSuDungDichVuTruocDo == false)
                     {
-                        SUId = Id,
-                        SName = i.SName.Text,
-                        EId = ConfigPresentation.CURRENT_EId,
-                        Quantity = Convert.ToInt32(i.txtQuantity.Text)
-                    });
-                }
-                if (list.Count > 0)
-                {
-                    try
+                        ServiceB.CreateRequest(Id);
+                    }
+                    List<ServiceUsageDetailDTO> list = new List<ServiceUsageDetailDTO>();
+                    foreach (itemService i in flowPanelAdd.Controls)
                     {
-                        if (ServiceB.Request(list))
+                        list.Add(new ServiceUsageDetailDTO
                         {
-                            MessageBox.Show("Thành công");
+                            SUId = Id,
+                            SName = i.SName.Text,
+                            EId = ConfigPresentation.CURRENT_EId,
+                            Quantity = Convert.ToInt32(i.txtQuantity.Text)
+                        });
+                    }
+                    if (list.Count > 0)
+                    {
+                        try
+                        {
+                            if (ServiceB.Request(list))
+                            {
+                                daSuDungDichVuTruocDo = true;
+                                MessageBox.Show("Thành công");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
                         }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Không có dịch vụ nào được thêm");
                     }
+                    LoadAgain();
                 }
                 else
                 {
-                    MessageBox.Show("Không có dịch vụ nào được thêm");
+                    DialogResult dialogResult = MessageBox.Show("Chưa có dịch vụ nào được thêm",
+                                    "Cảnh báo",
+                                    MessageBoxButtons.OKCancel,
+                                    MessageBoxIcon.Warning);
+                    if (dialogResult == DialogResult.Cancel) { this.Close(); }
                 }
-                LoadAgain();
             }
-            else
+            catch (Exception ex)
             {
-                DialogResult dialogResult = MessageBox.Show("Chưa có dịch vụ nào được thêm",
-                                "Cảnh báo",
-                                MessageBoxButtons.OKCancel,
-                                MessageBoxIcon.Warning);
-                if (dialogResult == DialogResult.Cancel) { this.Close(); }
+
+                //throw;
+                MessageBox.Show(ex.Message);
             }
         }
 
-        private void LoadAgain()
-        {
-            flowPanelAdd.Controls.Clear();
-            flowPanelAdded.Controls.Clear();
 
-            var list = ServiceB.GetAllServicesUsage(Id);
-            if (list != null && list.Count > 0)
-            {
-                foreach (var service in list)
-                {
-                    InitializeItemAdded(service);
-                }
-            }
-        }
 
         private void btnExit_Click(object sender, EventArgs e)
         {

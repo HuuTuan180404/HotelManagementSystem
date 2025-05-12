@@ -27,7 +27,7 @@ namespace Presentation.User_Controls
         {
             InitializeComponent();
             currentList = RoomBusiness.GetAllRooms();
-        }
+        }    
 
         public void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {

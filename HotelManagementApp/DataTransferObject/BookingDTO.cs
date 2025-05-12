@@ -18,7 +18,7 @@ namespace DataTransferObject
 
         public string Display()
         {
-            return $"{BTimeCheckIn} - {BTimeCheckOut}";
+            return $"{BId} - {CId} - {BTimeCheckIn} - {BTimeCheckOut}";
         }
     }
 }
