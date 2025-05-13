@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.Remoting.Contexts;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -57,5 +58,35 @@ namespace Data
                 throw ex;
             }
         }
+
+        public List<Tuple<int, decimal>> DoanhThuTungThang()
+        {
+            try
+            {
+                // Bước 1: Lấy dữ liệu thô bằng anonymous object
+                var rawData = DB.Payments
+                    .Where(p => p.Date != null)
+                    .GroupBy(p => p.Date.Value.Month)
+                    .Select(g => new
+                    {
+                        Month = g.Key,
+                        TotalAmount = g.Sum(p => p.Amount)
+                    })
+                    .OrderBy(g => g.Month)
+                    .ToList();  // Truy vấn hoàn tất, đưa về RAM
+
+                // Bước 2: Dùng Tuple sau khi có dữ liệu trong RAM
+                var result = rawData
+                    .Select(x => Tuple.Create(x.Month, x.TotalAmount))
+                    .ToList();
+
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

@@ -457,6 +457,12 @@
     <Compile Include="User_Controls\UC_Test.Designer.cs">
       <DependentUpon>UC_Test.cs</DependentUpon>
     </Compile>
+    <Compile Include="User_Controls\UC_ThongKe.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="User_Controls\UC_ThongKe.Designer.cs">
+      <DependentUpon>UC_ThongKe.cs</DependentUpon>
+    </Compile>
     <Compile Include="User_Controls\UC_ViewFloorMode.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -558,6 +564,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_Test.resx">
       <DependentUpon>UC_Test.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User_Controls\UC_ThongKe.resx">
+      <DependentUpon>UC_ThongKe.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_ViewFloorMode.resx">
       <DependentUpon>UC_ViewFloorMode.cs</DependentUpon>

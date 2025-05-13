@@ -132,9 +132,17 @@ namespace Business
             }
         }
 
-        public void demo()
+        public List<Tuple<string, int>> ThongKe()
         {
-            RoomD.demo();
+            try
+            {
+                return RoomD.ThongKeTheoTrangThai();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
+
     }
 }

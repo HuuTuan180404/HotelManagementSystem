@@ -143,10 +143,11 @@ namespace Presentation.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Login login = new Login();
-            login.ShowDialog();
-            this.Close();
+            //this.Hide();
+            //Login login = new Login();
+            //login.ShowDialog();
+            //this.Close();
+            UC_ThongKe.BringToFront();
         }
 
         private void UC_BookingManagement_Load(object sender, EventArgs e)
