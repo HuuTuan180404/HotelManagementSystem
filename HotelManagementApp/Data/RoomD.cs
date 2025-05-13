@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
+using System.Runtime.Remoting.Contexts;
 //using Microsoft.EntityFrameworkCore;
 //using System.Data.Microsoft.EntityFrameworkCore;
 
@@ -277,10 +278,28 @@ namespace Data
             }
         }
 
-        public void demo()
+        public List<Tuple<string, int>> ThongKeTheoTrangThai()
         {
+            try
+            {
+                var rawData = DB.Rooms
+                            .GroupBy(r => r.Status)
+                            .Select(g => new
+                            {
+                                Status = g.Key,
+                                SL = g.Count()
+                            })
+                            .ToList();
 
+                var result = rawData
+                    .Select(x => Tuple.Create(x.Status, x.SL))
+                    .ToList();
+
+                return result;
+            }
+            catch (SqlException ex) { throw ex; }
         }
+
     }
 }
 

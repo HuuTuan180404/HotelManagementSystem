@@ -131,6 +131,7 @@ namespace Presentation.Forms
             this.tb_username.Name = "tb_username";
             this.tb_username.Size = new System.Drawing.Size(341, 26);
             this.tb_username.TabIndex = 10;
+            this.tb_username.Text = "052204013042";
             // 
             // tb_password
             // 
@@ -139,6 +140,7 @@ namespace Presentation.Forms
             this.tb_password.Name = "tb_password";
             this.tb_password.Size = new System.Drawing.Size(292, 26);
             this.tb_password.TabIndex = 9;
+            this.tb_password.Text = "87654321aA@";
             this.tb_password.UseSystemPasswordChar = true;
             // 
             // lb_forgetPassword

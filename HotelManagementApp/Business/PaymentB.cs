@@ -36,5 +36,18 @@ namespace Business
                 throw ex;
             }
         }
+
+        public List<Tuple<int, decimal>> ThongKe()
+        {
+            try
+            {
+               return  PaymentD.DoanhThuTungThang();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
     }
 }
