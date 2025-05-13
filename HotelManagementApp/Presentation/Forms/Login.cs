@@ -87,8 +87,9 @@ namespace Presentation.Forms
                 failedLoginCount = 0;
                 forceForgotPassword = false;
                 this.Hide();
-                ConfigPresentation.CURRENT_EId=username;
+                ConfigPresentation.CURRENT_EId = username;
                 Main dashboard = new Main();
+                dashboard.SetCurrentEmployee(ConfigPresentation.CURRENT_EId);
                 dashboard.ShowDialog();
                 this.Close();
             }
