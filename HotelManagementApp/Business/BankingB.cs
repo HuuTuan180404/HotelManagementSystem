@@ -6,14 +6,73 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Drawing;
-using VietQR;
+//using VietQR;
 using RestSharp;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
 
 
-namespace Business.BankingBusiness
+namespace Business
 {
+    /// <summary>
+    /// APIRequestB.cs
+    /// </summary>
+    public class APIRequestB
+    {
+        public long accountNo { get; set; }
+        public string accountName { get; set; }
+        public int acqId { get; set; }
+        public int amount { get; set; }
+        public string addInfo { get; set; }
+        public string format { get; set; }
+        public string template { get; set; }
+    }
+    public class Data
+    {
+        public int acpId { get; set; }
+        public string accountName { get; set; }
+        public string qrCode { get; set; }
+        public string qrDataURL { get; set; }
+    }
+
+    public class APIResponse
+    {
+        public string code { get; set; }
+        public string desc { get; set; }
+        public Data data { get; set; }
+    }
+    
+    /// <summary>
+    // BankB.cs
+    /// </summary>
+    public class Datum
+    {
+        public int id { get; set; }
+        public string name { get; set; }
+        public string code { get; set; }
+        public string bin { get; set; }
+        public string shortName { get; set; }
+        public string logo { get; set; }
+        public int transferSupported { get; set; }
+        public int lookupSupported { get; set; }
+        public string short_name { get; set; }
+        public int support { get; set; }
+        public int isTransfer { get; set; }
+        public string swift_code { get; set; }
+    }
+
+    public class BankB
+    {
+        public string code { get; set; }
+        public string desc { get; set; }
+        public IList<Datum> data { get; set; }
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+
+
     public class BankingB
     {
         private static readonly long soTaiKhoan = 1110566786;

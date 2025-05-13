@@ -134,7 +134,7 @@
             this.guna2HtmlLabel1.Location = new System.Drawing.Point(44, 59);
             this.guna2HtmlLabel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel1.Name = "guna2HtmlLabel1";
-            this.guna2HtmlLabel1.Size = new System.Drawing.Size(28, 37);
+            this.guna2HtmlLabel1.Size = new System.Drawing.Size(23, 30);
             this.guna2HtmlLabel1.TabIndex = 49;
             this.guna2HtmlLabel1.Text = "ID";
             // 
@@ -145,7 +145,7 @@
             this.guna2HtmlLabel2.Location = new System.Drawing.Point(354, 59);
             this.guna2HtmlLabel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(70, 37);
+            this.guna2HtmlLabel2.Size = new System.Drawing.Size(57, 30);
             this.guna2HtmlLabel2.TabIndex = 50;
             this.guna2HtmlLabel2.Text = "Name";
             // 
@@ -156,7 +156,7 @@
             this.guna2HtmlLabel3.Location = new System.Drawing.Point(16, 355);
             this.guna2HtmlLabel3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(65, 37);
+            this.guna2HtmlLabel3.Size = new System.Drawing.Size(51, 30);
             this.guna2HtmlLabel3.TabIndex = 51;
             this.guna2HtmlLabel3.Text = "Email";
             // 
@@ -167,7 +167,7 @@
             this.guna2HtmlLabel4.Location = new System.Drawing.Point(5, 207);
             this.guna2HtmlLabel4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(76, 37);
+            this.guna2HtmlLabel4.Size = new System.Drawing.Size(62, 30);
             this.guna2HtmlLabel4.TabIndex = 52;
             this.guna2HtmlLabel4.Text = "Phone";
             // 
@@ -178,7 +178,7 @@
             this.guna2HtmlLabel5.Location = new System.Drawing.Point(341, 207);
             this.guna2HtmlLabel5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(85, 37);
+            this.guna2HtmlLabel5.Size = new System.Drawing.Size(70, 30);
             this.guna2HtmlLabel5.TabIndex = 53;
             this.guna2HtmlLabel5.Text = "Gender";
             // 
@@ -189,7 +189,7 @@
             this.guna2HtmlLabel6.Location = new System.Drawing.Point(335, 355);
             this.guna2HtmlLabel6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel6.Name = "guna2HtmlLabel6";
-            this.guna2HtmlLabel6.Size = new System.Drawing.Size(94, 37);
+            this.guna2HtmlLabel6.Size = new System.Drawing.Size(76, 30);
             this.guna2HtmlLabel6.TabIndex = 54;
             this.guna2HtmlLabel6.Text = "Address";
             // 
@@ -408,7 +408,7 @@
             this.dateCheckout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateCheckout.Mask = "00/00/0000";
             this.dateCheckout.Name = "dateCheckout";
-            this.dateCheckout.Size = new System.Drawing.Size(88, 29);
+            this.dateCheckout.Size = new System.Drawing.Size(88, 24);
             this.dateCheckout.TabIndex = 58;
             this.dateCheckout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dateCheckout.ValidatingType = typeof(System.DateTime);
@@ -421,7 +421,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(342, 19);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(163, 23);
+            this.label2.Size = new System.Drawing.Size(132, 19);
             this.label2.TabIndex = 56;
             this.label2.Text = "Date (dd/mm/yyyy)";
             // 
@@ -435,7 +435,7 @@
             this.timeCheckout.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeCheckout.Mask = "00:00";
             this.timeCheckout.Name = "timeCheckout";
-            this.timeCheckout.Size = new System.Drawing.Size(63, 29);
+            this.timeCheckout.Size = new System.Drawing.Size(63, 24);
             this.timeCheckout.TabIndex = 57;
             this.timeCheckout.Text = "1200";
             this.timeCheckout.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -450,7 +450,7 @@
             this.guna2HtmlLabel7.Location = new System.Drawing.Point(69, 40);
             this.guna2HtmlLabel7.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel7.Name = "guna2HtmlLabel7";
-            this.guna2HtmlLabel7.Size = new System.Drawing.Size(163, 37);
+            this.guna2HtmlLabel7.Size = new System.Drawing.Size(131, 30);
             this.guna2HtmlLabel7.TabIndex = 51;
             this.guna2HtmlLabel7.Text = "Time check-in";
             // 
@@ -461,7 +461,7 @@
             this.guna2HtmlLabel8.Location = new System.Drawing.Point(55, 92);
             this.guna2HtmlLabel8.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2HtmlLabel8.Name = "guna2HtmlLabel8";
-            this.guna2HtmlLabel8.Size = new System.Drawing.Size(180, 37);
+            this.guna2HtmlLabel8.Size = new System.Drawing.Size(145, 30);
             this.guna2HtmlLabel8.TabIndex = 52;
             this.guna2HtmlLabel8.Text = "Time check-out";
             // 
@@ -475,7 +475,7 @@
             this.dateCheckin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateCheckin.Mask = "00/00/0000";
             this.dateCheckin.Name = "dateCheckin";
-            this.dateCheckin.Size = new System.Drawing.Size(88, 29);
+            this.dateCheckin.Size = new System.Drawing.Size(88, 24);
             this.dateCheckin.TabIndex = 55;
             this.dateCheckin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.dateCheckin.ValidatingType = typeof(System.DateTime);
@@ -492,7 +492,7 @@
             this.timeCheckin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.timeCheckin.Mask = "00:00";
             this.timeCheckin.Name = "timeCheckin";
-            this.timeCheckin.Size = new System.Drawing.Size(63, 29);
+            this.timeCheckin.Size = new System.Drawing.Size(63, 24);
             this.timeCheckin.TabIndex = 53;
             this.timeCheckin.Text = "1200";
             this.timeCheckin.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -506,7 +506,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(218, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 23);
+            this.label1.Size = new System.Drawing.Size(101, 19);
             this.label1.TabIndex = 54;
             this.label1.Text = "Time (HH:mm)";
             // 
@@ -593,7 +593,6 @@
             this.btnConfirm.Size = new System.Drawing.Size(168, 52);
             this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "Confirm";
-       
             // 
             // materialLabel2
             // 
@@ -717,10 +716,11 @@
             // timeoutTimer
             // 
             this.timeoutTimer.Interval = 3000;
+            this.timeoutTimer.Tick += new System.EventHandler(this.TimeoutTimer_Tick);
             // 
             // AddBooking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1277, 565);
