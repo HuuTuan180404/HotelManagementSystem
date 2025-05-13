@@ -21,7 +21,6 @@ namespace Presentation.Forms
         public Login()
         {
             InitializeComponent();
-            //database = new DbConnector();
         }
 
         private void img_hide_Click(object sender, EventArgs e)
@@ -88,6 +87,7 @@ namespace Presentation.Forms
                 failedLoginCount = 0;
                 forceForgotPassword = false;
                 this.Hide();
+                ConfigPresentation.CURRENT_EId=username;
                 Main dashboard = new Main();
                 dashboard.ShowDialog();
                 this.Close();
