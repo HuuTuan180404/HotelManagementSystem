@@ -108,7 +108,7 @@ namespace Presentation.User_Controls
                 try
                 {
                     RoomDTO roomDTO = RoomB.GetRoom(RoomDTO.RId);
-                    if (roomDTO.RStatus != "Cleaning")
+                    if (roomDTO.RStatus != "Occupied")
                     {
                         roomDTO.RStatus = "Cleaning";
                         RoomB.UpdateRoom(roomDTO);
@@ -165,7 +165,6 @@ namespace Presentation.User_Controls
             roomDetail.DataChanged += DataRoomsChanged;
             roomDetail.ShowDialog();
         }
-
 
         private void mauNenChoTrangThaiPhong()
         {

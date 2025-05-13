@@ -1,4 +1,5 @@
 ﻿using System;
+using DataTransferObject;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +20,7 @@ namespace Presentation.Forms
         private FilterInfoCollection videoDevices;
         private VideoCaptureDevice videoSource;
         private Timer timer;
-        public event Action<DataTransferObject.CustomerDTO> OnCustomerScanned;
+        public event Action<CustomerDTO> OnCustomerScanned;
         private bool isBookingForm;
 
         public QR(bool isBookingForm = false)
@@ -59,7 +60,7 @@ namespace Presentation.Forms
             timer.Start();
         }
 
-        private void HandleCustomerScanned(DataTransferObject.CustomerDTO customer)
+        private void HandleCustomerScanned(CustomerDTO customer)
         {
             var customerBusiness = new CustomerBusiness();
             var dbCustomer = customerBusiness.GetCustomerById(customer.CId);
@@ -72,6 +73,12 @@ namespace Presentation.Forms
             }
             else
             {
+                //if (videoSource != null && videoSource.IsRunning)
+                //{
+                //    videoSource.SignalToStop();
+                //    videoSource = null;
+                //}
+
                 // Khách chưa có, mở form AddCus để nhập số điện thoại
                 var addCusForm = new AddCus();
                 addCusForm.SetCustomerData(customer, false);
@@ -178,7 +185,7 @@ namespace Presentation.Forms
                                 string[] parts = result.Text.Split('|');
                                 if (parts.Length >= 7)
                                 {
-                                    var customer = new DataTransferObject.CustomerDTO
+                                    var customer = new CustomerDTO
                                     {
                                         CId = parts[0],
                                         Name = parts[2],

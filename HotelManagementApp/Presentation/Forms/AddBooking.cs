@@ -264,7 +264,7 @@ namespace Presentation.Forms
                 var qrForm = new QR(true);
                 qrForm.OnCustomerScanned += (customer) =>
                 {
-                    var customerBusiness = new Business.CustomerBusiness();
+                    var customerBusiness = new CustomerBusiness();
                     var dbCustomer = customerBusiness.GetCustomerById(customer.CId);
 
                     if (dbCustomer != null)
@@ -276,24 +276,103 @@ namespace Presentation.Forms
                         txtPhone.Text = dbCustomer.Phone;
                         txtEmail.Text = dbCustomer.Email;
                     }
+                    else
+                    {
+                        txtId.Text = customer.CId;
+                        txtName.Text = customer.Name;
+                        selectGender.SelectedItem = customer.Gender;
+                        txtAddress.Text = customer.Address;
+                        txtPhone.Text = "";
+                        txtEmail.Text = "";
+                    }
                 };
+                qrForm.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            //btdnQR();
+        }
+
+        private void btdnQR()
+        {
+            captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            if (captureDevices.Count == 0)
+            {
+                MessageBox.Show("Không tìm thấy camera!");
+                return;
+            }
+            videoSource = new VideoCaptureDevice(captureDevices[0].MonikerString);
+            videoSource.NewFrame += VideoSource_NewFrame;
+            videoSource.Start();
+
+            timeoutTimer.Start();
+        }
+
+
+
+        private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
+            //pictureBoxCamera.Image = bitmap;
+            try
+            {
+                BarcodeReader reader = new BarcodeReader();
+                var result = reader.Decode(bitmap);
+                if (result != null)
+                {
+                    timeoutTimer.Stop();
+                    StopCamera();
+                    SetupCustomer(result.Text);
+                }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void SetupCustomer(string text)
         {
-            string cccd = null;
-            string name = null;
-            string gioiTinh = null;
-            string[] str = text.Split('|');
-            cccd = str[0];
-            name = str[2];
-            gioiTinh = str[4];
-            txtId.Text = cccd;
-            txtName.Text = name;
-            if (gioiTinh == "Nam") selectGender.SelectedItem = "Male";
-            else selectGender.SelectedItem = "Female";
+            try
+            {
+                string[] parts = text.Split('|');
+                if (parts.Length >= 7)
+                {
+                    var customer = new CustomerDTO
+                    {
+                        CId = parts[0],
+                        Name = parts[2],
+                        Gender = parts[4] == "Nam" ? "Male" : (parts[4] == "Nữ" ? "Female" : "Other"),
+                        Address = parts[5],
+                        Type = "New"
+                    };
+
+                    var dbCustomer = CustomerBusiness.GetCustomerById(customer.CId);
+
+                    if (dbCustomer == null)
+                    {
+                        // Khách chưa có, mở form AddCus để nhập số điện thoại
+                        var addCusForm = new AddCus();
+                        addCusForm.SetCustomerData(customer, false);
+                        addCusForm.FocusPhoneField();
+                        if (addCusForm.ShowDialog() == DialogResult.OK)
+                        {
+                            // Nếu là form AddBooking thì mới gọi OnCustomerScanned
+                            var newCustomer = CustomerBusiness.GetCustomerById(customer.CId);
+                            if (newCustomer != null)
+                            {
+                                HienThiThongTinKhachHang(newCustomer);
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Định dạng QR code không hợp lệ!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex) { MessageBox.Show($"Không thể nhận dạng được: {ex.Message}"); }
+        }
+
+        private void HienThiThongTinKhachHang(CustomerDTO customerDTO)
+        {
+
         }
 
         private void TimeoutTimer_Tick(object sender, EventArgs e)

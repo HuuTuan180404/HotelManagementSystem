@@ -165,9 +165,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BankingBusiness\APIRequestB.cs" />
-    <Compile Include="BankingBusiness\BankB.cs" />
-    <Compile Include="BankingBusiness\BankingB.cs" />
+    <Compile Include="BankingB.cs" />
     <Compile Include="CustomerBusiness.cs" />
     <Compile Include="BookingB.cs" />
     <Compile Include="EmployeeBusiness.cs" />
