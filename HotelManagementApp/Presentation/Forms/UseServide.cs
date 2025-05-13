@@ -22,7 +22,6 @@ namespace Presentation.Forms
     {
         ServiceB ServiceB;
         string Id;
-        bool daSuDungDichVuTruocDo = false; // nếu đã sử dụng rồi thì không cần tạo thêm record trong ServiceUsage
         private UseServide()
         {
             InitializeComponent();
@@ -56,7 +55,6 @@ namespace Presentation.Forms
             var list = ServiceB.GetAllServicesUsage(Id);
             if (list != null && list.Count > 0)
             {
-                daSuDungDichVuTruocDo = true;
                 foreach (var service in list)
                 {
                     InitializeItemAdded(service);
@@ -118,16 +116,18 @@ namespace Presentation.Forms
             flowPanelAdd.Controls.Add(itemService);
         }
 
+        private void ThemRecordVaoServiceUsage()
+        {
+            ServiceB.CreateRequest(Id);
+        }
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            try
+            //  try
             {
                 if (flowPanelAdd.Controls.Count > 0)
                 {
-                    if (daSuDungDichVuTruocDo == false)
-                    {
-                        ServiceB.CreateRequest(Id);
-                    }
+                    ServiceB.CreateRequest(Id);
                     List<ServiceUsageDetailDTO> list = new List<ServiceUsageDetailDTO>();
                     foreach (itemService i in flowPanelAdd.Controls)
                     {
@@ -141,18 +141,17 @@ namespace Presentation.Forms
                     }
                     if (list.Count > 0)
                     {
-                        try
+                        //  try
                         {
                             if (ServiceB.Request(list))
                             {
-                                daSuDungDichVuTruocDo = true;
                                 MessageBox.Show("Thành công");
                             }
                         }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show(ex.Message);
-                        }
+                        //catch (Exception ex)
+                        //{
+                        //    MessageBox.Show(ex.Message);
+                        //}
                     }
                     else
                     {
@@ -169,12 +168,12 @@ namespace Presentation.Forms
                     if (dialogResult == DialogResult.Cancel) { this.Close(); }
                 }
             }
-            catch (Exception ex)
-            {
+            //catch (Exception ex)
+            //{
 
-                //throw;
-                MessageBox.Show(ex.Message);
-            }
+            //    //throw;
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
 
