@@ -110,10 +110,24 @@ namespace Presentation.Forms
                     cboRole.SelectedItem = employeeDTO.ERole;
 
                     // Load avatar if exists
-                    if (!string.IsNullOrEmpty(employeeDTO.Avatar) && File.Exists(employeeDTO.Avatar))
+                    if (!string.IsNullOrEmpty(employeeDTO.Avatar))
                     {
                         selectedAvatarPath = employeeDTO.Avatar;
-                        picAvatar.Image = Image.FromFile(employeeDTO.Avatar);
+                        try
+                        {
+                            using (var webClient = new System.Net.WebClient())
+                            {
+                                byte[] imageBytes = webClient.DownloadData(employeeDTO.Avatar);
+                                using (var ms = new System.IO.MemoryStream(imageBytes))
+                                {
+                                    picAvatar.Image = Image.FromStream(ms);
+                                }
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Lỗi khi tải ảnh từ URL: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
 
                     // Disable password field for existing employee
