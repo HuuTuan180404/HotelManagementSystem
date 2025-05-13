@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBooking));
             this.panelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -67,14 +66,14 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.comboboxRoomType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnClearFilter = new System.Windows.Forms.PictureBox();
-            this.timer_for_select_room = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.timer_for_select_room = new System.Windows.Forms.Timer();
+            this.timer2 = new System.Windows.Forms.Timer();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.elip_for_form = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.timer_btnFilter34 = new System.Windows.Forms.Timer(this.components);
-            this.timeoutTimer = new System.Windows.Forms.Timer(this.components);
+            this.elip_for_form = new Guna.UI2.WinForms.Guna2Elipse();
+            this.toolTip = new System.Windows.Forms.ToolTip();
+            this.timer_btnFilter34 = new System.Windows.Forms.Timer();
+            this.timeoutTimer = new System.Windows.Forms.Timer();
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -593,6 +592,7 @@
             this.btnConfirm.Size = new System.Drawing.Size(168, 52);
             this.btnConfirm.TabIndex = 5;
             this.btnConfirm.Text = "Confirm";
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // materialLabel2
             // 
