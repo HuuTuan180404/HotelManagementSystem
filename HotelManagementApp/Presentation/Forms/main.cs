@@ -120,7 +120,10 @@ namespace Presentation.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //UC_Test.BringToFront();
+            this.Hide();
+            Login login = new Login();
+            login.ShowDialog();
+            this.Close();
         }
 
         private void UC_BookingManagement_Load(object sender, EventArgs e)

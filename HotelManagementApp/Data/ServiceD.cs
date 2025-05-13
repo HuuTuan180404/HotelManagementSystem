@@ -3,8 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.Pkcs;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.WebSockets;
 
 namespace Data
 {
@@ -56,12 +58,16 @@ namespace Data
         {
             try
             {
-                DB.ServiceUsage.Add(new ServiceUsage
+                var x = DB.ServiceUsage.Where(r => r.SUId == Id).SingleOrDefault();
+                if (x == null)
                 {
-                    SUId = Id,
-                    SUDate = DateTime.Now
-                });
-                DB.SaveChanges();
+                    DB.ServiceUsage.Add(new ServiceUsage
+                    {
+                        SUId = Id,
+                        SUDate = DateTime.Now
+                    });
+                    DB.SaveChanges();
+                }
             }
             catch (SqlException ex)
             {
@@ -75,7 +81,15 @@ namespace Data
             {
                 foreach (var service in list)
                 {
-                    DB.ServiceUsageDetail.Add(ServiceUsageDetail.Convert(service));
+                    DB.ServiceUsageDetail.Add(new ServiceUsageDetail
+                    {
+
+                        SUId = service.SUId,
+                        SName = service.SName,
+                        EId = service.EId,
+                        Quantity = service.Quantity,
+                        CreateAt = DateTime.Now
+                    });
                     DB.SaveChanges();
                 }
                 return true;
