@@ -49,5 +49,15 @@ namespace Business
             }
 
         }
+
+        public List<Tuple<int, decimal>> ThongKe(int year, int month)
+        {
+            return PaymentD.DoanhThuTheoNamThang(year, month);
+        }
+
+        public List<int> GetYearsWithPayments()
+        {
+            return PaymentD.GetYearsWithPayments();
+        }
     }
 }

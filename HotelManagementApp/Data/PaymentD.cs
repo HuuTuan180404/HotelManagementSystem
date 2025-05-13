@@ -88,5 +88,47 @@ namespace Data
             }
         }
 
+        public List<Tuple<int, decimal>> DoanhThuTheoNamThang(int year, int month)
+        {
+            try
+            {
+                var query = DB.Payments.Where(p => p.Date != null);
+                if (year > 0)
+                    query = query.Where(p => p.Date.Value.Year == year);
+                if (month > 0)
+                    query = query.Where(p => p.Date.Value.Month == month);
+
+                var rawData = query
+                    .GroupBy(p => p.Date.Value.Month)
+                    .Select(g => new
+                    {
+                        Month = g.Key,
+                        TotalAmount = g.Sum(p => p.Amount)
+                    })
+                    .OrderBy(g => g.Month)
+                    .ToList();
+
+                var result = rawData
+                    .Select(x => Tuple.Create(x.Month, x.TotalAmount))
+                    .ToList();
+
+                return result;
+            }
+            catch (SqlException ex)
+            {
+                throw;
+            }
+        }
+
+        public List<int> GetYearsWithPayments()
+        {
+            return DB.Payments
+                .Where(p => p.Date != null)
+                .Select(p => p.Date.Value.Year)
+                .Distinct()
+                .OrderBy(y => y)
+                .ToList();
+        }
+
     }
 }

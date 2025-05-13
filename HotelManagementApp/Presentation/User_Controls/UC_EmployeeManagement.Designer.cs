@@ -53,9 +53,9 @@
             this.cbDepartment = new Guna.UI2.WinForms.Guna2ComboBox();
             this.cbStatus = new Guna.UI2.WinForms.Guna2ComboBox();
             this.pnlFilter = new System.Windows.Forms.Panel();
-            this.txtSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.dtgEmployee = new Guna.UI2.WinForms.Guna2DataGridView();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.txtSearchEmployee = new Guna.UI2.WinForms.Guna2TextBox();
             this.pnlAction.SuspendLayout();
             this.tbLayoutCard.SuspendLayout();
             this.cardOnLeave.SuspendLayout();
@@ -380,29 +380,6 @@
             this.pnlFilter.Size = new System.Drawing.Size(1200, 65);
             this.pnlFilter.TabIndex = 5;
             // 
-            // txtSearchEmployee
-            // 
-            this.txtSearchEmployee.BorderRadius = 5;
-            this.txtSearchEmployee.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.txtSearchEmployee.DefaultText = "";
-            this.txtSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.txtSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.txtSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchEmployee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.txtSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.txtSearchEmployee.IconRight = global::Presentation.Properties.Resources.find1;
-            this.txtSearchEmployee.Location = new System.Drawing.Point(20, 10);
-            this.txtSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.txtSearchEmployee.Name = "txtSearchEmployee";
-            this.txtSearchEmployee.PlaceholderText = "Search Employee ...";
-            this.txtSearchEmployee.SelectedText = "";
-            this.txtSearchEmployee.Size = new System.Drawing.Size(300, 40);
-            this.txtSearchEmployee.TabIndex = 0;
-            this.txtSearchEmployee.IconRightClick += new System.EventHandler(this.txtSearchEmployee_IconRightClick_1);
-            this.txtSearchEmployee.TextChanged += new System.EventHandler(this.txtSearchEmployee_TextChanged);
-            // 
             // dtgEmployee
             // 
             this.dtgEmployee.AllowUserToAddRows = false;
@@ -471,6 +448,29 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1200, 456);
             this.pnlContent.TabIndex = 7;
+            // 
+            // txtSearchEmployee
+            // 
+            this.txtSearchEmployee.BorderRadius = 5;
+            this.txtSearchEmployee.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.txtSearchEmployee.DefaultText = "";
+            this.txtSearchEmployee.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.txtSearchEmployee.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.txtSearchEmployee.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchEmployee.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.txtSearchEmployee.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchEmployee.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchEmployee.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.txtSearchEmployee.IconRight = global::Presentation.Properties.Resources.find1;
+            this.txtSearchEmployee.Location = new System.Drawing.Point(20, 10);
+            this.txtSearchEmployee.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.txtSearchEmployee.Name = "txtSearchEmployee";
+            this.txtSearchEmployee.PlaceholderText = "Search Employee ...";
+            this.txtSearchEmployee.SelectedText = "";
+            this.txtSearchEmployee.Size = new System.Drawing.Size(300, 40);
+            this.txtSearchEmployee.TabIndex = 0;
+            this.txtSearchEmployee.IconRightClick += new System.EventHandler(this.txtSearchEmployee_IconRightClick_1);
+            this.txtSearchEmployee.TextChanged += new System.EventHandler(this.txtSearchEmployee_TextChanged);
             // 
             // UC_EmployeeManagement
             // 
