@@ -321,23 +321,11 @@
     <Compile Include="Forms\CheckIn.Designer.cs">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CloneQR.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\CloneQR.Designer.cs">
-      <DependentUpon>CloneQR.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Payment.cs">
       <SubType>Form</SubType>
@@ -350,12 +338,6 @@
     </Compile>
     <Compile Include="Forms\QR.Designer.cs">
       <DependentUpon>QR.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Test.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Test.Designer.cs">
-      <DependentUpon>Test.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Main.cs">
       <SubType>Form</SubType>
@@ -466,12 +448,6 @@
     <Compile Include="User_Controls\UC_RoomManagement.Designer.cs">
       <DependentUpon>UC_RoomManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Controls\UC_Test.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="User_Controls\UC_Test.Designer.cs">
-      <DependentUpon>UC_Test.cs</DependentUpon>
-    </Compile>
     <Compile Include="User_Controls\UC_ThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -508,23 +484,14 @@
     <EmbeddedResource Include="Forms\CheckIn.resx">
       <DependentUpon>CheckIn.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\CloneQR.resx">
-      <DependentUpon>CloneQR.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\QR.resx">
       <DependentUpon>QR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Payment.resx">
       <DependentUpon>Payment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Test.resx">
-      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\RoomDetail.resx">
       <DependentUpon>RoomDetail.cs</DependentUpon>
@@ -582,9 +549,6 @@
     <EmbeddedResource Include="User_Controls\UC_RoomManagement.resx">
       <DependentUpon>UC_RoomManagement.cs</DependentUpon>
       <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="User_Controls\UC_Test.resx">
-      <DependentUpon>UC_Test.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Controls\UC_ThongKe.resx">
       <DependentUpon>UC_ThongKe.cs</DependentUpon>

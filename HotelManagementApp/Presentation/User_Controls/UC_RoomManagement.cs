@@ -27,7 +27,7 @@ namespace Presentation.User_Controls
         public UC_RoomManagement()
         {
             InitializeComponent(); ThayDoiMau();
-            currentList = RoomBusiness.GetAllRooms(); 
+            currentList = RoomBusiness.GetAllRooms();
         }
 
         private void ThayDoiMau()
@@ -42,6 +42,31 @@ namespace Presentation.User_Controls
             btnAllRoom.Text = $"Tất cả ({RoomBusiness.GetAllRooms().Count})";
             btnAvailableRoom.Text = $"Phòng trống ({RoomBusiness.GetAllRooms("Available").Count})";
             btnOccupiedRoom.Text = $"Có khách ({RoomBusiness.GetAllRooms("Occupied").Count})";
+            SetupGiaoDien();
+        }
+
+        private void SetupGiaoDien()
+        {
+            int x = 10;
+            int y = (panel3.Height - txtSearch.Height) / 2;
+            txtSearch.Location = new Point(x, y);
+
+            x = txtSearch.Location.X + txtSearch.Width;
+            txtIconSearch.Location = new Point(x, y);
+
+            x = txtIconSearch.Location.X + txtIconSearch.Width + 10;
+            y = (panel3.Height - comboboxStatus.Height) / 2;
+            comboboxStatus.Location = new Point(x, y);
+
+            x = comboboxStatus.Location.X + comboboxStatus.Width + 10;
+            y = (panel3.Height - btnChangeViewMode.Height) / 2;
+            btnChangeViewMode.Location = new Point(x, y);
+
+
+            x = panel3.Width - btnAddRoom.Width - 10;
+            y = (panel3.Height - btnAddRoom.Height) / 2;
+            btnAddRoom.Location = new Point(x, y);
+
         }
 
         bool isFloor = true;

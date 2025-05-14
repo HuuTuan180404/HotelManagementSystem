@@ -46,15 +46,15 @@
             this.pic_minus = new System.Windows.Forms.PictureBox();
             this.lbTime = new Guna.UI2.WinForms.Guna2Button();
             this.panelUC = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-            this.menuLuaChon = new System.Windows.Forms.ContextMenuStrip(this.components);
-
+            this.UC_ThongKe = new Presentation.User_Controls.UC_ThongKe();
             this.UC_RoomManagement = new Presentation.User_Controls.UC_RoomManagement();
             this.UC_EmployeeManagement = new Presentation.User_Controls.UC_EmployeeManagement();
             this.UC_BookingManagement = new Presentation.User_Controls.UC_BookingManagement();
             this.UC_CustomerManagement = new Presentation.User_Controls.UC_CustomerManagement();
-            this.UC_ThongKe = new Presentation.User_Controls.UC_ThongKe();
+            this.guna2Elipse2 = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.menuLuaChon = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.sideBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picLoadEA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMenu)).BeginInit();
             this.guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_close)).BeginInit();
@@ -120,13 +120,13 @@
             // 
             // btnThongKe
             // 
-
             this.btnThongKe.AutoRoundedCorners = true;
             this.btnThongKe.BackColor = System.Drawing.Color.Transparent;
             this.btnThongKe.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.btnThongKe.BorderRadius = 35;
             this.btnThongKe.BorderThickness = 1;
             this.btnThongKe.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.btnThongKe.Checked = true;
             this.btnThongKe.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.btnThongKe.CheckedState.ForeColor = System.Drawing.Color.White;
             this.btnThongKe.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -136,7 +136,7 @@
             this.btnThongKe.FillColor = System.Drawing.Color.Transparent;
             this.btnThongKe.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThongKe.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
-            this.btnThongKe.Image = global::Presentation.Properties.Resources._1286853;
+            this.btnThongKe.Image = global::Presentation.Properties.Resources.overview;
             this.btnThongKe.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.btnThongKe.ImageOffset = new System.Drawing.Point(20, 0);
             this.btnThongKe.ImageSize = new System.Drawing.Size(40, 40);
@@ -145,7 +145,7 @@
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(442, 73);
             this.btnThongKe.TabIndex = 22;
-            this.btnThongKe.Text = "Logout";
+            this.btnThongKe.Text = "Overview";
             this.btnThongKe.UseTransparentBackground = true;
             this.btnThongKe.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
@@ -217,7 +217,6 @@
             this.btnRoom.BorderRadius = 35;
             this.btnRoom.BorderThickness = 1;
             this.btnRoom.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.btnRoom.Checked = true;
             this.btnRoom.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(141)))), ((int)(((byte)(242)))));
             this.btnRoom.CheckedState.ForeColor = System.Drawing.Color.White;
             this.btnRoom.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
@@ -347,16 +346,15 @@
             this.panelUC.Size = new System.Drawing.Size(1804, 952);
             this.panelUC.TabIndex = 19;
             // 
-            // guna2Elipse2
+            // UC_ThongKe
             // 
-            this.guna2Elipse2.BorderRadius = 80;
-            this.guna2Elipse2.TargetControl = this.picLoadEA;
-            // 
-            // menuLuaChon
-            // 
-            this.menuLuaChon.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuLuaChon.Name = "menuLuaChon";
-            this.menuLuaChon.Size = new System.Drawing.Size(61, 4);
+            this.UC_ThongKe.BackColor = System.Drawing.Color.White;
+            this.UC_ThongKe.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.UC_ThongKe.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_ThongKe.Location = new System.Drawing.Point(0, 0);
+            this.UC_ThongKe.Name = "UC_ThongKe";
+            this.UC_ThongKe.Size = new System.Drawing.Size(1804, 952);
+            this.UC_ThongKe.TabIndex = 26;
             // 
             // UC_RoomManagement
             // 
@@ -375,7 +373,7 @@
             this.UC_EmployeeManagement.BackColor = System.Drawing.Color.White;
             this.UC_EmployeeManagement.Dock = System.Windows.Forms.DockStyle.Fill;
             this.UC_EmployeeManagement.Location = new System.Drawing.Point(0, 0);
-            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2);
+            this.UC_EmployeeManagement.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.UC_EmployeeManagement.Name = "UC_EmployeeManagement";
             this.UC_EmployeeManagement.Size = new System.Drawing.Size(1804, 952);
             this.UC_EmployeeManagement.TabIndex = 1;
@@ -402,13 +400,16 @@
             this.UC_CustomerManagement.Size = new System.Drawing.Size(1804, 952);
             this.UC_CustomerManagement.TabIndex = 3;
             // 
-            // UC_ThongKe
+            // guna2Elipse2
             // 
-            this.UC_ThongKe.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_ThongKe.Location = new System.Drawing.Point(0, 0);
-            this.UC_ThongKe.Name = "UC_ThongKe";
-            this.UC_ThongKe.Size = new System.Drawing.Size(1804, 952);
-            this.UC_ThongKe.TabIndex = 26;
+            this.guna2Elipse2.BorderRadius = 80;
+            this.guna2Elipse2.TargetControl = this.picLoadEA;
+            // 
+            // menuLuaChon
+            // 
+            this.menuLuaChon.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuLuaChon.Name = "menuLuaChon";
+            this.menuLuaChon.Size = new System.Drawing.Size(61, 4);
             // 
             // Main
             // 

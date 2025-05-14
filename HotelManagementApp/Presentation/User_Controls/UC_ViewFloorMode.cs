@@ -27,7 +27,7 @@ namespace Presentation.User_Controls
         {
             InitializeComponent();
             currentList = RoomBusiness.GetAllRooms();
-        }    
+        }
 
         public void UC_ViewFloorMode_Load(object sender, EventArgs e)
         {
@@ -64,6 +64,7 @@ namespace Presentation.User_Controls
                             else
                             {
                                 itemFloor = new itemFloor(listFloor);
+                                itemFloor.Width = flowLayoutPanel.Width;
                                 flowLayoutPanel.Controls.Add(itemFloor);
 
                                 listFloor = null;
@@ -75,6 +76,7 @@ namespace Presentation.User_Controls
 
                 }
                 itemFloor = new itemFloor(listFloor);
+                itemFloor.Width = flowLayoutPanel.Width;
                 flowLayoutPanel.Controls.Add(itemFloor);
             }
         }

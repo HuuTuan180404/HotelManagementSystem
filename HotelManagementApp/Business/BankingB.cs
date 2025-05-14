@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Drawing;
-//using VietQR;
 using RestSharp;
 using System.Text.Json.Serialization;
 using Newtonsoft.Json;
