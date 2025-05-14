@@ -88,7 +88,7 @@
             this.lbLoadTenNV.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLoadTenNV.Location = new System.Drawing.Point(4, 96);
             this.lbLoadTenNV.Name = "lbLoadTenNV";
-            this.lbLoadTenNV.Size = new System.Drawing.Size(113, 50);
+            this.lbLoadTenNV.Size = new System.Drawing.Size(113, 73);
             this.lbLoadTenNV.TabIndex = 27;
             this.lbLoadTenNV.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -96,7 +96,7 @@
             // 
             this.picLoadEA.Location = new System.Drawing.Point(24, 19);
             this.picLoadEA.Name = "picLoadEA";
-            this.picLoadEA.Size = new System.Drawing.Size(68, 74);
+            this.picLoadEA.Size = new System.Drawing.Size(68, 73);
             this.picLoadEA.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLoadEA.TabIndex = 26;
             this.picLoadEA.TabStop = false;
@@ -108,7 +108,7 @@
             this.btnMenu.FillColor = System.Drawing.Color.Transparent;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageRotate = 0F;
-            this.btnMenu.Location = new System.Drawing.Point(52, 207);
+            this.btnMenu.Location = new System.Drawing.Point(24, 207);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(68, 73);
