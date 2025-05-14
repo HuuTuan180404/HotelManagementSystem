@@ -102,11 +102,20 @@ namespace Presentation.User_Controls
             LoadData();
             LoadComboBoxes();          
 
-            // Đặt chế độ tự động co giãn cho các cột (trừ checkbox)
+            // Đảm bảo cột Select luôn nhỏ và cố định size
+            if (dtgEmployee.Columns.Contains("chkSelect"))
+            {
+                dtgEmployee.Columns["chkSelect"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                dtgEmployee.Columns["chkSelect"].Width = 30;
+            }
+            // Các cột còn lại fill đều màn hình
             foreach (DataGridViewColumn col in dtgEmployee.Columns)
             {
                 if (col.Name != "chkSelect")
-                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                {
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    col.FillWeight = 1;
+                }
             }
             // Đảm bảo header không bị wrap
             dtgEmployee.ColumnHeadersDefaultCellStyle.WrapMode = DataGridViewTriState.False;
@@ -185,6 +194,22 @@ namespace Presentation.User_Controls
                 dtgEmployee.DataSource = displayList;
                 UpdateStatistics();
                 dtgEmployee.ClearSelection();
+
+                // Đảm bảo cột Select luôn nhỏ và cố định size
+                if (dtgEmployee.Columns.Contains("chkSelect"))
+                {
+                    dtgEmployee.Columns["chkSelect"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dtgEmployee.Columns["chkSelect"].Width = 30;
+                }
+                // Các cột còn lại fill đều màn hình
+                foreach (DataGridViewColumn col in dtgEmployee.Columns)
+                {
+                    if (col.Name != "chkSelect")
+                    {
+                        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        col.FillWeight = 1;
+                    }
+                }
 
                 // Xóa hoàn toàn cột Password nếu có
                 if (dtgEmployee.Columns.Contains("Password"))
@@ -348,9 +373,41 @@ namespace Presentation.User_Controls
                     ).ToList();
                 }
 
+                // Tạo displayList không chứa Password
+                var displayList = filteredList.Select(e => new
+                {
+                    e.EId,
+                    e.Name,
+                    e.Gender,
+                    e.Phone,
+                    e.Email,
+                    e.Address,
+                    e.Status,
+                    e.ERole,
+                    e.RoleDescription,
+                    e.Avatar
+                }).ToList();
+
                 // Update DataGridView
-                dtgEmployee.DataSource = filteredList;
+                dtgEmployee.DataSource = displayList;
                 UpdateStatistics();
+                dtgEmployee.ClearSelection();
+
+                // Đảm bảo cột Select luôn nhỏ và cố định size
+                if (dtgEmployee.Columns.Contains("chkSelect"))
+                {
+                    dtgEmployee.Columns["chkSelect"].AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+                    dtgEmployee.Columns["chkSelect"].Width = 30;
+                }
+                // Các cột còn lại fill đều màn hình
+                foreach (DataGridViewColumn col in dtgEmployee.Columns)
+                {
+                    if (col.Name != "chkSelect")
+                    {
+                        col.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                        col.FillWeight = 1;
+                    }
+                }
             }
             catch (Exception ex)
             {
