@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.Remoting.Contexts;
 using System.Security.Cryptography.Pkcs;
 using System.Text;
 using System.Threading.Tasks;
@@ -93,6 +94,50 @@ namespace Data
                     DB.SaveChanges();
                 }
                 return true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<DoanhThuDichVuDTO> LayDoanhThuDichVu(int year)
+        {
+            try
+            {
+                var result = DB.ServiceUsageDetail
+            .Join(DB.Services,
+                sud => sud.SName,
+                s => s.SName,
+                (sud, s) => new { sud, s })
+            .Join(DB.Payments,
+                combined => combined.sud.SUId,
+                p => p.BId,
+                (combined, p) => new
+                {
+                    combined.s.SName,
+                    combined.sud.Quantity,
+                    combined.s.SPrice,
+                    p.Date
+                })
+            .Where(x => x.Date.Value.Year == year)
+            .GroupBy(x => new
+            {
+                Month = x.Date.Value.Month,
+            })
+            .Select(g => new
+            {
+                Month = g.Key.Month,
+                Total = g.Sum(x => x.Quantity * x.SPrice)
+            })
+            .ToList()
+            .Select(g => new DoanhThuDichVuDTO
+            {
+                month = g.Month,
+                Total = g.Total
+            })
+            .ToList();
+                return result.ToList();
             }
             catch (Exception ex)
             {

@@ -250,7 +250,8 @@ namespace Presentation.User_Controls
         }
 
         private void guna2HtmlLabel1_Click(object sender, EventArgs e)
-        {
+        {            
+            int a = BookingB.DatPhongOnl(RoomB);
             LoadData(BookingB.GetAllBookings());
         }
     }

@@ -72,5 +72,17 @@ namespace Business
                 throw ex;
             }
         }
+
+        public List<DoanhThuDichVuDTO> LayDoanhThuDichVu(int year)
+        {
+            try
+            {
+                return ServiceD.LayDoanhThuDichVu(year);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
