@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddBooking));
             this.panelTitle = new Guna.UI2.WinForms.Guna2Panel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -66,14 +67,14 @@
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.comboboxRoomType = new Guna.UI2.WinForms.Guna2ComboBox();
             this.btnClearFilter = new System.Windows.Forms.PictureBox();
-            this.timer_for_select_room = new System.Windows.Forms.Timer();
-            this.timer2 = new System.Windows.Forms.Timer();
+            this.timer_for_select_room = new System.Windows.Forms.Timer(this.components);
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.elip_for_form = new Guna.UI2.WinForms.Guna2Elipse();
-            this.toolTip = new System.Windows.Forms.ToolTip();
-            this.timer_btnFilter34 = new System.Windows.Forms.Timer();
-            this.timeoutTimer = new System.Windows.Forms.Timer();
+            this.elip_for_form = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.timer_btnFilter34 = new System.Windows.Forms.Timer(this.components);
+            this.timeoutTimer = new System.Windows.Forms.Timer(this.components);
             this.panelTitle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnExit)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -258,7 +259,6 @@
             // 
             // txtAddress
             // 
-            this.txtAddress.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtAddress.DefaultText = "";
             this.txtAddress.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtAddress.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -279,7 +279,6 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtEmail.DefaultText = "";
             this.txtEmail.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtEmail.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -300,7 +299,6 @@
             // 
             // txtName
             // 
-            this.txtName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtName.DefaultText = "";
             this.txtName.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtName.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -321,7 +319,6 @@
             // 
             // txtId
             // 
-            this.txtId.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtId.DefaultText = "";
             this.txtId.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtId.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -332,6 +329,7 @@
             this.txtId.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.txtId.Location = new System.Drawing.Point(73, 43);
             this.txtId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtId.Modified = true;
             this.txtId.Name = "txtId";
             this.txtId.PlaceholderText = "Your ID";
             this.txtId.SelectedText = "";
@@ -344,7 +342,6 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txtPhone.DefaultText = "";
             this.txtPhone.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
             this.txtPhone.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
@@ -610,7 +607,6 @@
             // floor
             // 
             this.floor.BackColor = System.Drawing.Color.Transparent;
-            this.floor.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.floor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.floor.Location = new System.Drawing.Point(124, 132);
             this.floor.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
