@@ -738,9 +738,6 @@
     <None Include="Properties\image\bed2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\eye.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\image\1286853.png" />
   </ItemGroup>
   <ItemGroup>
