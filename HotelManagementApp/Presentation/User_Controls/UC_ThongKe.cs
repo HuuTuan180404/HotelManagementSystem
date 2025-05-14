@@ -26,8 +26,9 @@ namespace Presentation.User_Controls
             PaymentB = new PaymentB();
             RoomB = new RoomB();
             SetupCharts();
-            BieuDoCot(); 
+            BieuDoCot();
             BieuDoTron();
+            //ChinhKichThuoc();
         }
 
         private void SetupCharts()
@@ -144,6 +145,18 @@ namespace Presentation.User_Controls
             btnExport.Click += btnExport_Click;
             if (cboYear.Items.Count > 0) cboYear.SelectedIndex = 0;
             if (cboMonth.Items.Count > 0) cboMonth.SelectedIndex = 0;
+
+            ChinhKichThuoc();
+        }
+
+        private void ChinhKichThuoc()
+        {
+            chartColumn.Width = this.Width / 2;
+            tieuDeCharColumn.Width = this.Width / 2;
+
+            int x = this.Width - 20 - btnExport.Width;
+            int y = (panel2.Height - btnExport.Height) / 2;
+            btnExport.Location = new Point(x, y);
         }
 
         private List<int> GetYearsFromDB()
@@ -322,7 +335,5 @@ namespace Presentation.User_Controls
             }
             File.WriteAllText(filePath, sb.ToString(), Encoding.UTF8);
         }
-
-                                 
     }
 }
