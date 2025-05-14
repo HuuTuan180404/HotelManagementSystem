@@ -29,10 +29,10 @@ namespace Business
 
         
 
-        public bool DeleteCustomer(string cId)
-        {
-            return customerData.DeleteCustomer(cId);
-        }
+        //public bool DeleteCustomer(string cId)
+        //{
+        //    return customerData.DeleteCustomer(cId);
+        //}
 
         public List<CustomerDTO> SearchCustomers(string searchString)
         {
@@ -54,6 +54,11 @@ namespace Business
         public string UpdateCustomerWithMessage(CustomerDTO customer)
         {
             return customerData.UpdateCustomerWithMessage(customer);
+        }
+
+        public string DeleteCustomerWithMessage(string cId)
+        {
+            return customerData.DeleteCustomerWithMessage(cId);
         }
     }
 }

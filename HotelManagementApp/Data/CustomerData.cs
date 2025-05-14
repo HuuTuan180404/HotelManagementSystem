@@ -122,7 +122,7 @@ namespace Data
             }
         }
 
-        public bool DeleteCustomer(string cId)
+        public string DeleteCustomerWithMessage(string cId)
         {
             try
             {
@@ -133,14 +133,16 @@ namespace Data
                     {
                         DB.Customers.Remove(customer);
                         DB.SaveChanges();
-                        return true;
+                        return "OK";
                     }
-                    return false;
+                    return "Không tìm thấy khách hàng để xóa!";
                 }
             }
-            catch
+            catch (Exception ex)
             {
-                return false;
+                // Lấy thông tin lỗi sâu nhất
+                string detail = ex.InnerException != null ? ex.InnerException.Message : ex.Message;
+                return $"Lỗi khi xóa khách hàng: {detail}";
             }
         }
 

@@ -48,17 +48,6 @@ namespace Presentation.Forms
             pictureBoxWebcam.Image = bitmap;
         }
 
-        private void btnStart_Click(object sender, EventArgs e)
-        {
-            // Bắt đầu webcam
-            videoSource.Start();
-
-            // Khởi tạo Timer để quét QR
-            timer = new Timer();
-            timer.Interval = 100; // Quét mỗi 100ms
-            timer.Tick += new EventHandler(timer1_Tick);
-            timer.Start();
-        }
 
         private void HandleCustomerScanned(CustomerDTO customer)
         {
@@ -80,6 +69,7 @@ namespace Presentation.Forms
                 //}
 
                 // Khách chưa có, mở form AddCus để nhập số điện thoại
+                this.Hide(); // Ẩn form QR trước khi mở AddCus
                 var addCusForm = new AddCus();
                 addCusForm.SetCustomerData(customer, false);
                 addCusForm.FocusPhoneField();
@@ -94,6 +84,11 @@ namespace Presentation.Forms
                             OnCustomerScanned?.Invoke(newCustomer);
                         }
                     }
+                    this.Close();
+                }
+                else
+                {
+                    // Nếu đóng AddCus mà không OK thì đóng luôn form QR
                     this.Close();
                 }
             }
@@ -154,7 +149,36 @@ namespace Presentation.Forms
             }
         }
 
-        private void btnSelectImage_Click(object sender, EventArgs e)
+        private void btnStart_Click_1(object sender, EventArgs e)
+        {
+            // Bắt đầu webcam
+            videoSource.Start();
+
+            // Khởi tạo Timer để quét QR
+            timer = new Timer();
+            timer.Interval = 100; // Quét mỗi 100ms
+            timer.Tick += new EventHandler(timer1_Tick);
+            timer.Start();
+        }
+
+        private void btnStop_Click_1(object sender, EventArgs e)
+        {
+            if (timer != null && timer.Enabled)
+            {
+                timer.Stop();
+            }
+
+            // Dừng webcam nếu đang chạy
+            if (videoSource != null && videoSource.IsRunning)
+            {
+                videoSource.SignalToStop();
+            }
+
+            // Xóa hình ảnh trong pictureBoxWebcam
+            pictureBoxWebcam.Image = null;
+        }
+
+        private void btnSelectImage_Click_1(object sender, EventArgs e)
         {
             timer?.Stop();
             if (videoSource != null && videoSource.IsRunning)
@@ -213,23 +237,6 @@ namespace Presentation.Forms
                     }
                 }
             }
-        }
-
-        private void btnStop_Click(object sender, EventArgs e)
-        {
-            if (timer != null && timer.Enabled)
-            {
-                timer.Stop();
-            }
-
-            // Dừng webcam nếu đang chạy
-            if (videoSource != null && videoSource.IsRunning)
-            {
-                videoSource.SignalToStop();
-            }
-
-            // Xóa hình ảnh trong pictureBoxWebcam
-            pictureBoxWebcam.Image = null;
         }
 
         private void btnExit_Click(object sender, EventArgs e)

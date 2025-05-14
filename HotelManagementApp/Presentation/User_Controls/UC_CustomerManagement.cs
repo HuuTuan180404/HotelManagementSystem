@@ -295,21 +295,24 @@ namespace Presentation.User_Controls
                 if (result == DialogResult.Yes)
                 {
                     bool hasError = false;
+                    StringBuilder errorMessages = new StringBuilder();
                     foreach (var row in selectedRows)
                     {
                         var customer = row.DataBoundItem as CustomerDTO;
                         if (customer != null)
                         {
-                            if (!customerBusiness.DeleteCustomer(customer.CId))
+                            string deleteResult = customerBusiness.DeleteCustomerWithMessage(customer.CId);
+                            if (deleteResult != "OK")
                             {
                                 hasError = true;
+                                errorMessages.AppendLine($"- {customer.Name} ({customer.CId}): {deleteResult}");
                             }
                         }
                     }
 
                     if (hasError)
                     {
-                        MessageBox.Show("Có lỗi xảy ra trong quá trình xóa một số khách hàng!",
+                        MessageBox.Show($"Có lỗi xảy ra trong quá trình xóa một số khách hàng:\n{errorMessages}",
                             "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
@@ -425,39 +428,36 @@ namespace Presentation.User_Controls
         {
             try
             {
-                using (var qrForm = new QR(false)) // Truyền false vì đây là form quản lý khách hàng
+                var qrForm = new QR(false); // Truyền false vì đây là form quản lý khách hàng
+                qrForm.OnCustomerScanned += (customer) =>
                 {
-                    qrForm.OnCustomerScanned += (customer) =>
+                    // Kiểm tra khách hàng đã tồn tại chưa
+                    var existingCustomer = customerBusiness.GetCustomerById(customer.CId);
+                    if (existingCustomer != null)
                     {
-                        // Kiểm tra khách hàng đã tồn tại chưa
-                        var existingCustomer = customerBusiness.GetCustomerById(customer.CId);
-                        if (existingCustomer != null)
+                        MessageBox.Show("Khách hàng đã tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        qrForm.DialogResult = DialogResult.OK;
+                        qrForm.Close();
+                        LoadCustomers();
+                        return;
+                    }
+
+                    // Nếu chưa tồn tại, mở form thêm khách hàng mới
+                    using (var addCusForm = new AddCus())
+                    {
+                        addCusForm.SetCustomerData(customer, false);
+                        addCusForm.FocusPhoneField();
+
+                        if (addCusForm.ShowDialog() == DialogResult.OK)
                         {
-                            MessageBox.Show("Khách hàng đã tồn tại trong hệ thống!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadCustomers();
+                            MessageBox.Show("Thêm khách hàng mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             qrForm.DialogResult = DialogResult.OK;
                             qrForm.Close();
-                            LoadCustomers();
-                            return;
                         }
-
-                        // Nếu chưa tồn tại, mở form thêm khách hàng mới
-                        using (var addCusForm = new AddCus())
-                        {
-                            addCusForm.SetCustomerData(customer, false);
-                            addCusForm.FocusPhoneField();
-
-                            if (addCusForm.ShowDialog() == DialogResult.OK)
-                            {
-                                LoadCustomers();
-                                MessageBox.Show("Thêm khách hàng mới thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                qrForm.DialogResult = DialogResult.OK;
-                                qrForm.Close();
-                            }
-                        }
-                    };
-                    qrForm.ShowDialog();
-                    LoadCustomers();
-                }
+                    }
+                };
+                qrForm.Show(); // Sử dụng Show thay vì ShowDialog
             }
             catch (Exception ex)
             {
