@@ -108,7 +108,7 @@
             this.btnMenu.FillColor = System.Drawing.Color.Transparent;
             this.btnMenu.Image = ((System.Drawing.Image)(resources.GetObject("btnMenu.Image")));
             this.btnMenu.ImageRotate = 0F;
-            this.btnMenu.Location = new System.Drawing.Point(52, 207);
+            this.btnMenu.Location = new System.Drawing.Point(24, 207);
             this.btnMenu.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(68, 73);

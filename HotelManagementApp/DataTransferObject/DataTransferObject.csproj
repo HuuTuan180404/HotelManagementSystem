@@ -129,6 +129,7 @@
   <ItemGroup>
     <Compile Include="Booking_OnlineDTO.cs" />
     <Compile Include="CustomerDTO.cs" />
+    <Compile Include="DoanhThuDichVuDTO.cs" />
     <Compile Include="EmployeeDTO.cs" />
     <Compile Include="BookingDTO.cs" />
     <Compile Include="PaymentDTO.cs" />

@@ -88,15 +88,11 @@ namespace Data
             }
         }
 
-        public List<Tuple<int, decimal>> DoanhThuTheoNamThang(int year, int month)
+        public List<Tuple<int, decimal>> DoanhThuTheoNamThang(int year)
         {
             try
             {
-                var query = DB.Payments.Where(p => p.Date != null);
-                if (year > 0)
-                    query = query.Where(p => p.Date.Value.Year == year);
-                if (month > 0)
-                    query = query.Where(p => p.Date.Value.Month == month);
+                var query = DB.Payments.Where(p => p.Date != null && p.Date.Value.Year == year);
 
                 var rawData = query
                     .GroupBy(p => p.Date.Value.Month)
