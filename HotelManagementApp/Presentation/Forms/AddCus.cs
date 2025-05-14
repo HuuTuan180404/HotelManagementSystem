@@ -161,7 +161,7 @@ namespace Presentation.Forms
                     {
                         MessageBox.Show("Customer added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         // Kích hoạt sự kiện khi thêm khách hàng mới thành công
-                        CustomerAdded?.Invoke(this, EventArgs.Empty);
+                        //CustomerAdded?.Invoke(this, EventArgs.Empty);
                         this.DialogResult = DialogResult.OK;
                         this.Close();
                     }

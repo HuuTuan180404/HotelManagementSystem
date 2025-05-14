@@ -261,58 +261,24 @@ namespace Presentation.Forms
         {
             try
             {
-                var qrForm = new QR(true);
-                qrForm.OnCustomerScanned += (customer) =>
+                captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+                if (captureDevices.Count == 0)
                 {
-                    var customerBusiness = new CustomerBusiness();
-                    var dbCustomer = customerBusiness.GetCustomerById(customer.CId);
+                    MessageBox.Show("Không tìm thấy camera!");
+                    return;
+                }
+                videoSource = new VideoCaptureDevice(captureDevices[0].MonikerString);
+                videoSource.NewFrame += VideoSource_NewFrame;
+                videoSource.Start();
 
-                    if (dbCustomer != null)
-                    {
-                        txtId.Text = dbCustomer.CId;
-                        txtName.Text = dbCustomer.Name;
-                        selectGender.SelectedItem = dbCustomer.Gender;
-                        txtAddress.Text = dbCustomer.Address;
-                        txtPhone.Text = dbCustomer.Phone;
-                        txtEmail.Text = dbCustomer.Email;
-                    }
-                    else
-                    {
-                        txtId.Text = customer.CId;
-                        txtName.Text = customer.Name;
-                        selectGender.SelectedItem = customer.Gender;
-                        txtAddress.Text = customer.Address;
-                        txtPhone.Text = "";
-                        txtEmail.Text = "";
-                    }
-                };
-                qrForm.ShowDialog();
+                timeoutTimer.Start();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            //btdnQR();
         }
-
-        private void btdnQR()
-        {
-            captureDevices = new FilterInfoCollection(FilterCategory.VideoInputDevice);
-            if (captureDevices.Count == 0)
-            {
-                MessageBox.Show("Không tìm thấy camera!");
-                return;
-            }
-            videoSource = new VideoCaptureDevice(captureDevices[0].MonikerString);
-            videoSource.NewFrame += VideoSource_NewFrame;
-            videoSource.Start();
-
-            timeoutTimer.Start();
-        }
-
-
 
         private void VideoSource_NewFrame(object sender, NewFrameEventArgs eventArgs)
         {
             Bitmap bitmap = (Bitmap)eventArgs.Frame.Clone();
-            //pictureBoxCamera.Image = bitmap;
             try
             {
                 BarcodeReader reader = new BarcodeReader();
@@ -320,8 +286,15 @@ namespace Presentation.Forms
                 if (result != null)
                 {
                     timeoutTimer.Stop();
-                    StopCamera();
-                    SetupCustomer(result.Text);
+
+                    videoSource.SignalToStop();
+
+                    this.Invoke(new Action(() =>
+                    {
+                        MessageBox.Show(result.Text);
+                        SetupCustomer(result.Text);
+                    }));
+
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -361,6 +334,10 @@ namespace Presentation.Forms
                             }
                         }
                     }
+                    else
+                    {
+                        HienThiThongTinKhachHang(dbCustomer);
+                    }
                 }
                 else
                 {
@@ -372,7 +349,20 @@ namespace Presentation.Forms
 
         private void HienThiThongTinKhachHang(CustomerDTO customerDTO)
         {
+            if (customerDTO != null)
+            {
+                txtId.Text = customerDTO.CId;
+                txtName.Text = customerDTO.Name;
+                txtPhone.Text = customerDTO.Phone;
 
+                if (customerDTO.Gender != null && selectGender.Items.Contains(customerDTO.Gender))
+                {
+                    selectGender.SelectedItem = customerDTO.Gender;
+                }
+
+                if (customerDTO.Email != null) txtEmail.Text = customerDTO.Email;
+                if (customerDTO.Address != null) txtAddress.Text = customerDTO.Address;
+            }
         }
 
         private void TimeoutTimer_Tick(object sender, EventArgs e)
@@ -504,19 +494,7 @@ namespace Presentation.Forms
         private void txtId_IconRightClick(object sender, EventArgs e)
         {
             CustomerDTO customerDTO = CustomerBusiness.GetCustomerById(txtId.Text);
-            if (customerDTO != null)
-            {
-                txtName.Text = customerDTO.Name;
-                txtPhone.Text = customerDTO.Phone;
-
-                if (customerDTO.Gender != null && selectGender.Items.Contains(customerDTO.Gender))
-                {
-                    selectGender.SelectedItem = customerDTO.Gender;
-                }
-
-                if (customerDTO.Email != null) txtEmail.Text = customerDTO.Email;
-                if (customerDTO.Address != null) txtAddress.Text = customerDTO.Address;
-            }
+            HienThiThongTinKhachHang(customerDTO);
         }
 
         private void btnShowItem_MouseDown(object sender, MouseEventArgs e)
