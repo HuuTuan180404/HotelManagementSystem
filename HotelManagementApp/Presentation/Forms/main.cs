@@ -143,10 +143,6 @@ namespace Presentation.Forms
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //Login login = new Login();
-            //login.ShowDialog();
-            //this.Close();
             UC_ThongKe.BringToFront();
         }
 
@@ -204,16 +200,12 @@ namespace Presentation.Forms
             }
         }
 
-        private void btnLogout_Click(object sender, EventArgs e)
-        {
-            logout();
-        }
-
         private void picLoadEA_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 menuLuaChon.Show(picLoadEA, new Point(e.X, e.Y));
+                
             }
         }
 
@@ -222,7 +214,10 @@ namespace Presentation.Forms
             if (currentEmployee != null)
             {
                 AddEmployees editForm = new AddEmployees(currentEmployee);
-                editForm.ShowDialog();
+                if (editForm.ShowDialog() == DialogResult.OK)
+                {
+                    SetCurrentEmployee(ConfigPresentation.CURRENT_EId);
+                }
             }
             else
             {

@@ -134,7 +134,6 @@ CREATE TABLE ServiceUsageDetail
 )
 GO
 
-
 -- 9. PaymentMethod
 CREATE TABLE PaymentMethod
 (
@@ -216,6 +215,8 @@ VALUES
 ('Housekeeping', N'Nhân viên dọn phòng');
 GO
 
+-- username: admin
+-- password: Admin123@
 INSERT [dbo].[Employees] ([EId], [Name], [Gender], [Phone], [Email], [Address], [Status], [ERole], [Password], [Avatar]) 
 VALUES (N'admin', N'admin', N'Male', N'0123456789', N'a@example.com', N'Việt Nam', N'Active', N'Manager', N'IBvOJFjwClQTDGlcqNFlgxmzIgbUla3xdYR7V71KQVE=', NULL)
 GO

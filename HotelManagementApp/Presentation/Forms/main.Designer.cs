@@ -327,7 +327,7 @@
             this.lbTime.Margin = new System.Windows.Forms.Padding(10);
             this.lbTime.Name = "lbTime";
             this.lbTime.Padding = new System.Windows.Forms.Padding(10);
-            this.lbTime.Size = new System.Drawing.Size(207, 83);
+            this.lbTime.Size = new System.Drawing.Size(318, 83);
             this.lbTime.TabIndex = 14;
             this.lbTime.Text = "guna2Button2";
             // 

@@ -46,11 +46,7 @@ namespace Presentation.User_Controls
             chartColumn.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 9);
             chartColumn.ChartAreas[0].AxisY.LabelStyle.Font = new Font("Arial", 9);
             chartColumn.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
-            chartColumn.Titles.Clear();
-            chartColumn.Titles.Add("Doanh thu dịch vụ phòng");
-            chartColumn.Titles[0].Font = new Font("Arial", 14, FontStyle.Bold);
-            chartColumn.Titles[0].ForeColor = Color.DarkBlue;
-            chartColumn.Titles[0].Alignment = ContentAlignment.TopCenter;
+
 
             // Thiết lập biểu đồ tròn
             chartTron.Series[0].Label = "#PERCENT{P0}";
@@ -78,6 +74,12 @@ namespace Presentation.User_Controls
         private void BieuDoCot(int year)
         {
             var dt = PaymentB.ThongKe(year);
+
+            chartColumn.Titles.Clear();
+            chartColumn.Titles.Add($"Doanh thu từng thánh trong năm {year}");
+            chartColumn.Titles[0].Font = new Font("Arial", 14, FontStyle.Bold);
+            chartColumn.Titles[0].ForeColor = Color.DarkBlue;
+            chartColumn.Titles[0].Alignment = ContentAlignment.TopCenter;
 
             chartColumn.Series.Clear();
 
@@ -160,6 +162,14 @@ namespace Presentation.User_Controls
         {
             List<DoanhThuDichVuDTO> list = ServiceB.LayDoanhThuDichVu(nam);
 
+            columnDoanhThuDV.Titles.Clear();
+            columnDoanhThuDV.Titles.Add($"Doanh thu của các dịch vụ năm {nam}");
+            columnDoanhThuDV.Titles[0].Font = new Font("Arial", 14, FontStyle.Bold);
+            columnDoanhThuDV.Titles[0].ForeColor = Color.DarkBlue;
+            columnDoanhThuDV.Titles[0].Alignment = ContentAlignment.TopCenter;
+            columnDoanhThuDV.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
+            columnDoanhThuDV.ChartAreas[0].AxisY.MajorGrid.Enabled = false;// Thêm nhãn giá trị
+
             if (list != null)
             {
                 columnDoanhThuDV.Series.Clear();
@@ -228,7 +238,6 @@ namespace Presentation.User_Controls
         {
             var data = PaymentB.GetYearsWithPayments();
             cboYear.DataSource = data;
-            cboYear.SelectedIndexChanged += FilterChanged;
             if (cboYear.Items.Count > 0)
             {
                 cboYear.SelectedIndex = 0;
@@ -253,6 +262,11 @@ namespace Presentation.User_Controls
             DoanhThuDichVu(x);
             BieuDoCot(x);
             HienThiDoanhThu(x);
+        }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+            UC_ThongKe_Load(null, null);
         }
     }
 }

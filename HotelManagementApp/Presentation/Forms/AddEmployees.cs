@@ -107,7 +107,7 @@ namespace Presentation.Forms
                     txtEmail.Text = employeeDTO.Email;
                     txtDiaChi.Text = employeeDTO.Address;
                     cboStatus.SelectedItem = employeeDTO.Status;
-                    cboRole.SelectedItem = employeeDTO.ERole;
+                    cboRole.SelectedItem = employeeDTO.ERole;                  
 
                     // Load avatar if exists
                     if (!string.IsNullOrEmpty(employeeDTO.Avatar))
@@ -131,8 +131,8 @@ namespace Presentation.Forms
                     }
 
                     // Disable password field for existing employee
-                    txtPassword.Enabled = false;
-                    btnShowPassword.Enabled = false;
+                    txtPassword.Enabled = true;
+                    btnShowPassword.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -356,6 +356,11 @@ namespace Presentation.Forms
             {
                 MessageBox.Show($"Lỗi khi lưu thông tin: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnShowPassword_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

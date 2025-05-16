@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
+            this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnAddRoom = new Guna.UI2.WinForms.Guna2Button();
             this.txtIconSearch = new Guna.UI2.WinForms.Guna2TextBox();
@@ -46,8 +48,6 @@
             this.guna2HtmlLabel1 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.UC_ViewFloorMode = new Presentation.User_Controls.UC_ViewFloorMode();
-            this.UC_ViewTableMode = new Presentation.User_Controls.UC_ViewTableMode();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -78,6 +78,28 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(878, 519);
             this.panel4.TabIndex = 22;
+            // 
+            // UC_ViewFloorMode
+            // 
+            this.UC_ViewFloorMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewFloorMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_ViewFloorMode.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UC_ViewFloorMode.Location = new System.Drawing.Point(0, 0);
+            this.UC_ViewFloorMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_ViewFloorMode.Name = "UC_ViewFloorMode";
+            this.UC_ViewFloorMode.Size = new System.Drawing.Size(878, 519);
+            this.UC_ViewFloorMode.TabIndex = 16;
+            // 
+            // UC_ViewTableMode
+            // 
+            this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
+            this.UC_ViewTableMode.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.UC_ViewTableMode.Location = new System.Drawing.Point(0, 0);
+            this.UC_ViewTableMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.UC_ViewTableMode.Name = "UC_ViewTableMode";
+            this.UC_ViewTableMode.Size = new System.Drawing.Size(878, 519);
+            this.UC_ViewTableMode.TabIndex = 17;
             // 
             // panel3
             // 
@@ -307,6 +329,7 @@
             this.guna2HtmlLabel1.TabIndex = 12;
             this.guna2HtmlLabel1.Text = "ROOM MANAGEMENT";
             this.guna2HtmlLabel1.TextAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.guna2HtmlLabel1.Click += new System.EventHandler(this.guna2HtmlLabel1_Click);
             // 
             // contextMenuStrip
             // 
@@ -318,28 +341,6 @@
             this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            // 
-            // UC_ViewFloorMode
-            // 
-            this.UC_ViewFloorMode.BackColor = System.Drawing.Color.White;
-            this.UC_ViewFloorMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_ViewFloorMode.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UC_ViewFloorMode.Location = new System.Drawing.Point(0, 0);
-            this.UC_ViewFloorMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UC_ViewFloorMode.Name = "UC_ViewFloorMode";
-            this.UC_ViewFloorMode.Size = new System.Drawing.Size(878, 519);
-            this.UC_ViewFloorMode.TabIndex = 16;
-            // 
-            // UC_ViewTableMode
-            // 
-            this.UC_ViewTableMode.BackColor = System.Drawing.Color.White;
-            this.UC_ViewTableMode.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_ViewTableMode.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.UC_ViewTableMode.Location = new System.Drawing.Point(0, 0);
-            this.UC_ViewTableMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.UC_ViewTableMode.Name = "UC_ViewTableMode";
-            this.UC_ViewTableMode.Size = new System.Drawing.Size(878, 519);
-            this.UC_ViewTableMode.TabIndex = 17;
             // 
             // UC_RoomManagement
             // 

@@ -213,5 +213,15 @@ namespace Presentation.User_Controls
             UC_ViewTableMode.SetCurrentList(this.currentList);
             UC_ViewFloorMode.SetCurrentList(this.currentList);
         }
+
+        private void guna2HtmlLabel1_Click(object sender, EventArgs e)
+        {
+            if (isFloor)
+                UC_ViewFloorMode.UC_ViewFloorMode_Load(null, null);
+            else
+                UC_ViewTableMode.UC_ViewTableMode_Load(null, null);
+
+            loadDataFor_comboboxStatus();
+        }
     }
 }
